@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
+import { LanguageLink } from "@/components/ui/language-link";
 import {
   type Dictionary,
   languageNames,
@@ -66,10 +67,11 @@ export function Header({ dictionary, locale }: HeaderProps) {
             className="absolute right-0 top-[calc(100%+0.6rem)] z-[60] grid w-56 overflow-hidden rounded border border-white/14 bg-black/96 p-1 shadow-soft backdrop-blur-xl"
           >
             {locales.map((item) => (
-              <Link
+              <LanguageLink
                 key={item}
                 href={localizedPath(item)}
                 hrefLang={item}
+                locale={item}
                 aria-current={item === locale ? "page" : undefined}
                 className="flex items-center justify-between rounded px-3 py-3 text-xs font-bold text-white/68 transition hover:bg-white/8 hover:text-white aria-[current=page]:bg-redline/18 aria-[current=page]:text-white"
               >
@@ -77,7 +79,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
                 <span className="font-black uppercase tracking-[0.12em] text-white/50">
                   {shortLanguageNames[item]}
                 </span>
-              </Link>
+              </LanguageLink>
             ))}
           </nav>
         </details>
