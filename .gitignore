@@ -8,6 +8,10 @@ out
 
 # production
 build
+*.zip
+
+# local codex git fallback
+.codex-git-store
 
 # local env
 .env

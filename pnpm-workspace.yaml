@@ -1,0 +1,12 @@
+packages:
+  - "."
+
+trustLockfile: true
+
+allowBuilds:
+  sharp: true
+  unrs-resolver: true
+
+onlyBuiltDependencies:
+  - sharp
+  - unrs-resolver
