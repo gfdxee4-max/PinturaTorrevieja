@@ -76,12 +76,24 @@ function getServiceSchema(page: ServicePage) {
           name: siteConfig.name,
           url: siteConfig.url,
           telephone: siteConfig.telephone,
+          priceRange: "$$",
+          openingHours: "Mo-Fr 09:00-18:00",
           address: {
             "@type": "PostalAddress",
             addressLocality: "Torrevieja",
             addressRegion: "Alicante",
             addressCountry: "ES",
           },
+          areaServed: {
+            "@type": "City",
+            name: "Torrevieja",
+          },
+          serviceType: [
+            "pintura de coches",
+            "reparación de carrocería",
+            "pulido",
+            "reparación de daños",
+          ],
         },
       },
       {

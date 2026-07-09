@@ -134,7 +134,7 @@ export const dictionaries = {
   es: {
     locale: "es_ES",
     title: "Pintura de Coches en Torrevieja | Reparación y Pintura de Vehículos",
-    description: "Pintura y reparación de vehículos en Torrevieja. Pintura completa, reparación de daños, pulido y acabados profesionales. Presupuesto rápido por WhatsApp.",
+    description: "Pintura y reparación de vehículos en Torrevieja. Pintura completa, reparación de daños, pulido y acabados profesionales. Solicita presupuesto por WhatsApp.",
     nav: { home: "Inicio", services: "Servicios", booking: "Contacto" },
     hero: {
       eyebrow: "",
@@ -168,7 +168,7 @@ export const dictionaries = {
   en: {
     locale: "en_GB",
     title: "Car Painting in Torrevieja | Pintura Torrevieja",
-    description: "Vehicle painting and car body repair in Torrevieja. Complete painting, damage repair, polishing and professional finishes. Fast WhatsApp contact.",
+    description: "Car painting and auto body repair in Torrevieja. Complete vehicle painting, damage repair, body polishing and professional finishes. Request a quote on WhatsApp.",
     nav: { home: "Home", services: "Services", booking: "Contact" },
     hero: {
       eyebrow: "",
@@ -202,7 +202,7 @@ export const dictionaries = {
   ru: {
     locale: "ru_RU",
     title: "Покраска автомобилей в Торревьехе | Pintura Torrevieja",
-    description: "Покраска и кузовной ремонт автомобилей в Торревьехе. Полная покраска, ремонт повреждений, полировка и профессиональная отделка. Быстрый контакт через WhatsApp.",
+    description: "Покраска автомобилей и кузовной ремонт в Торревьехе. Полная покраска, ремонт повреждений, полировка кузова и профессиональная отделка. Запросите оценку в WhatsApp.",
     nav: { home: "Главная", services: "Услуги", booking: "Контакты" },
     hero: {
       eyebrow: "",
@@ -236,7 +236,7 @@ export const dictionaries = {
   uk: {
     locale: "uk_UA",
     title: "Фарбування авто в Торрев'єсі | Pintura Torrevieja",
-    description: "Фарбування та кузовний ремонт авто в Торрев'єсі. Повне фарбування, ремонт пошкоджень, полірування та професійні фінішні роботи. Швидкий контакт через WhatsApp.",
+    description: "Фарбування авто та кузовний ремонт у Торрев'єсі. Повне фарбування, ремонт пошкоджень, полірування кузова та професійне оздоблення. Запитайте оцінку в WhatsApp.",
     nav: { home: "Головна", services: "Послуги", booking: "Контакти" },
     hero: {
       eyebrow: "",
@@ -270,7 +270,7 @@ export const dictionaries = {
   de: {
     locale: "de_DE",
     title: "Autolackierung in Torrevieja | Pintura Torrevieja",
-    description: "Autolackierung und Karosseriereparatur in Torrevieja. Komplettlackierung, Schadensreparatur, Politur und professionelle Fahrzeugaufbereitung. Schneller Kontakt per WhatsApp.",
+    description: "Autolackierung und Karosseriereparatur in Torrevieja. Komplettlackierung, Schadensreparatur, Fahrzeugpolitur und professionelle Aufbereitung. Angebot per WhatsApp anfragen.",
     nav: { home: "Start", services: "Leistungen", booking: "Kontakt" },
     hero: {
       eyebrow: "",
@@ -304,7 +304,7 @@ export const dictionaries = {
   fr: {
     locale: "fr_FR",
     title: "Peinture voiture à Torrevieja | Pintura Torrevieja",
-    description: "Peinture automobile et réparation de carrosserie à Torrevieja. Peinture complète, réparation des dommages, polissage et finitions professionnelles. Contact rapide par WhatsApp.",
+    description: "Peinture voiture et réparation carrosserie à Torrevieja. Peinture complète, réparation des dommages, polissage carrosserie et finitions professionnelles. Demandez un devis sur WhatsApp.",
     nav: { home: "Accueil", services: "Services", booking: "Contact" },
     hero: {
       eyebrow: "",
@@ -338,7 +338,7 @@ export const dictionaries = {
   pl: {
     locale: "pl_PL",
     title: "Lakiernik w Torrevieja | Pintura Torrevieja",
-    description: "Lakierowanie samochodów i naprawa karoserii w Torrevieja. Pełne lakierowanie, naprawa uszkodzeń, polerowanie i profesjonalne wykończenie. Szybki kontakt przez WhatsApp.",
+    description: "Lakierowanie samochodów i naprawa blacharska w Torrevieja. Pełne lakierowanie, naprawa uszkodzeń, polerowanie karoserii i profesjonalne wykończenie. Zapytaj o wycenę przez WhatsApp.",
     nav: { home: "Start", services: "Usługi", booking: "Kontakt" },
     hero: {
       eyebrow: "",
@@ -372,7 +372,7 @@ export const dictionaries = {
   ro: {
     locale: "ro_RO",
     title: "Vopsitorie auto în Torrevieja | Pintura Torrevieja",
-    description: "Vopsire auto și reparații caroserie în Torrevieja. Vopsire completă, reparații daune, polish și finisaje profesionale. Contact rapid prin WhatsApp.",
+    description: "Vopsitorie auto și reparații caroserie în Torrevieja. Vopsire completă, reparații daune, polish caroserie și finisaje profesionale. Solicită deviz pe WhatsApp.",
     nav: { home: "Acasă", services: "Servicii", booking: "Contact" },
     hero: {
       eyebrow: "",
@@ -406,7 +406,7 @@ export const dictionaries = {
   nl: {
     locale: "nl_NL",
     title: "Auto spuiten in Torrevieja | Pintura Torrevieja",
-    description: "Auto spuiten en schadeherstel in Torrevieja. Volledig spuitwerk, schadeherstel, polijsten en professionele afwerking. Snel contact via WhatsApp.",
+    description: "Auto spuiten en autoschade herstel in Torrevieja. Volledig spuitwerk, schadeherstel, carrosserie polijsten en professionele afwerking. Vraag een offerte via WhatsApp.",
     nav: { home: "Home", services: "Diensten", booking: "Contact" },
     hero: {
       eyebrow: "",
@@ -440,7 +440,7 @@ export const dictionaries = {
   it: {
     locale: "it_IT",
     title: "Verniciatura auto a Torrevieja | Pintura Torrevieja",
-    description: "Verniciatura auto e riparazione carrozzeria a Torrevieja. Verniciatura completa, riparazione danni, lucidatura e finiture professionali. Contatto rapido via WhatsApp.",
+    description: "Verniciatura auto e carrozzeria a Torrevieja. Verniciatura completa, riparazione danni, lucidatura carrozzeria e finiture professionali. Richiedi un preventivo su WhatsApp.",
     nav: { home: "Home", services: "Servizi", booking: "Contatti" },
     hero: {
       eyebrow: "",
