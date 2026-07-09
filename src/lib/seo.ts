@@ -147,6 +147,7 @@ export function getStructuredData(locale: Locale) {
           {
             "@type": "ContactPoint",
             contactType: "customer service",
+            telephone: siteConfig.telephone,
             availableLanguage: locales,
             url: `https://wa.me/${siteConfig.whatsappNumber}`,
           },
@@ -156,14 +157,27 @@ export function getStructuredData(locale: Locale) {
         "@type": ["AutoBodyShop", "LocalBusiness"],
         "@id": businessId,
         name: siteConfig.name,
-        url: pageUrl,
+        url: siteConfig.url,
+        telephone: siteConfig.telephone,
         image: imageUrl,
         logo: logoUrl,
         description: dictionary.description,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Torrevieja",
+          addressRegion: "Alicante",
+          addressCountry: "ES",
+        },
         areaServed: {
           "@type": "City",
           name: "Torrevieja",
         },
+        serviceType: [
+          "pintura de coches",
+          "reparación de carrocería",
+          "pulido",
+          "reparación de daños",
+        ],
         knowsLanguage: locales,
         availableLanguage: locales,
         parentOrganization: {

@@ -133,8 +133,8 @@ function buildServices(locale: Locale) {
 export const dictionaries = {
   es: {
     locale: "es_ES",
-    title: "PINTURA TORREVIEJA | Reparación de carrocería y pintura",
-    description: "Pintura coche Torrevieja: taller de pintura de vehículos, reparación de carrocería, pulido de faros e igualación de color.",
+    title: "Pintura de coches en Torrevieja | Pintura Torrevieja",
+    description: "Pintura y reparación de vehículos en Torrevieja. Pintura completa, reparación de daños, pulido y acabados profesionales. Contacto rápido por WhatsApp.",
     nav: { home: "Inicio", services: "Servicios", booking: "Contacto" },
     hero: {
       eyebrow: "",
@@ -167,8 +167,8 @@ export const dictionaries = {
   },
   en: {
     locale: "en_GB",
-    title: "PINTURA TORREVIEJA | Body repair and vehicle painting",
-    description: "Car painting Torrevieja: vehicle paint shop for body repair, polishing, headlights and color matching.",
+    title: "Car Painting in Torrevieja | Pintura Torrevieja",
+    description: "Vehicle painting and car body repair in Torrevieja. Complete painting, damage repair, polishing and professional finishes. Fast WhatsApp contact.",
     nav: { home: "Home", services: "Services", booking: "Contact" },
     hero: {
       eyebrow: "",
@@ -201,8 +201,8 @@ export const dictionaries = {
   },
   ru: {
     locale: "ru_RU",
-    title: "PINTURA TORREVIEJA | Кузовной ремонт и покраска автомобилей",
-    description: "Авто покраска Торревьеха: кузовной ремонт, покраска автомобилей, полировка фар и подбор цвета.",
+    title: "Покраска автомобилей в Торревьехе | Pintura Torrevieja",
+    description: "Покраска и кузовной ремонт автомобилей в Торревьехе. Полная покраска, ремонт повреждений, полировка и профессиональная отделка. Быстрый контакт через WhatsApp.",
     nav: { home: "Главная", services: "Услуги", booking: "Контакты" },
     hero: {
       eyebrow: "",
@@ -235,8 +235,8 @@ export const dictionaries = {
   },
   uk: {
     locale: "uk_UA",
-    title: "PINTURA TORREVIEJA | Кузовний ремонт і фарбування автомобілів",
-    description: "Фарбування авто Торрев'єха: кузовний ремонт, фарбування автомобілів, полірування фар і підбір кольору.",
+    title: "Фарбування авто в Торрев'єсі | Pintura Torrevieja",
+    description: "Фарбування та кузовний ремонт авто в Торрев'єсі. Повне фарбування, ремонт пошкоджень, полірування та професійні фінішні роботи. Швидкий контакт через WhatsApp.",
     nav: { home: "Головна", services: "Послуги", booking: "Контакти" },
     hero: {
       eyebrow: "",
@@ -269,8 +269,8 @@ export const dictionaries = {
   },
   de: {
     locale: "de_DE",
-    title: "PINTURA TORREVIEJA | Karosseriereparatur und Fahrzeuglackierung",
-    description: "Autolackierung Torrevieja: Werkstatt für Karosseriereparatur, Fahrzeuglackierung, Scheinwerferpolitur und Farbabgleich.",
+    title: "Autolackierung in Torrevieja | Pintura Torrevieja",
+    description: "Autolackierung und Karosseriereparatur in Torrevieja. Komplettlackierung, Schadensreparatur, Politur und professionelle Fahrzeugaufbereitung. Schneller Kontakt per WhatsApp.",
     nav: { home: "Start", services: "Leistungen", booking: "Kontakt" },
     hero: {
       eyebrow: "",
@@ -303,8 +303,8 @@ export const dictionaries = {
   },
   fr: {
     locale: "fr_FR",
-    title: "PINTURA TORREVIEJA | Réparation carrosserie et peinture automobile",
-    description: "Carrosserie peinture Torrevieja: atelier de peinture automobile, réparation carrosserie, polissage des phares et correspondance couleur.",
+    title: "Peinture voiture à Torrevieja | Pintura Torrevieja",
+    description: "Peinture automobile et réparation de carrosserie à Torrevieja. Peinture complète, réparation des dommages, polissage et finitions professionnelles. Contact rapide par WhatsApp.",
     nav: { home: "Accueil", services: "Services", booking: "Contact" },
     hero: {
       eyebrow: "",
@@ -337,8 +337,8 @@ export const dictionaries = {
   },
   pl: {
     locale: "pl_PL",
-    title: "PINTURA TORREVIEJA | Naprawa karoserii i lakierowanie aut",
-    description: "Lakiernik Torrevieja: lakierowanie samochodu, naprawa karoserii, polerowanie reflektorów i dobór koloru.",
+    title: "Lakiernik w Torrevieja | Pintura Torrevieja",
+    description: "Lakierowanie samochodów i naprawa karoserii w Torrevieja. Pełne lakierowanie, naprawa uszkodzeń, polerowanie i profesjonalne wykończenie. Szybki kontakt przez WhatsApp.",
     nav: { home: "Start", services: "Usługi", booking: "Kontakt" },
     hero: {
       eyebrow: "",
@@ -371,8 +371,8 @@ export const dictionaries = {
   },
   ro: {
     locale: "ro_RO",
-    title: "PINTURA TORREVIEJA | Reparații caroserie și vopsire auto",
-    description: "Vopsire auto Torrevieja: atelier pentru reparații caroserie, vopsire vehicule, polish faruri și potrivire culoare.",
+    title: "Vopsitorie auto în Torrevieja | Pintura Torrevieja",
+    description: "Vopsire auto și reparații caroserie în Torrevieja. Vopsire completă, reparații daune, polish și finisaje profesionale. Contact rapid prin WhatsApp.",
     nav: { home: "Acasă", services: "Servicii", booking: "Contact" },
     hero: {
       eyebrow: "",
@@ -405,8 +405,8 @@ export const dictionaries = {
   },
   nl: {
     locale: "nl_NL",
-    title: "PINTURA TORREVIEJA | Carrosserieherstel en voertuig spuiten",
-    description: "Autoschade herstel Torrevieja: werkplaats voor auto spuiten, carrosserieherstel, koplampen polijsten en kleurmatching.",
+    title: "Auto spuiten in Torrevieja | Pintura Torrevieja",
+    description: "Auto spuiten en schadeherstel in Torrevieja. Volledig spuitwerk, schadeherstel, polijsten en professionele afwerking. Snel contact via WhatsApp.",
     nav: { home: "Home", services: "Diensten", booking: "Contact" },
     hero: {
       eyebrow: "",
@@ -439,8 +439,8 @@ export const dictionaries = {
   },
   it: {
     locale: "it_IT",
-    title: "PINTURA TORREVIEJA | Riparazione carrozzeria e verniciatura auto",
-    description: "Carrozzeria verniciatura Torrevieja: officina per verniciatura auto, riparazione carrozzeria, lucidatura fari e colore.",
+    title: "Verniciatura auto a Torrevieja | Pintura Torrevieja",
+    description: "Verniciatura auto e riparazione carrozzeria a Torrevieja. Verniciatura completa, riparazione danni, lucidatura e finiture professionali. Contatto rapido via WhatsApp.",
     nav: { home: "Home", services: "Servizi", booking: "Contatti" },
     hero: {
       eyebrow: "",

@@ -75,6 +75,13 @@ function getServiceSchema(page: ServicePage) {
           "@id": businessId,
           name: siteConfig.name,
           url: siteConfig.url,
+          telephone: siteConfig.telephone,
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Torrevieja",
+            addressRegion: "Alicante",
+            addressCountry: "ES",
+          },
         },
       },
       {
