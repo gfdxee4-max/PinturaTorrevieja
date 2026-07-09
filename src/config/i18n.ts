@@ -133,8 +133,8 @@ function buildServices(locale: Locale) {
 export const dictionaries = {
   es: {
     locale: "es_ES",
-    title: "Pintura de coches en Torrevieja | Pintura Torrevieja",
-    description: "Pintura y reparación de vehículos en Torrevieja. Pintura completa, reparación de daños, pulido y acabados profesionales. Contacto rápido por WhatsApp.",
+    title: "Pintura de Coches en Torrevieja | Reparación y Pintura de Vehículos",
+    description: "Pintura y reparación de vehículos en Torrevieja. Pintura completa, reparación de daños, pulido y acabados profesionales. Presupuesto rápido por WhatsApp.",
     nav: { home: "Inicio", services: "Servicios", booking: "Contacto" },
     hero: {
       eyebrow: "",
