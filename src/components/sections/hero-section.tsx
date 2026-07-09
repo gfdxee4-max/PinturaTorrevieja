@@ -55,8 +55,8 @@ export function HeroSection({ dictionary, whatsappUrl }: HeroSectionProps) {
           <div className="fade-up relative min-h-[23rem] overflow-hidden lg:-ml-24 lg:min-h-[42rem] xl:min-h-[47rem]">
             <div className="absolute inset-0">
               <Image
-                src="/images/paint-booth.webp"
-                alt="Automotive paint booth with premium vehicle"
+                src="/images/hero-paint-repair.webp"
+                alt="Professional vehicle painting in a paint booth"
                 fill
                 priority
                 sizes="(min-width: 1024px) 64vw, 100vw"
