@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "@/app/globals.css";
 import { defaultLocale, isLocale } from "@/config/i18n";
 import { siteConfig } from "@/config/site";
 import { getDefaultMetadata } from "@/lib/seo";
 
+const googleAnalyticsId = "G-P54KMBNC0Z";
 const defaultMetadata = getDefaultMetadata();
 
 export const metadata: Metadata = {
@@ -59,6 +61,18 @@ export default async function RootLayout({
     <html lang={lang}>
       <body className="font-sans">
         {children}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${googleAnalyticsId}');
+          `}
+        </Script>
       </body>
     </html>
   );
