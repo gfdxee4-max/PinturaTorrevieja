@@ -59,7 +59,9 @@ export function HeroSection({ dictionary, whatsappUrl }: HeroSectionProps) {
                 alt="Professional vehicle painting in a paint booth"
                 fill
                 priority
-                sizes="(min-width: 1024px) 64vw, 100vw"
+                fetchPriority="high"
+                loading="eager"
+                sizes="(min-width: 1280px) 64vw, (min-width: 1024px) 60vw, 100vw"
                 className="slow-zoom object-cover object-center"
               />
             </div>

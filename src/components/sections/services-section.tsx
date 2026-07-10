@@ -43,6 +43,7 @@ export function ServicesSection({ dictionary }: ServicesSectionProps) {
                     src={service.image}
                     alt={service.title}
                     fill
+                    loading="lazy"
                     sizes="(min-width: 1280px) 20vw, (min-width: 768px) 50vw, 100vw"
                     className="object-cover opacity-90 grayscale transition duration-700 group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-100"
                   />

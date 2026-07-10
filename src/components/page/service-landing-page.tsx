@@ -202,7 +202,9 @@ export function ServiceLandingPage({ page }: ServiceLandingPageProps) {
                 alt={page.h1}
                 fill
                 priority
-                sizes="(min-width: 1024px) 54vw, 100vw"
+                fetchPriority="high"
+                loading="eager"
+                sizes="(min-width: 1280px) 54vw, (min-width: 1024px) 52vw, 100vw"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/44 via-transparent to-transparent" />

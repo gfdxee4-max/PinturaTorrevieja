@@ -71,7 +71,6 @@ export function Header({ dictionary, locale }: HeaderProps) {
                 key={item}
                 href={localizedPath(item)}
                 hrefLang={item}
-                locale={item}
                 aria-current={item === locale ? "page" : undefined}
                 className="flex items-center justify-between rounded px-3 py-3 text-xs font-bold text-white/68 transition hover:bg-white/8 hover:text-white aria-[current=page]:bg-redline/18 aria-[current=page]:text-white"
               >
