@@ -9,6 +9,7 @@ import {
 } from "@/config/i18n";
 import { getFaqItems } from "@/config/faq";
 import { siteConfig } from "@/config/site";
+import { servicePages } from "@/config/service-pages";
 
 export function getAbsoluteUrl(path: string) {
   return new URL(path, siteConfig.url).toString();
@@ -113,98 +114,14 @@ export function getPageMetadata(locale: Locale): Metadata {
 export function getStructuredData(locale: Locale) {
   const dictionary = dictionaries[locale];
   const pageUrl = getAbsoluteUrl(localizedPath(locale));
-  const logoUrl = getAbsoluteUrl("/icon.svg");
-  const imageUrl = getAbsoluteUrl("/images/og-image.webp");
   const faqItems = getFaqItems(locale);
   const businessId = `${siteConfig.url}/#autobodyshop`;
   const organizationId = `${siteConfig.url}/#organization`;
   const pageId = `${pageUrl}#webpage`;
 
-  const serviceOffers = dictionary.services.items.map((item) => ({
-    "@type": "Offer",
-    itemOffered: {
-      "@type": "Service",
-      name: item.title,
-      description: item.text,
-      areaServed: "Torrevieja",
-      provider: {
-        "@id": businessId,
-      },
-    },
-  }));
-
   return {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "Organization",
-        "@id": organizationId,
-        name: siteConfig.name,
-        url: siteConfig.url,
-        logo: logoUrl,
-        image: imageUrl,
-        contactPoint: [
-          {
-            "@type": "ContactPoint",
-            contactType: "customer service",
-            telephone: siteConfig.telephone,
-            availableLanguage: locales,
-            url: `https://wa.me/${siteConfig.whatsappNumber}`,
-          },
-        ],
-      },
-      {
-        "@type": ["AutoBodyShop", "LocalBusiness"],
-        "@id": businessId,
-        name: siteConfig.name,
-        url: siteConfig.url,
-        telephone: siteConfig.telephone,
-        priceRange: "$$",
-        image: imageUrl,
-        logo: logoUrl,
-        description: dictionary.description,
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Torrevieja",
-          addressRegion: "Alicante",
-          addressCountry: "ES",
-        },
-        areaServed: {
-          "@type": "City",
-          name: "Torrevieja",
-        },
-        openingHours: "Mo-Fr 09:00-18:00",
-        openingHoursSpecification: [
-          {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: [
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday",
-            ],
-            opens: "09:00",
-            closes: "18:00",
-          },
-        ],
-        serviceType: [
-          "pintura de coches",
-          "pintura completa de vehículos",
-          "reparación de carrocería",
-          "reparación de daños",
-          "pulido de carrocería",
-          "pulido",
-          "pulido de faros",
-          "igualación de color",
-        ],
-        knowsLanguage: locales,
-        availableLanguage: locales,
-        parentOrganization: {
-          "@id": organizationId,
-        },
-        makesOffer: serviceOffers,
-      },
       {
         "@type": "WebPage",
         "@id": pageId,
@@ -248,6 +165,100 @@ export function getStructuredData(locale: Locale) {
             text: item.answer,
           },
         })),
+      },
+    ],
+  };
+}
+
+export function getLocalBusinessStructuredData() {
+  const logoUrl = getAbsoluteUrl("/icon.svg");
+  const imageUrl = getAbsoluteUrl("/images/og-image.webp");
+  const businessId = `${siteConfig.url}/#autobodyshop`;
+  const organizationId = `${siteConfig.url}/#organization`;
+  const serviceNames = [
+    ...new Set([
+      ...servicePages.map((page) => page.serviceName),
+      "Pintura completa de vehículos",
+      "Reparación de daños",
+      "Igualación de color",
+    ]),
+  ];
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": organizationId,
+        name: siteConfig.businessName,
+        url: siteConfig.url,
+        logo: logoUrl,
+        image: imageUrl,
+        contactPoint: [
+          {
+            "@type": "ContactPoint",
+            contactType: "customer service",
+            telephone: siteConfig.schemaTelephone,
+            availableLanguage: locales,
+            url: `https://wa.me/${siteConfig.whatsappNumber}`,
+          },
+        ],
+      },
+      {
+        "@type": "AutoBodyShop",
+        "@id": businessId,
+        name: siteConfig.businessName,
+        url: siteConfig.url,
+        logo: logoUrl,
+        image: imageUrl,
+        description: siteConfig.description,
+        telephone: siteConfig.schemaTelephone,
+        priceRange: siteConfig.priceRange,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Torrevieja",
+          addressRegion: "Alicante",
+          addressCountry: "Spain",
+        },
+        areaServed: {
+          "@type": "City",
+          name: "Torrevieja",
+        },
+        openingHours: siteConfig.openingHours,
+        openingHoursSpecification: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+            ],
+            opens: "09:00",
+            closes: "18:00",
+          },
+        ],
+        serviceType: serviceNames,
+        makesOffer: serviceNames.map((name) => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name,
+            areaServed: {
+              "@type": "City",
+              name: "Torrevieja",
+            },
+            provider: {
+              "@id": businessId,
+            },
+          },
+        })),
+        knowsLanguage: locales,
+        availableLanguage: locales,
+        parentOrganization: {
+          "@id": organizationId,
+        },
       },
     ],
   };

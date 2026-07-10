@@ -3,10 +3,11 @@ import Script from "next/script";
 import "@/app/globals.css";
 import { defaultLocale, isLocale } from "@/config/i18n";
 import { siteConfig } from "@/config/site";
-import { getDefaultMetadata } from "@/lib/seo";
+import { getDefaultMetadata, getLocalBusinessStructuredData } from "@/lib/seo";
 
 const googleAnalyticsId = "G-P54KMBNC0Z";
 const defaultMetadata = getDefaultMetadata();
+const localBusinessStructuredData = getLocalBusinessStructuredData();
 
 export const metadata: Metadata = {
   ...defaultMetadata,
@@ -61,6 +62,13 @@ export default async function RootLayout({
     <html lang={lang}>
       <body className="font-sans">
         {children}
+        <script
+          id="local-business-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessStructuredData),
+          }}
+        />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
           strategy="afterInteractive"
