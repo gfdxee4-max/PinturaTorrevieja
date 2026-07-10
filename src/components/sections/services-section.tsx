@@ -1,10 +1,18 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Car, Eye, Paintbrush, Pipette, Sparkles } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import type { Dictionary } from "@/config/i18n";
 
 const icons = [Paintbrush, Car, Sparkles, Eye, Pipette] as const;
+const serviceLinks = [
+  "/servicios/pintura-coche",
+  "/servicios/reparacion-carroceria",
+  "/servicios/pulido-carroceria",
+  "/servicios/pulido-faros",
+  "/servicios/pintura-coche",
+] as const;
 
 type ServicesSectionProps = {
   dictionary: Dictionary;
@@ -34,8 +42,9 @@ export function ServicesSection({ dictionary }: ServicesSectionProps) {
             const Icon = icons[index];
 
             return (
-              <article
+              <Link
                 key={service.title}
+                href={serviceLinks[index]}
                 className="group overflow-hidden rounded border border-white/13 bg-[linear-gradient(180deg,rgba(255,255,255,0.055),rgba(255,255,255,0.015))] transition duration-500 hover:-translate-y-1 hover:border-redline/70"
               >
                 <div className="relative aspect-[1.05/1] overflow-hidden">
@@ -56,7 +65,7 @@ export function ServicesSection({ dictionary }: ServicesSectionProps) {
                   </h3>
                   <p className="mt-4 text-sm leading-6 text-white/68">{service.text}</p>
                 </div>
-              </article>
+              </Link>
             );
           })}
         </div>

@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { architecturePages, oldToNewServiceUrlMap } from "@/config/architecture";
 import { fallbackLocale, locales, localizedPath } from "@/config/i18n";
 import { servicePages } from "@/config/service-pages";
 import { getAbsoluteUrl } from "@/lib/seo";
@@ -24,12 +25,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   }));
 
-  const seoServicePages = servicePages.map((page) => ({
+  const redirectedOldPaths = new Set(oldToNewServiceUrlMap.map((item) => item.old.slice(1)));
+  const seoServicePages = servicePages
+    .filter((page) => !redirectedOldPaths.has(page.slug))
+    .map((page) => ({
     url: getAbsoluteUrl(`/${page.slug}`),
     lastModified,
     changeFrequency: "monthly" as const,
     priority: 0.86,
+    }));
+
+  const architectureSeoPages = architecturePages.map((page) => ({
+    url: getAbsoluteUrl(page.path),
+    lastModified,
+    changeFrequency: page.path.split("/").length > 2 ? ("monthly" as const) : ("weekly" as const),
+    priority: page.path === "/servicios" || page.path === "/ciudades" ? 0.9 : 0.82,
   }));
 
-  return [...languagePages, ...seoServicePages];
+  return [...languagePages, ...architectureSeoPages, ...seoServicePages];
 }

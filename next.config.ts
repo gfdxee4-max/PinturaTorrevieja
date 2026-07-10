@@ -11,6 +11,28 @@ const spanishSeoPages = [
   "pulido-faros",
   "pulido-carroceria",
 ];
+const architectureSpanishPages = [
+  "servicios",
+  "servicios/pintura-coche",
+  "servicios/pintar-coche-completo",
+  "servicios/pintar-paragolpes",
+  "servicios/reparacion-carroceria",
+  "servicios/reparacion-aranazos-coche",
+  "servicios/pulido-carroceria",
+  "servicios/pulido-faros",
+  "ciudades",
+  "ciudades/torrevieja",
+  "ciudades/orihuela-costa",
+  "ciudades/guardamar-del-segura",
+  "ciudades/ciudad-quesada",
+  "ciudades/la-mata",
+  "marcas",
+  "trabajos-realizados",
+  "blog",
+  "faq",
+  "contacto",
+  "sobre-nosotros",
+];
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
@@ -47,6 +69,44 @@ const nextConfig: NextConfig = {
           },
         ],
       })),
+      ...architectureSpanishPages.map((slug) => ({
+        source: `/${slug}`,
+        headers: [
+          {
+            key: "Content-Language",
+            value: "es",
+          },
+        ],
+      })),
+    ];
+  },
+  async redirects() {
+    return [
+      {
+        source: "/pintura-coche-torrevieja",
+        destination: "/servicios/pintura-coche",
+        permanent: true,
+      },
+      {
+        source: "/pintura-parachoques",
+        destination: "/servicios/pintar-paragolpes",
+        permanent: true,
+      },
+      {
+        source: "/reparacion-carroceria",
+        destination: "/servicios/reparacion-carroceria",
+        permanent: true,
+      },
+      {
+        source: "/pulido-carroceria",
+        destination: "/servicios/pulido-carroceria",
+        permanent: true,
+      },
+      {
+        source: "/pulido-faros",
+        destination: "/servicios/pulido-faros",
+        permanent: true,
+      },
     ];
   },
 };

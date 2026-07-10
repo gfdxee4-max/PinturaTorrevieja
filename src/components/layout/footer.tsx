@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Award, Car, Gauge, Medal, ThumbsUp } from "lucide-react";
 import { Container } from "@/components/ui/container";
+import { footerHubLinks } from "@/config/architecture";
 import type { Dictionary } from "@/config/i18n";
 import { siteConfig } from "@/config/site";
 
@@ -34,6 +35,17 @@ export function Footer({ dictionary, whatsappUrl }: FooterProps) {
           <p className="text-xs font-black uppercase tracking-[0.18em] text-chrome">
             {siteConfig.name}
           </p>
+          <nav className="flex flex-wrap gap-x-4 gap-y-2" aria-label="Secciones del sitio">
+            {footerHubLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="font-bold text-white/58 transition hover:text-white"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
           <Link
             href={whatsappUrl}
             target="_blank"
