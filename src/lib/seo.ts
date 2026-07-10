@@ -75,7 +75,7 @@ const seoKeywords: Record<Locale, string[]> = {
 export function getPageMetadata(locale: Locale): Metadata {
   const dictionary = dictionaries[locale];
   const path = localizedPath(locale);
-  const image = getAbsoluteUrl("/images/og-image.webp");
+  const image = getAbsoluteUrl("/images/hero-paint-repair.webp");
 
   return {
     title: dictionary.title,

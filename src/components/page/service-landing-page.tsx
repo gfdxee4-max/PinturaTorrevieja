@@ -18,7 +18,7 @@ function absoluteUrl(path: string) {
 
 export function getServicePageMetadata(page: ServicePage): Metadata {
   const url = absoluteUrl(`/${page.slug}`);
-  const image = absoluteUrl(page.image);
+  const image = absoluteUrl("/images/hero-paint-repair.webp");
 
   return {
     title: page.title,
