@@ -9,7 +9,6 @@ import {
 } from "@/config/i18n";
 import { getFaqItems } from "@/config/faq";
 import { siteConfig } from "@/config/site";
-import { servicePages } from "@/config/service-pages";
 
 export function getAbsoluteUrl(path: string) {
   return new URL(path, siteConfig.url).toString();
@@ -116,7 +115,7 @@ export function getStructuredData(locale: Locale) {
   const pageUrl = getAbsoluteUrl(localizedPath(locale));
   const faqItems = getFaqItems(locale);
   const businessId = `${siteConfig.url}/#autobodyshop`;
-  const organizationId = `${siteConfig.url}/#organization`;
+  const websiteId = `${siteConfig.url}/#website`;
   const pageId = `${pageUrl}#webpage`;
 
   return {
@@ -130,7 +129,7 @@ export function getStructuredData(locale: Locale) {
         description: dictionary.description,
         inLanguage: locale,
         isPartOf: {
-          "@id": organizationId,
+          "@id": websiteId,
         },
         about: {
           "@id": businessId,
@@ -143,8 +142,10 @@ export function getStructuredData(locale: Locale) {
           {
             "@type": "ListItem",
             position: 1,
-            name: siteConfig.name,
-            item: siteConfig.url,
+            name: siteConfig.businessName,
+            item: {
+              "@id": businessId,
+            },
           },
           {
             "@type": "ListItem",
@@ -174,35 +175,28 @@ export function getLocalBusinessStructuredData() {
   const logoUrl = getAbsoluteUrl("/icon.svg");
   const imageUrl = getAbsoluteUrl("/images/og-image.webp");
   const businessId = `${siteConfig.url}/#autobodyshop`;
-  const organizationId = `${siteConfig.url}/#organization`;
+  const websiteId = `${siteConfig.url}/#website`;
   const serviceNames = [
-    ...new Set([
-      ...servicePages.map((page) => page.serviceName),
-      "Pintura completa de vehículos",
-      "Reparación de daños",
-      "Igualación de color",
-    ]),
+    "Pintura de coches",
+    "Pintura completa de vehículos",
+    "Reparación de carrocería",
+    "Reparación de daños",
+    "Pulido de carrocería",
+    "Pulido de faros",
+    "Igualación de color",
   ];
 
   return {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
-        "@id": organizationId,
-        name: siteConfig.businessName,
+        "@type": "WebSite",
+        "@id": websiteId,
         url: siteConfig.url,
-        logo: logoUrl,
-        image: imageUrl,
-        contactPoint: [
-          {
-            "@type": "ContactPoint",
-            contactType: "customer service",
-            telephone: siteConfig.schemaTelephone,
-            availableLanguage: locales,
-            url: `https://wa.me/${siteConfig.whatsappNumber}`,
-          },
-        ],
+        name: siteConfig.businessName,
+        publisher: {
+          "@id": businessId,
+        },
       },
       {
         "@type": "AutoBodyShop",
@@ -211,9 +205,7 @@ export function getLocalBusinessStructuredData() {
         url: siteConfig.url,
         logo: logoUrl,
         image: imageUrl,
-        description: siteConfig.description,
         telephone: siteConfig.schemaTelephone,
-        priceRange: siteConfig.priceRange,
         address: {
           "@type": "PostalAddress",
           addressLocality: "Torrevieja",
@@ -224,40 +216,33 @@ export function getLocalBusinessStructuredData() {
           "@type": "City",
           name: "Torrevieja",
         },
+        priceRange: siteConfig.priceRange,
         openingHours: siteConfig.openingHours,
-        openingHoursSpecification: [
-          {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: [
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday",
-            ],
-            opens: "09:00",
-            closes: "18:00",
-          },
-        ],
-        serviceType: serviceNames,
-        makesOffer: serviceNames.map((name) => ({
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name,
-            areaServed: {
-              "@type": "City",
-              name: "Torrevieja",
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: siteConfig.schemaTelephone,
+          contactType: "customer service",
+          availableLanguage: locales,
+          url: `https://wa.me/${siteConfig.whatsappNumber}`,
+        },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Servicios de pintura y reparación",
+          itemListElement: serviceNames.map((name) => ({
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name,
+              serviceType: name,
+              provider: {
+                "@id": businessId,
+              },
+              areaServed: {
+                "@type": "City",
+                name: "Torrevieja",
+              },
             },
-            provider: {
-              "@id": businessId,
-            },
-          },
-        })),
-        knowsLanguage: locales,
-        availableLanguage: locales,
-        parentOrganization: {
-          "@id": organizationId,
+          })),
         },
       },
     ],

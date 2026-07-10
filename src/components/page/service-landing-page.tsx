@@ -57,14 +57,35 @@ export function getServicePageMetadata(page: ServicePage): Metadata {
 function getServiceSchema(page: ServicePage) {
   const url = absoluteUrl(`/${page.slug}`);
   const businessId = `${siteConfig.url}/#autobodyshop`;
+  const websiteId = `${siteConfig.url}/#website`;
+  const pageId = `${url}#webpage`;
+  const serviceId = `${url}#service`;
 
   return {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "WebPage",
+        "@id": pageId,
+        url,
+        name: page.title,
+        description: page.description,
+        inLanguage: "es",
+        isPartOf: {
+          "@id": websiteId,
+        },
+        about: {
+          "@id": businessId,
+        },
+        mainEntity: {
+          "@id": serviceId,
+        },
+      },
+      {
         "@type": "Service",
-        "@id": `${url}#service`,
+        "@id": serviceId,
         name: page.serviceName,
+        serviceType: page.serviceName,
         description: page.description,
         areaServed: {
           "@type": "City",
@@ -81,8 +102,10 @@ function getServiceSchema(page: ServicePage) {
           {
             "@type": "ListItem",
             position: 1,
-            name: siteConfig.name,
-            item: siteConfig.url,
+            name: siteConfig.businessName,
+            item: {
+              "@id": businessId,
+            },
           },
           {
             "@type": "ListItem",
