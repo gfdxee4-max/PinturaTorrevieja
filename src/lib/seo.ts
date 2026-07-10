@@ -217,7 +217,6 @@ export function getLocalBusinessStructuredData() {
           name: "Torrevieja",
         },
         priceRange: siteConfig.priceRange,
-        openingHours: siteConfig.openingHours,
         contactPoint: {
           "@type": "ContactPoint",
           telephone: siteConfig.schemaTelephone,

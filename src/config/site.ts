@@ -8,5 +8,4 @@ export const siteConfig = {
   telephone: "+34 610 960 974",
   schemaTelephone: "+34610960974",
   priceRange: "$$",
-  openingHours: "Mo-Fr 09:00-18:00",
 } as const;
