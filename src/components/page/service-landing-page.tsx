@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Check, MessageCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, MessageCircle, Phone } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { FloatingWhatsApp } from "@/components/ui/floating-whatsapp";
 import type { ServicePage } from "@/config/service-pages";
@@ -114,6 +114,18 @@ function getServiceSchema(page: ServicePage) {
           },
         ],
       },
+      {
+        "@type": "FAQPage",
+        "@id": `${url}#faq`,
+        mainEntity: page.faq.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
+      },
     ],
   };
 }
@@ -174,6 +186,13 @@ export function ServiceLandingPage({ page }: ServiceLandingPageProps) {
                 >
                   Servicios
                 </Link>
+                <Link
+                  href={`tel:${siteConfig.telephone.replace(/\s/g, "")}`}
+                  className="inline-flex h-14 items-center justify-center gap-3 rounded border border-white/22 px-6 text-sm font-black uppercase tracking-[0.06em] text-white transition hover:border-white/55"
+                >
+                  <Phone className="size-5" aria-hidden="true" />
+                  Llamar
+                </Link>
               </div>
             </div>
             <div className="relative min-h-[23rem] overflow-hidden rounded border border-white/12 shadow-soft sm:min-h-[34rem] lg:min-h-[43rem]">
@@ -218,6 +237,147 @@ export function ServiceLandingPage({ page }: ServiceLandingPageProps) {
               >
                 <MessageCircle className="size-5" aria-hidden="true" />
                 Solicitar valoracion
+              </Link>
+            </div>
+          </Container>
+        </section>
+
+        <section className="border-b border-white/10 py-12 sm:py-16">
+          <Container>
+            <div className="grid gap-7 lg:grid-cols-[0.82fr_1.18fr]">
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-redline">
+                  Detalles del servicio
+                </p>
+                <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-white sm:text-4xl">
+                  Informacion clara antes de reparar.
+                </h2>
+                <p className="mt-5 text-base leading-7 text-white/64">
+                  Revisamos el vehiculo, explicamos el alcance del trabajo y orientamos la
+                  decision entre reparar, pintar o pulir segun el estado real de la carroceria.
+                </p>
+              </div>
+              <div className="grid gap-5">
+                {page.sections.map((section) => (
+                  <article
+                    key={section.heading}
+                    className="rounded border border-white/12 bg-white/[0.03] p-6 sm:p-7"
+                  >
+                    <h2 className="text-2xl font-black uppercase leading-tight text-white">
+                      {section.heading}
+                    </h2>
+                    <div className="mt-5 space-y-4">
+                      {section.paragraphs.map((paragraph) => (
+                        <p key={paragraph} className="text-base leading-8 text-white/72">
+                          {paragraph}
+                        </p>
+                      ))}
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </Container>
+        </section>
+
+        <section className="border-b border-white/10 py-12 sm:py-16">
+          <Container>
+            <div className="grid gap-8 lg:grid-cols-[1fr_1fr]">
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-white/58">
+                  Proceso
+                </p>
+                <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-white sm:text-4xl">
+                  Trabajo ordenado de principio a fin.
+                </h2>
+                <div className="mt-6 grid gap-3">
+                  {page.process.map((step, index) => (
+                    <article
+                      key={step.title}
+                      className="grid grid-cols-[3rem_1fr] gap-4 rounded border border-white/12 bg-white/[0.035] p-5"
+                    >
+                      <span className="flex size-12 items-center justify-center rounded bg-redline text-sm font-black text-white">
+                        {index + 1}
+                      </span>
+                      <div>
+                        <h3 className="text-lg font-black uppercase leading-6 text-white">
+                          {step.title}
+                        </h3>
+                        <p className="mt-2 text-sm leading-6 text-white/68">{step.text}</p>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-white/58">
+                  Servicios relacionados
+                </p>
+                <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-white sm:text-4xl">
+                  Enlaces utiles para comparar opciones.
+                </h2>
+                <div className="mt-6 grid gap-3">
+                  {page.relatedLinks.map((item) => (
+                    <Link
+                      key={item.slug}
+                      href={`/${item.slug}`}
+                      className="group rounded border border-white/12 bg-white/[0.035] p-5 transition hover:border-redline/70"
+                    >
+                      <span className="flex items-center justify-between gap-4 text-lg font-black uppercase leading-6 text-white">
+                        {item.label}
+                        <ArrowRight
+                          className="size-5 shrink-0 text-redline transition group-hover:translate-x-1"
+                          aria-hidden="true"
+                        />
+                      </span>
+                      <span className="mt-3 block text-sm leading-6 text-white/68">
+                        {item.text}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Container>
+        </section>
+
+        <section id="faq" className="border-b border-white/10 py-12 sm:py-16">
+          <Container>
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-redline">
+                FAQ
+              </p>
+              <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-white sm:text-4xl">
+                Preguntas frecuentes
+              </h2>
+            </div>
+            <div className="mt-8 grid gap-3 md:grid-cols-2">
+              {page.faq.map((item) => (
+                <article
+                  key={item.question}
+                  className="rounded border border-white/12 bg-white/[0.035] p-5"
+                >
+                  <h3 className="text-base font-black leading-6 text-white">{item.question}</h3>
+                  <p className="mt-3 text-sm leading-6 text-white/68">{item.answer}</p>
+                </article>
+              ))}
+            </div>
+            <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row">
+              <Link
+                href={whatsappUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex h-12 items-center justify-center gap-3 rounded bg-redline px-6 text-xs font-black uppercase tracking-[0.06em] text-white shadow-red transition hover:-translate-y-0.5 hover:bg-[#ff101b]"
+              >
+                <MessageCircle className="size-5" aria-hidden="true" />
+                Consultar por WhatsApp
+              </Link>
+              <Link
+                href={`tel:${siteConfig.telephone.replace(/\s/g, "")}`}
+                className="inline-flex h-12 items-center justify-center gap-3 rounded border border-white/22 px-6 text-xs font-black uppercase tracking-[0.06em] text-white transition hover:border-white/55"
+              >
+                <Phone className="size-5" aria-hidden="true" />
+                {siteConfig.telephone}
               </Link>
             </div>
           </Container>
