@@ -1,10 +1,8 @@
-import { ArchitecturePage } from "@/components/page/architecture-page";
-import { getArchitectureMetadata, getArchitecturePage } from "@/config/architecture";
+import { BlogIndexPage } from "@/components/blog/blog-index-page";
+import { blogIndexMetadata } from "@/config/blog";
 
-const page = getArchitecturePage("/blog")!;
-
-export const metadata = getArchitectureMetadata(page);
+export const metadata = blogIndexMetadata;
 
 export default function BlogHubPage() {
-  return <ArchitecturePage page={page} />;
+  return <BlogIndexPage />;
 }
