@@ -56,7 +56,7 @@ export function HeroSection({ dictionary, whatsappUrl }: HeroSectionProps) {
             <div className="absolute inset-0">
               <Image
                 src="/images/hero-paint-repair.webp"
-                alt="Professional vehicle painting in a paint booth"
+                alt={dictionary.hero.imageAlt}
                 fill
                 priority
                 fetchPriority="high"

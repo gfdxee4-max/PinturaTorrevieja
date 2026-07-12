@@ -16,10 +16,11 @@ type HeaderProps = {
 };
 
 export function Header({ dictionary, locale }: HeaderProps) {
+  const homePath = localizedPath(locale);
   const navItems = [
-    { label: dictionary.nav.home, href: "#" },
-    { label: dictionary.nav.services, href: "#services" },
-    { label: dictionary.nav.booking, href: "#booking" },
+    { label: dictionary.nav.home, href: homePath },
+    { label: dictionary.nav.services, href: `${homePath}#services` },
+    { label: dictionary.nav.booking, href: `${homePath}#booking` },
   ];
 
   return (
