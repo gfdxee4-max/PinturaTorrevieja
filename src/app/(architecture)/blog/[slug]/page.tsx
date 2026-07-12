@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { CalendarDays, Clock, MessageCircle, Phone } from "lucide-react";
 import { ArticleCard } from "@/components/blog/article-card";
 import { Container } from "@/components/ui/container";
+import { BrandLogo } from "@/components/ui/brand-logo";
 import { FloatingWhatsApp } from "@/components/ui/floating-whatsapp";
 import {
   blogArticles,
@@ -56,15 +57,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
     <>
       <header className="sticky top-0 z-50 border-b border-white/10 bg-black/88 backdrop-blur-xl">
         <Container className="flex min-h-[5.8rem] items-center justify-between gap-4 py-3">
-          <Link href="/es" className="group shrink-0" aria-label="PINTURA TORREVIEJA">
-            <span className="mb-1 block h-[2px] w-24 bg-redline transition group-hover:w-32" />
-            <span className="block text-[1.2rem] font-black uppercase leading-none tracking-[0.04em] text-chrome sm:text-[1.65rem] lg:text-[1.9rem]">
-              PINTURA
-            </span>
-            <span className="block text-[1.05rem] font-black uppercase leading-none tracking-[0.08em] text-redline sm:text-[1.38rem] lg:text-[1.55rem]">
-              TORREVIEJA
-            </span>
-          </Link>
+          <BrandLogo priority />
           <Link
             href="/blog"
             className="text-xs font-black uppercase tracking-[0.12em] text-white/70 transition hover:text-white"
@@ -81,7 +74,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
               <p className="text-xs font-black uppercase tracking-[0.22em] text-redline">
                 {category?.name ?? "Blog"}
               </p>
-              <h1 className="mt-5 max-w-4xl text-[clamp(2.4rem,6vw,5.4rem)] font-black uppercase leading-[0.94] tracking-normal text-white">
+              <h1 className="silver-text mt-5 max-w-4xl text-[clamp(2.4rem,6vw,5.4rem)] font-black uppercase leading-[0.94] tracking-normal">
                 {article.h1}
               </h1>
               <p className="mt-7 max-w-3xl text-lg leading-8 text-white/76 sm:text-xl">

@@ -5,10 +5,7 @@ export default function robots(): MetadataRoute.Robots {
   const host = new URL(siteConfig.url).host;
 
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-    },
+    rules: { userAgent: "*", allow: "/", disallow: "/reviews-admin" },
     sitemap: `${siteConfig.url}/sitemap.xml`,
     host,
   };

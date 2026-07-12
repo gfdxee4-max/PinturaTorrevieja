@@ -2,6 +2,7 @@ import Link from "next/link";
 import { MessageCircle, Phone } from "lucide-react";
 import { BlogExplorer } from "@/components/blog/blog-explorer";
 import { Container } from "@/components/ui/container";
+import { BrandLogo } from "@/components/ui/brand-logo";
 import { FloatingWhatsApp } from "@/components/ui/floating-whatsapp";
 import {
   blogArticles,
@@ -26,15 +27,7 @@ export function BlogIndexPage({ category }: BlogIndexPageProps) {
     <>
       <header className="sticky top-0 z-50 border-b border-white/10 bg-black/88 backdrop-blur-xl">
         <Container className="flex min-h-[5.8rem] items-center justify-between gap-4 py-3">
-          <Link href="/es" className="group shrink-0" aria-label="PINTURA TORREVIEJA">
-            <span className="mb-1 block h-[2px] w-24 bg-redline transition group-hover:w-32" />
-            <span className="block text-[1.2rem] font-black uppercase leading-none tracking-[0.04em] text-chrome sm:text-[1.65rem] lg:text-[1.9rem]">
-              PINTURA
-            </span>
-            <span className="block text-[1.05rem] font-black uppercase leading-none tracking-[0.08em] text-redline sm:text-[1.38rem] lg:text-[1.55rem]">
-              TORREVIEJA
-            </span>
-          </Link>
+          <BrandLogo priority />
           <nav className="hidden items-center gap-5 sm:flex" aria-label="Blog">
             <Link className="text-xs font-black uppercase tracking-[0.12em] text-white/70 hover:text-white" href="/blog">
               Blog
@@ -56,7 +49,7 @@ export function BlogIndexPage({ category }: BlogIndexPageProps) {
             <p className="text-xs font-black uppercase tracking-[0.22em] text-redline">
               Guias
             </p>
-            <h1 className="mt-5 max-w-4xl text-[clamp(2.6rem,6.2vw,5.8rem)] font-black uppercase leading-[0.92] tracking-normal text-white">
+            <h1 className="silver-text mt-5 max-w-4xl text-[clamp(2.6rem,6.2vw,5.8rem)] font-black uppercase leading-[0.92] tracking-normal">
               {title}
             </h1>
             <p className="mt-7 max-w-3xl text-lg leading-8 text-white/76 sm:text-xl">

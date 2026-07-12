@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
+import { BrandLogo } from "@/components/ui/brand-logo";
 
 export default function NotFound() {
   return (
@@ -7,12 +8,10 @@ export default function NotFound() {
       <Container>
         <div className="max-w-xl">
           <p className="text-sm font-semibold text-signal">404</p>
-          <h1 className="mt-4 text-4xl font-semibold tracking-normal text-chrome">
-            PINTURA TORREVIEJA
-          </h1>
+          <BrandLogo className="mt-5 h-[6rem] w-[19rem]" />
           <Link
             href="/"
-            className="mt-8 inline-flex h-11 items-center rounded-md bg-chrome px-5 text-sm font-semibold text-ink transition hover:bg-white"
+            className="mt-8 inline-flex h-11 items-center border border-redline bg-redline px-5 text-sm font-semibold text-white transition hover:bg-[#f00000]"
           >
             Inicio
           </Link>

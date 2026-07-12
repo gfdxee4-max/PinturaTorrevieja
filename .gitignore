@@ -16,6 +16,7 @@ build
 # local env
 .env
 .env*.local
+.data
 
 # logs
 npm-debug.log*

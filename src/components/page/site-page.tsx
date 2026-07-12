@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { HeroSection } from "@/components/sections/hero-section";
 import { ServicesSection } from "@/components/sections/services-section";
+import { ReviewsSection } from "@/components/sections/reviews-section";
 import { dictionaries, type Locale } from "@/config/i18n";
 import { createWhatsAppUrl } from "@/lib/whatsapp";
 import { getStructuredData } from "@/lib/seo";
@@ -22,7 +23,8 @@ export function SitePage({ locale }: SitePageProps) {
       <Header dictionary={dictionary} locale={locale} />
       <main>
         <HeroSection dictionary={dictionary} whatsappUrl={whatsappUrl} />
-        <ServicesSection dictionary={dictionary} />
+        <ServicesSection locale={locale} />
+        <ReviewsSection locale={locale} />
         <EstimateSection dictionary={dictionary} whatsappUrl={whatsappUrl} />
         <FaqSection locale={locale} />
       </main>

@@ -5,7 +5,15 @@
 :root {
   color-scheme: dark;
   --background: #050505;
-  --foreground: #ffffff;
+  --surface: #0a0a0a;
+  --card: #0d0d0d;
+  --foreground: #f1f1f1;
+  --muted: #a8a8a8;
+  --border: rgba(255, 255, 255, 0.18);
+  --border-strong: rgba(255, 255, 255, 0.34);
+  --accent: #d60000;
+  --accent-hover: #f00000;
+  --section-space: clamp(4.5rem, 8vw, 8rem);
 }
 
 * {
@@ -19,6 +27,7 @@ html {
 body {
   min-height: 100vh;
   margin: 0;
+  overflow-x: hidden;
   background: var(--background);
   color: var(--foreground);
   text-rendering: optimizeLegibility;
@@ -31,11 +40,7 @@ body::before {
   z-index: -1;
   pointer-events: none;
   content: "";
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 18rem),
-    radial-gradient(circle at 50% 42rem, rgba(229, 9, 20, 0.18), transparent 18rem),
-    radial-gradient(circle at 88% 4rem, rgba(255, 255, 255, 0.08), transparent 24rem),
-    #050505;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 22rem), #050505;
 }
 
 img,
@@ -59,21 +64,62 @@ select {
 }
 
 ::selection {
-  background: #e50914;
+  background: var(--accent);
   color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
+
+.silver-text {
+  color: #f1f1f1;
+  background: linear-gradient(180deg, #ffffff 8%, #eeeeee 42%, #8e8e8e 88%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.premium-card {
+  border: 1px solid var(--border);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012));
+}
+
+.premium-card::after {
+  position: absolute;
+  right: 1.5rem;
+  bottom: -1px;
+  left: 1.5rem;
+  height: 2px;
+  content: "";
+  background: var(--accent);
+  transform: scaleX(0.28);
+  transition: transform 450ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-card:hover::after,
+.premium-card:focus-visible::after {
+  transform: scaleX(1);
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .fade-up {
-    animation: fade-up 780ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: fade-up 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
   .slow-zoom {
-    animation: slow-zoom 18s ease-out both;
+    animation: slow-zoom 22s ease-out both;
   }
 
   .soft-pulse {
     animation: soft-pulse 3.8s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 

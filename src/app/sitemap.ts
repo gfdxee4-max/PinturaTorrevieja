@@ -26,6 +26,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   }));
 
+  const privacyPages = locales.map((locale) => ({
+    url: getAbsoluteUrl(`/${locale}/privacy`),
+    lastModified,
+    changeFrequency: "yearly" as const,
+    priority: 0.25,
+  }));
+
   const redirectedOldPaths = new Set(oldToNewServiceUrlMap.map((item) => item.old.slice(1)));
   const seoServicePages = servicePages
     .filter((page) => !redirectedOldPaths.has(page.slug))
@@ -57,6 +64,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...languagePages,
+    ...privacyPages,
     ...architectureSeoPages,
     ...blogCategoryPages,
     ...blogArticlePages,

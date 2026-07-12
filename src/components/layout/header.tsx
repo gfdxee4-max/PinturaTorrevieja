@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { ChevronDown, Globe2, Menu } from "lucide-react";
+import { BrandLogo } from "@/components/ui/brand-logo";
 import { Container } from "@/components/ui/container";
 import { LanguageLink } from "@/components/ui/language-link";
 import {
@@ -24,65 +26,79 @@ export function Header({ dictionary, locale }: HeaderProps) {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/88 backdrop-blur-xl">
-      <Container className="flex min-h-[5.8rem] items-center justify-between gap-3 py-3">
-        <Link
-          href="/"
-          className="group shrink-0"
-          aria-label="PINTURA TORREVIEJA"
-        >
-          <span className="mb-1 block h-[2px] w-24 bg-redline transition group-hover:w-32" />
-          <span className="block text-[1.2rem] font-black uppercase leading-none tracking-[0.04em] text-chrome sm:text-[1.65rem] lg:text-[1.9rem]">
-            PINTURA
-          </span>
-          <span className="block text-[1.05rem] font-black uppercase leading-none tracking-[0.08em] text-redline sm:text-[1.38rem] lg:text-[1.55rem]">
-            TORREVIEJA
-          </span>
-        </Link>
-        <nav aria-label="Navegacion principal" className="hidden min-w-0 items-center gap-6 lg:flex xl:gap-8">
+    <header className="sticky top-0 z-50 border-b border-white/[0.09] bg-[#050505]/95 backdrop-blur-xl">
+      <Container className="flex h-[5.25rem] items-center justify-between gap-2 px-4 sm:px-8 lg:h-[6.5rem] lg:px-12 xl:px-16">
+        <BrandLogo href={homePath} priority className="h-[3.2rem] w-[9.25rem] sm:w-[13rem] lg:h-[5rem] lg:w-[17rem]" />
+
+        <nav aria-label="Navegacion principal" className="hidden min-w-0 items-center gap-8 lg:flex xl:gap-12">
           {navItems.map((item, index) => (
             <Link
               key={item.href}
               href={item.href}
-              className="group relative py-3 text-xs font-black uppercase tracking-[0.12em] text-white/82 transition hover:text-white"
+              className="group relative py-4 text-[0.78rem] font-medium uppercase tracking-[0.13em] text-white/76 transition duration-300 hover:text-white"
             >
               {item.label}
               <span
-                className={`absolute inset-x-0 -bottom-1 h-[2px] origin-left bg-redline transition duration-300 ${
+                className={`absolute inset-x-0 bottom-1 h-[2px] origin-left bg-redline transition duration-300 ${
                   index === 0 ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                 }`}
               />
             </Link>
           ))}
         </nav>
-        <details className="group relative shrink-0">
-          <summary className="flex h-11 cursor-pointer list-none items-center gap-2 rounded border border-white/18 bg-black/70 px-3 text-xs font-black uppercase tracking-[0.08em] text-white outline-none transition hover:border-white/45 sm:px-4 [&::-webkit-details-marker]:hidden">
-            <span aria-hidden="true">🌐</span>
-            <span>{shortLanguageNames[locale]}</span>
-            <span className="text-[0.65rem] text-white/60 transition group-open:rotate-180" aria-hidden="true">
-              ▼
-            </span>
-          </summary>
-          <nav
-            aria-label="Language"
-            className="absolute right-0 top-[calc(100%+0.6rem)] z-[60] grid w-56 overflow-hidden rounded border border-white/14 bg-black/96 p-1 shadow-soft backdrop-blur-xl"
-          >
-            {locales.map((item) => (
-              <LanguageLink
-                key={item}
-                href={localizedPath(item)}
-                hrefLang={item}
-                aria-current={item === locale ? "page" : undefined}
-                className="flex items-center justify-between rounded px-3 py-3 text-xs font-bold text-white/68 transition hover:bg-white/8 hover:text-white aria-[current=page]:bg-redline/18 aria-[current=page]:text-white"
-              >
-                <span>{languageNames[item]}</span>
-                <span className="font-black uppercase tracking-[0.12em] text-white/50">
-                  {shortLanguageNames[item]}
-                </span>
-              </LanguageLink>
-            ))}
-          </nav>
-        </details>
+
+        <div className="flex shrink-0 items-center gap-2">
+          <details className="group relative">
+            <summary className="flex h-10 cursor-pointer list-none items-center gap-1.5 border border-white/20 bg-black/60 px-2 text-xs font-semibold uppercase tracking-[0.08em] text-white outline-none transition hover:border-white/45 sm:h-11 sm:gap-2 sm:px-4 [&::-webkit-details-marker]:hidden">
+              <Globe2 className="hidden size-4 text-white/68 sm:block" aria-hidden="true" />
+              <span>{shortLanguageNames[locale]}</span>
+              <ChevronDown className="size-3.5 text-white/55 transition group-open:rotate-180" aria-hidden="true" />
+            </summary>
+            <nav
+              aria-label="Language"
+              className="absolute right-0 top-[calc(100%+0.6rem)] z-[60] grid w-56 overflow-hidden border border-white/16 bg-black/[0.98] p-1 shadow-soft backdrop-blur-xl"
+            >
+              {locales.map((item) => (
+                <LanguageLink
+                  key={item}
+                  href={localizedPath(item)}
+                  hrefLang={item}
+                  aria-current={item === locale ? "page" : undefined}
+                  className="flex items-center justify-between px-3 py-3 text-xs font-semibold text-white/66 transition hover:bg-white/[0.07] hover:text-white aria-[current=page]:bg-redline/15 aria-[current=page]:text-white"
+                >
+                  <span>{languageNames[item]}</span>
+                  <span className="font-bold uppercase tracking-[0.12em] text-white/42">
+                    {shortLanguageNames[item]}
+                  </span>
+                </LanguageLink>
+              ))}
+            </nav>
+          </details>
+
+          <details className="group relative lg:hidden">
+            <summary
+              className="flex size-10 cursor-pointer list-none items-center justify-center border border-white/20 bg-black/60 text-white outline-none transition hover:border-white/45 sm:size-11 [&::-webkit-details-marker]:hidden"
+              aria-label="Menu"
+            >
+              <Menu className="size-5" aria-hidden="true" />
+            </summary>
+            <nav
+              aria-label="Navegacion principal"
+              className="absolute right-0 top-[calc(100%+0.6rem)] z-[60] grid w-56 border border-white/16 bg-black/[0.98] p-2 shadow-soft"
+            >
+              {navItems.map((item, index) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={index === 0 ? "page" : undefined}
+                  className="border-b border-white/[0.08] px-3 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-white/72 transition last:border-b-0 hover:bg-white/[0.06] hover:text-white aria-[current=page]:text-white"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+          </details>
+        </div>
       </Container>
     </header>
   );

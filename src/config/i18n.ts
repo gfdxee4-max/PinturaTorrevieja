@@ -39,97 +39,6 @@ export function localizedPath(locale: Locale) {
   return `/${locale}`;
 }
 
-const serviceImages = [
-  "/images/paint-booth.webp",
-  "/images/body-repair.webp",
-  "/images/polishing.webp",
-  "/images/finished-car.webp",
-  "/images/color-match.webp",
-] as const;
-
-type ServiceText = readonly [title: string, text: string];
-
-const serviceText: Record<Locale, readonly ServiceText[]> = {
-  es: [
-    ["Pintura de vehículos", "Preparación, pintura en cabina y acabado uniforme para un aspecto cuidado."],
-    ["Reparación de carrocería", "Corrección de golpes, paneles y superficies antes del proceso de pintura."],
-    ["Pulido de carrocería", "Recuperación de brillo, eliminación de marcas y protección del acabado."],
-    ["Pulido de faros", "Restauración visual de ópticas para mejorar claridad y presencia."],
-    ["Igualación de color", "Ajuste del tono para integrar la reparación con el resto del vehículo."],
-  ],
-  en: [
-    ["Vehicle painting", "Preparation, spray booth painting and an even finish for a clean appearance."],
-    ["Bodywork repair", "Correction of dents, panels and surfaces before the paint process."],
-    ["Body polishing", "Gloss recovery, mark removal and protection of the finish."],
-    ["Headlight polishing", "Visual restoration of headlights for better clarity and appearance."],
-    ["Color matching", "Tone adjustment so the repaired area blends with the rest of the vehicle."],
-  ],
-  ru: [
-    ["Покраска автомобилей", "Подготовка, окраска в камере и ровное покрытие для аккуратного внешнего вида."],
-    ["Кузовной ремонт", "Исправление повреждений, панелей и поверхности перед окраской."],
-    ["Полировка кузова", "Восстановление блеска, удаление следов и защита покрытия."],
-    ["Полировка фар", "Визуальное восстановление оптики для чистого света и ухоженного вида."],
-    ["Подбор цвета", "Точная подгонка оттенка под остальную часть автомобиля."],
-  ],
-  uk: [
-    ["Фарбування автомобілів", "Підготовка, фарбування в камері та рівне покриття для акуратного вигляду."],
-    ["Кузовний ремонт", "Виправлення пошкоджень, панелей і поверхні перед фарбуванням."],
-    ["Полірування кузова", "Відновлення блиску, усунення слідів і захист покриття."],
-    ["Полірування фар", "Візуальне відновлення оптики для чистого світла й доглянутого вигляду."],
-    ["Підбір кольору", "Точне узгодження відтінку з рештою автомобіля."],
-  ],
-  de: [
-    ["Fahrzeuglackierung", "Vorbereitung, Lackierung in der Kabine und gleichmäßige Oberfläche für ein gepflegtes Erscheinungsbild."],
-    ["Karosseriereparatur", "Korrektur von Schäden, Paneelen und Oberflächen vor dem Lackieren."],
-    ["Karosseriepolitur", "Glanzaufbereitung, Entfernung von Spuren und Schutz der Oberfläche."],
-    ["Scheinwerferpolitur", "Optische Aufbereitung der Scheinwerfer für mehr Klarheit und Präsenz."],
-    ["Farbabgleich", "Präzise Anpassung des Farbtons an den Rest des Fahrzeugs."],
-  ],
-  fr: [
-    ["Peinture automobile", "Préparation, peinture en cabine et finition uniforme pour un aspect soigné."],
-    ["Réparation carrosserie", "Correction des dommages, panneaux et surfaces avant la peinture."],
-    ["Polissage carrosserie", "Récupération de brillance, correction des traces et protection de la finition."],
-    ["Polissage des phares", "Restauration visuelle des optiques pour plus de clarté et de présence."],
-    ["Correspondance couleur", "Ajustement précis de la teinte avec le reste du véhicule."],
-  ],
-  pl: [
-    ["Lakierowanie pojazdów", "Przygotowanie, lakierowanie w kabinie i równa powłoka dla zadbanego wyglądu."],
-    ["Naprawa karoserii", "Korekta uszkodzeń, paneli i powierzchni przed lakierowaniem."],
-    ["Polerowanie karoserii", "Odzyskanie połysku, usunięcie śladów i ochrona powłoki."],
-    ["Polerowanie reflektorów", "Odnowa optyczna reflektorów dla lepszej przejrzystości i wyglądu."],
-    ["Dobór koloru", "Precyzyjne dopasowanie odcienia do pozostałej części pojazdu."],
-  ],
-  ro: [
-    ["Vopsire vehicule", "Pregătire, vopsire în cabină și strat uniform pentru un aspect îngrijit."],
-    ["Reparații caroserie", "Corectarea daunelor, panourilor și suprafețelor înainte de vopsire."],
-    ["Polish caroserie", "Recuperarea luciului, eliminarea urmelor și protecția stratului."],
-    ["Polish faruri", "Restaurarea vizuală a farurilor pentru claritate și aspect îngrijit."],
-    ["Potrivire culoare", "Ajustarea precisă a nuanței la restul vehiculului."],
-  ],
-  nl: [
-    ["Voertuig spuiten", "Voorbereiding, spuiten in de cabine en een egale afwerking voor een verzorgde uitstraling."],
-    ["Carrosserieherstel", "Herstel van deuken, panelen en oppervlakken vóór het spuiten."],
-    ["Carrosserie polijsten", "Herstel van glans, verwijderen van sporen en bescherming van de lak."],
-    ["Koplampen polijsten", "Visueel herstel van koplampen voor meer helderheid en uitstraling."],
-    ["Kleurmatching", "Nauwkeurige aanpassing van de kleur aan de rest van het voertuig."],
-  ],
-  it: [
-    ["Verniciatura veicoli", "Preparazione, verniciatura in cabina e finitura uniforme per un aspetto curato."],
-    ["Riparazione carrozzeria", "Correzione di danni, pannelli e superfici prima della verniciatura."],
-    ["Lucidatura carrozzeria", "Recupero della brillantezza, rimozione dei segni e protezione della finitura."],
-    ["Lucidatura fari", "Ripristino visivo dei fari per maggiore chiarezza e presenza."],
-    ["Corrispondenza colore", "Regolazione precisa della tonalità con il resto del veicolo."],
-  ],
-};
-
-function buildServices(locale: Locale) {
-  return serviceText[locale].map(([title, text], index) => ({
-    title,
-    text,
-    image: serviceImages[index],
-  }));
-}
-
 export const dictionaries = {
   es: {
     locale: "es_ES",
@@ -150,7 +59,6 @@ export const dictionaries = {
       statValue: "",
       imageAlt: "Pintura de coches en cabina profesional en Torrevieja",
     },
-    services: { eyebrow: "Servicios", title: "Servicios principales del taller.", intro: "", items: buildServices("es") },
     estimate: {
       eyebrow: "Estimación previa",
       title: "Escríbenos para una estimación previa",
@@ -185,7 +93,6 @@ export const dictionaries = {
       statValue: "",
       imageAlt: "Professional car painting in a paint booth in Torrevieja",
     },
-    services: { eyebrow: "Services", title: "Main workshop services.", intro: "", items: buildServices("en") },
     estimate: {
       eyebrow: "Preliminary estimate",
       title: "Write to us for a preliminary estimate",
@@ -205,7 +112,7 @@ export const dictionaries = {
     locale: "ru_RU",
     title: "Автопокраска в Торревьехе | Покраска и ремонт автомобилей",
     description: "Профессиональная автопокраска в Торревьехе: полная покраска автомобиля, ремонт повреждений, покраска бамперов и полировка. Оценка по фото в WhatsApp.",
-    nav: { home: "Главная", services: "Автопокраска", booking: "Контакты" },
+    nav: { home: "Главная", services: "Услуги", booking: "Контакты" },
     hero: {
       eyebrow: "",
       headlineTop: "Автопокраска и",
@@ -220,7 +127,6 @@ export const dictionaries = {
       statValue: "",
       imageAlt: "Автопокраска автомобиля в профессиональной камере в Торревьехе",
     },
-    services: { eyebrow: "Услуги", title: "Услуги автопокраски и ремонта.", intro: "", items: buildServices("ru") },
     estimate: {
       eyebrow: "Предварительная оценка",
       title: "Напишите нам для предварительной оценки",
@@ -255,7 +161,6 @@ export const dictionaries = {
       statValue: "",
       imageAlt: "Професійне фарбування авто в малярній камері",
     },
-    services: { eyebrow: "Послуги", title: "Основні послуги майстерні.", intro: "", items: buildServices("uk") },
     estimate: {
       eyebrow: "Попередня оцінка",
       title: "Напишіть нам для попередньої оцінки",
@@ -290,7 +195,6 @@ export const dictionaries = {
       statValue: "",
       imageAlt: "Professionelle Autolackierung in einer Lackierkabine",
     },
-    services: { eyebrow: "Leistungen", title: "Wichtigste Leistungen der Werkstatt.", intro: "", items: buildServices("de") },
     estimate: {
       eyebrow: "Erste Einschätzung",
       title: "Schreiben Sie uns für eine erste Einschätzung",
@@ -325,7 +229,6 @@ export const dictionaries = {
       statValue: "",
       imageAlt: "Peinture automobile professionnelle en cabine",
     },
-    services: { eyebrow: "Services", title: "Services principaux de l'atelier.", intro: "", items: buildServices("fr") },
     estimate: {
       eyebrow: "Estimation préalable",
       title: "Écrivez-nous pour une estimation préalable",
@@ -360,7 +263,6 @@ export const dictionaries = {
       statValue: "",
       imageAlt: "Profesjonalne lakierowanie samochodu w kabinie",
     },
-    services: { eyebrow: "Usługi", title: "Główne usługi warsztatu.", intro: "", items: buildServices("pl") },
     estimate: {
       eyebrow: "Wstępna ocena",
       title: "Napisz do nas po wstępną ocenę",
@@ -395,7 +297,6 @@ export const dictionaries = {
       statValue: "",
       imageAlt: "Vopsitorie auto profesională în cabină de vopsire",
     },
-    services: { eyebrow: "Servicii", title: "Serviciile principale ale atelierului.", intro: "", items: buildServices("ro") },
     estimate: {
       eyebrow: "Evaluare inițială",
       title: "Scrie-ne pentru o evaluare inițială",
@@ -430,7 +331,6 @@ export const dictionaries = {
       statValue: "",
       imageAlt: "Professioneel auto spuiten in een spuitcabine",
     },
-    services: { eyebrow: "Diensten", title: "Belangrijkste diensten van de werkplaats.", intro: "", items: buildServices("nl") },
     estimate: {
       eyebrow: "Voorlopige schatting",
       title: "Schrijf ons voor een voorlopige schatting",
@@ -465,7 +365,6 @@ export const dictionaries = {
       statValue: "",
       imageAlt: "Verniciatura auto professionale in cabina",
     },
-    services: { eyebrow: "Servizi", title: "Servizi principali dell'officina.", intro: "", items: buildServices("it") },
     estimate: {
       eyebrow: "Valutazione preliminare",
       title: "Scrivici per una valutazione preliminare",

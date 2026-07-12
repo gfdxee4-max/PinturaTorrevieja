@@ -30,7 +30,7 @@ export function EstimateSection({ dictionary, whatsappUrl }: EstimateSectionProp
   ];
 
   return (
-    <Section id="estimate" className="bg-black py-8 sm:py-10">
+    <Section id="estimate" className="border-b border-white/[0.08] bg-[#050505] py-12 sm:py-16">
       <Container>
         <div className="grid gap-4 lg:grid-cols-2">
           {cards.map((card) => {
@@ -40,24 +40,24 @@ export function EstimateSection({ dictionary, whatsappUrl }: EstimateSectionProp
               <article
                 id={card.id}
                 key={card.id}
-                className="grid gap-6 rounded border border-white/13 bg-[linear-gradient(135deg,rgba(255,255,255,0.07),rgba(255,255,255,0.018))] p-7 shadow-soft sm:grid-cols-[5.5rem_1fr] sm:p-9"
+                className="premium-card relative grid gap-6 overflow-hidden p-7 sm:grid-cols-[5.25rem_1fr] sm:p-9"
               >
-                <div className="flex size-20 items-center justify-center rounded bg-redline/24 text-white ring-1 ring-redline/45">
-                  <Icon className="size-11" strokeWidth={1.75} aria-hidden="true" />
+                <div className="flex size-20 items-center justify-center border border-redline/70 bg-[linear-gradient(145deg,rgba(214,0,0,0.32),rgba(90,0,0,0.22))] text-white">
+                  <Icon className="size-10" strokeWidth={1.4} aria-hidden="true" />
                 </div>
                 <div>
-                  <p className="text-xs font-black uppercase tracking-[0.14em] text-white/58">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-redline">
                     {card.eyebrow}
                   </p>
-                  <h2 className="mt-3 text-2xl font-black uppercase leading-tight text-white sm:text-3xl">
+                  <h2 className="silver-text mt-3 text-2xl font-semibold uppercase leading-tight sm:text-3xl">
                     {card.title}
                   </h2>
-                  <p className="mt-4 max-w-xl text-base leading-7 text-white/72">{card.text}</p>
+                  <p className="mt-4 max-w-xl text-base leading-7 text-white/62">{card.text}</p>
                   <Link
                     href={whatsappUrl}
                     target="_blank"
-                    rel="noreferrer"
-                    className="mt-6 inline-flex h-12 items-center justify-center gap-2 rounded bg-redline px-5 text-xs font-black uppercase tracking-[0.06em] text-white shadow-red transition hover:-translate-y-0.5 hover:bg-[#ff101b]"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex min-h-12 items-center justify-center gap-2 border border-redline bg-[linear-gradient(135deg,#d60000,#850000)] px-5 py-3 text-center text-xs font-semibold uppercase leading-5 tracking-[0.07em] text-white shadow-red transition hover:-translate-y-0.5 hover:bg-redline"
                   >
                     <MessageCircle className="size-4" aria-hidden="true" />
                     {card.cta}

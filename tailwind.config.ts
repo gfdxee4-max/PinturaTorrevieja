@@ -11,9 +11,9 @@ const config: Config = {
     extend: {
       colors: {
         ink: "#050505",
-        panel: "#0d0d0d",
-        line: "#242424",
-        redline: "#e50914",
+        panel: "#0a0a0a",
+        line: "rgba(255,255,255,0.18)",
+        redline: "#d60000",
         signal: "#25D366",
         graphite: "#b8b8b8",
         chrome: "#ffffff",
@@ -23,7 +23,7 @@ const config: Config = {
       },
       boxShadow: {
         soft: "0 24px 80px rgba(0, 0, 0, 0.45)",
-        red: "0 18px 55px rgba(229, 9, 20, 0.28)",
+        red: "0 18px 55px rgba(214, 0, 0, 0.26)",
       },
     },
   },

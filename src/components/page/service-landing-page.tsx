@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Check, MessageCircle, Phone } from "lucide-react";
 import { Container } from "@/components/ui/container";
+import { BrandLogo } from "@/components/ui/brand-logo";
 import { FloatingWhatsApp } from "@/components/ui/floating-whatsapp";
 import type { ServicePage } from "@/config/service-pages";
 import { siteConfig } from "@/config/site";
@@ -138,15 +139,7 @@ export function ServiceLandingPage({ page }: ServiceLandingPageProps) {
     <>
       <header className="sticky top-0 z-50 border-b border-white/10 bg-black/88 backdrop-blur-xl">
         <Container className="flex min-h-[5.8rem] items-center justify-between gap-4 py-3">
-          <Link href="/es" className="group shrink-0" aria-label="PINTURA TORREVIEJA">
-            <span className="mb-1 block h-[2px] w-24 bg-redline transition group-hover:w-32" />
-            <span className="block text-[1.2rem] font-black uppercase leading-none tracking-[0.04em] text-chrome sm:text-[1.65rem] lg:text-[1.9rem]">
-              PINTURA
-            </span>
-            <span className="block text-[1.05rem] font-black uppercase leading-none tracking-[0.08em] text-redline sm:text-[1.38rem] lg:text-[1.55rem]">
-              TORREVIEJA
-            </span>
-          </Link>
+          <BrandLogo priority />
           <Link
             href="/es"
             className="hidden items-center gap-2 text-xs font-black uppercase tracking-[0.12em] text-white/70 transition hover:text-white sm:inline-flex"
@@ -163,9 +156,9 @@ export function ServiceLandingPage({ page }: ServiceLandingPageProps) {
           <Container className="relative grid min-h-[calc(100vh-5.8rem)] items-center gap-10 py-14 lg:grid-cols-[0.92fr_1.08fr] lg:py-20">
             <div className="max-w-3xl">
               <p className="text-xs font-black uppercase tracking-[0.22em] text-redline">
-                PINTURA TORREVIEJA
+                PAINTLAB TORREVIEJA
               </p>
-              <h1 className="mt-5 text-[clamp(2.7rem,7vw,6.8rem)] font-black uppercase leading-[0.92] tracking-normal text-white">
+              <h1 className="silver-text mt-5 text-[clamp(2.7rem,7vw,6.8rem)] font-black uppercase leading-[0.92] tracking-normal">
                 {page.h1}
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-8 text-white/76 sm:text-xl">
