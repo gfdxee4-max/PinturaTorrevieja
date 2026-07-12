@@ -167,8 +167,8 @@ export const dictionaries = {
   },
   en: {
     locale: "en_GB",
-    title: "Car Painting in Torrevieja | Pintura Torrevieja",
-    description: "Car painting and auto body repair in Torrevieja. Complete vehicle painting, damage repair, body polishing and professional finishes. Request a quote on WhatsApp.",
+    title: "Car Painting & Body Repair in Torrevieja | Pintura Torrevieja",
+    description: "Professional car painting, body repair, scratch repair, bumper painting and polishing in Torrevieja. Request a quick estimate via WhatsApp.",
     nav: { home: "Home", services: "Services", booking: "Contact" },
     hero: {
       eyebrow: "",
