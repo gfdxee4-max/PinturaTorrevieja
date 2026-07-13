@@ -172,8 +172,18 @@ export async function listApprovedReviews(locale: Locale): Promise<ReviewRecord[
   let stored: ReviewRecord[] = [];
 
   if (hasSupabaseStorage()) {
-    const rows = await supabaseRequest<SupabaseRow[]>(`?select=*&status=eq.approved&locale=eq.${locale}&order=created_at.desc`, "list-approved");
-    stored = rows.map(fromSupabase).map(publicReview);
+    try {
+      const rows = await supabaseRequest<SupabaseRow[]>(`?select=*&status=eq.approved&locale=eq.${locale}&order=created_at.desc`, "list-approved");
+      stored = rows.map(fromSupabase).map(publicReview);
+    } catch (error) {
+      if (!(error instanceof ReviewStorageError)) throw error;
+      console.error("[reviews] approved reviews unavailable", {
+        source: error.source,
+        operation: error.operation,
+        code: error.code,
+        status: error.status,
+      });
+    }
   } else if (canUseLocalStorage()) {
     stored = (await readLocalReviews()).filter((review) => review.status === "approved" && review.locale === locale).map(publicReview);
   }

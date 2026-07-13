@@ -10,6 +10,8 @@ type LocalizedPageProps = {
   }>;
 };
 
+export const revalidate = 300;
+
 export function generateStaticParams() {
   return locales.map((lang) => ({
     lang,
