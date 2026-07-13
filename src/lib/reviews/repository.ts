@@ -8,9 +8,25 @@ const localDataDirectory = path.join(process.cwd(), ".data");
 const localDataFile = path.join(localDataDirectory, "reviews.json");
 let localWriteQueue = Promise.resolve();
 
-export class ReviewStorageNotConfiguredError extends Error {
-  constructor() {
-    super("Review storage is not configured");
+type ReviewStorageSource = "configuration" | "local" | "supabase";
+
+export class ReviewStorageError extends Error {
+  constructor(
+    message: string,
+    public readonly source: ReviewStorageSource,
+    public readonly operation: string,
+    public readonly code: string,
+    public readonly status: number,
+  ) {
+    super(message);
+    this.name = "ReviewStorageError";
+  }
+}
+
+export class ReviewStorageNotConfiguredError extends ReviewStorageError {
+  constructor(missing = ["SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY"]) {
+    super(`Missing review storage configuration: ${missing.join(", ")}`, "configuration", "configure", "STORAGE_NOT_CONFIGURED", 503);
+    this.name = "ReviewStorageNotConfiguredError";
   }
 }
 
@@ -19,7 +35,11 @@ function hasSupabaseStorage() {
 }
 
 function canUseLocalStorage() {
-  return process.env.VERCEL !== "1";
+  return process.env.VERCEL !== "1" && (process.env.NODE_ENV === "development" || process.env.REVIEWS_STORAGE === "local");
+}
+
+function missingSupabaseConfiguration() {
+  return ["SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY"].filter((name) => !process.env[name]);
 }
 
 function publicReview(review: StoredReview): ReviewRecord {
@@ -41,15 +61,19 @@ async function readLocalReviews(): Promise<StoredReview[]> {
     return JSON.parse(await readFile(localDataFile, "utf8")) as StoredReview[];
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === "ENOENT") return [];
-    throw error;
+    throw new ReviewStorageError("Local review storage could not be read", "local", "read", (error as NodeJS.ErrnoException).code || "LOCAL_READ_ERROR", 500);
   }
 }
 
 async function writeLocalReviews(reviews: StoredReview[]) {
-  await mkdir(localDataDirectory, { recursive: true });
-  const temporaryFile = `${localDataFile}.${crypto.randomUUID()}.tmp`;
-  await writeFile(temporaryFile, `${JSON.stringify(reviews, null, 2)}\n`, "utf8");
-  await rename(temporaryFile, localDataFile);
+  try {
+    await mkdir(localDataDirectory, { recursive: true });
+    const temporaryFile = `${localDataFile}.${crypto.randomUUID()}.tmp`;
+    await writeFile(temporaryFile, `${JSON.stringify(reviews, null, 2)}\n`, "utf8");
+    await rename(temporaryFile, localDataFile);
+  } catch (error) {
+    throw new ReviewStorageError("Local review storage could not be written", "local", "write", (error as NodeJS.ErrnoException).code || "LOCAL_WRITE_ERROR", 500);
+  }
 }
 
 async function mutateLocalReviews<T>(mutation: (reviews: StoredReview[]) => T | Promise<T>): Promise<T> {
@@ -102,25 +126,45 @@ function fromSupabase(row: SupabaseRow): StoredReview {
   };
 }
 
-async function supabaseRequest<T>(query: string, init?: RequestInit): Promise<T> {
+async function supabaseRequest<T>(query: string, operation: string, init?: RequestInit): Promise<T> {
   const url = process.env.SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !key) throw new ReviewStorageNotConfiguredError();
+  if (!url || !key) throw new ReviewStorageNotConfiguredError(missingSupabaseConfiguration());
 
-  const response = await fetch(`${url.replace(/\/$/, "")}/rest/v1/reviews${query}`, {
-    ...init,
-    cache: "no-store",
-    headers: {
-      apikey: key,
-      Authorization: `Bearer ${key}`,
-      "Content-Type": "application/json",
-      ...init?.headers,
-    },
-  });
+  let response: Response;
+  try {
+    response = await fetch(`${url.replace(/\/$/, "")}/rest/v1/reviews${query}`, {
+      ...init,
+      cache: "no-store",
+      headers: {
+        apikey: key,
+        Authorization: `Bearer ${key}`,
+        "Content-Type": "application/json",
+        ...init?.headers,
+      },
+    });
+  } catch {
+    throw new ReviewStorageError("Supabase request failed", "supabase", operation, "NETWORK_ERROR", 503);
+  }
 
-  if (!response.ok) throw new Error(`Review storage request failed with ${response.status}`);
+  if (!response.ok) {
+    let code = `HTTP_${response.status}`;
+    let message = "Supabase rejected the review storage request";
+    try {
+      const details = await response.json() as { code?: string; message?: string };
+      if (details.code) code = details.code.slice(0, 80);
+      if (details.message) message = details.message.slice(0, 240);
+    } catch {
+      // Keep the safe generic message when the upstream response is not JSON.
+    }
+    throw new ReviewStorageError(message, "supabase", operation, code, response.status);
+  }
   if (response.status === 204) return undefined as T;
-  return (await response.json()) as T;
+  try {
+    return (await response.json()) as T;
+  } catch {
+    throw new ReviewStorageError("Supabase returned an invalid JSON response", "supabase", operation, "INVALID_RESPONSE", response.status);
+  }
 }
 
 export async function listApprovedReviews(locale: Locale): Promise<ReviewRecord[]> {
@@ -128,7 +172,7 @@ export async function listApprovedReviews(locale: Locale): Promise<ReviewRecord[
   let stored: ReviewRecord[] = [];
 
   if (hasSupabaseStorage()) {
-    const rows = await supabaseRequest<SupabaseRow[]>(`?select=*&status=eq.approved&locale=eq.${locale}&order=created_at.desc`);
+    const rows = await supabaseRequest<SupabaseRow[]>(`?select=*&status=eq.approved&locale=eq.${locale}&order=created_at.desc`, "list-approved");
     stored = rows.map(fromSupabase).map(publicReview);
   } else if (canUseLocalStorage()) {
     stored = (await readLocalReviews()).filter((review) => review.status === "approved" && review.locale === locale).map(publicReview);
@@ -140,7 +184,7 @@ export async function listApprovedReviews(locale: Locale): Promise<ReviewRecord[
 
 export async function listReviewsForModeration(): Promise<ReviewRecord[]> {
   if (hasSupabaseStorage()) {
-    const rows = await supabaseRequest<SupabaseRow[]>("?select=*&order=created_at.desc");
+    const rows = await supabaseRequest<SupabaseRow[]>("?select=*&order=created_at.desc", "list-moderation");
     return rows.map(fromSupabase).map(publicReview);
   }
   if (canUseLocalStorage()) return (await readLocalReviews()).sort((a, b) => b.createdAt.localeCompare(a.createdAt)).map(publicReview);
@@ -149,7 +193,7 @@ export async function listReviewsForModeration(): Promise<ReviewRecord[]> {
 
 export async function countRecentReviews(ipHash: string, since: string): Promise<number> {
   if (hasSupabaseStorage()) {
-    const rows = await supabaseRequest<Array<{ id: string }>>(`?select=id&ip_hash=eq.${encodeURIComponent(ipHash)}&created_at=gte.${encodeURIComponent(since)}`);
+    const rows = await supabaseRequest<Array<{ id: string }>>(`?select=id&ip_hash=eq.${encodeURIComponent(ipHash)}&created_at=gte.${encodeURIComponent(since)}`, "rate-limit-check");
     return rows.length;
   }
   if (canUseLocalStorage()) return (await readLocalReviews()).filter((review) => review.ipHash === ipHash && review.createdAt >= since).length;
@@ -161,11 +205,12 @@ export async function createPendingReview(review: NewReview, ipHash: string): Pr
   const stored: StoredReview = { ...review, id: crypto.randomUUID(), status: "pending", ipHash, createdAt: now, updatedAt: now };
 
   if (hasSupabaseStorage()) {
-    const rows = await supabaseRequest<SupabaseRow[]>("?select=*", {
+    const rows = await supabaseRequest<SupabaseRow[]>("?select=*", "create", {
       method: "POST",
       headers: { Prefer: "return=representation" },
       body: JSON.stringify({ id: stored.id, name: stored.name, rating: stored.rating, service: stored.service || null, review_text: stored.text, locale: stored.locale, status: stored.status, ip_hash: stored.ipHash, created_at: stored.createdAt, updated_at: stored.updatedAt }),
     });
+    if (!rows[0]) throw new ReviewStorageError("Supabase did not return the created review", "supabase", "create", "EMPTY_RESPONSE", 502);
     return publicReview(fromSupabase(rows[0]));
   }
   if (canUseLocalStorage()) return mutateLocalReviews((reviews) => { reviews.push(stored); return publicReview(stored); });
@@ -175,7 +220,7 @@ export async function createPendingReview(review: NewReview, ipHash: string): Pr
 export async function setReviewStatus(id: string, status: ReviewStatus) {
   const updatedAt = new Date().toISOString();
   if (hasSupabaseStorage()) {
-    await supabaseRequest(`?id=eq.${encodeURIComponent(id)}`, { method: "PATCH", headers: { Prefer: "return=minimal" }, body: JSON.stringify({ status, updated_at: updatedAt }) });
+    await supabaseRequest(`?id=eq.${encodeURIComponent(id)}`, "update-status", { method: "PATCH", headers: { Prefer: "return=minimal" }, body: JSON.stringify({ status, updated_at: updatedAt }) });
     return;
   }
   if (canUseLocalStorage()) {
@@ -190,7 +235,7 @@ export async function setReviewStatus(id: string, status: ReviewStatus) {
 
 export async function deleteReview(id: string) {
   if (hasSupabaseStorage()) {
-    await supabaseRequest(`?id=eq.${encodeURIComponent(id)}`, { method: "DELETE", headers: { Prefer: "return=minimal" } });
+    await supabaseRequest(`?id=eq.${encodeURIComponent(id)}`, "delete", { method: "DELETE", headers: { Prefer: "return=minimal" } });
     return;
   }
   if (canUseLocalStorage()) {

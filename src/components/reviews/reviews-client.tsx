@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, type FormEvent } from "react";
+import { useMemo, useRef, useState, type FormEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { CarFront, Check, LockKeyhole, PenLine, ShieldCheck, Star, UserRound } from "lucide-react";
@@ -27,6 +27,7 @@ export function ReviewsClient({ copy, initialReviews, locale }: ReviewsClientPro
   const [reviewLength, setReviewLength] = useState(0);
   const [submission, setSubmission] = useState<SubmissionState>("idle");
   const [message, setMessage] = useState("");
+  const submittingRef = useRef(false);
   const visibleReviews = useMemo(() => expanded ? initialReviews : initialReviews.slice(0, 3), [expanded, initialReviews]);
   const averageRating = useMemo(() => {
     const approvedReviews = initialReviews.filter((review) => review.status === "approved");
@@ -37,23 +38,31 @@ export function ReviewsClient({ copy, initialReviews, locale }: ReviewsClientPro
 
   async function submitReview(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (submittingRef.current) return;
+    submittingRef.current = true;
     const form = event.currentTarget;
     const data = new FormData(form);
     setSubmission("sending");
     setMessage("");
+    let succeeded = false;
 
     try {
       const response = await fetch("/api/reviews", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ locale, name: data.get("name"), rating, service: data.get("service"), text: data.get("review"), consent: data.get("consent") === "on", website: data.get("website") }) });
-      const result = await response.json() as { ok?: boolean; error?: string };
-      if (!response.ok || !result.ok) throw new Error(result.error || "SERVER_ERROR");
+      const result = response.headers.get("content-type")?.includes("application/json")
+        ? await response.json() as { success?: boolean; status?: string; error?: string }
+        : null;
+      if (response.status !== 201 || !result?.success || result.status !== "pending") throw new Error(result?.error || "SERVER_ERROR");
       form.reset();
       setRating(0);
       setReviewLength(0);
       setSubmission("success");
       setMessage(copy.success);
+      succeeded = true;
     } catch (error) {
       setSubmission("error");
       setMessage(errorMessage(copy, error instanceof Error ? error.message : undefined));
+    } finally {
+      if (!succeeded) submittingRef.current = false;
     }
   }
 
@@ -123,7 +132,7 @@ export function ReviewsClient({ copy, initialReviews, locale }: ReviewsClientPro
               <label className="relative"><PenLine className="pointer-events-none absolute left-4 top-4 size-5 text-white/55" aria-hidden="true" /><span className="sr-only">{copy.review}</span><textarea required name="review" maxLength={1000} rows={5} onChange={(event) => setReviewLength(event.target.value.length)} placeholder={`${copy.review} *`} className="min-h-32 w-full resize-y rounded-[3px] border border-white/24 bg-black/55 py-4 pl-12 pr-4 text-sm leading-6 text-white outline-none transition placeholder:text-white/45 focus:border-redline" /><span className="pointer-events-none absolute bottom-3 right-4 text-xs text-white/42">{reviewLength} / 1000</span></label>
               <label className="hidden" aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off" /></label>
               <label className="flex items-start gap-3 text-sm leading-5 text-white/62"><input required type="checkbox" name="consent" className="mt-0.5 size-5 shrink-0 accent-[#d60000]" /><span>{copy.consent} <Link className="text-redline underline-offset-4 hover:underline" href={`/${locale}/privacy`}>{copy.privacy}</Link> *</span></label>
-              <div><button disabled={submission === "sending"} type="submit" className="min-h-12 min-w-[14rem] border border-redline bg-[linear-gradient(135deg,#d60000,#850000)] px-7 text-xs font-semibold uppercase tracking-[0.07em] text-white transition hover:bg-redline disabled:cursor-wait disabled:opacity-65">{submission === "sending" ? copy.sending : copy.submit}</button></div>
+              <div><button disabled={submission === "sending" || submission === "success"} type="submit" className="min-h-12 min-w-[14rem] border border-redline bg-[linear-gradient(135deg,#d60000,#850000)] px-7 text-xs font-semibold uppercase tracking-[0.07em] text-white transition hover:bg-redline disabled:cursor-wait disabled:opacity-65">{submission === "sending" ? copy.sending : copy.submit}</button></div>
               {message ? <p role="status" className={`text-sm ${submission === "success" ? "text-emerald-400" : "text-red-400"}`}>{message}</p> : null}
               <p className="flex items-center gap-2 text-xs leading-5 text-white/46"><LockKeyhole className="size-4 shrink-0" strokeWidth={1.5} aria-hidden="true" />{copy.moderation}</p>
             </form>

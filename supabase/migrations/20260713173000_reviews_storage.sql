@@ -7,7 +7,7 @@ create table if not exists public.reviews (
   service varchar(120),
   review_text varchar(1000) not null,
   locale varchar(2) not null,
-  status varchar(10) not null default 'pending' check (status in ('pending','approved','rejected')),
+  status varchar(10) not null default 'pending' check (status in ('pending', 'approved', 'rejected')),
   ip_hash char(64) not null,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
@@ -17,11 +17,13 @@ alter table public.reviews alter column service drop not null;
 alter table public.reviews alter column status set default 'pending';
 alter table public.reviews drop constraint if exists reviews_locale_check;
 alter table public.reviews add constraint reviews_locale_check check (
-  locale in ('es','en','ru','uk','de','fr','pl','ro','nl','it','nb','fi','da','sv','sk','hu','bg','pt','el','cs')
+  locale in ('es', 'en', 'ru', 'uk', 'de', 'fr', 'pl', 'ro', 'nl', 'it', 'nb', 'fi', 'da', 'sv', 'sk', 'hu', 'bg', 'pt', 'el', 'cs')
 );
 
-create index if not exists reviews_public_idx on public.reviews (locale, status, created_at desc);
-create index if not exists reviews_rate_limit_idx on public.reviews (ip_hash, created_at desc);
+create index if not exists reviews_public_idx
+  on public.reviews (locale, status, created_at desc);
+create index if not exists reviews_rate_limit_idx
+  on public.reviews (ip_hash, created_at desc);
 
 alter table public.reviews enable row level security;
 
