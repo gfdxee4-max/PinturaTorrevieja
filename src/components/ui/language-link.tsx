@@ -1,8 +1,20 @@
+"use client";
+
 import Link from "next/link";
 import type { ComponentProps } from "react";
+import { locales, type Locale } from "@/config/i18n";
 
-type LanguageLinkProps = ComponentProps<typeof Link>;
+type LanguageLinkProps = ComponentProps<typeof Link> & { targetLocale: Locale };
 
-export function LanguageLink(props: LanguageLinkProps) {
-  return <Link {...props} />;
+export function LanguageLink({ targetLocale, onClick, ...props }: LanguageLinkProps) {
+  return <Link {...props} onClick={(event) => {
+    onClick?.(event);
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const segments = window.location.pathname.split("/");
+    if (!locales.includes(segments[1] as Locale)) return;
+    event.preventDefault();
+    segments[1] = targetLocale;
+    document.cookie = `pt_locale=${targetLocale}; path=/; max-age=31536000; samesite=lax`;
+    window.location.assign(`${segments.join("/")}${window.location.search}${window.location.hash}`);
+  }} />;
 }

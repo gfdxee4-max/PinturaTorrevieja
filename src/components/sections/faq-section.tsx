@@ -3,22 +3,10 @@ import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { getFaqItems } from "@/config/faq";
 import type { Locale } from "@/config/i18n";
+import { interfaceTranslations } from "@/config/interface-i18n";
 
 type FaqSectionProps = {
   locale: Locale;
-};
-
-const headings: Record<Locale, string> = {
-  es: "Preguntas frecuentes",
-  en: "Frequently asked questions",
-  ru: "Частые вопросы",
-  uk: "Часті запитання",
-  de: "Häufige Fragen",
-  fr: "Questions fréquentes",
-  pl: "Najczęstsze pytania",
-  ro: "Întrebări frecvente",
-  nl: "Veelgestelde vragen",
-  it: "Domande frequenti",
 };
 
 export function FaqSection({ locale }: FaqSectionProps) {
@@ -30,7 +18,7 @@ export function FaqSection({ locale }: FaqSectionProps) {
         <div className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-redline">FAQ</p>
           <h2 className="silver-text mt-4 text-3xl font-semibold uppercase leading-tight sm:text-5xl">
-            {headings[locale]}
+            {interfaceTranslations[locale].faqHeading}
           </h2>
         </div>
         <div className="mt-9 grid gap-3 lg:grid-cols-2">

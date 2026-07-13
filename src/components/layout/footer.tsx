@@ -3,16 +3,19 @@ import { Award, Car, Gauge, Medal, ThumbsUp } from "lucide-react";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { Container } from "@/components/ui/container";
 import { footerHubLinks } from "@/config/architecture";
-import type { Dictionary } from "@/config/i18n";
+import type { Dictionary, Locale } from "@/config/i18n";
+import { interfaceTranslations } from "@/config/interface-i18n";
 
 type FooterProps = {
   dictionary: Dictionary;
+  locale: Locale;
   whatsappUrl: string;
 };
 
 const icons = [Gauge, Medal, Car, Award, ThumbsUp] as const;
 
-export function Footer({ dictionary, whatsappUrl }: FooterProps) {
+export function Footer({ dictionary, locale, whatsappUrl }: FooterProps) {
+  const ui = interfaceTranslations[locale];
   return (
     <footer className="bg-[#050505]">
       <Container>
@@ -36,14 +39,14 @@ export function Footer({ dictionary, whatsappUrl }: FooterProps) {
 
         <div className="flex flex-col gap-7 py-9 text-sm text-white/55 lg:flex-row lg:items-center lg:justify-between">
           <BrandLogo className="h-[4.25rem] w-[13rem]" />
-          <nav className="flex flex-wrap gap-x-5 gap-y-3" aria-label="Secciones del sitio">
-            {footerHubLinks.map((item) => (
+          <nav className="flex flex-wrap gap-x-5 gap-y-3" aria-label={ui.footerNavigation}>
+            {footerHubLinks.map((item, index) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className="font-medium text-white/52 transition hover:text-white"
               >
-                {item.label}
+                {ui.footerLinks[index]}
               </Link>
             ))}
           </nav>

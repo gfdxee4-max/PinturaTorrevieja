@@ -1,11 +1,12 @@
 import type { Locale } from "@/config/i18n";
+import { additionalFaqItems } from "@/config/additional-faq";
 
 type FaqItem = {
   question: string;
   answer: string;
 };
 
-const faqItems: Record<Locale, FaqItem[]> = {
+const faqItems: Record<Locale, readonly FaqItem[]> = {
   es: [
     {
       question: "¿Cómo puedo recibir una estimación previa?",
@@ -13,7 +14,7 @@ const faqItems: Record<Locale, FaqItem[]> = {
     },
     {
       question: "¿Qué servicios realiza PINTURA TORREVIEJA?",
-      answer: "Realizamos pintura de vehículos, reparación de carrocería, pulido de carrocería, pulido de faros e igualación de color.",
+      answer: "Realizamos pintura de vehículos, preparación de superficies y reparación de daños de carrocería.",
     },
     {
       question: "¿Trabajáis con vehículos en Torrevieja?",
@@ -27,7 +28,7 @@ const faqItems: Record<Locale, FaqItem[]> = {
     },
     {
       question: "What services does PINTURA TORREVIEJA provide?",
-      answer: "We provide vehicle painting, body repair, body polishing, headlight polishing and color matching.",
+      answer: "We provide vehicle painting, surface preparation and repair of bodywork damage.",
     },
     {
       question: "Do you work with vehicles in Torrevieja?",
@@ -41,7 +42,7 @@ const faqItems: Record<Locale, FaqItem[]> = {
     },
     {
       question: "Какие услуги выполняет PINTURA TORREVIEJA?",
-      answer: "Мы выполняем покраску автомобилей, кузовной ремонт, полировку кузова, полировку фар и подбор цвета.",
+      answer: "Мы выполняем покраску автомобилей, подготовку поверхности и ремонт повреждений кузова.",
     },
     {
       question: "Вы работаете с автомобилями в Торревьехе?",
@@ -55,7 +56,7 @@ const faqItems: Record<Locale, FaqItem[]> = {
     },
     {
       question: "Які послуги виконує PINTURA TORREVIEJA?",
-      answer: "Ми виконуємо фарбування автомобілів, кузовний ремонт, полірування кузова, полірування фар і підбір кольору.",
+      answer: "Ми виконуємо фарбування автомобілів, підготовку поверхні та ремонт пошкоджень кузова.",
     },
     {
       question: "Ви працюєте з автомобілями в Торрев'єсі?",
@@ -69,7 +70,7 @@ const faqItems: Record<Locale, FaqItem[]> = {
     },
     {
       question: "Welche Leistungen bietet PINTURA TORREVIEJA an?",
-      answer: "Wir bieten Fahrzeuglackierung, Karosseriereparatur, Karosseriepolitur, Scheinwerferpolitur und Farbabgleich an.",
+      answer: "Wir bieten Fahrzeuglackierung, Oberflächenvorbereitung und Reparatur von Karosserieschäden an.",
     },
     {
       question: "Arbeiten Sie mit Fahrzeugen in Torrevieja?",
@@ -83,7 +84,7 @@ const faqItems: Record<Locale, FaqItem[]> = {
     },
     {
       question: "Quels services propose PINTURA TORREVIEJA ?",
-      answer: "Nous proposons peinture automobile, réparation carrosserie, polissage carrosserie, polissage des phares et correspondance couleur.",
+      answer: "Nous proposons la peinture automobile, la préparation des surfaces et la réparation des dommages de carrosserie.",
     },
     {
       question: "Travaillez-vous avec des véhicules à Torrevieja ?",
@@ -97,25 +98,11 @@ const faqItems: Record<Locale, FaqItem[]> = {
     },
     {
       question: "Jakie usługi wykonuje PINTURA TORREVIEJA?",
-      answer: "Wykonujemy lakierowanie pojazdów, naprawę karoserii, polerowanie karoserii, polerowanie reflektorów i dobór koloru.",
+      answer: "Wykonujemy lakierowanie pojazdów, przygotowanie powierzchni i naprawę uszkodzeń karoserii.",
     },
     {
       question: "Czy obsługujecie samochody w Torrevieja?",
       answer: "Tak, przyjmujemy zapytania dotyczące lakierowania i naprawy karoserii pojazdów w Torrevieja.",
-    },
-  ],
-  ro: [
-    {
-      question: "Cum pot primi o evaluare inițială?",
-      answer: "Trimite fotografii cu vehiculul pe WhatsApp și îți oferim o orientare inițială pentru reparație.",
-    },
-    {
-      question: "Ce servicii oferă PINTURA TORREVIEJA?",
-      answer: "Oferim vopsire vehicule, reparații caroserie, polish caroserie, polish faruri și potrivire culoare.",
-    },
-    {
-      question: "Lucrați cu vehicule în Torrevieja?",
-      answer: "Da, preluăm solicitări pentru vopsire auto și reparații caroserie în Torrevieja.",
     },
   ],
   nl: [
@@ -125,7 +112,7 @@ const faqItems: Record<Locale, FaqItem[]> = {
     },
     {
       question: "Welke diensten biedt PINTURA TORREVIEJA?",
-      answer: "Wij bieden voertuig spuiten, carrosserieherstel, carrosserie polijsten, koplampen polijsten en kleurmatching.",
+      answer: "Wij verzorgen autospuitwerk, oppervlaktevoorbereiding en herstel van carrosserieschade.",
     },
     {
       question: "Werken jullie met voertuigen in Torrevieja?",
@@ -139,13 +126,14 @@ const faqItems: Record<Locale, FaqItem[]> = {
     },
     {
       question: "Quali servizi offre PINTURA TORREVIEJA?",
-      answer: "Offriamo verniciatura veicoli, riparazione carrozzeria, lucidatura carrozzeria, lucidatura fari e corrispondenza colore.",
+      answer: "Offriamo verniciatura auto, preparazione delle superfici e riparazione dei danni alla carrozzeria.",
     },
     {
       question: "Lavorate con veicoli a Torrevieja?",
       answer: "Sì, gestiamo richieste di verniciatura e carrozzeria per veicoli a Torrevieja.",
     },
   ],
+  ...additionalFaqItems,
 };
 
 export function getFaqItems(locale: Locale) {

@@ -1,4 +1,6 @@
-export const locales = ["es", "en", "ru", "uk", "de", "fr", "pl", "ro", "nl", "it"] as const;
+import { additionalDictionaries } from "@/config/additional-i18n";
+
+export const locales = ["es", "en", "ru", "uk", "de", "fr", "pl", "nl", "it", "nb", "fi", "da", "sv", "sk", "hu", "bg", "pt", "el", "cs"] as const;
 
 export type Locale = (typeof locales)[number];
 
@@ -13,9 +15,18 @@ export const languageNames: Record<Locale, string> = {
   de: "Deutsch",
   fr: "Français",
   pl: "Polski",
-  ro: "Română",
   nl: "Nederlands",
   it: "Italiano",
+  nb: "Norsk bokmål",
+  fi: "Suomi",
+  da: "Dansk",
+  sv: "Svenska",
+  sk: "Slovenčina",
+  hu: "Magyar",
+  bg: "Български",
+  pt: "Português",
+  el: "Ελληνικά",
+  cs: "Čeština",
 };
 
 export const shortLanguageNames: Record<Locale, string> = {
@@ -26,9 +37,18 @@ export const shortLanguageNames: Record<Locale, string> = {
   de: "DE",
   fr: "FR",
   pl: "PL",
-  ro: "RO",
   nl: "NL",
   it: "IT",
+  nb: "NO",
+  fi: "FI",
+  da: "DA",
+  sv: "SV",
+  sk: "SK",
+  hu: "HU",
+  bg: "BG",
+  pt: "PT",
+  el: "EL",
+  cs: "CS",
 };
 
 export function isLocale(value: string): value is Locale {
@@ -43,7 +63,7 @@ export const dictionaries = {
   es: {
     locale: "es_ES",
     title: "Pintura de coches en Torrevieja | Reparación y pintura de vehículos",
-    description: "Pintura de coches y reparación de carrocería en Torrevieja. Pintura completa, reparación de daños, pulido y acabados profesionales. Presupuesto por WhatsApp.",
+    description: "Pintura de coches y reparación de carrocería en Torrevieja. Preparación de superficies, reparación de daños y acabados profesionales. Presupuesto por WhatsApp.",
     nav: { home: "Inicio", services: "Servicios", booking: "Contacto" },
     hero: {
       eyebrow: "",
@@ -51,7 +71,7 @@ export const dictionaries = {
       headlineAccent: "reparación",
       headlineBottom: "de vehículos",
       headline: "Pintura y reparación de vehículos",
-      text: "Pintura completa, reparación de daños, pulido y acabados profesionales.",
+      text: "Pintura completa, reparación de daños y acabados profesionales.",
       primary: "Escribir en WhatsApp",
       secondary: "Servicios",
       tags: [],
@@ -77,7 +97,7 @@ export const dictionaries = {
   en: {
     locale: "en_GB",
     title: "Car Painting & Body Repair in Torrevieja | Pintura Torrevieja",
-    description: "Professional car painting, body repair, scratch repair, bumper painting and polishing in Torrevieja. Request a quick estimate via WhatsApp.",
+    description: "Professional car painting, body repair, scratch repair and bumper painting in Torrevieja. Request a quick estimate via WhatsApp.",
     nav: { home: "Home", services: "Services", booking: "Contact" },
     hero: {
       eyebrow: "",
@@ -85,7 +105,7 @@ export const dictionaries = {
       headlineAccent: "repair &",
       headlineBottom: "painting",
       headline: "Car body repair & painting",
-      text: "Professional vehicle painting, body repairs and polishing.",
+      text: "Professional vehicle painting, body repairs and careful surface preparation.",
       primary: "Write on WhatsApp",
       secondary: "Services",
       tags: [],
@@ -111,7 +131,7 @@ export const dictionaries = {
   ru: {
     locale: "ru_RU",
     title: "Автопокраска в Торревьехе | Покраска и ремонт автомобилей",
-    description: "Профессиональная автопокраска в Торревьехе: полная покраска автомобиля, ремонт повреждений, покраска бамперов и полировка. Оценка по фото в WhatsApp.",
+    description: "Профессиональная автопокраска в Торревьехе: полная покраска автомобиля, кузовной ремонт и покраска повреждённых деталей. Оценка по фото в WhatsApp.",
     nav: { home: "Главная", services: "Услуги", booking: "Контакты" },
     hero: {
       eyebrow: "",
@@ -119,7 +139,7 @@ export const dictionaries = {
       headlineAccent: "ремонт автомобилей",
       headlineBottom: "в Торревьехе",
       headline: "Автопокраска и ремонт автомобилей в Торревьехе",
-      text: "Профессиональная автопокраска, ремонт повреждений, покраска деталей и полировка автомобиля.",
+      text: "Профессиональная автопокраска, кузовной ремонт и покраска повреждённых деталей.",
       primary: "Написать в WhatsApp",
       secondary: "Услуги",
       tags: [],
@@ -145,7 +165,7 @@ export const dictionaries = {
   uk: {
     locale: "uk_UA",
     title: "Фарбування авто в Торрев’єсі | Ремонт і фарбування автомобілів",
-    description: "Професійне фарбування авто та кузовний ремонт у Торрев’єсі. Ремонт пошкоджень, фарбування деталей, полірування і попередня оцінка через WhatsApp.",
+    description: "Професійне фарбування авто та кузовний ремонт у Торрев’єсі. Ремонт пошкоджень, підготовка поверхні й фарбування деталей. Оцінка через WhatsApp.",
     nav: { home: "Головна", services: "Послуги", booking: "Контакти" },
     hero: {
       eyebrow: "",
@@ -153,7 +173,7 @@ export const dictionaries = {
       headlineAccent: "та ремонт",
       headlineBottom: "автомобілів",
       headline: "Фарбування та ремонт автомобілів",
-      text: "Професійне фарбування, ремонт пошкоджень та полірування автомобілів.",
+      text: "Професійне фарбування, кузовний ремонт і підготовка поверхні автомобіля.",
       primary: "Написати в WhatsApp",
       secondary: "Послуги",
       tags: [],
@@ -179,7 +199,7 @@ export const dictionaries = {
   de: {
     locale: "de_DE",
     title: "Autolackierung in Torrevieja | Fahrzeuglackierung und Reparatur",
-    description: "Professionelle Autolackierung und Karosseriereparatur in Torrevieja. Lackierung, Schadensreparatur, Stoßfänger-Lackierung und Politur. Einschätzung per WhatsApp.",
+    description: "Professionelle Autolackierung und Karosseriereparatur in Torrevieja. Schadensreparatur, Oberflächenvorbereitung und Lackierung. Einschätzung per WhatsApp.",
     nav: { home: "Start", services: "Leistungen", booking: "Kontakt" },
     hero: {
       eyebrow: "",
@@ -187,7 +207,7 @@ export const dictionaries = {
       headlineAccent: "&",
       headlineBottom: "Karosseriereparatur",
       headline: "Autolackierung & Karosseriereparatur",
-      text: "Professionelle Lackierung, Karosseriereparatur und Fahrzeugaufbereitung.",
+      text: "Professionelle Lackierung, Karosseriereparatur und sorgfältige Oberflächenvorbereitung.",
       primary: "Auf WhatsApp schreiben",
       secondary: "Leistungen",
       tags: [],
@@ -213,7 +233,7 @@ export const dictionaries = {
   fr: {
     locale: "fr_FR",
     title: "Peinture automobile à Torrevieja | Réparation et carrosserie",
-    description: "Peinture automobile et réparation de carrosserie à Torrevieja. Peinture complète, réparation des dommages, peinture de pare-chocs et polissage. Estimation via WhatsApp.",
+    description: "Peinture automobile et réparation de carrosserie à Torrevieja. Réparation des dommages, préparation des surfaces et peinture. Estimation via WhatsApp.",
     nav: { home: "Accueil", services: "Services", booking: "Contact" },
     hero: {
       eyebrow: "",
@@ -221,7 +241,7 @@ export const dictionaries = {
       headlineAccent: "carrosserie",
       headlineBottom: "automobile",
       headline: "Peinture et carrosserie automobile",
-      text: "Peinture professionnelle, réparation de carrosserie et polissage.",
+      text: "Peinture professionnelle, réparation de carrosserie et préparation soignée des surfaces.",
       primary: "Écrire sur WhatsApp",
       secondary: "Services",
       tags: [],
@@ -247,7 +267,7 @@ export const dictionaries = {
   pl: {
     locale: "pl_PL",
     title: "Lakierowanie samochodów w Torrevieja | Naprawa i lakierowanie",
-    description: "Profesjonalne lakierowanie samochodów i naprawa blacharska w Torrevieja. Naprawa uszkodzeń, lakierowanie zderzaków, polerowanie i wycena przez WhatsApp.",
+    description: "Profesjonalne lakierowanie samochodów i naprawa blacharska w Torrevieja. Naprawa uszkodzeń, przygotowanie powierzchni i lakierowanie. Wycena przez WhatsApp.",
     nav: { home: "Start", services: "Usługi", booking: "Kontakt" },
     hero: {
       eyebrow: "",
@@ -255,7 +275,7 @@ export const dictionaries = {
       headlineAccent: "i naprawa",
       headlineBottom: "blacharska",
       headline: "Lakierowanie i naprawa blacharska",
-      text: "Profesjonalne lakierowanie, naprawy blacharskie i polerowanie.",
+      text: "Profesjonalne lakierowanie, naprawy blacharskie i przygotowanie powierzchni.",
       primary: "Napisz na WhatsApp",
       secondary: "Usługi",
       tags: [],
@@ -278,44 +298,10 @@ export const dictionaries = {
     footerBenefits: [["Doświadczenie", "Precyzyjne podejście"], ["Materiały", "Profesjonalne marki"], ["Wyposażenie", "Nowoczesna kabina"], ["Kontrola", "Sprawdzenie efektu"], ["Terminy", "Auto w porządku"]],
     whatsapp: "Dzień dobry PINTURA TORREVIEJA. Chcę uzyskać wstępną ocenę mojego samochodu. Mogę wysłać zdjęcia do oszacowania kosztu naprawy.",
   },
-  ro: {
-    locale: "ro_RO",
-    title: "Vopsitorie auto în Torrevieja | Reparații și vopsire auto",
-    description: "Vopsitorie auto și reparații caroserie în Torrevieja. Vopsire completă, reparații daune, vopsire bare, polish auto și evaluare prin WhatsApp.",
-    nav: { home: "Acasă", services: "Servicii", booking: "Contact" },
-    hero: {
-      eyebrow: "",
-      headlineTop: "Vopsitorie",
-      headlineAccent: "și reparații",
-      headlineBottom: "caroserie",
-      headline: "Vopsitorie și reparații caroserie",
-      text: "Vopsire profesională, reparații caroserie și polish auto.",
-      primary: "Scrie pe WhatsApp",
-      secondary: "Servicii",
-      tags: [],
-      statLabel: "",
-      statValue: "",
-      imageAlt: "Vopsitorie auto profesională în cabină de vopsire",
-    },
-    estimate: {
-      eyebrow: "Evaluare inițială",
-      title: "Scrie-ne pentru o evaluare inițială",
-      text: "Trimite fotografii cu vehiculul pe WhatsApp, iar noi vom estima inițial costul reparației.",
-      cta: "Obține evaluare inițială",
-    },
-    booking: {
-      eyebrow: "Programare reparație",
-      title: "Programează reparația pe WhatsApp.",
-      text: "Spune-ne modelul, zona afectată și serviciul de care ai nevoie.",
-      cta: "Programează pe WhatsApp",
-    },
-    footerBenefits: [["Experiență", "Abordare precisă"], ["Materiale", "Branduri profesionale"], ["Echipament", "Cabină modernă"], ["Control", "Verificarea rezultatului"], ["Termene", "Mașina în ordine"]],
-    whatsapp: "Bună PINTURA TORREVIEJA. Vreau o evaluare inițială pentru vehiculul meu. Pot trimite fotografii pentru estimarea costului reparației.",
-  },
   nl: {
     locale: "nl_NL",
     title: "Auto spuiten in Torrevieja | Autoschade en lakwerk",
-    description: "Professioneel auto spuiten en autoschadeherstel in Torrevieja. Lakwerk, schadeherstel, bumper spuiten, polijsten en snelle beoordeling via WhatsApp.",
+    description: "Professioneel auto spuiten en autoschadeherstel in Torrevieja. Schadeherstel, oppervlaktevoorbereiding en lakwerk. Beoordeling via WhatsApp.",
     nav: { home: "Home", services: "Diensten", booking: "Contact" },
     hero: {
       eyebrow: "",
@@ -323,7 +309,7 @@ export const dictionaries = {
       headlineAccent: "&",
       headlineBottom: "schadeherstel",
       headline: "Autospuitwerk & schadeherstel",
-      text: "Professioneel spuitwerk, schadeherstel en polijsten.",
+      text: "Professioneel spuitwerk, schadeherstel en zorgvuldige oppervlaktevoorbereiding.",
       primary: "Schrijf op WhatsApp",
       secondary: "Diensten",
       tags: [],
@@ -349,7 +335,7 @@ export const dictionaries = {
   it: {
     locale: "it_IT",
     title: "Verniciatura auto a Torrevieja | Riparazione e carrozzeria",
-    description: "Verniciatura auto e riparazione carrozzeria a Torrevieja. Verniciatura completa, riparazione danni, paraurti, lucidatura e valutazione via WhatsApp.",
+    description: "Verniciatura auto e riparazione carrozzeria a Torrevieja. Riparazione danni, preparazione delle superfici e verniciatura. Valutazione via WhatsApp.",
     nav: { home: "Home", services: "Servizi", booking: "Contatti" },
     hero: {
       eyebrow: "",
@@ -357,7 +343,7 @@ export const dictionaries = {
       headlineAccent: "e verniciatura",
       headlineBottom: "auto",
       headline: "Carrozzeria e verniciatura auto",
-      text: "Verniciatura professionale, riparazione carrozzeria e lucidatura.",
+      text: "Verniciatura professionale, riparazione carrozzeria e preparazione accurata delle superfici.",
       primary: "Scrivi su WhatsApp",
       secondary: "Servizi",
       tags: [],
@@ -380,6 +366,7 @@ export const dictionaries = {
     footerBenefits: [["Esperienza", "Approccio preciso"], ["Materiali", "Marchi professionali"], ["Attrezzatura", "Cabina moderna"], ["Controllo", "Verifica del risultato"], ["Tempi", "Veicolo in ordine"]],
     whatsapp: "Ciao PINTURA TORREVIEJA. Vorrei una valutazione preliminare per il mio veicolo. Posso inviare foto per stimare il costo della riparazione.",
   },
+  ...additionalDictionaries,
 } as const;
 
 export type Dictionary = (typeof dictionaries)[Locale];

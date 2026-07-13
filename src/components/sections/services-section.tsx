@@ -15,7 +15,7 @@ export function ServicesSection({ locale }: { locale: Locale }) {
           <span className="mx-auto mt-4 block h-px w-40 bg-[linear-gradient(90deg,transparent,#d60000,transparent)]" />
           <h2 className="silver-text mt-7 text-[clamp(2rem,3.1vw,3.5rem)] font-medium uppercase leading-[1.08]">
             <span>{copy.titleBase} </span>
-            <span className="text-redline [-webkit-text-fill-color:#d60000]">{copy.titleAccent}</span>
+            <span className="text-redline [overflow-wrap:anywhere] [-webkit-text-fill-color:#d60000]">{copy.titleAccent}</span>
           </h2>
         </header>
 

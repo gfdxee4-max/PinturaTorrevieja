@@ -40,10 +40,6 @@ const heroContent: Record<string, { benefits: readonly string[]; headline: reado
     headline: ["Lakierowanie aut", "i naprawa blacharska"],
     benefits: ["Materiały premium", "Szybko i niezawodnie", "Gwarancja jakości"],
   },
-  ro_RO: {
-    headline: ["Vopsitorie auto", "și reparații caroserie"],
-    benefits: ["Materiale premium", "Rapid și fiabil", "Garanția calității"],
-  },
   nl_NL: {
     headline: ["Auto spuiten", "& schadeherstel"],
     benefits: ["Premium materialen", "Snel en betrouwbaar", "Kwaliteitsgarantie"],
@@ -52,6 +48,16 @@ const heroContent: Record<string, { benefits: readonly string[]; headline: reado
     headline: ["Verniciatura auto", "e carrozzeria"],
     benefits: ["Materiali premium", "Rapido e affidabile", "Garanzia di qualità"],
   },
+  nb_NO: { headline: ["Billakkering", "og karosserireparasjon"], benefits: ["Premium materialer", "Raskt og pålitelig", "Kvalitet i arbeidet"] },
+  fi_FI: { headline: ["Automaalaus", "ja korikorjaus"], benefits: ["Laadukkaat materiaalit", "Nopea ja luotettava", "Tarkastettu työnjälki"] },
+  da_DK: { headline: ["Autolakering", "og karrosserireparation"], benefits: ["Kvalitetsmaterialer", "Hurtigt og pålideligt", "Kontrolleret kvalitet"] },
+  sv_SE: { headline: ["Billackering", "och karossreparation"], benefits: ["Kvalitetsmaterial", "Snabbt och pålitligt", "Kontrollerat resultat"] },
+  sk_SK: { headline: ["Lakovanie áut", "a oprava karosérie"], benefits: ["Kvalitné materiály", "Rýchlo a spoľahlivo", "Kontrolovaný výsledok"] },
+  hu_HU: { headline: ["Autófényezés", "és karosszériajavítás"], benefits: ["Minőségi anyagok", "Gyors és megbízható", "Ellenőrzött eredmény"] },
+  bg_BG: { headline: ["Автобоядисване", "и ремонт на каросерия"], benefits: ["Качествени материали", "Бързо и надеждно", "Проверен резултат"] },
+  pt_PT: { headline: ["Pintura automóvel", "e reparação de carroçaria"], benefits: ["Materiais de qualidade", "Rápido e fiável", "Resultado verificado"] },
+  el_GR: { headline: ["Βαφή αυτοκινήτου", "και επισκευή αμαξώματος"], benefits: ["Ποιοτικά υλικά", "Γρήγορα και αξιόπιστα", "Ελεγμένο αποτέλεσμα"] },
+  cs_CZ: { headline: ["Lakování aut", "a oprava karoserie"], benefits: ["Kvalitní materiály", "Rychle a spolehlivě", "Zkontrolovaný výsledek"] },
 };
 
 export function HeroSection({ dictionary, whatsappUrl }: HeroSectionProps) {
@@ -78,8 +84,8 @@ export function HeroSection({ dictionary, whatsappUrl }: HeroSectionProps) {
       <Container className="relative z-10 flex min-h-[calc(100svh-5.25rem)] flex-col justify-center pb-8 pt-12 lg:min-h-[calc(100svh-6.5rem)] lg:pb-10 lg:pt-16">
         <div className="fade-up max-w-[58rem] lg:w-[62%]">
           <h1 className="silver-text text-[clamp(1.6rem,7.4vw,1.9rem)] font-extrabold uppercase leading-[1.02] tracking-normal drop-shadow-[0_4px_18px_rgba(0,0,0,0.8)] sm:text-[clamp(2.2rem,4.4vw,4.35rem)]">
-            <span className="block whitespace-nowrap">{content.headline[0]}</span>
-            <span className="block whitespace-nowrap">{content.headline[1]}</span>
+            <span className="block [overflow-wrap:anywhere] sm:whitespace-nowrap">{content.headline[0]}</span>
+            <span className="block [overflow-wrap:anywhere] sm:whitespace-nowrap">{content.headline[1]}</span>
           </h1>
 
           <div className="mt-6 flex max-w-[38rem] items-center gap-6 sm:mt-7">

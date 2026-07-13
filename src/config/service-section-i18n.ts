@@ -1,4 +1,5 @@
 import type { Locale } from "@/config/i18n";
+import { additionalServiceTranslations } from "@/config/additional-service-i18n";
 
 export type ServiceSectionCopy = {
   eyebrow: string;
@@ -102,19 +103,6 @@ export const serviceSectionTranslations: Record<Locale, ServiceSectionCopy> = {
     afterAlt: "To samo czarne Audi RS całkowicie odrestaurowane po lakierowaniu i naprawie blacharskiej",
     sliderLabel: "Porównaj samochód przed naprawą i po naprawie",
   },
-  ro: {
-    eyebrow: "Servicii",
-    titleBase: "Vopsitorie auto și",
-    titleAccent: "reparații caroserie",
-    paragraphs: [
-      "O vopsire de calitate nu ține doar de estetică, ci protejează și metalul împotriva coroziunii. Oferim vopsire auto profesională, folosind tehnologii moderne pentru un rezultat de calitate.",
-      "Folosim vopsele și materiale de calitate pentru a asigura durabilitatea stratului și intensitatea culorii.",
-      "Înainte de vopsire, pregătim cu atenție suprafața automobilului. Folosim scule și echipamente profesionale pentru a elimina rugina, zgârieturile și alte deteriorări. Aplicăm apoi chit și șlefuim suprafața până devine netedă și uniformă.",
-    ],
-    beforeAlt: "Audi RS negru cu partea frontală grav avariată înainte de reparația caroseriei",
-    afterAlt: "Același Audi RS negru complet restaurat după vopsire și repararea caroseriei",
-    sliderLabel: "Compară automobilul înainte și după reparație",
-  },
   nl: {
     eyebrow: "Diensten",
     titleBase: "Auto spuiten en",
@@ -141,4 +129,5 @@ export const serviceSectionTranslations: Record<Locale, ServiceSectionCopy> = {
     afterAlt: "La stessa Audi RS nera completamente restaurata dopo verniciatura e riparazione della carrozzeria",
     sliderLabel: "Confronta l’auto prima e dopo la riparazione",
   },
+  ...additionalServiceTranslations,
 };

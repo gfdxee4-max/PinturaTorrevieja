@@ -1,4 +1,5 @@
 import type { Locale } from "@/config/i18n";
+import { additionalReviewTranslations } from "@/config/additional-review-i18n";
 
 export type ReviewCopy = {
   title: string;
@@ -60,11 +61,6 @@ export const reviewTranslations: Record<Locale, ReviewCopy> = {
     formTitle: "Dodaj opinię", formIntro: "Twoja opinia jest dla nas ważna. Podziel się doświadczeniem i pomóż innym klientom dokonać wyboru.", name: "Twoje imię", rating: "Ocena", service: "Usługa / Samochód", optional: "opcjonalnie", review: "Twoja opinia", consent: "Akceptuję", privacy: "politykę prywatności", submit: "Wyślij opinię", sending: "Wysyłanie...", moderation: "Twoja opinia trafi do moderacji i zostanie opublikowana po sprawdzeniu.", success: "Dziękujemy! Twoja opinia została wysłana do moderacji.", trustTitle: "Dlaczego klienci nam ufają", trustItems: ["Profesjonalne materiały", "Dbałość o szczegóły", "Profesjonalne podejście"],
     errors: { invalid: "Sprawdź wymagane pola.", html: "Kod HTML i skrypty są zabronione.", rate: "Zbyt wiele prób. Spróbuj później.", storage: "Serwis opinii jest chwilowo niedostępny.", server: "Nie udało się wysłać opinii." },
   },
-  ro: {
-    title: "Recenzii clienți", intro: "Recenzii reale despre munca și calitatea serviciilor noastre", showAll: "Vezi toate recenziile", showLess: "Arată mai puțin", empty: "Recenziile verificate vor apărea aici după aprobare.",
-    formTitle: "Lasă o recenzie", formIntro: "Părerea ta contează. Împărtășește experiența pentru a-i ajuta pe alți clienți să aleagă.", name: "Numele tău", rating: "Evaluare", service: "Serviciu / Automobil", optional: "opțional", review: "Recenzia ta", consent: "Sunt de acord cu", privacy: "politica de confidențialitate", submit: "Trimite recenzia", sending: "Se trimite...", moderation: "Recenzia este trimisă la moderare și va fi publicată după verificare.", success: "Mulțumim! Recenzia a fost trimisă la moderare.", trustTitle: "De ce au încredere în noi", trustItems: ["Materiale profesionale", "Atenție la detalii", "Abordare profesională"],
-    errors: { invalid: "Verifică câmpurile obligatorii.", html: "HTML și codul nu sunt permise.", rate: "Prea multe încercări. Încearcă mai târziu.", storage: "Serviciul de recenzii este temporar indisponibil.", server: "Recenzia nu a putut fi trimisă." },
-  },
   nl: {
     title: "Klantbeoordelingen", intro: "Echte beoordelingen over ons werk en onze servicekwaliteit", showAll: "Alle beoordelingen bekijken", showLess: "Minder tonen", empty: "Geverifieerde beoordelingen verschijnen hier na goedkeuring.",
     formTitle: "Beoordeling plaatsen", formIntro: "Uw mening is belangrijk. Deel uw ervaring en help andere klanten een keuze te maken.", name: "Uw naam", rating: "Beoordeling", service: "Dienst / Auto", optional: "optioneel", review: "Uw beoordeling", consent: "Ik ga akkoord met het", privacy: "privacybeleid", submit: "Beoordeling versturen", sending: "Versturen...", moderation: "Uw beoordeling wordt gemodereerd en na controle gepubliceerd.", success: "Bedankt! Uw beoordeling is ter moderatie verzonden.", trustTitle: "Waarom klanten ons vertrouwen", trustItems: ["Professionele materialen", "Aandacht voor detail", "Professionele aanpak"],
@@ -75,4 +71,5 @@ export const reviewTranslations: Record<Locale, ReviewCopy> = {
     formTitle: "Lascia una recensione", formIntro: "La tua opinione è importante. Condividi l’esperienza per aiutare altri clienti a scegliere.", name: "Il tuo nome", rating: "Valutazione", service: "Servizio / Auto", optional: "facoltativo", review: "La tua recensione", consent: "Accetto la", privacy: "politica sulla privacy", submit: "Invia recensione", sending: "Invio...", moderation: "La recensione viene moderata e sarà pubblicata dopo la verifica.", success: "Grazie! La recensione è stata inviata alla moderazione.", trustTitle: "Perché i clienti si fidano", trustItems: ["Materiali professionali", "Attenzione ai dettagli", "Approccio professionale"],
     errors: { invalid: "Controlla i campi obbligatori.", html: "HTML e codice non sono consentiti.", rate: "Troppi tentativi. Riprova più tardi.", storage: "Il servizio recensioni non è disponibile.", server: "Impossibile inviare la recensione." },
   },
+  ...additionalReviewTranslations,
 };

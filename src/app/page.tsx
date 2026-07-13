@@ -16,7 +16,7 @@ function detectLocale(acceptLanguage: string | null): Locale {
     .filter(Boolean);
 
   for (const candidate of candidates) {
-    const primary = candidate.split("-")[0];
+    const primary = candidate.split("-")[0] === "no" ? "nb" : candidate.split("-")[0];
 
     if (isLocale(primary)) {
       return primary;

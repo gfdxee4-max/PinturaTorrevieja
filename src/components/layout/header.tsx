@@ -11,6 +11,7 @@ import {
   localizedPath,
   shortLanguageNames,
 } from "@/config/i18n";
+import { interfaceTranslations } from "@/config/interface-i18n";
 
 type HeaderProps = {
   dictionary: Dictionary;
@@ -18,6 +19,7 @@ type HeaderProps = {
 };
 
 export function Header({ dictionary, locale }: HeaderProps) {
+  const ui = interfaceTranslations[locale];
   const homePath = localizedPath(locale);
   const navItems = [
     { label: dictionary.nav.home, href: homePath },
@@ -30,7 +32,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
       <Container className="flex h-[5.25rem] items-center justify-between gap-2 px-4 sm:px-8 lg:h-[6.5rem] lg:px-12 xl:px-16">
         <BrandLogo href={homePath} priority className="h-[3.2rem] w-[9.25rem] sm:w-[13rem] lg:h-[5rem] lg:w-[17rem]" />
 
-        <nav aria-label="Navegacion principal" className="hidden min-w-0 items-center gap-8 lg:flex xl:gap-12">
+        <nav aria-label={ui.mainNavigation} className="hidden min-w-0 items-center gap-8 lg:flex xl:gap-12">
           {navItems.map((item, index) => (
             <Link
               key={item.href}
@@ -55,13 +57,14 @@ export function Header({ dictionary, locale }: HeaderProps) {
               <ChevronDown className="size-3.5 text-white/55 transition group-open:rotate-180" aria-hidden="true" />
             </summary>
             <nav
-              aria-label="Language"
-              className="absolute right-0 top-[calc(100%+0.6rem)] z-[60] grid w-56 overflow-hidden border border-white/16 bg-black/[0.98] p-1 shadow-soft backdrop-blur-xl"
+              aria-label={ui.languageMenu}
+              className="absolute right-0 top-[calc(100%+0.6rem)] z-[60] grid max-h-[min(70vh,32rem)] w-56 overflow-y-auto border border-white/16 bg-black/[0.98] p-1 shadow-soft backdrop-blur-xl"
             >
               {locales.map((item) => (
                 <LanguageLink
                   key={item}
                   href={localizedPath(item)}
+                  targetLocale={item}
                   hrefLang={item}
                   aria-current={item === locale ? "page" : undefined}
                   className="flex items-center justify-between px-3 py-3 text-xs font-semibold text-white/66 transition hover:bg-white/[0.07] hover:text-white aria-[current=page]:bg-redline/15 aria-[current=page]:text-white"
@@ -78,12 +81,12 @@ export function Header({ dictionary, locale }: HeaderProps) {
           <details className="group relative lg:hidden">
             <summary
               className="flex size-10 cursor-pointer list-none items-center justify-center border border-white/20 bg-black/60 text-white outline-none transition hover:border-white/45 sm:size-11 [&::-webkit-details-marker]:hidden"
-              aria-label="Menu"
+              aria-label={ui.menu}
             >
               <Menu className="size-5" aria-hidden="true" />
             </summary>
             <nav
-              aria-label="Navegacion principal"
+              aria-label={ui.mainNavigation}
               className="absolute right-0 top-[calc(100%+0.6rem)] z-[60] grid w-56 border border-white/16 bg-black/[0.98] p-2 shadow-soft"
             >
               {navItems.map((item, index) => (

@@ -6,13 +6,11 @@ import Link from "next/link";
 import { CarFront, Check, LockKeyhole, PenLine, ShieldCheck, Star, UserRound } from "lucide-react";
 import type { Locale } from "@/config/i18n";
 import type { ReviewCopy } from "@/config/review-i18n";
+import { interfaceTranslations } from "@/config/interface-i18n";
 import type { ReviewRecord } from "@/lib/reviews/types";
 
 type ReviewsClientProps = { copy: ReviewCopy; initialReviews: ReviewRecord[]; locale: Locale };
 type SubmissionState = "idle" | "sending" | "success" | "error";
-
-const dateLocales: Record<Locale, string> = { es: "es-ES", en: "en-GB", ru: "ru-RU", uk: "uk-UA", de: "de-DE", fr: "fr-FR", pl: "pl-PL", ro: "ro-RO", nl: "nl-NL", it: "it-IT" };
-const ratingSuffixes: Record<Locale, string> = { es: "de 5", en: "out of 5", ru: "из 5", uk: "із 5", de: "von 5", fr: "sur 5", pl: "na 5", ro: "din 5", nl: "van 5", it: "su 5" };
 
 function errorMessage(copy: ReviewCopy, code?: string) {
   if (code === "INVALID_INPUT") return copy.errors.invalid;
@@ -23,6 +21,7 @@ function errorMessage(copy: ReviewCopy, code?: string) {
 }
 
 export function ReviewsClient({ copy, initialReviews, locale }: ReviewsClientProps) {
+  const ui = interfaceTranslations[locale];
   const [expanded, setExpanded] = useState(false);
   const [rating, setRating] = useState(0);
   const [reviewLength, setReviewLength] = useState(0);
@@ -34,7 +33,7 @@ export function ReviewsClient({ copy, initialReviews, locale }: ReviewsClientPro
     if (!approvedReviews.length) return null;
     return approvedReviews.reduce((total, review) => total + review.rating, 0) / approvedReviews.length;
   }, [initialReviews]);
-  const formattedRating = averageRating === null ? "" : new Intl.NumberFormat(dateLocales[locale], { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(averageRating);
+  const formattedRating = averageRating === null ? "" : new Intl.NumberFormat(ui.dateLocale, { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(averageRating);
 
   async function submitReview(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -62,14 +61,14 @@ export function ReviewsClient({ copy, initialReviews, locale }: ReviewsClientPro
     <section id="reviews" className="scroll-mt-24 border-b border-white/[0.08] bg-[#030303]">
       <div className="mx-auto max-w-[90rem] px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
         <header className="mx-auto max-w-3xl text-center">
-          <h2 className="silver-text text-3xl font-semibold uppercase sm:text-4xl">{copy.title}</h2>
+          <h2 className="silver-text text-3xl font-semibold uppercase [overflow-wrap:anywhere] sm:text-4xl">{copy.title}</h2>
           <p className="mt-3 text-sm leading-6 text-white/64 sm:text-base">{copy.intro}</p>
         </header>
 
         {averageRating !== null ? (
           <div className="relative mx-auto mt-6 flex w-fit items-center gap-5 overflow-hidden rounded-[5px] border border-white/20 bg-[#090909]/95 px-6 py-4">
             <span className="absolute inset-y-0 left-0 w-0.5 bg-redline" aria-hidden="true" />
-            <div className="flex gap-1" aria-label={`${formattedRating} ${ratingSuffixes[locale]}`}>
+            <div className="flex gap-1" aria-label={`${formattedRating} ${ui.ratingOutOfFive}`}>
               {Array.from({ length: 5 }, (_, index) => {
                 const fill = Math.max(0, Math.min(100, (averageRating - index) * 100));
                 return (
@@ -84,7 +83,7 @@ export function ReviewsClient({ copy, initialReviews, locale }: ReviewsClientPro
             </div>
             <div className="flex items-baseline gap-2 whitespace-nowrap">
               <strong className="silver-text text-3xl font-semibold leading-none">{formattedRating}</strong>
-              <span className="text-xs text-white/52">{ratingSuffixes[locale]}</span>
+              <span className="text-xs text-white/52">{ui.ratingOutOfFive}</span>
             </div>
           </div>
         ) : null}
@@ -96,7 +95,7 @@ export function ReviewsClient({ copy, initialReviews, locale }: ReviewsClientPro
                 <div className="grid grid-cols-[3.5rem_1fr_auto] items-start gap-4">
                   <div className="flex size-14 items-center justify-center rounded-full border border-white/25 text-white/85"><UserRound className="size-8" strokeWidth={1.4} aria-hidden="true" /></div>
                   <div><h3 className="text-lg font-semibold text-white">{review.name}</h3><div className="mt-1 flex gap-1" aria-label={`${review.rating}/5`}>{Array.from({ length: 5 }, (_, index) => <Star key={index} className={`size-5 ${index < review.rating ? "fill-redline text-redline" : "text-white/22"}`} strokeWidth={1.5} aria-hidden="true" />)}</div></div>
-                  <time className="pt-1 text-xs text-white/48" dateTime={review.createdAt}>{new Intl.DateTimeFormat(dateLocales[locale]).format(new Date(review.createdAt))}</time>
+                  <time className="pt-1 text-xs text-white/48" dateTime={review.createdAt}>{new Intl.DateTimeFormat(ui.dateLocale).format(new Date(review.createdAt))}</time>
                 </div>
                 <p className="mt-5 flex-1 whitespace-pre-line text-sm leading-6 text-white/78">{review.text}</p>
                 {review.service ? <div className="mt-5 flex items-center gap-3 border-t border-white/[0.08] pt-4"><span className="flex size-9 items-center justify-center rounded-full border border-redline/55 text-redline"><CarFront className="size-5" strokeWidth={1.4} aria-hidden="true" /></span><span className="text-xs text-white/68">{review.service}</span></div> : null}

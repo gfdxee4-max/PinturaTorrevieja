@@ -9,6 +9,7 @@ import {
 } from "@/config/i18n";
 import { getFaqItems } from "@/config/faq";
 import { siteConfig } from "@/config/site";
+import { additionalSeoKeywords } from "@/config/additional-seo-keywords";
 
 export function getAbsoluteUrl(path: string) {
   return new URL(path, siteConfig.url).toString();
@@ -26,7 +27,7 @@ export function getAlternates(locale: Locale) {
   };
 }
 
-const seoKeywords: Record<Locale, string[]> = {
+const seoKeywords: Record<Locale, readonly string[]> = {
   es: [
     "pintura coche Torrevieja",
     "chapista Torrevieja",
@@ -58,10 +59,6 @@ const seoKeywords: Record<Locale, string[]> = {
     "lakiernik Torrevieja",
     "malowanie samochodu Torrevieja",
   ],
-  ro: [
-    "vopsitorie auto Torrevieja",
-    "reparații caroserie Torrevieja",
-  ],
   nl: [
     "autoschade herstel Torrevieja",
     "auto spuiten Torrevieja",
@@ -70,6 +67,7 @@ const seoKeywords: Record<Locale, string[]> = {
     "verniciatura auto Torrevieja",
     "carrozzeria Torrevieja",
   ],
+  ...additionalSeoKeywords,
 };
 
 export function getPageMetadata(locale: Locale): Metadata {
@@ -80,7 +78,7 @@ export function getPageMetadata(locale: Locale): Metadata {
   return {
     title: dictionary.title,
     description: dictionary.description,
-    keywords: seoKeywords[locale],
+    keywords: [...seoKeywords[locale]],
     alternates: getAlternates(locale),
     openGraph: {
       type: "website",
@@ -181,9 +179,8 @@ export function getLocalBusinessStructuredData() {
     "Pintura completa de vehículos",
     "Reparación de carrocería",
     "Reparación de daños",
-    "Pulido de carrocería",
-    "Pulido de faros",
-    "Igualación de color",
+    "Preparación de superficies",
+    "Pintura de elementos de carrocería",
   ];
 
   return {
