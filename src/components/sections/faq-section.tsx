@@ -16,7 +16,7 @@ export function FaqSection({ locale }: FaqSectionProps) {
     <Section id="faq" className="border-b border-white/[0.08] bg-[#080808]">
       <Container>
         <div className="max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-redline">FAQ</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#ed3333]">FAQ</p>
           <h2 className="silver-text mt-4 text-3xl font-semibold uppercase leading-tight sm:text-5xl">
             {interfaceTranslations[locale].faqHeading}
           </h2>
@@ -29,7 +29,7 @@ export function FaqSection({ locale }: FaqSectionProps) {
             >
               <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-5 px-5 py-4 text-left text-sm font-semibold leading-6 text-white outline-none sm:text-base [&::-webkit-details-marker]:hidden">
                 <span className="flex items-start gap-4">
-                  <span className="pt-0.5 text-xs font-medium tracking-[0.12em] text-redline">
+                  <span className="pt-0.5 text-xs font-medium tracking-[0.12em] text-[#ed3333]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   {item.question}

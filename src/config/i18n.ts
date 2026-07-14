@@ -1,8 +1,8 @@
 import { additionalDictionaries } from "@/config/additional-i18n";
+import { locales, type Locale } from "@/config/locales";
 
-export const locales = ["es", "en", "ru", "uk", "de", "fr", "pl", "nl", "it", "nb", "fi", "da", "sv", "sk", "hu", "bg", "pt", "el", "cs"] as const;
-
-export type Locale = (typeof locales)[number];
+export { locales };
+export type { Locale };
 
 export const defaultLocale: Locale = "es";
 export const fallbackLocale: Locale = "es";

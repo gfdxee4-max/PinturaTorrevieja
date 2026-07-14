@@ -11,7 +11,7 @@ export function ServicesSection({ locale }: { locale: Locale }) {
     <Section id="services" className="scroll-mt-24 border-b border-white/[0.08] bg-[#050505]">
       <Container>
         <header className="mx-auto mb-10 max-w-[84rem] text-center sm:mb-12">
-          <p className="text-xs font-semibold uppercase tracking-[0.38em] text-redline">{copy.eyebrow}</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.38em] text-[#ed3333]">{copy.eyebrow}</p>
           <span className="mx-auto mt-4 block h-px w-40 bg-[linear-gradient(90deg,transparent,#d60000,transparent)]" />
           <h2 className="silver-text mt-7 text-[clamp(2rem,3.1vw,3.5rem)] font-medium uppercase leading-[1.08]">
             <span>{copy.titleBase} </span>

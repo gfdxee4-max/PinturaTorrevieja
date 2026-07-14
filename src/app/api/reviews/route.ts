@@ -5,6 +5,50 @@ import { validateReviewPayload } from "@/lib/reviews/validation";
 
 export const runtime = "nodejs";
 
+const maxReviewBodyBytes = 16 * 1024;
+
+class PayloadTooLargeError extends Error {}
+
+async function readJsonBody(request: NextRequest): Promise<unknown> {
+  const contentLength = request.headers.get("content-length");
+  if (contentLength) {
+    const declaredBytes = Number(contentLength);
+    if (Number.isFinite(declaredBytes) && declaredBytes > maxReviewBodyBytes) {
+      throw new PayloadTooLargeError();
+    }
+  }
+
+  if (!request.body) throw new SyntaxError("Missing request body");
+
+  const reader = request.body.getReader();
+  const chunks: Uint8Array[] = [];
+  let totalBytes = 0;
+
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      totalBytes += value.byteLength;
+      if (totalBytes > maxReviewBodyBytes) {
+        await reader.cancel();
+        throw new PayloadTooLargeError();
+      }
+      chunks.push(value);
+    }
+  } finally {
+    reader.releaseLock();
+  }
+
+  const body = new Uint8Array(totalBytes);
+  let offset = 0;
+  for (const chunk of chunks) {
+    body.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
+
+  return JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(body));
+}
+
 function requestIp(request: NextRequest) {
   return request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || request.headers.get("x-real-ip") || "local";
 }
@@ -48,8 +92,11 @@ export async function POST(request: NextRequest) {
   try {
     let payload: unknown;
     try {
-      payload = await request.json();
-    } catch {
+      payload = await readJsonBody(request);
+    } catch (error) {
+      if (error instanceof PayloadTooLargeError) {
+        return json({ success: false, error: "PAYLOAD_TOO_LARGE" }, 413);
+      }
       return json({ success: false, error: "INVALID_INPUT" }, 400);
     }
 

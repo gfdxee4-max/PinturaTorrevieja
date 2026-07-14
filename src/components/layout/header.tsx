@@ -51,7 +51,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
 
         <div className="flex shrink-0 items-center gap-2">
           <details className="group relative">
-            <summary className="flex h-10 cursor-pointer list-none items-center gap-1.5 border border-white/20 bg-black/60 px-2 text-xs font-semibold uppercase tracking-[0.08em] text-white outline-none transition hover:border-white/45 sm:h-11 sm:gap-2 sm:px-4 [&::-webkit-details-marker]:hidden">
+            <summary className="flex h-11 cursor-pointer list-none items-center gap-1.5 border border-white/20 bg-black/60 px-2 text-xs font-semibold uppercase tracking-[0.08em] text-white outline-none transition hover:border-white/45 sm:gap-2 sm:px-4 [&::-webkit-details-marker]:hidden">
               <Globe2 className="hidden size-4 text-white/68 sm:block" aria-hidden="true" />
               <span>{shortLanguageNames[locale]}</span>
               <ChevronDown className="size-3.5 text-white/55 transition group-open:rotate-180" aria-hidden="true" />
@@ -80,7 +80,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
 
           <details className="group relative lg:hidden">
             <summary
-              className="flex size-10 cursor-pointer list-none items-center justify-center border border-white/20 bg-black/60 text-white outline-none transition hover:border-white/45 sm:size-11 [&::-webkit-details-marker]:hidden"
+              className="flex size-11 cursor-pointer list-none items-center justify-center border border-white/20 bg-black/60 text-white outline-none transition hover:border-white/45 [&::-webkit-details-marker]:hidden"
               aria-label={ui.menu}
             >
               <Menu className="size-5" aria-hidden="true" />
