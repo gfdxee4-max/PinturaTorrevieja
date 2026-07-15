@@ -11,6 +11,37 @@ export type ServiceSectionCopy = {
   sliderLabel: string;
 };
 
+export type ComparisonSectionCopy = {
+  titleStart: string;
+  titleMiddle: string;
+  titleEnd: string;
+  subtitle: string;
+  beforeLabel: string;
+  afterLabel: string;
+};
+
+export const comparisonSectionTranslations: Record<Locale, ComparisonSectionCopy> = {
+  es: { titleStart: "Antes", titleMiddle: "y después", titleEnd: "de la reparación", subtitle: "Mostramos claramente el resultado del trabajo", beforeLabel: "Antes de la reparación", afterLabel: "Después de la reparación" },
+  en: { titleStart: "Before", titleMiddle: "and after", titleEnd: "repair", subtitle: "See the result of the work at a glance", beforeLabel: "Before repair", afterLabel: "After repair" },
+  ru: { titleStart: "До", titleMiddle: "и после", titleEnd: "ремонта", subtitle: "Наглядно показываем результат работы", beforeLabel: "До ремонта", afterLabel: "После ремонта" },
+  uk: { titleStart: "До", titleMiddle: "і після", titleEnd: "ремонту", subtitle: "Наочно показуємо результат роботи", beforeLabel: "До ремонту", afterLabel: "Після ремонту" },
+  de: { titleStart: "Vor", titleMiddle: "und nach", titleEnd: "der Reparatur", subtitle: "Das Arbeitsergebnis auf einen Blick", beforeLabel: "Vor der Reparatur", afterLabel: "Nach der Reparatur" },
+  fr: { titleStart: "Avant", titleMiddle: "et après", titleEnd: "réparation", subtitle: "Le résultat du travail en un coup d'œil", beforeLabel: "Avant réparation", afterLabel: "Après réparation" },
+  pl: { titleStart: "Przed", titleMiddle: "i po", titleEnd: "naprawie", subtitle: "Wyraźnie pokazujemy efekt pracy", beforeLabel: "Przed naprawą", afterLabel: "Po naprawie" },
+  nl: { titleStart: "Voor", titleMiddle: "en na", titleEnd: "herstel", subtitle: "Het resultaat van het werk in één oogopslag", beforeLabel: "Voor herstel", afterLabel: "Na herstel" },
+  it: { titleStart: "Prima", titleMiddle: "e dopo", titleEnd: "la riparazione", subtitle: "Il risultato del lavoro in un solo sguardo", beforeLabel: "Prima della riparazione", afterLabel: "Dopo la riparazione" },
+  nb: { titleStart: "Før", titleMiddle: "og etter", titleEnd: "reparasjon", subtitle: "Se resultatet av arbeidet med én gang", beforeLabel: "Før reparasjon", afterLabel: "Etter reparasjon" },
+  fi: { titleStart: "Ennen", titleMiddle: "ja jälkeen", titleEnd: "korjauksen", subtitle: "Työn tulos selkeästi nähtävissä", beforeLabel: "Ennen korjausta", afterLabel: "Korjauksen jälkeen" },
+  da: { titleStart: "Før", titleMiddle: "og efter", titleEnd: "reparation", subtitle: "Se resultatet af arbejdet med det samme", beforeLabel: "Før reparation", afterLabel: "Efter reparation" },
+  sv: { titleStart: "Före", titleMiddle: "och efter", titleEnd: "reparation", subtitle: "Se resultatet av arbetet direkt", beforeLabel: "Före reparation", afterLabel: "Efter reparation" },
+  sk: { titleStart: "Pred", titleMiddle: "a po", titleEnd: "oprave", subtitle: "Výsledok práce prehľadne na jednom mieste", beforeLabel: "Pred opravou", afterLabel: "Po oprave" },
+  hu: { titleStart: "Javítás", titleMiddle: "előtt és", titleEnd: "után", subtitle: "A munka eredménye egyetlen pillantással", beforeLabel: "Javítás előtt", afterLabel: "Javítás után" },
+  bg: { titleStart: "Преди", titleMiddle: "и след", titleEnd: "ремонта", subtitle: "Показваме ясно резултата от работата", beforeLabel: "Преди ремонта", afterLabel: "След ремонта" },
+  pt: { titleStart: "Antes", titleMiddle: "e depois", titleEnd: "da reparação", subtitle: "O resultado do trabalho num só olhar", beforeLabel: "Antes da reparação", afterLabel: "Depois da reparação" },
+  el: { titleStart: "Πριν", titleMiddle: "και μετά", titleEnd: "την επισκευή", subtitle: "Το αποτέλεσμα της εργασίας με μια ματιά", beforeLabel: "Πριν από την επισκευή", afterLabel: "Μετά την επισκευή" },
+  cs: { titleStart: "Před", titleMiddle: "a po", titleEnd: "opravě", subtitle: "Výsledek práce přehledně na jednom místě", beforeLabel: "Před opravou", afterLabel: "Po opravě" },
+};
+
 export const serviceSectionTranslations: Record<Locale, ServiceSectionCopy> = {
   es: {
     eyebrow: "Servicios",
