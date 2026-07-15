@@ -13,7 +13,7 @@ const benefitIcons = [Award, Gauge, ShieldCheck] as const;
 
 const heroContent: Record<string, { benefits: readonly string[]; headline: readonly [string, string] }> = {
   es_ES: {
-    headline: ["Pintura y reparación", "de vehículos"],
+    headline: ["Chapa y pintura", "en Torrevieja"],
     benefits: ["Materiales premium", "Rápido y fiable", "Garantía de calidad"],
   },
   en_GB: {
@@ -45,7 +45,7 @@ const heroContent: Record<string, { benefits: readonly string[]; headline: reado
     benefits: ["Premium materialen", "Snel en betrouwbaar", "Kwaliteitsgarantie"],
   },
   it_IT: {
-    headline: ["Verniciatura auto", "e carrozzeria"],
+    headline: ["Carrozzeria e verniciatura", "auto a Torrevieja"],
     benefits: ["Materiali premium", "Rapido e affidabile", "Garanzia di qualità"],
   },
   nb_NO: { headline: ["Billakkering", "og karosserireparasjon"], benefits: ["Premium materialer", "Raskt og pålitelig", "Kvalitet i arbeidet"] },
@@ -85,6 +85,7 @@ export function HeroSection({ dictionary, whatsappUrl }: HeroSectionProps) {
         <div className="fade-up max-w-[58rem] lg:w-[62%]">
           <h1 className="silver-text text-[clamp(1.6rem,7.4vw,1.9rem)] font-extrabold uppercase leading-[1.02] tracking-normal drop-shadow-[0_4px_18px_rgba(0,0,0,0.8)] sm:text-[clamp(2.2rem,4.4vw,4.35rem)]">
             <span className="block [overflow-wrap:anywhere] sm:whitespace-nowrap">{content.headline[0]}</span>
+            {" "}
             <span className="block [overflow-wrap:anywhere] sm:whitespace-nowrap">{content.headline[1]}</span>
           </h1>
 

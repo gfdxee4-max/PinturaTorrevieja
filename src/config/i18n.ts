@@ -62,8 +62,8 @@ export function localizedPath(locale: Locale) {
 export const dictionaries = {
   es: {
     locale: "es_ES",
-    title: "Pintura de coches en Torrevieja | Reparación y pintura de vehículos",
-    description: "Pintura de coches y reparación de carrocería en Torrevieja. Preparación de superficies, reparación de daños y acabados profesionales. Presupuesto por WhatsApp.",
+    title: "Chapa y pintura en Torrevieja | PaintLab",
+    description: "Taller de chapa y pintura en Torrevieja. Reparación de carrocería, golpes, arañazos y pintura completa o por piezas. Solicita presupuesto por WhatsApp.",
     nav: { home: "Inicio", services: "Servicios", booking: "Contacto" },
     hero: {
       eyebrow: "",
@@ -71,7 +71,7 @@ export const dictionaries = {
       headlineAccent: "reparación",
       headlineBottom: "de vehículos",
       headline: "Pintura y reparación de vehículos",
-      text: "Pintura completa, reparación de daños y acabados profesionales.",
+      text: "Reparación de carrocería, golpes y arañazos, con pintura completa o por piezas.",
       primary: "Escribir en WhatsApp",
       secondary: "Servicios",
       tags: [],
@@ -334,8 +334,8 @@ export const dictionaries = {
   },
   it: {
     locale: "it_IT",
-    title: "Verniciatura auto a Torrevieja | Riparazione e carrozzeria",
-    description: "Verniciatura auto e riparazione carrozzeria a Torrevieja. Riparazione danni, preparazione delle superfici e verniciatura. Valutazione via WhatsApp.",
+    title: "Carrozzeria e verniciatura auto a Torrevieja | PaintLab",
+    description: "Carrozzeria e verniciatura auto a Torrevieja. Riparazione di danni, graffi e ammaccature, con verniciatura completa o dei singoli elementi. Preventivo via WhatsApp.",
     nav: { home: "Home", services: "Servizi", booking: "Contatti" },
     hero: {
       eyebrow: "",
