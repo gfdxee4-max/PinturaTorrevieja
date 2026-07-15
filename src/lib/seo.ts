@@ -170,7 +170,7 @@ export function getStructuredData(locale: Locale) {
 }
 
 export function getLocalBusinessStructuredData() {
-  const logoUrl = getAbsoluteUrl("/icon.svg");
+  const logoUrl = getAbsoluteUrl("/icon-512.png?v=20260715-210907");
   const imageUrl = getAbsoluteUrl("/images/og-image.webp");
   const businessId = `${siteConfig.url}/#autobodyshop`;
   const websiteId = `${siteConfig.url}/#website`;

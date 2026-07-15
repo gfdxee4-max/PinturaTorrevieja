@@ -6,6 +6,7 @@ import { siteConfig } from "@/config/site";
 import { getDefaultMetadata, getLocalBusinessStructuredData } from "@/lib/seo";
 
 const googleAnalyticsId = "G-P54KMBNC0Z";
+const iconVersion = "20260715-210907";
 const defaultMetadata = getDefaultMetadata();
 const localBusinessStructuredData = getLocalBusinessStructuredData();
 
@@ -18,12 +19,17 @@ export const metadata: Metadata = {
   publisher: siteConfig.name,
   icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: `/favicon.ico?v=${iconVersion}`, sizes: "any" },
+      { url: `/favicon-16x16.png?v=${iconVersion}`, sizes: "16x16", type: "image/png" },
+      { url: `/favicon-32x32.png?v=${iconVersion}`, sizes: "32x32", type: "image/png" },
+      { url: `/icon.png?v=${iconVersion}`, sizes: "512x512", type: "image/png" },
     ],
-    apple: "/apple-touch-icon.png",
+    shortcut: `/favicon.ico?v=${iconVersion}`,
+    apple: [
+      { url: `/apple-touch-icon.png?v=${iconVersion}`, sizes: "180x180", type: "image/png" },
+    ],
   },
-  manifest: "/manifest.webmanifest",
+  manifest: `/manifest.webmanifest?v=${iconVersion}`,
   robots: {
     index: true,
     follow: true,

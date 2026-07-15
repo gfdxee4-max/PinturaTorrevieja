@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/config/site";
 
+const iconVersion = "20260715-210907";
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: siteConfig.name,
@@ -13,13 +15,19 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#050505",
     icons: [
       {
-        src: "/favicon.ico",
-        sizes: "48x48",
-        type: "image/x-icon",
+        src: `/icon-192.png?v=${iconVersion}`,
+        sizes: "192x192",
+        type: "image/png",
         purpose: "any",
       },
       {
-        src: "/apple-touch-icon.png",
+        src: `/icon-512.png?v=${iconVersion}`,
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: `/icon-512.png?v=${iconVersion}`,
         sizes: "512x512",
         type: "image/png",
         purpose: "maskable",
