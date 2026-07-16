@@ -111,6 +111,12 @@ type SupabaseRow = {
   updated_at: string;
 };
 
+type NextFetchInit = RequestInit & {
+  next?: {
+    revalidate?: number;
+  };
+};
+
 function fromSupabase(row: SupabaseRow): StoredReview {
   return {
     id: row.id,
@@ -126,7 +132,7 @@ function fromSupabase(row: SupabaseRow): StoredReview {
   };
 }
 
-async function supabaseRequest<T>(query: string, operation: string, init?: RequestInit): Promise<T> {
+async function supabaseRequest<T>(query: string, operation: string, init?: NextFetchInit): Promise<T> {
   const url = process.env.SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!url || !key) throw new ReviewStorageNotConfiguredError(missingSupabaseConfiguration());
@@ -135,7 +141,7 @@ async function supabaseRequest<T>(query: string, operation: string, init?: Reque
   try {
     response = await fetch(`${url.replace(/\/$/, "")}/rest/v1/reviews${query}`, {
       ...init,
-      cache: "no-store",
+      cache: init?.cache ?? "no-store",
       headers: {
         apikey: key,
         Authorization: `Bearer ${key}`,
@@ -173,7 +179,10 @@ export async function listApprovedReviews(locale: Locale): Promise<ReviewRecord[
 
   if (hasSupabaseStorage()) {
     try {
-      const rows = await supabaseRequest<SupabaseRow[]>(`?select=*&status=eq.approved&locale=eq.${locale}&order=created_at.desc`, "list-approved");
+      const rows = await supabaseRequest<SupabaseRow[]>(`?select=*&status=eq.approved&locale=eq.${locale}&order=created_at.desc`, "list-approved", {
+        cache: "force-cache",
+        next: { revalidate: 300 },
+      });
       stored = rows.map(fromSupabase).map(publicReview);
     } catch (error) {
       if (!(error instanceof ReviewStorageError)) throw error;
