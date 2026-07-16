@@ -41,7 +41,6 @@ export function middleware(request: NextRequest) {
     return redirectResponse;
   }
 
-  const [, segment] = request.nextUrl.pathname.split("/");
   const response = NextResponse.next();
 
   if (isReviewsAdmin) {
@@ -49,13 +48,9 @@ export function middleware(request: NextRequest) {
     response.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
   }
 
-  if (isSupportedLocale(segment)) {
-    response.headers.set("Content-Language", segment);
-  }
-
   return response;
 }
 
 export const config = {
-  matcher: ["/((?!api(?:/|$)|_next(?:/|$)|robots\\.txt$|sitemap\\.xml$|favicon(?:\\.ico)?$|apple-touch-icon\\.png$|.*\\.[^/]+$).*)"],
+  matcher: ["/", "/reviews-admin/:path*"],
 };
