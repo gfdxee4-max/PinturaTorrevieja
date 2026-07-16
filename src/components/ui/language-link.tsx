@@ -3,6 +3,7 @@
 import Link from "next/link";
 import type { ComponentProps } from "react";
 import { locales, type Locale } from "@/config/i18n";
+import { manualLocaleCookieMaxAge, manualLocaleCookieName } from "@/config/locales";
 
 type LanguageLinkProps = ComponentProps<typeof Link> & { targetLocale: Locale };
 
@@ -14,7 +15,8 @@ export function LanguageLink({ targetLocale, onClick, ...props }: LanguageLinkPr
     if (!locales.includes(segments[1] as Locale)) return;
     event.preventDefault();
     segments[1] = targetLocale;
-    document.cookie = `pt_locale=${targetLocale}; path=/; max-age=31536000; samesite=lax`;
+    const secure = window.location.protocol === "https:" ? "; Secure" : "";
+    document.cookie = `${manualLocaleCookieName}=${targetLocale}; Path=/; Max-Age=${manualLocaleCookieMaxAge}; SameSite=Lax${secure}`;
     window.location.assign(`${segments.join("/")}${window.location.search}${window.location.hash}`);
   }} />;
 }

@@ -1,5 +1,5 @@
 import { additionalDictionaries } from "@/config/additional-i18n";
-import { locales, type Locale } from "@/config/locales";
+import { isSupportedLocale, locales, type Locale } from "@/config/locales";
 
 export { locales };
 export type { Locale };
@@ -52,7 +52,7 @@ export const shortLanguageNames: Record<Locale, string> = {
 };
 
 export function isLocale(value: string): value is Locale {
-  return locales.includes(value as Locale);
+  return isSupportedLocale(value);
 }
 
 export function localizedPath(locale: Locale) {

@@ -1,7 +1,9 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { isLocale } from "@/config/i18n";
-
-const localeCookieMaxAge = 60 * 60 * 24 * 365;
+import {
+  detectLocaleFromAcceptLanguage,
+  isSupportedLocale,
+  manualLocaleCookieName,
+} from "@/config/locales";
 
 export function middleware(request: NextRequest) {
   const isReviewsAdmin = request.nextUrl.pathname.startsWith("/reviews-admin");
@@ -23,6 +25,22 @@ export function middleware(request: NextRequest) {
     }
   }
 
+  if (request.nextUrl.pathname === "/") {
+    const savedLocale = request.cookies.get(manualLocaleCookieName)?.value;
+    const locale = savedLocale && isSupportedLocale(savedLocale)
+      ? savedLocale
+      : detectLocaleFromAcceptLanguage(request.headers.get("accept-language"));
+    const forwardedHost = request.headers.get("x-forwarded-host");
+    const host = forwardedHost ?? request.headers.get("host") ?? request.nextUrl.host;
+    const forwardedProtocol = request.headers.get("x-forwarded-proto");
+    const protocol = forwardedProtocol ?? request.nextUrl.protocol.replace(":", "");
+    const destination = new URL(`/${locale}${request.nextUrl.search}`, `${protocol}://${host}`);
+    const redirectResponse = NextResponse.redirect(destination, 307);
+    redirectResponse.headers.set("Cache-Control", "private, no-store");
+    redirectResponse.headers.set("Vary", "Cookie, Accept-Language");
+    return redirectResponse;
+  }
+
   const [, segment] = request.nextUrl.pathname.split("/");
   const response = NextResponse.next();
 
@@ -31,15 +49,8 @@ export function middleware(request: NextRequest) {
     response.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
   }
 
-  if (isLocale(segment)) {
+  if (isSupportedLocale(segment)) {
     response.headers.set("Content-Language", segment);
-    if (request.cookies.get("pt_locale")?.value !== segment) {
-      response.cookies.set("pt_locale", segment, {
-        path: "/",
-        maxAge: localeCookieMaxAge,
-        sameSite: "lax",
-      });
-    }
   }
 
   return response;
