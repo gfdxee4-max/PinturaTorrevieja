@@ -20,7 +20,7 @@ function projectAlternates(locale: Locale, slug?: string) {
 export function getProjectsMetadata(locale: Locale): Metadata {
   const copy = projectsTranslations[locale];
   const url = getAbsoluteUrl(getProjectsPath(locale));
-  const image = getAbsoluteUrl("/images/hero-paint-repair.webp");
+  const image = getAbsoluteUrl("/images/hero-works-premium.webp");
 
   return {
     title: copy.listMetaTitle,

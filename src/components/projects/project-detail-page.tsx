@@ -33,7 +33,7 @@ export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
       />
       <main className="min-h-screen bg-[#050505] text-white">
         <section className="relative isolate overflow-hidden border-b border-white/[0.08]">
-          <Image src="/images/hero-paint-repair.webp" alt="" fill priority sizes="100vw" className="-z-30 object-cover object-[72%_center] opacity-70" />
+          <Image src="/images/hero-works-premium.webp" alt="" fill priority quality={95} sizes="100vw" className="-z-30 object-cover object-[72%_center] opacity-70" />
           <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,#050505_0%,rgba(5,5,5,0.96)_42%,rgba(5,5,5,0.45)_100%)]" />
           <Container className="flex min-h-[25rem] items-center py-14 sm:min-h-[29rem]">
             <div className="max-w-4xl">

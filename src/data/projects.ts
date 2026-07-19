@@ -88,7 +88,7 @@ export const projects: readonly Project[] = [
       el: "Επισκευή αμαξώματος και βαφή",
       cs: "Oprava karoserie a lakování",
     },
-    beforeImage: "/images/projects/nissan-qashqai/before.webp",
+    beforeImage: "/images/projects/nissan-qashqai/before-enhanced.webp",
     afterImage: "/images/projects/nissan-qashqai/after-face-blurred.webp",
     shortDescription: {
       es: "Reparación de daños y arañazos, preparación de la superficie y pintura de la aleta delantera izquierda.",

@@ -38,10 +38,11 @@ export function ProjectsPage({ locale, projects }: ProjectsPageProps) {
       <main className="min-h-screen bg-[#050505] text-white">
         <section className="relative isolate min-h-[25rem] overflow-hidden border-b border-white/[0.08] sm:min-h-[30rem]">
           <Image
-            src="/images/hero-paint-repair.webp"
+            src="/images/hero-works-premium.webp"
             alt=""
             fill
             priority
+            quality={95}
             sizes="100vw"
             className="-z-30 object-cover object-[70%_center] sm:object-center"
           />
