@@ -14,13 +14,17 @@ type BeforeAfterSliderProps = {
   beforeLabel: string;
   afterLabel: string;
   className?: string;
+  aspectClassName?: string;
+  beforeImageClassName?: string;
+  afterImageClassName?: string;
+  sizes?: string;
 };
 
 function clamp(value: number) {
   return Math.min(100, Math.max(0, value));
 }
 
-export function BeforeAfterSlider({ beforeImage, afterImage, beforeAlt, afterAlt, initialPosition = 50, ariaLabel, beforeLabel, afterLabel, className = "" }: BeforeAfterSliderProps) {
+export function BeforeAfterSlider({ beforeImage, afterImage, beforeAlt, afterAlt, initialPosition = 50, ariaLabel, beforeLabel, afterLabel, className = "", aspectClassName = "aspect-[4/3] sm:aspect-video lg:aspect-[3.08/1]", beforeImageClassName = "object-cover", afterImageClassName = "object-cover", sizes = "(min-width: 1800px) 1728px, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 1.5rem)" }: BeforeAfterSliderProps) {
   const [position, setPosition] = useState(clamp(initialPosition));
   const [activePointer, setActivePointer] = useState<number | null>(null);
 
@@ -70,11 +74,11 @@ export function BeforeAfterSlider({ beforeImage, afterImage, beforeAlt, afterAlt
       onPointerMove={handlePointerMove}
       onPointerUp={releasePointer}
       onPointerCancel={releasePointer}
-      className={`group relative isolate aspect-[4/3] w-full cursor-ew-resize touch-pan-y select-none overflow-hidden rounded-[8px] border border-white/25 bg-black outline-none transition focus-visible:border-redline focus-visible:shadow-[0_0_0_2px_rgba(214,0,0,0.35)] sm:aspect-video lg:aspect-[3.08/1] ${className}`}
+      className={`group relative isolate w-full cursor-ew-resize touch-pan-y select-none overflow-hidden rounded-[8px] border border-white/25 bg-black outline-none transition focus-visible:border-redline focus-visible:shadow-[0_0_0_2px_rgba(214,0,0,0.35)] ${aspectClassName} ${className}`}
     >
-      <Image src={afterImage} alt={afterAlt} fill draggable={false} loading="lazy" sizes="(min-width: 1800px) 1728px, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 1.5rem)" className="pointer-events-none object-cover" />
+      <Image src={afterImage} alt={afterAlt} fill draggable={false} loading="lazy" sizes={sizes} className={`pointer-events-none ${afterImageClassName}`} />
       <div className="absolute inset-0 overflow-hidden" style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}>
-        <Image src={beforeImage} alt={beforeAlt} fill draggable={false} loading="lazy" sizes="(min-width: 1800px) 1728px, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 1.5rem)" className="pointer-events-none object-cover" />
+        <Image src={beforeImage} alt={beforeAlt} fill draggable={false} loading="lazy" sizes={sizes} className={`pointer-events-none ${beforeImageClassName}`} />
       </div>
 
       <span className="pointer-events-none absolute left-4 top-4 max-w-[44%] border border-white/25 border-l-[3px] border-l-redline bg-black/75 px-3 py-2 text-center text-[0.55rem] font-semibold uppercase leading-4 tracking-[0.1em] text-white/88 backdrop-blur-sm sm:left-6 sm:top-6 sm:px-5 sm:text-xs sm:tracking-[0.12em]" aria-hidden="true">

@@ -12,19 +12,23 @@ import {
   shortLanguageNames,
 } from "@/config/i18n";
 import { interfaceTranslations } from "@/config/interface-i18n";
+import { getProjectsPath, projectsTranslations } from "@/config/projects-i18n";
 
 type HeaderProps = {
   dictionary: Dictionary;
   locale: Locale;
+  activeItem?: "home" | "services" | "works" | "booking";
+  languagePath?: (locale: Locale) => string;
 };
 
-export function Header({ dictionary, locale }: HeaderProps) {
+export function Header({ dictionary, locale, activeItem = "home", languagePath }: HeaderProps) {
   const ui = interfaceTranslations[locale];
   const homePath = localizedPath(locale);
   const navItems = [
-    { label: dictionary.nav.home, href: homePath },
-    { label: dictionary.nav.services, href: `${homePath}#services` },
-    { label: dictionary.nav.booking, href: `${homePath}#booking` },
+    { id: "home" as const, label: dictionary.nav.home, href: homePath },
+    { id: "services" as const, label: dictionary.nav.services, href: `${homePath}#services` },
+    { id: "works" as const, label: projectsTranslations[locale].navLabel, href: getProjectsPath(locale) },
+    { id: "booking" as const, label: dictionary.nav.booking, href: `${homePath}#booking` },
   ];
 
   return (
@@ -33,7 +37,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
         <BrandLogo href={homePath} priority className="h-[3.2rem] w-[9.25rem] sm:w-[13rem] lg:h-[5rem] lg:w-[17rem]" />
 
         <nav aria-label={ui.mainNavigation} className="hidden min-w-0 items-center gap-8 lg:flex xl:gap-12">
-          {navItems.map((item, index) => (
+          {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -42,7 +46,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
               {item.label}
               <span
                 className={`absolute inset-x-0 bottom-1 h-[2px] origin-left bg-redline transition duration-300 ${
-                  index === 0 ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                  item.id === activeItem ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                 }`}
               />
             </Link>
@@ -63,7 +67,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
               {locales.map((item) => (
                 <LanguageLink
                   key={item}
-                  href={localizedPath(item)}
+                  href={languagePath ? languagePath(item) : localizedPath(item)}
                   targetLocale={item}
                   hrefLang={item}
                   aria-current={item === locale ? "page" : undefined}
@@ -89,11 +93,11 @@ export function Header({ dictionary, locale }: HeaderProps) {
               aria-label={ui.mainNavigation}
               className="absolute right-0 top-[calc(100%+0.6rem)] z-[60] grid w-56 border border-white/16 bg-black/[0.98] p-2 shadow-soft"
             >
-              {navItems.map((item, index) => (
+              {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  aria-current={index === 0 ? "page" : undefined}
+                  aria-current={item.id === activeItem ? "page" : undefined}
                   className="border-b border-white/[0.08] px-3 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-white/72 transition last:border-b-0 hover:bg-white/[0.06] hover:text-white aria-[current=page]:text-white"
                 >
                   {item.label}

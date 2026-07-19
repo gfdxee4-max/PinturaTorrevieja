@@ -1,10 +1,10 @@
-import { ArchitecturePage } from "@/components/page/architecture-page";
-import { getArchitectureMetadata, getArchitecturePage } from "@/config/architecture";
+import { ProjectsPage } from "@/components/projects/projects-page";
+import { projects } from "@/data/projects";
+import { getProjectsMetadata } from "@/lib/project-seo";
 
-const page = getArchitecturePage("/trabajos-realizados")!;
+export const metadata = getProjectsMetadata("es");
+export const revalidate = 86400;
 
-export const metadata = getArchitectureMetadata(page);
-
-export default function WorkHubPage() {
-  return <ArchitecturePage page={page} />;
+export default function SpanishProjectsPage() {
+  return <ProjectsPage locale="es" projects={projects} />;
 }
