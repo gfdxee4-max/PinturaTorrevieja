@@ -25,8 +25,15 @@ export type Locale = (typeof locales)[number];
 export const manualLocaleCookieName = "pt_locale_manual";
 export const manualLocaleCookieMaxAge = 60 * 60 * 24 * 365;
 
+const searchCrawlerPattern =
+  /(?:googlebot|bingbot|yandexbot|duckduckbot|baiduspider|applebot|facebookexternalhit|twitterbot)/i;
+
 export function isSupportedLocale(value: string): value is Locale {
   return locales.includes(value as Locale);
+}
+
+export function isSearchCrawler(userAgent: string | null) {
+  return Boolean(userAgent && searchCrawlerPattern.test(userAgent));
 }
 
 function localeFromTag(tag: string): Locale | undefined {

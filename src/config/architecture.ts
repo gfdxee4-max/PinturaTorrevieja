@@ -725,7 +725,7 @@ export function getArchitectureMetadata(page: ArchitecturePage): Metadata {
       description: page.description,
       images: [
         {
-          url: getAbsoluteUrl("/images/hero-paint-repair.webp"),
+          url: getAbsoluteUrl("/images/og-image.webp"),
           width: 1200,
           height: 630,
           alt: page.h1,
@@ -736,7 +736,7 @@ export function getArchitectureMetadata(page: ArchitecturePage): Metadata {
       card: "summary_large_image",
       title: page.title,
       description: page.description,
-      images: [getAbsoluteUrl("/images/hero-paint-repair.webp")],
+      images: [getAbsoluteUrl("/images/og-image.webp")],
     },
   };
 }

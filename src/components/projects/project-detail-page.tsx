@@ -115,7 +115,6 @@ export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
       </main>
       <Footer dictionary={dictionary} locale={locale} whatsappUrl={whatsappUrl} />
       <FloatingWhatsApp whatsappUrl={whatsappUrl} locale={locale} />
-      <script dangerouslySetInnerHTML={{ __html: `document.documentElement.lang=${JSON.stringify(locale)};` }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getProjectStructuredData(project, locale)) }} />
     </>
   );

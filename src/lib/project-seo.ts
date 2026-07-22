@@ -34,7 +34,7 @@ export function getProjectsMetadata(locale: Locale): Metadata {
       siteName: siteConfig.name,
       title: copy.listMetaTitle,
       description: copy.listMetaDescription,
-      images: [{ url: image, width: 1100, height: 733, alt: copy.pageTitle }],
+      images: [{ url: image, width: 1536, height: 1024, alt: copy.pageTitle }],
     },
     twitter: {
       card: "summary_large_image",

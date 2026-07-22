@@ -29,9 +29,13 @@ export function getAlternates(locale: Locale) {
 
 const seoKeywords: Record<Locale, readonly string[]> = {
   es: [
+    "pintura Torrevieja",
     "pintura coche Torrevieja",
     "chapista Torrevieja",
-    "reparación carrocería Torrevieja",
+    "taller chapa y pintura Torrevieja",
+    "taller de chapa y pintura Torrevieja",
+    "reparación de chapa Torrevieja",
+    "reparación de carrocería Torrevieja",
   ],
   en: [
     "car painting Torrevieja",
@@ -73,7 +77,7 @@ const seoKeywords: Record<Locale, readonly string[]> = {
 export function getPageMetadata(locale: Locale): Metadata {
   const dictionary = dictionaries[locale];
   const path = localizedPath(locale);
-  const image = getAbsoluteUrl("/images/hero-paint-repair.webp");
+  const image = getAbsoluteUrl("/images/og-image.webp");
 
   return {
     title: dictionary.title,
@@ -191,6 +195,9 @@ export function getLocalBusinessStructuredData() {
         "@id": websiteId,
         url: siteConfig.url,
         name: siteConfig.businessName,
+        alternateName: siteConfig.alternateBusinessName,
+        description: siteConfig.description,
+        inLanguage: locales,
         publisher: {
           "@id": businessId,
         },
@@ -199,6 +206,8 @@ export function getLocalBusinessStructuredData() {
         "@type": "AutoBodyShop",
         "@id": businessId,
         name: siteConfig.businessName,
+        alternateName: siteConfig.alternateBusinessName,
+        description: siteConfig.description,
         url: siteConfig.url,
         logo: logoUrl,
         image: imageUrl,

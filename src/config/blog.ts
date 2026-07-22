@@ -96,10 +96,19 @@ export const blogCategories: BlogCategory[] = [
 
 export const blogArticles: BlogArticle[] = [];
 
+export const hasPublishedBlogArticles = blogArticles.length > 0;
+
+const blogIndexTitle = "Blog sobre pintura de coches y carrocería | PaintLab";
+const blogIndexDescription =
+  "Guías de PaintLab sobre pintura de coches, reparación de carrocería y cuidado del vehículo.";
+const blogSocialImage = getAbsoluteUrl("/images/og-image.webp");
+
 export const blogIndexMetadata: Metadata = {
-  title: "Blog sobre pintura de coches y carroceria | Pintura Torrevieja",
-  description:
-    "Sistema profesional de blog sobre pintura de coches, reparacion, pulido, consejos, seguros, marcas y ciudades.",
+  title: blogIndexTitle,
+  description: blogIndexDescription,
+  robots: hasPublishedBlogArticles
+    ? { index: true, follow: true }
+    : { index: false, follow: true },
   alternates: {
     canonical: getAbsoluteUrl("/blog"),
   },
@@ -108,24 +117,22 @@ export const blogIndexMetadata: Metadata = {
     locale: "es_ES",
     url: getAbsoluteUrl("/blog"),
     siteName: siteConfig.name,
-    title: "Blog sobre pintura de coches y carroceria | Pintura Torrevieja",
-    description:
-      "Guias profesionales sobre pintura de coches, reparacion, pulido y cuidado de carroceria.",
+    title: blogIndexTitle,
+    description: blogIndexDescription,
     images: [
       {
-        url: getAbsoluteUrl("/images/hero-paint-repair.webp"),
+        url: blogSocialImage,
         width: 1200,
         height: 630,
-        alt: "Blog de pintura de coches",
+        alt: "PaintLab Torrevieja",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog sobre pintura de coches y carroceria | Pintura Torrevieja",
-    description:
-      "Guias profesionales sobre pintura de coches, reparacion, pulido y cuidado de carroceria.",
-    images: [getAbsoluteUrl("/images/hero-paint-repair.webp")],
+    title: blogIndexTitle,
+    description: blogIndexDescription,
+    images: [blogSocialImage],
   },
 };
 
@@ -205,11 +212,15 @@ export function getBlogArticleMetadata(article: BlogArticle): Metadata {
 
 export function getBlogCategoryMetadata(category: BlogCategory): Metadata {
   const url = getAbsoluteUrl(`/blog/categoria/${category.slug}`);
-  const title = `${category.name} | Blog Pintura Torrevieja`;
+  const title = `${category.name} | Blog PaintLab Torrevieja`;
+  const hasPublishedArticles = getCategoryArticles(category.slug).length > 0;
 
   return {
     title,
     description: category.description,
+    robots: hasPublishedArticles
+      ? { index: true, follow: true }
+      : { index: false, follow: true },
     alternates: {
       canonical: url,
     },
@@ -222,10 +233,10 @@ export function getBlogCategoryMetadata(category: BlogCategory): Metadata {
       description: category.description,
       images: [
         {
-          url: getAbsoluteUrl("/images/hero-paint-repair.webp"),
+          url: blogSocialImage,
           width: 1200,
           height: 630,
-          alt: category.name,
+          alt: `PaintLab Torrevieja: ${category.name}`,
         },
       ],
     },
@@ -233,7 +244,7 @@ export function getBlogCategoryMetadata(category: BlogCategory): Metadata {
       card: "summary_large_image",
       title,
       description: category.description,
-      images: [getAbsoluteUrl("/images/hero-paint-repair.webp")],
+      images: [blogSocialImage],
     },
   };
 }

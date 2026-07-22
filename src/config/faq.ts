@@ -13,8 +13,8 @@ const faqItems: Record<Locale, readonly FaqItem[]> = {
       answer: "Envíanos fotos del vehículo por WhatsApp y te daremos una orientación inicial sobre la reparación.",
     },
     {
-      question: "¿Qué servicios realiza PINTURA TORREVIEJA?",
-      answer: "Realizamos pintura de vehículos, preparación de superficies y reparación de daños de carrocería.",
+      question: "¿Buscas un chapista en Torrevieja?",
+      answer: "En PaintLab realizamos pintura de coche, reparación de chapa y reparación de carrocería en nuestro taller de chapa y pintura en Torrevieja, Alicante.",
     },
     {
       question: "¿Trabajáis con vehículos en Torrevieja?",

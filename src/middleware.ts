@@ -1,9 +1,11 @@
 import { NextResponse, type NextRequest } from "next/server";
 import {
   detectLocaleFromAcceptLanguage,
+  isSearchCrawler,
   isSupportedLocale,
   manualLocaleCookieName,
 } from "@/config/locales";
+import { fallbackLocale } from "@/config/i18n";
 
 export function middleware(request: NextRequest) {
   const isReviewsAdmin = request.nextUrl.pathname.startsWith("/reviews-admin");
@@ -27,9 +29,14 @@ export function middleware(request: NextRequest) {
 
   if (request.nextUrl.pathname === "/") {
     const savedLocale = request.cookies.get(manualLocaleCookieName)?.value;
-    const locale = savedLocale && isSupportedLocale(savedLocale)
-      ? savedLocale
-      : detectLocaleFromAcceptLanguage(request.headers.get("accept-language"));
+    const locale = isSearchCrawler(request.headers.get("user-agent"))
+      ? fallbackLocale
+      : savedLocale && isSupportedLocale(savedLocale)
+        ? savedLocale
+        : detectLocaleFromAcceptLanguage(
+            request.headers.get("accept-language"),
+            fallbackLocale,
+          );
     const forwardedHost = request.headers.get("x-forwarded-host");
     const host = forwardedHost ?? request.headers.get("host") ?? request.nextUrl.host;
     const forwardedProtocol = request.headers.get("x-forwarded-proto");

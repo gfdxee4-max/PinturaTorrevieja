@@ -6,7 +6,7 @@ const iconVersion = "20260715-210907";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: siteConfig.name,
-    short_name: "Pintura",
+    short_name: "PaintLab",
     description: siteConfig.description,
     start_url: "/es",
     scope: "/",

@@ -1,7 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import "@/app/globals.css";
-import { defaultLocale, isLocale } from "@/config/i18n";
 import { siteConfig } from "@/config/site";
 import { getDefaultMetadata, getLocalBusinessStructuredData } from "@/lib/seo";
 
@@ -10,7 +8,7 @@ const iconVersion = "20260715-210907";
 const defaultMetadata = getDefaultMetadata();
 const localBusinessStructuredData = getLocalBusinessStructuredData();
 
-export const metadata: Metadata = {
+export const rootMetadata: Metadata = {
   ...defaultMetadata,
   metadataBase: new URL(siteConfig.url),
   applicationName: siteConfig.name,
@@ -43,27 +41,18 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport: Viewport = {
+export const rootViewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: "#050505",
 };
 
-export default async function RootLayout({
-  params,
-  children,
-}: Readonly<{
-  params?: Promise<{
-    lang?: string;
-  }>;
+type RootDocumentProps = Readonly<{
+  lang: string;
   children: React.ReactNode;
-}>) {
-  const resolvedParams = params ? await params : undefined;
-  const lang =
-    resolvedParams?.lang && isLocale(resolvedParams.lang)
-      ? resolvedParams.lang
-      : defaultLocale;
+}>;
 
+export function RootDocument({ lang, children }: RootDocumentProps) {
   return (
     <html lang={lang}>
       <body className="font-sans">

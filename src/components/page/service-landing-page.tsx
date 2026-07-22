@@ -19,7 +19,7 @@ function absoluteUrl(path: string) {
 
 export function getServicePageMetadata(page: ServicePage): Metadata {
   const url = absoluteUrl(`/${page.slug}`);
-  const image = absoluteUrl("/images/hero-paint-repair.webp");
+  const image = absoluteUrl("/images/og-image.webp");
 
   return {
     title: page.title,
@@ -41,7 +41,7 @@ export function getServicePageMetadata(page: ServicePage): Metadata {
         {
           url: image,
           width: 1200,
-          height: 900,
+          height: 630,
           alt: page.h1,
         },
       ],
