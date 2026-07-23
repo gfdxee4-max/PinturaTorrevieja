@@ -1,6 +1,6 @@
 export const additionalDictionaries = {
   nb: {
-    locale: "nb_NO", title: "Billakkering og karosserireparasjon i Torrevieja | PaintLab", description: "Profesjonell billakkering og karosserireparasjon i Torrevieja. Utbedring av skader og nøyaktig overflatebehandling. Be om vurdering via WhatsApp.",
+    locale: "nb_NO", title: "Billakkering og karosserireparasjon i Torrevieja | PaintLab", description: "PaintLab i Torrevieja tilbyr billakkering og karosserireparasjon: utbedring av skader, grundig forarbeid og lakkering. Be om vurdering via WhatsApp.",
     nav: { home: "Hjem", services: "Tjenester", booking: "Kontakt" },
     hero: { eyebrow: "", headlineTop: "Billakkering", headlineAccent: "og", headlineBottom: "karosserireparasjon", headline: "Billakkering og karosserireparasjon", text: "Profesjonell lakkering, reparasjon av karosseriskader og nøyaktig overflatebehandling.", primary: "Skriv på WhatsApp", secondary: "Tjenester", tags: [], statLabel: "", statValue: "", imageAlt: "Profesjonell billakkering i lakkabin i Torrevieja" },
     estimate: { eyebrow: "Foreløpig vurdering", title: "Kontakt oss for en foreløpig vurdering", text: "Send bilder av bilen på WhatsApp, så vurderer vi reparasjonskostnaden på forhånd.", cta: "Få en foreløpig vurdering" },
@@ -9,7 +9,7 @@ export const additionalDictionaries = {
     whatsapp: "Hei PaintLab Torrevieja. Jeg ønsker en foreløpig vurdering av bilen min. Jeg kan sende bilder for å vurdere reparasjonskostnaden.",
   },
   fi: {
-    locale: "fi_FI", title: "Automaalaus ja korikorjaus Torreviejassa | PaintLab", description: "Ammattimainen automaalaus ja korikorjaus Torreviejassa. Vaurioiden korjaus ja huolellinen pintakäsittely. Pyydä arvio WhatsAppissa.",
+    locale: "fi_FI", title: "Automaalaus ja korikorjaus Torreviejassa | PaintLab", description: "PaintLab Torreviejassa tarjoaa automaalausta ja korikorjausta: vaurioiden korjaus, huolellinen pohjatyö ja maalaus. Pyydä arvio WhatsAppissa.",
     nav: { home: "Etusivu", services: "Palvelut", booking: "Yhteystiedot" },
     hero: { eyebrow: "", headlineTop: "Automaalaus", headlineAccent: "ja", headlineBottom: "korikorjaus", headline: "Automaalaus ja korikorjaus", text: "Ammattimainen maalaus, korivaurioiden korjaus ja huolellinen viimeistely.", primary: "Kirjoita WhatsAppissa", secondary: "Palvelut", tags: [], statLabel: "", statValue: "", imageAlt: "Ammattimainen automaalaus maalauskammiossa Torreviejassa" },
     estimate: { eyebrow: "Alustava arvio", title: "Ota yhteyttä alustavaa arviota varten", text: "Lähetä auton kuvat WhatsAppissa, niin arvioimme korjauskustannukset alustavasti.", cta: "Pyydä alustava arvio" },
@@ -18,7 +18,7 @@ export const additionalDictionaries = {
     whatsapp: "Hei PaintLab Torrevieja. Haluaisin alustavan arvion autostani. Voin lähettää kuvia korjauskustannusten arviointia varten.",
   },
   da: {
-    locale: "da_DK", title: "Autolakering og karrosserireparation i Torrevieja | PaintLab", description: "Professionel autolakering og karrosserireparation i Torrevieja. Reparation af skader og omhyggelig overfladebehandling. Få en vurdering via WhatsApp.",
+    locale: "da_DK", title: "Autolakering og karrosserireparation i Torrevieja | PaintLab", description: "PaintLab i Torrevieja udfører karrosserireparation og autolakering: skader, grundig klargøring og lakering. Få en vurdering via WhatsApp.",
     nav: { home: "Forside", services: "Ydelser", booking: "Kontakt" },
     hero: { eyebrow: "", headlineTop: "Autolakering", headlineAccent: "og", headlineBottom: "karrosserireparation", headline: "Autolakering og karrosserireparation", text: "Professionel lakering, reparation af karrosseriskader og omhyggelig finish.", primary: "Skriv på WhatsApp", secondary: "Ydelser", tags: [], statLabel: "", statValue: "", imageAlt: "Professionel autolakering i sprøjtekabine i Torrevieja" },
     estimate: { eyebrow: "Foreløbig vurdering", title: "Kontakt os for en foreløbig vurdering", text: "Send billeder af bilen på WhatsApp, så vurderer vi reparationsomkostningen foreløbigt.", cta: "Få en foreløbig vurdering" },
@@ -27,7 +27,7 @@ export const additionalDictionaries = {
     whatsapp: "Hej PaintLab Torrevieja. Jeg ønsker en foreløbig vurdering af min bil. Jeg kan sende billeder til vurdering af reparationsomkostningen.",
   },
   sv: {
-    locale: "sv_SE", title: "Billackering och karossreparation i Torrevieja | PaintLab", description: "Professionell billackering och karossreparation i Torrevieja. Reparation av skador och noggrann ytbehandling. Be om en bedömning via WhatsApp.",
+    locale: "sv_SE", title: "Billackering och karossreparation i Torrevieja | PaintLab", description: "PaintLab i Torrevieja utför karossreparation och billackering: skador, noggrant förarbete och lackering. Be om en bedömning via WhatsApp.",
     nav: { home: "Hem", services: "Tjänster", booking: "Kontakt" },
     hero: { eyebrow: "", headlineTop: "Billackering", headlineAccent: "och", headlineBottom: "karossreparation", headline: "Billackering och karossreparation", text: "Professionell lackering, reparation av karossskador och noggrann finish.", primary: "Skriv på WhatsApp", secondary: "Tjänster", tags: [], statLabel: "", statValue: "", imageAlt: "Professionell billackering i lackbox i Torrevieja" },
     estimate: { eyebrow: "Preliminär bedömning", title: "Kontakta oss för en preliminär bedömning", text: "Skicka bilder på bilen via WhatsApp så bedömer vi reparationskostnaden preliminärt.", cta: "Få en preliminär bedömning" },
@@ -36,7 +36,7 @@ export const additionalDictionaries = {
     whatsapp: "Hej PaintLab Torrevieja. Jag vill ha en preliminär bedömning av min bil. Jag kan skicka bilder för att bedöma reparationskostnaden.",
   },
   sk: {
-    locale: "sk_SK", title: "Lakovanie áut a oprava karosérie v Torrevieji | PaintLab", description: "Profesionálne lakovanie áut a oprava karosérie v Torrevieji. Oprava poškodení a presná príprava povrchu. Požiadajte o odhad cez WhatsApp.",
+    locale: "sk_SK", title: "Lakovanie áut a oprava karosérie v Torrevieji | PaintLab", description: "PaintLab v Torrevieji ponúka opravu karosérie a lakovanie áut: opravu poškodení, prípravu povrchu a lakovanie. Požiadajte o odhad cez WhatsApp.",
     nav: { home: "Domov", services: "Služby", booking: "Kontakt" },
     hero: { eyebrow: "", headlineTop: "Lakovanie áut", headlineAccent: "a", headlineBottom: "oprava karosérie", headline: "Lakovanie áut a oprava karosérie", text: "Profesionálne lakovanie, oprava poškodení karosérie a precízna povrchová úprava.", primary: "Napísať cez WhatsApp", secondary: "Služby", tags: [], statLabel: "", statValue: "", imageAlt: "Profesionálne lakovanie auta v lakovacej kabíne v Torrevieji" },
     estimate: { eyebrow: "Predbežný odhad", title: "Napíšte nám pre predbežný odhad", text: "Pošlite fotografie vozidla cez WhatsApp a predbežne odhadneme náklady na opravu.", cta: "Získať predbežný odhad" },
@@ -45,7 +45,7 @@ export const additionalDictionaries = {
     whatsapp: "Dobrý deň, PaintLab Torrevieja. Chcem predbežný odhad pre svoje vozidlo. Môžem poslať fotografie na odhad nákladov na opravu.",
   },
   hu: {
-    locale: "hu_HU", title: "Autófényezés és karosszériajavítás Torreviejában | PaintLab", description: "Professzionális autófényezés és karosszériajavítás Torreviejában. Sérülésjavítás és gondos felület-előkészítés. Kérjen becslést WhatsAppon.",
+    locale: "hu_HU", title: "Autófényezés és karosszériajavítás Torreviejában | PaintLab", description: "A PaintLab Torreviejában autófényezést és karosszériajavítást végez: sérülésjavítás, alapos előkészítés és fényezés. Kérjen becslést WhatsAppon.",
     nav: { home: "Kezdőlap", services: "Szolgáltatások", booking: "Kapcsolat" },
     hero: { eyebrow: "", headlineTop: "Autófényezés", headlineAccent: "és", headlineBottom: "karosszériajavítás", headline: "Autófényezés és karosszériajavítás", text: "Professzionális fényezés, karosszériasérülések javítása és precíz felületkezelés.", primary: "Írjon WhatsAppon", secondary: "Szolgáltatások", tags: [], statLabel: "", statValue: "", imageAlt: "Professzionális autófényezés fényezőkamrában Torreviejában" },
     estimate: { eyebrow: "Előzetes becslés", title: "Írjon nekünk előzetes becslésért", text: "Küldjön fényképeket az autóról WhatsAppon, és előzetesen megbecsüljük a javítás költségét.", cta: "Előzetes becslés kérése" },
@@ -54,7 +54,7 @@ export const additionalDictionaries = {
     whatsapp: "Üdvözlöm, PaintLab Torrevieja. Előzetes becslést szeretnék az autómhoz. Tudok fényképeket küldeni a javítási költség felméréséhez.",
   },
   bg: {
-    locale: "bg_BG", title: "Автобоядисване и ремонт на каросерия в Торевиеха | PaintLab", description: "Професионално автобоядисване и ремонт на каросерия в Торевиеха. Възстановяване на повреди и прецизна подготовка. Поискайте оценка чрез WhatsApp.",
+    locale: "bg_BG", title: "Автобоядисване и ремонт на каросерия в Торевиеха | PaintLab", description: "PaintLab в Торевиеха предлага ремонт на каросерия и автобоядисване: отстраняване на повреди, подготовка и боядисване. Поискайте оценка чрез WhatsApp.",
     nav: { home: "Начало", services: "Услуги", booking: "Контакти" },
     hero: { eyebrow: "", headlineTop: "Автобоядисване", headlineAccent: "и", headlineBottom: "ремонт на каросерия", headline: "Автобоядисване и ремонт на каросерия", text: "Професионално боядисване, възстановяване на повреди и прецизна обработка на каросерията.", primary: "Пишете в WhatsApp", secondary: "Услуги", tags: [], statLabel: "", statValue: "", imageAlt: "Професионално автобоядисване в бояджийска камера в Торевиеха" },
     estimate: { eyebrow: "Предварителна оценка", title: "Пишете ни за предварителна оценка", text: "Изпратете снимки на автомобила чрез WhatsApp и ще направим предварителна оценка на ремонта.", cta: "Получете предварителна оценка" },
@@ -63,7 +63,7 @@ export const additionalDictionaries = {
     whatsapp: "Здравейте, PaintLab Torrevieja. Желая предварителна оценка за автомобила си. Мога да изпратя снимки за оценка на ремонта.",
   },
   pt: {
-    locale: "pt_PT", title: "Pintura automóvel e reparação de carroçaria em Torrevieja | PaintLab", description: "Pintura automóvel e reparação de carroçaria profissional em Torrevieja. Reparação de danos e preparação cuidada. Peça uma avaliação por WhatsApp.",
+    locale: "pt_PT", title: "Chapa e pintura automóvel em Torrevieja | PaintLab", description: "A PaintLab em Torrevieja realiza chapa e pintura automóvel: reparação de danos, preparação da carroçaria e pintura. Peça uma avaliação por WhatsApp.",
     nav: { home: "Início", services: "Serviços", booking: "Contacto" },
     hero: { eyebrow: "", headlineTop: "Pintura automóvel", headlineAccent: "e", headlineBottom: "reparação de carroçaria", headline: "Pintura automóvel e reparação de carroçaria", text: "Pintura profissional, reparação de danos na carroçaria e acabamento rigoroso.", primary: "Escrever no WhatsApp", secondary: "Serviços", tags: [], statLabel: "", statValue: "", imageAlt: "Pintura automóvel profissional em cabine em Torrevieja" },
     estimate: { eyebrow: "Avaliação prévia", title: "Contacte-nos para uma avaliação prévia", text: "Envie fotografias do veículo por WhatsApp e faremos uma avaliação preliminar do custo da reparação.", cta: "Pedir avaliação prévia" },
@@ -72,7 +72,7 @@ export const additionalDictionaries = {
     whatsapp: "Olá PaintLab Torrevieja. Gostaria de uma avaliação prévia para o meu veículo. Posso enviar fotografias para estimar o custo da reparação.",
   },
   el: {
-    locale: "el_GR", title: "Βαφή αυτοκινήτου και επισκευή αμαξώματος στην Τορεβιέχα | PaintLab", description: "Επαγγελματική βαφή αυτοκινήτου και επισκευή αμαξώματος στην Τορεβιέχα. Αποκατάσταση ζημιών και προσεκτική προετοιμασία. Ζητήστε εκτίμηση μέσω WhatsApp.",
+    locale: "el_GR", title: "Βαφή αυτοκινήτου και επισκευή αμαξώματος στην Τορεβιέχα | PaintLab", description: "Η PaintLab στην Τορεβιέχα προσφέρει επισκευή αμαξώματος και βαφή αυτοκινήτου: αποκατάσταση ζημιών, προετοιμασία και βαφή. Ζητήστε εκτίμηση μέσω WhatsApp.",
     nav: { home: "Αρχική", services: "Υπηρεσίες", booking: "Επικοινωνία" },
     hero: { eyebrow: "", headlineTop: "Βαφή αυτοκινήτου", headlineAccent: "και", headlineBottom: "επισκευή αμαξώματος", headline: "Βαφή αυτοκινήτου και επισκευή αμαξώματος", text: "Επαγγελματική βαφή, αποκατάσταση ζημιών αμαξώματος και προσεγμένο φινίρισμα.", primary: "Μήνυμα στο WhatsApp", secondary: "Υπηρεσίες", tags: [], statLabel: "", statValue: "", imageAlt: "Επαγγελματική βαφή αυτοκινήτου σε θάλαμο βαφής στην Τορεβιέχα" },
     estimate: { eyebrow: "Αρχική εκτίμηση", title: "Επικοινωνήστε μαζί μας για αρχική εκτίμηση", text: "Στείλτε φωτογραφίες του οχήματος μέσω WhatsApp και θα εκτιμήσουμε προκαταρκτικά το κόστος επισκευής.", cta: "Ζητήστε αρχική εκτίμηση" },
@@ -81,7 +81,7 @@ export const additionalDictionaries = {
     whatsapp: "Γεια σας PaintLab Torrevieja. Θα ήθελα μια αρχική εκτίμηση για το όχημά μου. Μπορώ να στείλω φωτογραφίες για την εκτίμηση του κόστους επισκευής.",
   },
   cs: {
-    locale: "cs_CZ", title: "Lakování aut a oprava karoserie v Torrevieji | PaintLab", description: "Profesionální lakování aut a oprava karoserie v Torrevieji. Oprava poškození a pečlivá příprava povrchu. Požádejte o odhad přes WhatsApp.",
+    locale: "cs_CZ", title: "Lakování aut a oprava karoserie v Torrevieji | PaintLab", description: "PaintLab v Torrevieji nabízí opravu karoserie a lakování aut: opravu poškození, přípravu povrchu a lakování. Požádejte o odhad přes WhatsApp.",
     nav: { home: "Domů", services: "Služby", booking: "Kontakt" },
     hero: { eyebrow: "", headlineTop: "Lakování aut", headlineAccent: "a", headlineBottom: "oprava karoserie", headline: "Lakování aut a oprava karoserie", text: "Profesionální lakování, oprava poškození karoserie a precizní povrchová úprava.", primary: "Napsat přes WhatsApp", secondary: "Služby", tags: [], statLabel: "", statValue: "", imageAlt: "Profesionální lakování auta v lakovací kabině v Torrevieji" },
     estimate: { eyebrow: "Předběžný odhad", title: "Napište nám pro předběžný odhad", text: "Pošlete fotografie vozidla přes WhatsApp a předběžně odhadneme cenu opravy.", cta: "Získat předběžný odhad" },

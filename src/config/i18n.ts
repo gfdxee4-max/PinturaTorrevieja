@@ -96,8 +96,8 @@ export const dictionaries = {
   },
   en: {
     locale: "en_GB",
-    title: "Car Painting & Body Repair in Torrevieja | PaintLab",
-    description: "Professional car painting, body repair, scratch repair and bumper painting in Torrevieja. Request a quick estimate via WhatsApp.",
+    title: "Car Body Repair and Painting in Torrevieja | PaintLab",
+    description: "PaintLab in Torrevieja provides car body repair and painting, including damage repair, surface preparation and panel refinishing. Contact us via WhatsApp.",
     nav: { home: "Home", services: "Services", booking: "Contact" },
     hero: {
       eyebrow: "",
@@ -130,8 +130,8 @@ export const dictionaries = {
   },
   ru: {
     locale: "ru_RU",
-    title: "Автопокраска в Торревьехе | Покраска и ремонт автомобилей",
-    description: "Профессиональная автопокраска в Торревьехе: полная покраска автомобиля, кузовной ремонт и покраска повреждённых деталей. Оценка по фото в WhatsApp.",
+    title: "Кузовной ремонт и покраска авто в Торревьехе | PaintLab",
+    description: "PaintLab в Торревьехе выполняет кузовной ремонт и покраску автомобилей: устранение повреждений, подготовку кузова и покраску деталей. Оценка по WhatsApp.",
     nav: { home: "Главная", services: "Услуги", booking: "Контакты" },
     hero: {
       eyebrow: "",
@@ -164,8 +164,8 @@ export const dictionaries = {
   },
   uk: {
     locale: "uk_UA",
-    title: "Фарбування авто в Торрев’єсі | Ремонт і фарбування автомобілів",
-    description: "Професійне фарбування авто та кузовний ремонт у Торрев’єсі. Ремонт пошкоджень, підготовка поверхні й фарбування деталей. Оцінка через WhatsApp.",
+    title: "Кузовний ремонт і фарбування авто у Торрев’єсі | PaintLab",
+    description: "PaintLab у Торрев’єсі виконує кузовний ремонт і фарбування авто: усунення пошкоджень, підготовку кузова та фарбування деталей. Оцінка у WhatsApp.",
     nav: { home: "Головна", services: "Послуги", booking: "Контакти" },
     hero: {
       eyebrow: "",
@@ -198,8 +198,8 @@ export const dictionaries = {
   },
   de: {
     locale: "de_DE",
-    title: "Autolackierung in Torrevieja | Fahrzeuglackierung und Reparatur",
-    description: "Professionelle Autolackierung und Karosseriereparatur in Torrevieja. Schadensreparatur, Oberflächenvorbereitung und Lackierung. Einschätzung per WhatsApp.",
+    title: "Karosseriereparatur und Autolackierung in Torrevieja | PaintLab",
+    description: "PaintLab in Torrevieja bietet Karosseriereparatur und Autolackierung: Schadensbeseitigung, Oberflächenvorbereitung und Lackierung. Anfrage per WhatsApp.",
     nav: { home: "Start", services: "Leistungen", booking: "Kontakt" },
     hero: {
       eyebrow: "",
@@ -232,8 +232,8 @@ export const dictionaries = {
   },
   fr: {
     locale: "fr_FR",
-    title: "Peinture automobile à Torrevieja | Réparation et carrosserie",
-    description: "Peinture automobile et réparation de carrosserie à Torrevieja. Réparation des dommages, préparation des surfaces et peinture. Estimation via WhatsApp.",
+    title: "Carrosserie et peinture automobile à Torrevieja | PaintLab",
+    description: "PaintLab à Torrevieja réalise la réparation de carrosserie et la peinture automobile : dommages, préparation des surfaces et peinture. Devis via WhatsApp.",
     nav: { home: "Accueil", services: "Services", booking: "Contact" },
     hero: {
       eyebrow: "",
@@ -266,8 +266,8 @@ export const dictionaries = {
   },
   pl: {
     locale: "pl_PL",
-    title: "Lakierowanie samochodów w Torrevieja | Naprawa i lakierowanie",
-    description: "Profesjonalne lakierowanie samochodów i naprawa blacharska w Torrevieja. Naprawa uszkodzeń, przygotowanie powierzchni i lakierowanie. Wycena przez WhatsApp.",
+    title: "Naprawa blacharska i lakierowanie aut w Torrevieja | PaintLab",
+    description: "PaintLab w Torrevieja oferuje naprawy blacharskie i lakierowanie aut: usuwanie uszkodzeń, przygotowanie powierzchni i lakierowanie. Wycena przez WhatsApp.",
     nav: { home: "Start", services: "Usługi", booking: "Kontakt" },
     hero: {
       eyebrow: "",
@@ -300,8 +300,8 @@ export const dictionaries = {
   },
   nl: {
     locale: "nl_NL",
-    title: "Auto spuiten in Torrevieja | Autoschade en lakwerk",
-    description: "Professioneel auto spuiten en autoschadeherstel in Torrevieja. Schadeherstel, oppervlaktevoorbereiding en lakwerk. Beoordeling via WhatsApp.",
+    title: "Autoschadeherstel en autospuitwerk in Torrevieja | PaintLab",
+    description: "PaintLab in Torrevieja verzorgt autoschadeherstel en autospuitwerk: schadeherstel, voorbereiding van de carrosserie en lakwerk. Aanvraag via WhatsApp.",
     nav: { home: "Home", services: "Diensten", booking: "Contact" },
     hero: {
       eyebrow: "",
@@ -335,7 +335,7 @@ export const dictionaries = {
   it: {
     locale: "it_IT",
     title: "Carrozzeria e verniciatura auto a Torrevieja | PaintLab",
-    description: "Carrozzeria e verniciatura auto a Torrevieja. Riparazione di danni, graffi e ammaccature, con verniciatura completa o dei singoli elementi. Preventivo via WhatsApp.",
+    description: "PaintLab a Torrevieja esegue riparazioni di carrozzeria e verniciatura auto: danni, preparazione delle superfici e verniciatura. Preventivo via WhatsApp.",
     nav: { home: "Home", services: "Servizi", booking: "Contatti" },
     hero: {
       eyebrow: "",

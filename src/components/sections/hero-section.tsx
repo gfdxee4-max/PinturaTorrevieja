@@ -17,31 +17,31 @@ const heroContent: Record<string, { benefits: readonly string[]; headline: reado
     benefits: ["Materiales premium", "Rápido y fiable", "Garantía de calidad"],
   },
   en_GB: {
-    headline: ["Car body repair & painting", "in Torrevieja"],
+    headline: ["Car body repair and painting", "in Torrevieja"],
     benefits: ["Premium materials", "Fast and reliable", "Quality guarantee"],
   },
   ru_RU: {
-    headline: ["Автопокраска и кузовной ремонт", "в Торревьехе"],
+    headline: ["Кузовной ремонт и покраска авто", "в Торревьехе"],
     benefits: ["Премиальные материалы", "Быстро и надёжно", "Гарантия качества"],
   },
   uk_UA: {
-    headline: ["Фарбування авто та кузовний ремонт", "у Торрев’єсі"],
+    headline: ["Кузовний ремонт і фарбування авто", "у Торрев’єсі"],
     benefits: ["Преміальні матеріали", "Швидко та надійно", "Гарантія якості"],
   },
   de_DE: {
-    headline: ["Autolackierung & Karosseriereparatur", "in Torrevieja"],
+    headline: ["Karosserie und Autolackierung", "in Torrevieja"],
     benefits: ["Premium-Materialien", "Schnell und zuverlässig", "Qualitätsgarantie"],
   },
   fr_FR: {
-    headline: ["Peinture automobile et carrosserie", "à Torrevieja"],
+    headline: ["Carrosserie et peinture automobile", "à Torrevieja"],
     benefits: ["Matériaux premium", "Rapide et fiable", "Garantie qualité"],
   },
   pl_PL: {
-    headline: ["Lakierowanie aut i naprawa blacharska", "w Torrevieja"],
+    headline: ["Naprawa blacharska i lakierowanie aut", "w Torrevieja"],
     benefits: ["Materiały premium", "Szybko i niezawodnie", "Gwarancja jakości"],
   },
   nl_NL: {
-    headline: ["Auto spuiten & schadeherstel", "in Torrevieja"],
+    headline: ["Autoschadeherstel en autospuitwerk", "in Torrevieja"],
     benefits: ["Premium materialen", "Snel en betrouwbaar", "Kwaliteitsgarantie"],
   },
   it_IT: {
