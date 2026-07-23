@@ -129,6 +129,11 @@ const nextConfig: NextConfig = {
         destination: "/es",
         statusCode: 301,
       },
+      ...locales.map((language) => ({
+        source: `/${language}/ciudades/torrevieja`,
+        destination: `/${language}`,
+        statusCode: 301 as const,
+      })),
       {
         source: "/pintura-coche-torrevieja",
         destination: "/servicios/pintura-coche",
