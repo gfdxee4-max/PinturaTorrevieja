@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PrivacyPageProps): Promise<Me
   return {
     title: copy.title,
     description,
-    robots: { index: true, follow: true },
+    robots: { index: false, follow: true },
     alternates: {
       canonical,
       languages: {

@@ -39,13 +39,13 @@ const whatsappDefault = createWhatsAppUrl(
 export const hubPages: ArchitecturePage[] = [
   {
     path: "/servicios",
-    title: "Servicios de pintura de coches en Torrevieja | Pintura Torrevieja",
+    title: "Servicios de pintura y carrocería | PaintLab",
     description:
-      "Servicios de pintura de coches, reparacion de carroceria, pulido, faros y pintura completa en Torrevieja.",
-    h1: "Servicios de pintura y carroceria",
+      "Consulta los servicios de pintura por piezas, pintura completa, reparación de carrocería, arañazos y recuperación de faros de PaintLab.",
+    h1: "Servicios de pintura y carrocería",
     eyebrow: "Servicios",
     lead:
-      "Una guia clara de los trabajos que realmente ofrece la masteria: pintura, reparacion estetica, pulido y valoracion previa por WhatsApp.",
+      "Una guía clara de los trabajos que ofrece el taller para elegir el servicio adecuado antes de enviar las fotos por WhatsApp.",
     cta: "Consultar servicio por WhatsApp",
     sections: [
       {
@@ -64,30 +64,33 @@ export const hubPages: ArchitecturePage[] = [
       { href: "/servicios/reparacion-aranazos-coche", label: "Reparacion de aranazos", text: "Valoracion de marcas leves o profundas." },
       { href: "/servicios/pulido-carroceria", label: "Pulido de carroceria", text: "Brillo, microaranazos y pintura apagada." },
       { href: "/servicios/pulido-faros", label: "Pulido de faros", text: "Opticas opacas o amarillentas." },
+      { href: "/pintura-capo", label: "Pintura de capó", text: "Preparación y pintura de una pieza frontal visible." },
+      { href: "/pintura-puerta", label: "Pintura de puertas", text: "Daños, roces y acabado integrado en los laterales." },
+      { href: "/pintura-aleta", label: "Pintura de aletas", text: "Reparación y pintura alrededor del paso de rueda." },
       { href: "/ciudades", label: "Zonas atendidas", text: "Torrevieja, Orihuela Costa, Guardamar y areas cercanas." },
     ],
   },
   {
     path: "/ciudades",
-    title: "Pintura de coches en Torrevieja y Costa Blanca Sur",
+    title: "Zonas de servicio en Costa Blanca Sur | PaintLab",
     description:
-      "Zonas atendidas para pintura de coches y reparacion de carroceria cerca de Torrevieja, Orihuela Costa, Guardamar, Ciudad Quesada y La Mata.",
-    h1: "Pintura de coches por zonas",
-    eyebrow: "Ciudades",
+      "Consulta las zonas de servicio de PaintLab en Costa Blanca Sur: Torrevieja, Orihuela Costa, Guardamar del Segura, Ciudad Quesada y La Mata.",
+    h1: "Servicio de chapa y pintura en Costa Blanca Sur",
+    eyebrow: "Zonas de servicio",
     lead:
-      "Primer mapa local del sitio: pocas paginas, utiles y diferenciadas, centradas en zonas donde tiene sentido pedir una valoracion al taller.",
+      "Información para conductores de localidades cercanas que quieren solicitar una valoración previa antes de llevar el vehículo al taller.",
     cta: "Consultar desde mi zona",
     sections: [
       {
-        heading: "Cobertura local sin paginas puerta",
+        heading: "Localidades desde las que recibimos consultas",
         paragraphs: [
-          "Las paginas de ciudades no repiten el mismo texto cambiando el nombre. Cada una explica el contexto de uso del coche en la zona, los danos frecuentes y como preparar una consulta con fotos.",
-          "Esta seccion podra crecer mas adelante, pero solo con ubicaciones donde haya demanda real y contenido local util.",
+          "PaintLab tiene su base en Torrevieja y atiende consultas de conductores de Orihuela Costa, Guardamar del Segura, Ciudad Quesada, La Mata y otras localidades de Costa Blanca Sur.",
+          "Las páginas locales explican cómo preparar una consulta con fotos y qué daños son habituales en cada zona, sin duplicar la información de la página principal.",
         ],
       },
     ],
     links: [
-      { href: "/ciudades/torrevieja", label: "Torrevieja", text: "Pagina principal local del taller." },
+      { href: "/es", label: "Taller de chapa y pintura en Torrevieja", text: "Página principal de PaintLab y base del taller." },
       { href: "/ciudades/orihuela-costa", label: "Orihuela Costa", text: "Urbanizaciones costeras y desplazamientos habituales." },
       { href: "/ciudades/guardamar-del-segura", label: "Guardamar del Segura", text: "Coches expuestos a sol, arena y salinidad." },
       { href: "/ciudades/ciudad-quesada", label: "Ciudad Quesada", text: "Vehiculos de residentes y uso diario." },
@@ -266,10 +269,10 @@ export const hubPages: ArchitecturePage[] = [
 export const serviceArchitecturePages: ArchitecturePage[] = [
   {
     path: "/servicios/pintura-coche",
-    title: "Pintura de coche en Torrevieja | Pintura Torrevieja",
+    title: "Pintura de coche en Torrevieja | PaintLab",
     description:
-      "Pintura de coche en Torrevieja con preparacion de carroceria, cabina, igualacion de color y consulta por WhatsApp.",
-    h1: "Pintura de coche",
+      "Pintura de coche en Torrevieja para una o varias piezas, igualación de color y repintado de automóvil. Consulta el trabajo por WhatsApp.",
+    h1: "Pintura de coche en Torrevieja",
     eyebrow: "Servicio",
     lead:
       "Servicio principal para pintar una o varias piezas del vehiculo con preparacion previa y acabado integrado.",
@@ -293,7 +296,10 @@ export const serviceArchitecturePages: ArchitecturePage[] = [
       { href: "/servicios/pintar-coche-completo", label: "Pintar coche completo" },
       { href: "/servicios/pintar-paragolpes", label: "Pintar paragolpes" },
       { href: "/servicios/reparacion-carroceria", label: "Reparacion de carroceria" },
-      { href: "/ciudades/torrevieja", label: "Pintura en Torrevieja" },
+      { href: "/pintura-capo", label: "Pintar el capó" },
+      { href: "/pintura-puerta", label: "Servicio de pintura de puerta" },
+      { href: "/pintura-aleta", label: "Reparación y pintura de aleta" },
+      { href: "/es", label: "PaintLab Torrevieja" },
       { href: "/servicios", label: "Todos los servicios" },
     ],
     faq: [
@@ -338,6 +344,9 @@ export const serviceArchitecturePages: ArchitecturePage[] = [
       { href: "/servicios/pintura-coche", label: "Pintura de coche" },
       { href: "/servicios/pulido-carroceria", label: "Pulido de carroceria" },
       { href: "/servicios/reparacion-carroceria", label: "Reparacion de carroceria" },
+      { href: "/pintura-capo", label: "Pintura completa del capó" },
+      { href: "/pintura-puerta", label: "Pintura de una puerta" },
+      { href: "/pintura-aleta", label: "Pintura de una aleta" },
       { href: "/contacto", label: "Contacto" },
     ],
   },
@@ -409,7 +418,10 @@ export const serviceArchitecturePages: ArchitecturePage[] = [
       { href: "/servicios/pintura-coche", label: "Pintura de coche" },
       { href: "/servicios/pintar-paragolpes", label: "Pintar paragolpes" },
       { href: "/servicios/reparacion-aranazos-coche", label: "Reparacion de aranazos" },
-      { href: "/ciudades/torrevieja", label: "Torrevieja" },
+      { href: "/pintura-capo", label: "Reparación y pintura de capó" },
+      { href: "/pintura-puerta", label: "Daños en puertas" },
+      { href: "/pintura-aleta", label: "Reparación de aletas" },
+      { href: "/es", label: "Chapista en Torrevieja" },
     ],
     faq: [
       {
@@ -448,6 +460,9 @@ export const serviceArchitecturePages: ArchitecturePage[] = [
       { href: "/servicios/pulido-carroceria", label: "Pulido de carroceria" },
       { href: "/servicios/pintura-coche", label: "Pintura de coche" },
       { href: "/servicios/pintar-paragolpes", label: "Pintar paragolpes" },
+      { href: "/pintura-puerta", label: "Arañazos y pintura de puerta" },
+      { href: "/pintura-aleta", label: "Roces y pintura de aleta" },
+      { href: "/pintura-capo", label: "Marcas y pintura de capó" },
       { href: "/faq", label: "FAQ" },
     ],
     faq: [
@@ -540,39 +555,6 @@ export const serviceArchitecturePages: ArchitecturePage[] = [
 
 export const cityArchitecturePages: ArchitecturePage[] = [
   {
-    path: "/ciudades/torrevieja",
-    title: "Pintura de coches en Torrevieja | Pintura Torrevieja",
-    description:
-      "Pintura de coches en Torrevieja, reparacion de carroceria, roces de aparcamiento, pulido y consulta por WhatsApp.",
-    h1: "Pintura de coches en Torrevieja",
-    eyebrow: "Ciudad",
-    lead:
-      "Pagina local principal para consultas de pintura, carroceria y pulido en Torrevieja.",
-    cta: "Consultar desde Torrevieja",
-    sections: [
-      {
-        heading: "Danos habituales en Torrevieja",
-        paragraphs: [
-          "En Torrevieja son frecuentes los roces de aparcamiento, marcas en paragolpes, pintura apagada por sol y pequenas reparaciones esteticas en coches de uso diario.",
-          "La consulta por WhatsApp permite enviar fotos antes de desplazar el vehiculo y entender si conviene pintar, reparar o pulir.",
-        ],
-      },
-    ],
-    links: [
-      { href: "/servicios/pintura-coche", label: "Pintura de coche" },
-      { href: "/servicios/pintar-paragolpes", label: "Pintar paragolpes" },
-      { href: "/servicios/pulido-carroceria", label: "Pulido de carroceria" },
-      { href: "/ciudades", label: "Todas las zonas" },
-    ],
-    faq: [
-      {
-        question: "Puedo pedir valoracion en Torrevieja por WhatsApp?",
-        answer:
-          "Si. Envia fotos del coche, zona danada y modelo para una orientacion inicial.",
-      },
-    ],
-  },
-  {
     path: "/ciudades/orihuela-costa",
     title: "Pintura de coches en Orihuela Costa | Carroceria y pulido",
     description:
@@ -595,7 +577,7 @@ export const cityArchitecturePages: ArchitecturePage[] = [
       { href: "/servicios/pintar-paragolpes", label: "Pintar paragolpes" },
       { href: "/servicios/reparacion-carroceria", label: "Reparacion de carroceria" },
       { href: "/servicios/reparacion-aranazos-coche", label: "Reparacion de aranazos" },
-      { href: "/ciudades/torrevieja", label: "Torrevieja" },
+      { href: "/es", label: "Taller principal en Torrevieja" },
     ],
   },
   {
@@ -673,7 +655,7 @@ export const cityArchitecturePages: ArchitecturePage[] = [
       { href: "/servicios/pulido-faros", label: "Pulido de faros" },
       { href: "/servicios/pintar-paragolpes", label: "Pintar paragolpes" },
       { href: "/servicios/pintura-coche", label: "Pintura de coche" },
-      { href: "/ciudades/torrevieja", label: "Torrevieja" },
+      { href: "/es", label: "Chapa y pintura en Torrevieja" },
     ],
   },
 ];

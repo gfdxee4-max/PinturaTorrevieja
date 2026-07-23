@@ -370,12 +370,12 @@ export const servicePages = [
         text: "Para danos que continuan hacia la parte delantera o trasera del lateral.",
       },
       {
-        slug: "pintura-parachoques",
+        slug: "servicios/pintar-paragolpes",
         label: "Pintura de parachoques",
         text: "Si el roce de aparcamiento tambien llega al extremo del vehiculo.",
       },
       {
-        slug: "pulido-carroceria",
+        slug: "servicios/pulido-carroceria",
         label: "Pulido de carroceria",
         text: "Alternativa cuando las marcas son superficiales y la pintura esta recuperable.",
       },
@@ -463,7 +463,7 @@ export const servicePages = [
     ],
     relatedLinks: [
       {
-        slug: "pintura-parachoques",
+        slug: "servicios/pintar-paragolpes",
         label: "Pintura de parachoques",
         text: "Para completar reparaciones del frontal despues de roces o impactos.",
       },
@@ -473,7 +473,7 @@ export const servicePages = [
         text: "Recomendada si el dano alcanza las esquinas delanteras.",
       },
       {
-        slug: "pulido-carroceria",
+        slug: "servicios/pulido-carroceria",
         label: "Pulido de carroceria",
         text: "Opcion si el capo esta apagado pero la laca aun se puede recuperar.",
       },
@@ -565,12 +565,12 @@ export const servicePages = [
         text: "Para danos laterales que cruzan desde la aleta hacia la puerta.",
       },
       {
-        slug: "pintura-parachoques",
+        slug: "servicios/pintar-paragolpes",
         label: "Pintura de parachoques",
         text: "Si el roce afecta tambien al extremo delantero o trasero.",
       },
       {
-        slug: "reparacion-carroceria",
+        slug: "servicios/reparacion-carroceria",
         label: "Reparacion de carroceria",
         text: "Cuando la aleta necesita correccion de forma antes del acabado.",
       },

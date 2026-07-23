@@ -15,7 +15,7 @@ export const dynamic = "force-static";
 export const revalidate = 86400;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-07-22T00:00:00.000Z");
+  const lastModified = new Date("2026-07-23T00:00:00.000Z");
 
   const languagePages = locales.map((locale) => ({
     url: getAbsoluteUrl(localizedPath(locale)),
@@ -28,21 +28,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
           locales.map((item) => [item, getAbsoluteUrl(localizedPath(item))]),
         ),
         "x-default": getAbsoluteUrl(localizedPath(fallbackLocale)),
-      },
-    },
-  }));
-
-  const privacyPages = locales.map((locale) => ({
-    url: getAbsoluteUrl(`/${locale}/privacy`),
-    lastModified,
-    changeFrequency: "yearly" as const,
-    priority: 0.25,
-    alternates: {
-      languages: {
-        ...Object.fromEntries(
-          locales.map((item) => [item, getAbsoluteUrl(`/${item}/privacy`)]),
-        ),
-        "x-default": getAbsoluteUrl(`/${fallbackLocale}/privacy`),
       },
     },
   }));
@@ -61,6 +46,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter(
       (page) =>
         page.path !== "/trabajos-realizados" &&
+        page.path !== "/ciudades/torrevieja" &&
+        page.path !== "/marcas" &&
         (hasPublishedBlogArticles || page.path !== "/blog"),
     )
     .map((page) => ({
@@ -115,7 +102,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...languagePages,
-    ...privacyPages,
     ...architectureSeoPages,
     ...blogCategoryPages,
     ...blogArticlePages,

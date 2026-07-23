@@ -71,7 +71,7 @@ export const dictionaries = {
       headlineAccent: "reparación",
       headlineBottom: "de vehículos",
       headline: "Pintura y reparación de vehículos",
-      text: "PaintLab, también conocido como Pintura Torrevieja, es un taller de chapa y pintura en Torrevieja, Alicante, especializado en pintura de coche, reparación de chapa y reparación de carrocería.",
+      text: "PaintLab, también conocido como Pintura Torrevieja, es un taller de carrocería en Torrevieja, Alicante, especializado en pintura de coche, reparación de chapa y reparación de carrocería.",
       primary: "Escribir en WhatsApp",
       secondary: "Servicios",
       tags: [],

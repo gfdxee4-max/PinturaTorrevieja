@@ -27,7 +27,6 @@ const architectureSpanishPages = [
   "servicios/pulido-carroceria",
   "servicios/pulido-faros",
   "ciudades",
-  "ciudades/torrevieja",
   "ciudades/orihuela-costa",
   "ciudades/guardamar-del-segura",
   "ciudades/ciudad-quesada",
@@ -125,6 +124,11 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      {
+        source: "/ciudades/torrevieja",
+        destination: "/es",
+        statusCode: 301,
+      },
       {
         source: "/pintura-coche-torrevieja",
         destination: "/servicios/pintura-coche",

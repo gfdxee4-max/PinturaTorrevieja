@@ -14,11 +14,11 @@ const faqItems: Record<Locale, readonly FaqItem[]> = {
     },
     {
       question: "¿Buscas un chapista en Torrevieja?",
-      answer: "En PaintLab realizamos pintura de coche, reparación de chapa y reparación de carrocería en nuestro taller de chapa y pintura en Torrevieja, Alicante.",
+      answer: "En PaintLab realizamos reparación de chapa en Torrevieja, pintura de coche y preparación de carrocería según el daño de cada pieza.",
     },
     {
-      question: "¿Trabajáis con vehículos en Torrevieja?",
-      answer: "Sí, atendemos solicitudes de pintura y carrocería para vehículos en Torrevieja.",
+      question: "¿Necesitas arreglar golpes del coche en Torrevieja?",
+      answer: "Envíanos fotos desde varios ángulos para valorar si el golpe requiere reparación de chapa, preparación de la superficie y pintura.",
     },
   ],
   en: [
