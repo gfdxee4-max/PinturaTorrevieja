@@ -15,6 +15,9 @@ export const rootMetadata: Metadata = {
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
+  verification: {
+    yandex: "cb6cbfb4bc58267c",
+  },
   icons: {
     icon: [
       { url: `/favicon.ico?v=${iconVersion}`, sizes: "any" },
