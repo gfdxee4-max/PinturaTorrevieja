@@ -27,16 +27,23 @@ export function RuSeoSection() {
             ))}
           </div>
 
-          <div className="mt-9 border-l-2 border-redline pl-5 sm:pl-7">
-            <h3 className="text-sm font-semibold uppercase tracking-[0.12em] text-white">
-              {ruHomeSeoContent.areaTitle}
-            </h3>
-            <p className="mt-3 max-w-5xl text-sm leading-7 text-white/60 sm:text-base">
-              {ruHomeSeoContent.areaText}
-            </p>
-          </div>
         </div>
       </Container>
     </Section>
+  );
+}
+
+export function RuServiceAreaNote() {
+  return (
+    <section
+      aria-label="География клиентов PaintLab"
+      className="border-b border-white/[0.08] bg-[#050505] py-8 sm:py-10"
+    >
+      <Container>
+        <p className="mx-auto max-w-5xl text-sm leading-7 text-white/64 sm:text-base sm:leading-8">
+          {ruHomeSeoContent.areaText}
+        </p>
+      </Container>
+    </section>
   );
 }
