@@ -37,7 +37,7 @@ export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
           <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,#050505_0%,rgba(5,5,5,0.96)_42%,rgba(5,5,5,0.45)_100%)]" />
           <Container className="flex min-h-[25rem] items-center py-14 sm:min-h-[29rem]">
             <div className="max-w-4xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-redline">{copy.caseLabel}</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#ff4d4d]">{copy.caseLabel}</p>
               <h1 className="mt-4 text-[clamp(2.25rem,5.2vw,5rem)] font-semibold leading-[1.02] tracking-normal text-white">
                 {project.headline[locale]}
               </h1>
@@ -76,7 +76,7 @@ export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
               <div className="grid gap-4 md:grid-cols-3">
                 {[copy.beforeState, copy.workPerformed, copy.result].map((heading, index) => (
                   <article key={heading} className="rounded-[6px] border border-white/14 bg-[#0a0a0a] p-6">
-                    <span className="text-xs font-semibold tracking-[0.16em] text-redline">0{index + 1}</span>
+                    <span className="text-xs font-semibold tracking-[0.16em] text-[#ff4d4d]">0{index + 1}</span>
                     <h2 className="mt-3 text-lg font-semibold leading-6 text-white">{heading}</h2>
                     <p className="mt-4 text-sm leading-7 text-white/64">{descriptions[index]}</p>
                   </article>

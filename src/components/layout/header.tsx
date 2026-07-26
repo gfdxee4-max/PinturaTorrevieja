@@ -35,7 +35,7 @@ export function Header({ dictionary, locale, activeItem = "home", languagePath }
   return (
     <header className="sticky top-0 z-50 border-b border-white/[0.09] bg-[#050505]/95 backdrop-blur-xl">
       <Container className="flex h-[5.25rem] items-center justify-between gap-2 px-4 sm:px-8 lg:h-[6.5rem] lg:px-12 xl:px-16">
-        <BrandLogo href={homePath} priority className="h-[3.2rem] w-[9.25rem] sm:w-[13rem] lg:h-[5rem] lg:w-[17rem]" />
+        <BrandLogo href={homePath} className="h-[3.2rem] w-[9.25rem] sm:w-[13rem] lg:h-[5rem] lg:w-[17rem]" />
 
         <nav aria-label={ui.mainNavigation} className="hidden min-w-0 items-center gap-8 lg:flex xl:gap-12">
           {navItems.map((item) => (

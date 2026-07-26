@@ -95,7 +95,7 @@ export function ProjectsPage({ locale, projects }: ProjectsPageProps) {
                     />
                     <div className="grid gap-5 p-5 sm:grid-cols-[1fr_auto] sm:items-end sm:p-7">
                       <div>
-                        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-redline">{project.category[locale]}</p>
+                        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#ff4d4d]">{project.category[locale]}</p>
                         <h2 className="mt-3 text-xl font-semibold leading-7 text-white sm:text-2xl">{project.title[locale]}</h2>
                         <p className="mt-2 text-sm text-white/52">{project.vehicle}</p>
                         <p className="mt-4 max-w-3xl text-sm leading-6 text-white/66">{project.shortDescription[locale]}</p>

@@ -14,7 +14,7 @@ export function ServicesSection({ locale }: { locale: Locale }) {
         <header className="mx-auto mb-5 text-center sm:mb-7 lg:mb-4">
           <div className="mx-auto w-fit uppercase" aria-label="PaintLab Torrevieja">
             <p className="text-lg font-medium tracking-[0.46em] text-white sm:text-2xl">
-              Paint<span className="text-redline">Lab</span>
+              Paint<span className="text-[#ff4d4d]">Lab</span>
             </p>
             <p className="mt-1 text-[0.55rem] tracking-[0.7em] text-white/72 sm:text-[0.65rem]">Torrevieja</p>
           </div>

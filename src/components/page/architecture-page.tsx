@@ -50,7 +50,7 @@ export function ArchitecturePage({ page }: ArchitecturePageProps) {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_20%,rgba(229,9,20,0.2),transparent_28%),linear-gradient(90deg,#000_0%,rgba(0,0,0,0.94)_42%,rgba(0,0,0,0.5)_100%)]" />
           <Container className="relative grid min-h-[34rem] items-center gap-8 py-14 lg:grid-cols-[0.95fr_1.05fr] lg:py-20">
             <div className="max-w-3xl">
-              <p className="text-xs font-black uppercase tracking-[0.22em] text-redline">
+              <p className="text-xs font-black uppercase tracking-[0.22em] text-[#ff4d4d]">
                 {page.eyebrow}
               </p>
               <h1 className="silver-text mt-5 text-[clamp(2.6rem,6.2vw,6rem)] font-black uppercase leading-[0.92] tracking-normal">
@@ -189,7 +189,7 @@ export function ArchitecturePage({ page }: ArchitecturePageProps) {
           <section id="faq" className="border-b border-white/10 py-12 sm:py-16">
             <Container>
               <div className="mx-auto max-w-3xl text-center">
-                <p className="text-xs font-black uppercase tracking-[0.18em] text-redline">FAQ</p>
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-[#ff4d4d]">FAQ</p>
                 <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-white sm:text-4xl">
                   Preguntas frecuentes
                 </h2>
