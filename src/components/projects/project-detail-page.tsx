@@ -68,7 +68,7 @@ export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
               afterImageClassName="object-contain"
               beforeObjectPosition="50% 50%"
               afterObjectPosition="50% 50%"
-              imageQuality={95}
+              imageQuality={90}
               sizes="(min-width: 1800px) 1728px, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2rem)"
             />
 

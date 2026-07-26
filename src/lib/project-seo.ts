@@ -62,7 +62,7 @@ export function getProjectMetadata(project: Project, locale: Locale): Metadata {
       title: project.seoTitle[locale],
       description: project.seoDescription[locale],
       publishedTime: project.publishedAt,
-      images: [{ url: image, width: 9248, height: 5204, alt: project.altAfter[locale] }],
+      images: [{ url: image, width: 2879, height: 1620, alt: project.altAfter[locale] }],
     },
     twitter: {
       card: "summary_large_image",
@@ -166,8 +166,8 @@ export function getProjectStructuredData(project: Project, locale: Locale) {
         "@id": `${pageUrl}#after-image`,
         contentUrl: afterImage,
         caption: project.altAfter[locale],
-        width: 9248,
-        height: 5204,
+        width: 2879,
+        height: 1620,
       },
     ],
   };

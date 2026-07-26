@@ -37,15 +37,20 @@ export function ProjectsPage({ locale, projects }: ProjectsPageProps) {
       />
       <main className="min-h-screen bg-[#050505] text-white">
         <section className="relative isolate min-h-[25rem] overflow-hidden border-b border-white/[0.08] sm:min-h-[30rem]">
-          <Image
-            src="/images/hero-works-premium.webp"
-            alt=""
-            fill
-            priority
-            quality={95}
-            sizes="100vw"
-            className="-z-30 object-cover object-[70%_center] sm:object-center"
-          />
+          <picture className="contents">
+            <source media="(max-width: 639px)" srcSet="/images/hero-works-mobile.avif" type="image/avif" />
+            <source srcSet="/images/hero-works-premium.avif" type="image/avif" />
+            <Image
+              src="/images/hero-works-premium.webp"
+              alt=""
+              fill
+              loading="eager"
+              fetchPriority="high"
+              quality={72}
+              sizes="(max-width: 639px) 100vw, 100vw"
+              className="-z-30 object-cover object-[70%_center] sm:object-center"
+            />
+          </picture>
           <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,#050505_0%,rgba(5,5,5,0.95)_34%,rgba(5,5,5,0.58)_62%,rgba(5,5,5,0.18)_100%)]" />
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(0deg,#050505_0%,transparent_36%)]" />
           <Container className="flex min-h-[25rem] items-center py-14 sm:min-h-[30rem]">
@@ -84,7 +89,7 @@ export function ProjectsPage({ locale, projects }: ProjectsPageProps) {
                       afterImageClassName="object-contain"
                       beforeObjectPosition="50% 50%"
                       afterObjectPosition="50% 50%"
-                      imageQuality={95}
+                      imageQuality={90}
                       sizes="(min-width: 1280px) calc(100vw - 24rem), (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2rem)"
                       className="rounded-none border-0 border-b border-white/15"
                     />

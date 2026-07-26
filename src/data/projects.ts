@@ -89,7 +89,7 @@ export const projects: readonly Project[] = [
       cs: "Oprava karoserie a lakování",
     },
     beforeImage: "/images/projects/nissan-qashqai/before-enhanced.webp",
-    afterImage: "/images/projects/nissan-qashqai/after-face-blurred.webp",
+    afterImage: "/images/projects/nissan-qashqai/after-face-blurred-2880.webp",
     shortDescription: {
       es: "Reparación de daños y arañazos, preparación de la superficie y pintura de la aleta delantera izquierda.",
       en: "Damage and scratch repair, surface preparation and painting of the left front wing.",
