@@ -8,6 +8,7 @@ import {
   localizedPath,
 } from "@/config/i18n";
 import { getFaqItems } from "@/config/faq";
+import { getServiceAreaSchema } from "@/config/service-areas";
 import { siteConfig } from "@/config/site";
 import { additionalSeoKeywords } from "@/config/additional-seo-keywords";
 import { socialProfileUrls } from "@/config/social-links";
@@ -220,10 +221,7 @@ export function getLocalBusinessStructuredData() {
           addressRegion: "Alicante",
           addressCountry: "Spain",
         },
-        areaServed: {
-          "@type": "City",
-          name: "Torrevieja",
-        },
+        areaServed: getServiceAreaSchema(),
         priceRange: siteConfig.priceRange,
         contactPoint: {
           "@type": "ContactPoint",
@@ -244,10 +242,7 @@ export function getLocalBusinessStructuredData() {
               provider: {
                 "@id": businessId,
               },
-              areaServed: {
-                "@type": "City",
-                name: "Torrevieja",
-              },
+              areaServed: getServiceAreaSchema(),
             },
           })),
         },

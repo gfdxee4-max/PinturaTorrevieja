@@ -40,13 +40,13 @@ export function Footer({ dictionary, locale, whatsappUrl }: FooterProps) {
         <div className="flex flex-col gap-7 py-9 text-sm text-white/55 lg:flex-row lg:items-center lg:justify-between">
           <BrandLogo className="h-[4.25rem] w-[13rem]" />
           <nav className="flex flex-wrap gap-x-5 gap-y-3" aria-label={ui.footerNavigation}>
-            {footerHubLinks.map((item, index) => (
+            {footerHubLinks.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className="font-medium text-white/52 transition hover:text-white"
               >
-                {ui.footerLinks[index]}
+                {ui.footerLinks[item.translationIndex]}
               </Link>
             ))}
           </nav>

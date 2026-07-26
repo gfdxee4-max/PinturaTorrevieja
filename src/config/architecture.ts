@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getServiceAreaSchema } from "@/config/service-areas";
 import { siteConfig } from "@/config/site";
 import { createWhatsAppUrl } from "@/lib/whatsapp";
 import { getAbsoluteUrl } from "@/lib/seo";
@@ -299,6 +300,11 @@ export const serviceArchitecturePages: ArchitecturePage[] = [
       { href: "/pintura-capo", label: "Pintar el capó" },
       { href: "/pintura-puerta", label: "Servicio de pintura de puerta" },
       { href: "/pintura-aleta", label: "Reparación y pintura de aleta" },
+      {
+        href: "/trabajos-realizados/reparacion-aleta-delantera-nissan-qashqai",
+        label: "Reparación y pintura de Nissan Qashqai",
+        text: "Ver un trabajo real de reparación y pintura de una aleta delantera.",
+      },
       { href: "/es", label: "PaintLab Torrevieja" },
       { href: "/servicios", label: "Todos los servicios" },
     ],
@@ -421,6 +427,11 @@ export const serviceArchitecturePages: ArchitecturePage[] = [
       { href: "/pintura-capo", label: "Reparación y pintura de capó" },
       { href: "/pintura-puerta", label: "Daños en puertas" },
       { href: "/pintura-aleta", label: "Reparación de aletas" },
+      {
+        href: "/trabajos-realizados/reparacion-aleta-delantera-nissan-qashqai",
+        label: "Ver trabajo realizado: Nissan Qashqai",
+        text: "Ejemplo real de reparación de daños y pintura de una aleta delantera.",
+      },
       { href: "/es", label: "Chapista en Torrevieja" },
     ],
     faq: [
@@ -666,15 +677,13 @@ export const architecturePages = [
   ...cityArchitecturePages,
 ];
 
-export const footerHubLinks: ArchitectureLink[] = [
-  { href: "/servicios", label: "Servicios" },
-  { href: "/ciudades", label: "Ciudades" },
-  { href: "/marcas", label: "Marcas" },
-  { href: "/trabajos-realizados", label: "Trabajos" },
-  { href: "/blog", label: "Blog" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/contacto", label: "Contacto" },
-  { href: "/sobre-nosotros", label: "Sobre nosotros" },
+export const footerHubLinks = [
+  { href: "/servicios", label: "Servicios", translationIndex: 0 },
+  { href: "/ciudades", label: "Ciudades", translationIndex: 1 },
+  { href: "/trabajos-realizados", label: "Trabajos", translationIndex: 3 },
+  { href: "/faq", label: "FAQ", translationIndex: 5 },
+  { href: "/contacto", label: "Contacto", translationIndex: 6 },
+  { href: "/sobre-nosotros", label: "Sobre nosotros", translationIndex: 7 },
 ];
 
 export const oldToNewServiceUrlMap = [
@@ -728,6 +737,8 @@ export function getArchitectureStructuredData(page: ArchitecturePage) {
   const businessId = `${siteConfig.url}/#autobodyshop`;
   const websiteId = `${siteConfig.url}/#website`;
   const pageId = `${url}#webpage`;
+  const isServicePage = page.path.startsWith("/servicios/");
+  const serviceId = `${url}#service`;
   const graph: Record<string, unknown>[] = [
     {
       "@type": "WebPage",
@@ -742,6 +753,7 @@ export function getArchitectureStructuredData(page: ArchitecturePage) {
       about: {
         "@id": businessId,
       },
+      mainEntity: isServicePage ? { "@id": serviceId } : undefined,
     },
     {
       "@type": "BreadcrumbList",
@@ -762,6 +774,21 @@ export function getArchitectureStructuredData(page: ArchitecturePage) {
       ],
     },
   ];
+
+  if (isServicePage) {
+    graph.push({
+      "@type": "Service",
+      "@id": serviceId,
+      url,
+      name: page.h1,
+      description: page.description,
+      serviceType: page.h1,
+      provider: {
+        "@id": businessId,
+      },
+      areaServed: getServiceAreaSchema(),
+    });
+  }
 
   if (page.faq?.length) {
     graph.push({

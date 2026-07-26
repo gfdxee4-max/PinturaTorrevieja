@@ -574,6 +574,11 @@ export const servicePages = [
         label: "Reparacion de carroceria",
         text: "Cuando la aleta necesita correccion de forma antes del acabado.",
       },
+      {
+        slug: "trabajos-realizados/reparacion-aleta-delantera-nissan-qashqai",
+        label: "Ejemplo de reparacion",
+        text: "Trabajo real de reparacion y pintura de la aleta delantera de un Nissan Qashqai.",
+      },
     ],
     faq: [
       {

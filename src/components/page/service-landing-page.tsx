@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, Check, MessageCircle, Phone } from "lucide-react
 import { Container } from "@/components/ui/container";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { FloatingWhatsApp } from "@/components/ui/floating-whatsapp";
+import { getServiceAreaSchema } from "@/config/service-areas";
 import type { ServicePage } from "@/config/service-pages";
 import { siteConfig } from "@/config/site";
 import { createWhatsAppUrl } from "@/lib/whatsapp";
@@ -85,13 +86,11 @@ function getServiceSchema(page: ServicePage) {
       {
         "@type": "Service",
         "@id": serviceId,
+        url,
         name: page.serviceName,
         serviceType: page.serviceName,
         description: page.description,
-        areaServed: {
-          "@type": "City",
-          name: "Torrevieja",
-        },
+        areaServed: getServiceAreaSchema(),
         provider: {
           "@id": businessId,
         },
