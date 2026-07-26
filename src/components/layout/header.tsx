@@ -3,6 +3,7 @@ import { ChevronDown, Globe2, Menu } from "lucide-react";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { Container } from "@/components/ui/container";
 import { LanguageLink } from "@/components/ui/language-link";
+import { SocialLinks } from "@/components/ui/social-links";
 import {
   type Dictionary,
   languageNames,
@@ -54,6 +55,8 @@ export function Header({ dictionary, locale, activeItem = "home", languagePath }
         </nav>
 
         <div className="flex shrink-0 items-center gap-2">
+          <SocialLinks variant="desktop" />
+
           <details className="group relative">
             <summary className="flex h-11 cursor-pointer list-none items-center gap-1.5 border border-white/20 bg-black/60 px-2 text-xs font-semibold uppercase tracking-[0.08em] text-white outline-none transition hover:border-white/45 sm:gap-2 sm:px-4 [&::-webkit-details-marker]:hidden">
               <Globe2 className="hidden size-4 text-white/68 sm:block" aria-hidden="true" />
@@ -103,6 +106,7 @@ export function Header({ dictionary, locale, activeItem = "home", languagePath }
                   {item.label}
                 </Link>
               ))}
+              <SocialLinks variant="mobile" />
             </nav>
           </details>
         </div>

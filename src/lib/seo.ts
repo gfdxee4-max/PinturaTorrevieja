@@ -10,6 +10,7 @@ import {
 import { getFaqItems } from "@/config/faq";
 import { siteConfig } from "@/config/site";
 import { additionalSeoKeywords } from "@/config/additional-seo-keywords";
+import { socialProfileUrls } from "@/config/social-links";
 
 export function getAbsoluteUrl(path: string) {
   return new URL(path, siteConfig.url).toString();
@@ -209,6 +210,7 @@ export function getLocalBusinessStructuredData() {
         alternateName: siteConfig.alternateBusinessName,
         description: siteConfig.description,
         url: siteConfig.url,
+        sameAs: socialProfileUrls,
         logo: logoUrl,
         image: imageUrl,
         telephone: siteConfig.schemaTelephone,
