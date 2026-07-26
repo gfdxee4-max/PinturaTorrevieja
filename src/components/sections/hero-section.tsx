@@ -21,7 +21,7 @@ const heroContent: Record<string, { benefits: readonly string[]; headline: reado
     benefits: ["Premium materials", "Fast and reliable", "Quality guarantee"],
   },
   ru_RU: {
-    headline: ["Кузовной ремонт и покраска авто", "в Торревьехе"],
+    headline: ["Автопокраска и кузовной ремонт", "в Торревьехе"],
     benefits: ["Премиальные материалы", "Быстро и надёжно", "Гарантия качества"],
   },
   uk_UA: {
