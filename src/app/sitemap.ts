@@ -15,13 +15,16 @@ export const dynamic = "force-static";
 export const revalidate = 86400;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-07-23T00:00:00.000Z");
+  const homepageLastModified = new Date("2026-07-23T18:12:05.000Z");
+  const serviceContentLastModified = new Date("2026-07-23T16:35:02.000Z");
+  const blogContentLastModified = new Date("2026-07-22T19:45:14.000Z");
+  const projectIndexLastModified = new Date(
+    Math.max(...projects.map((project) => Date.parse(project.publishedAt))),
+  );
 
   const languagePages = locales.map((locale) => ({
     url: getAbsoluteUrl(localizedPath(locale)),
-    lastModified,
-    changeFrequency: "weekly" as const,
-    priority: locale === "es" ? 1 : 0.9,
+    lastModified: homepageLastModified,
     alternates: {
       languages: {
         ...Object.fromEntries(
@@ -37,9 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((page) => !redirectedOldPaths.has(page.slug))
     .map((page) => ({
       url: getAbsoluteUrl(`/${page.slug}`),
-      lastModified,
-      changeFrequency: "monthly" as const,
-      priority: 0.86,
+      lastModified: serviceContentLastModified,
     }));
 
   const architectureSeoPages = architecturePages
@@ -52,30 +53,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     )
     .map((page) => ({
       url: getAbsoluteUrl(page.path),
-      lastModified,
-      changeFrequency:
-        page.path.split("/").length > 2 ? ("monthly" as const) : ("weekly" as const),
-      priority: page.path === "/servicios" || page.path === "/ciudades" ? 0.9 : 0.82,
     }));
   const blogCategoryPages = (hasPublishedBlogArticles ? blogCategories : []).map(
     (category) => ({
       url: getAbsoluteUrl(`/blog/categoria/${category.slug}`),
-      lastModified,
-      changeFrequency: "monthly" as const,
-      priority: 0.72,
+      lastModified: blogContentLastModified,
     }),
   );
   const blogArticlePages = blogArticles.map((article) => ({
     url: getAbsoluteUrl(`/blog/${article.slug}`),
     lastModified: new Date(article.dateModified),
-    changeFrequency: "monthly" as const,
-    priority: 0.78,
   }));
   const projectIndexPages = locales.map((locale) => ({
     url: getAbsoluteUrl(getProjectsPath(locale)),
-    lastModified,
-    changeFrequency: "monthly" as const,
-    priority: locale === "es" ? 0.9 : 0.78,
+    lastModified: projectIndexLastModified,
     alternates: {
       languages: {
         ...Object.fromEntries(locales.map((item) => [item, getAbsoluteUrl(getProjectsPath(item))])),
@@ -86,9 +77,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const projectDetailPages = projects.flatMap((project) =>
     locales.map((locale) => ({
       url: getAbsoluteUrl(getProjectPath(locale, project.slug)),
-      lastModified,
-      changeFrequency: "monthly" as const,
-      priority: locale === "es" ? 0.86 : 0.74,
+      lastModified: new Date(project.publishedAt),
       alternates: {
         languages: {
           ...Object.fromEntries(
