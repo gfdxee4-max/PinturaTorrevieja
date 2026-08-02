@@ -26,8 +26,8 @@ export function ServicesSection({ locale }: { locale: Locale }) {
         </header>
 
         <BeforeAfterSlider
-          beforeImage="/images/services/tesla-black-before.webp"
-          afterImage="/images/services/tesla-black-after.webp"
+          beforeImage="/images/services/tesla-before.webp"
+          afterImage="/images/services/tesla-after.webp"
           beforeAlt={copy.beforeAlt}
           afterAlt={copy.afterAlt}
           initialPosition={50}
@@ -37,7 +37,7 @@ export function ServicesSection({ locale }: { locale: Locale }) {
           aspectClassName="aspect-[4/3] sm:aspect-video lg:aspect-[3/1]"
           beforeImageClassName="object-cover object-[63%_center] lg:object-center"
           afterImageClassName="object-cover object-[63%_center] lg:object-center"
-          imageQuality={95}
+          imageQuality={100}
           sizes="(min-width: 1800px) calc(100vw - 3rem), (min-width: 768px) calc(100vw - 2.5rem), calc(100vw - 1.5rem)"
           className="shadow-[0_22px_70px_rgba(0,0,0,0.58)]"
         />
