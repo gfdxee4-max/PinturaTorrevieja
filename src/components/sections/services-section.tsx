@@ -35,8 +35,8 @@ export function ServicesSection({ locale }: { locale: Locale }) {
           beforeLabel={comparison.beforeLabel}
           afterLabel={comparison.afterLabel}
           aspectClassName="aspect-[4/3] sm:aspect-video lg:aspect-[3/1]"
-          beforeImageClassName="object-cover object-[63%_center] lg:object-center"
-          afterImageClassName="object-cover object-[63%_center] lg:object-center"
+          beforeImageClassName="-translate-x-[1.5%] scale-[1.04] object-cover object-[61%_50%] lg:object-[48%_50%]"
+          afterImageClassName="translate-x-[0.5%] scale-[1.01] object-cover object-[64%_50%] lg:object-[51%_50%]"
           imageQuality={100}
           sizes="(min-width: 1800px) calc(100vw - 3rem), (min-width: 768px) calc(100vw - 2.5rem), calc(100vw - 1.5rem)"
           className="shadow-[0_22px_70px_rgba(0,0,0,0.58)]"
