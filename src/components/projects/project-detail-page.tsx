@@ -62,7 +62,7 @@ export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
               afterAlt={project.altAfter[locale]}
               beforeLabel={copy.before}
               afterLabel={copy.after}
-              ariaLabel={copy.sliderAria}
+              ariaLabel={`${project.title[locale]} — ${copy.before} / ${copy.after}`}
               aspectClassName="aspect-[4/3] sm:aspect-video"
               beforeImageClassName="object-contain"
               afterImageClassName="object-contain"
