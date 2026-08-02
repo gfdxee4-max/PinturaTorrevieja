@@ -1,12 +1,13 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { BeforeAfterSlider } from "@/components/ui/before-after-slider";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import type { Locale } from "@/config/i18n";
-import { comparisonSectionTranslations } from "@/config/service-section-i18n";
+import { comparisonSectionTranslations, serviceSectionTranslations } from "@/config/service-section-i18n";
 
 export function ServicesSection({ locale }: { locale: Locale }) {
+  const copy = serviceSectionTranslations[locale];
   const comparison = comparisonSectionTranslations[locale];
 
   return (
@@ -24,14 +25,21 @@ export function ServicesSection({ locale }: { locale: Locale }) {
           </p>
         </header>
 
-        <Image
-          src="/images/services/tesla-black-showcase.webp"
-          alt="Демонстрация ремонта и покраски заднего крыла Tesla Model 3 до и после"
-          width={1717}
-          height={916}
-          quality={95}
+        <BeforeAfterSlider
+          beforeImage="/images/services/tesla-black-before.webp"
+          afterImage="/images/services/tesla-black-after.webp"
+          beforeAlt={copy.beforeAlt}
+          afterAlt={copy.afterAlt}
+          initialPosition={50}
+          ariaLabel={copy.sliderLabel}
+          beforeLabel={comparison.beforeLabel}
+          afterLabel={comparison.afterLabel}
+          aspectClassName="aspect-[4/3] sm:aspect-video lg:aspect-[3/1]"
+          beforeImageClassName="object-cover object-[63%_center] lg:object-center"
+          afterImageClassName="object-cover object-[63%_center] lg:object-center"
+          imageQuality={95}
           sizes="(min-width: 1800px) calc(100vw - 3rem), (min-width: 768px) calc(100vw - 2.5rem), calc(100vw - 1.5rem)"
-          className="h-auto w-full"
+          className="shadow-[0_22px_70px_rgba(0,0,0,0.58)]"
         />
 
         <div className="mx-auto mt-7 max-w-3xl text-center sm:mt-8">
