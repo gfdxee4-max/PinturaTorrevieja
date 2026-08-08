@@ -58,6 +58,7 @@ export const hubPages: ArchitecturePage[] = [
       },
     ],
     links: [
+      { href: "/servicios/chapa-y-pintura", label: "Chapa y pintura en Torrevieja", text: "Servicio completo de carrocería, reparación y pintura." },
       { href: "/servicios/pintura-coche", label: "Pintura de coche", text: "Servicio central para reparar y pintar vehiculos." },
       { href: "/servicios/pintar-coche-completo", label: "Pintar coche completo", text: "Para cambios o restauraciones amplias de pintura." },
       { href: "/servicios/pintar-paragolpes", label: "Pintar paragolpes", text: "Roces, marcas urbanas y danos en plastico." },
@@ -269,6 +270,79 @@ export const hubPages: ArchitecturePage[] = [
 
 export const serviceArchitecturePages: ArchitecturePage[] = [
   {
+    path: "/servicios/chapa-y-pintura",
+    title: "Chapa y Pintura en Torrevieja | Taller de Carrocería",
+    description:
+      "Servicio de chapa y pintura en Torrevieja. Reparación de carrocería, pintura de coches, daños, arañazos y acabados profesionales. Solicita una valoración por WhatsApp.",
+    h1: "Chapa y pintura en Torrevieja",
+    eyebrow: "Servicio de carrocería",
+    lead:
+      "Servicio completo para reparar daños de chapa, preparar la carrocería y recuperar el acabado del vehículo con pintura profesional.",
+    cta: "Solicitar valoración por WhatsApp",
+    sections: [
+      {
+        heading: "Taller de chapa y pintura en Torrevieja",
+        paragraphs: [
+          "Cada reparación empieza revisando el tipo de daño, la pieza afectada y el estado de la pintura. Así podemos decidir si conviene corregir la chapa, reparar la superficie, pintar una pieza o plantear un trabajo más amplio.",
+          "La valoración previa evita aplicar la misma solución a golpes, arañazos y desperfectos diferentes. Puedes enviar fotografías por WhatsApp antes de llevar el coche al taller.",
+        ],
+      },
+      {
+        heading: "Reparación de carrocería, golpes y arañazos",
+        paragraphs: [
+          "La reparación de carrocería puede incluir la corrección de golpes, deformaciones, roces y arañazos que hayan afectado a la chapa o a las capas de pintura.",
+          "Preparamos la superficie antes de pintar para que la forma, el color y el acabado queden integrados con las zonas próximas del vehículo.",
+        ],
+      },
+      {
+        heading: "Pintura de piezas y pintura completa",
+        paragraphs: [
+          "Trabajamos la pintura de piezas como paragolpes, puertas, aletas o capó cuando el daño está localizado. También valoramos la pintura completa cuando varias zonas presentan deterioro y una intervención parcial no es suficiente.",
+          "La elección depende del alcance real del daño, del color y del estado general de la carrocería; no recomendamos pintar más superficie de la necesaria.",
+        ],
+      },
+      {
+        heading: "Pulido y revisión del acabado",
+        paragraphs: [
+          "Cuando la laca conserva margen de recuperación, el pulido puede mejorar brillo y marcas superficiales sin sustituir una reparación de chapa o una pintura necesaria.",
+          "Al finalizar revisamos la uniformidad visual y explicamos los cuidados básicos para conservar el acabado.",
+        ],
+      },
+    ],
+    links: [
+      { href: "/es", label: "Pintura de coches en Torrevieja", text: "Volver a la página principal de PaintLab." },
+      { href: "/servicios/pintura-coche", label: "Pintura de coche", text: "Pintura de una o varias piezas del vehículo." },
+      { href: "/servicios/reparacion-carroceria", label: "Reparación de carrocería", text: "Corrección de golpes y superficies antes de pintar." },
+      { href: "/servicios/reparacion-aranazos-coche", label: "Reparación de arañazos", text: "Diferencias entre pulido, reparación y pintura." },
+      { href: "/servicios/pintar-coche-completo", label: "Pintura completa", text: "Valoración de trabajos amplios de pintura." },
+      { href: "/servicios/pintar-paragolpes", label: "Pintura de paragolpes", text: "Roces, marcas y daños en plástico." },
+      { href: "/servicios/pulido-carroceria", label: "Pulido de carrocería", text: "Recuperación de brillo y marcas superficiales." },
+      { href: "/trabajos-realizados", label: "Trabajos realizados", text: "Casos reales de reparación y pintura." },
+    ],
+    faq: [
+      {
+        question: "¿Qué incluye un servicio de chapa y pintura?",
+        answer:
+          "Incluye la valoración del daño, la reparación necesaria de la carrocería, la preparación de la superficie y la pintura de la zona o pieza acordada.",
+      },
+      {
+        question: "¿Se puede reparar y pintar solo una pieza?",
+        answer:
+          "Sí. Se valora el daño, el color y la transición con las piezas cercanas antes de decidir el alcance del trabajo.",
+      },
+      {
+        question: "¿El pulido sirve para cualquier arañazo?",
+        answer:
+          "No. Puede mejorar marcas superficiales, pero los arañazos que atraviesan la laca o afectan a la pintura requieren otra reparación.",
+      },
+      {
+        question: "¿Puedo solicitar una valoración por WhatsApp?",
+        answer:
+          "Sí. Envía una foto general y varias imágenes cercanas con buena luz para realizar una primera orientación antes de revisar el vehículo en el taller.",
+      },
+    ],
+  },
+  {
     path: "/servicios/pintura-coche",
     title: "Pintura de coche en Torrevieja | PaintLab",
     description:
@@ -294,6 +368,7 @@ export const serviceArchitecturePages: ArchitecturePage[] = [
       },
     ],
     links: [
+      { href: "/servicios/chapa-y-pintura", label: "Chapa y pintura en Torrevieja" },
       { href: "/servicios/pintar-coche-completo", label: "Pintar coche completo" },
       { href: "/servicios/pintar-paragolpes", label: "Pintar paragolpes" },
       { href: "/servicios/reparacion-carroceria", label: "Reparacion de carroceria" },
@@ -347,6 +422,7 @@ export const serviceArchitecturePages: ArchitecturePage[] = [
       },
     ],
     links: [
+      { href: "/servicios/chapa-y-pintura", label: "Chapa y pintura en Torrevieja" },
       { href: "/servicios/pintura-coche", label: "Pintura de coche" },
       { href: "/servicios/pulido-carroceria", label: "Pulido de carroceria" },
       { href: "/servicios/reparacion-carroceria", label: "Reparacion de carroceria" },
@@ -421,6 +497,7 @@ export const serviceArchitecturePages: ArchitecturePage[] = [
       },
     ],
     links: [
+      { href: "/servicios/chapa-y-pintura", label: "Chapa y pintura en Torrevieja" },
       { href: "/servicios/pintura-coche", label: "Pintura de coche" },
       { href: "/servicios/pintar-paragolpes", label: "Pintar paragolpes" },
       { href: "/servicios/reparacion-aranazos-coche", label: "Reparacion de aranazos" },
@@ -468,6 +545,7 @@ export const serviceArchitecturePages: ArchitecturePage[] = [
       },
     ],
     links: [
+      { href: "/servicios/chapa-y-pintura", label: "Chapa y pintura en Torrevieja" },
       { href: "/servicios/pulido-carroceria", label: "Pulido de carroceria" },
       { href: "/servicios/pintura-coche", label: "Pintura de coche" },
       { href: "/servicios/pintar-paragolpes", label: "Pintar paragolpes" },
