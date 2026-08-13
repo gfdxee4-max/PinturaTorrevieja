@@ -11,6 +11,7 @@ import { getFaqItems } from "@/config/faq";
 import { getServiceAreaSchema } from "@/config/service-areas";
 import { siteConfig } from "@/config/site";
 import { additionalSeoKeywords } from "@/config/additional-seo-keywords";
+import { ruSearchMetadata } from "@/config/ru-home-seo";
 import { socialProfileUrls } from "@/config/social-links";
 
 export function getAbsoluteUrl(path: string) {
@@ -78,12 +79,13 @@ const seoKeywords: Record<Locale, readonly string[]> = {
 
 export function getPageMetadata(locale: Locale): Metadata {
   const dictionary = dictionaries[locale];
+  const searchMetadata = locale === "ru" ? ruSearchMetadata : dictionary;
   const path = localizedPath(locale);
   const image = getAbsoluteUrl("/images/og-image.webp");
 
   return {
-    title: dictionary.title,
-    description: dictionary.description,
+    title: searchMetadata.title,
+    description: searchMetadata.description,
     keywords: [...seoKeywords[locale]],
     alternates: getAlternates(locale),
     openGraph: {

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { ruHomeSeoContent } from "@/config/ru-home-seo";
@@ -26,6 +27,13 @@ export function RuSeoSection() {
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
+
+          <Link
+            href="/ru/trabajos-realizados"
+            className="mt-7 inline-flex min-h-11 items-center border-b border-redline/70 text-sm font-semibold text-white transition hover:border-redline hover:text-redline"
+          >
+            Автопокраска и кузовной ремонт в Торревьехе: наши работы
+          </Link>
 
         </div>
       </Container>

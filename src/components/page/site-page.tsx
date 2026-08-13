@@ -1,5 +1,4 @@
 import { EstimateSection } from "@/components/sections/estimate-section";
-import { EsSeoClusterSection } from "@/components/sections/es-seo-cluster-section";
 import { FaqSection } from "@/components/sections/faq-section";
 import { FloatingWhatsApp } from "@/components/ui/floating-whatsapp";
 import { Footer } from "@/components/layout/footer";
@@ -27,7 +26,6 @@ export function SitePage({ locale }: SitePageProps) {
       <Header dictionary={dictionary} locale={locale} />
       <main>
         <HeroSection dictionary={dictionary} whatsappUrl={whatsappUrl} />
-        {locale === "es" ? <EsSeoClusterSection /> : null}
         <ServicesSection locale={locale} />
         {locale === "ru" ? <RuSeoSection /> : null}
         <ReviewsSection locale={locale} />
