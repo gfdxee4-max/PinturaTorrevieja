@@ -6,6 +6,11 @@ import {
   hasPublishedBlogArticles,
 } from "@/config/blog";
 import { fallbackLocale, locales, localizedPath } from "@/config/i18n";
+import {
+  getLocalizedServiceAlternate,
+  getLocalizedServicePath,
+  localizedServicePages,
+} from "@/config/localized-service-pages";
 import { servicePages } from "@/config/service-pages";
 import { getAbsoluteUrl } from "@/lib/seo";
 import { getProjectPath, getProjectsPath } from "@/config/projects-i18n";
@@ -88,9 +93,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
     })),
   );
+  const localizedServiceSeoPages = localizedServicePages.map((page) => {
+    const alternate = getLocalizedServiceAlternate(page);
+    const languages = {
+      [page.locale]: getAbsoluteUrl(getLocalizedServicePath(page)),
+      ...(alternate
+        ? { [alternate.locale]: getAbsoluteUrl(getLocalizedServicePath(alternate)) }
+        : {}),
+    };
+
+    return {
+      url: getAbsoluteUrl(getLocalizedServicePath(page)),
+      lastModified: new Date("2026-08-15T00:00:00.000Z"),
+      alternates: { languages },
+    };
+  });
 
   return [
     ...languagePages,
+    ...localizedServiceSeoPages,
     ...architectureSeoPages,
     ...blogCategoryPages,
     ...blogArticlePages,

@@ -7,6 +7,9 @@ export const ukHomeSeoContent = {
     "Для попередньої оцінки надішліть у WhatsApp фотографії пошкодженої ділянки з кількох ракурсів. За знімками можна орієнтовно визначити обсяг ремонту, а остаточну вартість і строк автомаляр підтвердить після огляду авто в майстерні у Торрев’єсі.",
   ],
   links: [
+    { href: "/uk/farbuvannya-avto-torrevieja", label: "Фарбування авто у Торрев’єсі" },
+    { href: "/uk/kuzovnyi-remont-torrevieja", label: "Кузовний ремонт автомобіля" },
+    { href: "/uk/farbuvannya-bampera-torrevieja", label: "Ремонт і фарбування бампера" },
     { href: "/uk#services", label: "Послуги з фарбування авто" },
     { href: "/uk/trabajos-realizados", label: "Наші роботи з фарбування автомобілів" },
     { href: "/uk#faq", label: "Відповіді про кузовний ремонт" },
