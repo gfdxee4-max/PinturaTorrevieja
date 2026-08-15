@@ -4,11 +4,15 @@ import { BeforeAfterSlider } from "@/components/ui/before-after-slider";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import type { Locale } from "@/config/i18n";
+import { getProjectsPath } from "@/config/projects-i18n";
 import { comparisonSectionTranslations, serviceSectionTranslations } from "@/config/service-section-i18n";
 
 export function ServicesSection({ locale }: { locale: Locale }) {
   const copy = serviceSectionTranslations[locale];
   const comparison = comparisonSectionTranslations[locale];
+  const projectsPath = locale === "ru" || locale === "uk"
+    ? getProjectsPath(locale)
+    : "/trabajos-realizados";
 
   return (
     <Section id="services" className="relative isolate scroll-mt-24 overflow-hidden border-b border-white/[0.08] bg-[#030303] py-12 sm:py-16 lg:py-12">
@@ -48,7 +52,7 @@ export function ServicesSection({ locale }: { locale: Locale }) {
           </h3>
           <p className="mt-2 text-base text-white/58 sm:text-lg">Tesla Model 3</p>
           <Link
-            href="/trabajos-realizados"
+            href={projectsPath}
             className="mx-auto mt-5 inline-flex min-h-14 w-full max-w-xl items-center justify-center gap-4 rounded-[7px] bg-redline px-6 text-sm font-semibold uppercase tracking-[0.04em] text-white transition hover:bg-[#ef0000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-redline focus-visible:ring-offset-2 focus-visible:ring-offset-black sm:mt-6 sm:text-base"
           >
             {comparison.viewAllLabel}
