@@ -22,6 +22,7 @@ export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
   const dictionary = dictionaries[locale];
   const whatsappUrl = createWhatsAppUrl(dictionary.whatsapp);
   const descriptions = project.fullDescription[locale];
+  const relatedLinks = project.relatedLinks?.[locale];
 
   return (
     <>
@@ -64,13 +65,19 @@ export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
               afterLabel={copy.after}
               ariaLabel={`${project.title[locale]} — ${copy.before} / ${copy.after}`}
               aspectClassName="aspect-[4/3] sm:aspect-video"
-              beforeImageClassName="object-contain"
-              afterImageClassName="object-contain"
-              beforeObjectPosition="50% 50%"
-              afterObjectPosition="50% 50%"
-              imageQuality={90}
+              beforeImageClassName={project.beforeImageClassName ?? "object-contain"}
+              afterImageClassName={project.afterImageClassName ?? "object-contain"}
+              beforeObjectPosition={project.beforeObjectPosition ?? "50% 50%"}
+              afterObjectPosition={project.afterObjectPosition ?? "50% 50%"}
+              imageQuality={project.imageQuality ?? 90}
               sizes="(min-width: 1800px) 1728px, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2rem)"
             />
+
+            {project.location ? (
+              <p className="mt-5 text-sm font-medium text-white/64">
+                {project.vehicle} <span className="mx-2 text-redline" aria-hidden="true">/</span> {project.location}
+              </p>
+            ) : null}
 
             <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-start">
               <div className="grid gap-4 md:grid-cols-3">
@@ -94,15 +101,33 @@ export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
                       </li>
                     ))}
                   </ul>
+                  {project.highlight ? (
+                    <p className="mt-6 border-l-2 border-redline pl-4 text-sm font-semibold leading-6 text-white/82">
+                      {project.highlight[locale]}
+                    </p>
+                  ) : null}
                 </div>
                 <div className="rounded-[6px] border border-white/14 bg-[#0a0a0a] p-6">
                   <h2 className="text-xl font-semibold leading-7 text-white">{copy.ctaTitle}</h2>
-                  <p className="mt-3 text-sm leading-6 text-white/60">{copy.ctaText}</p>
+                  <p className="mt-3 text-sm leading-6 text-white/60">{project.ctaText?.[locale] ?? copy.ctaText}</p>
                   <Link href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 bg-redline px-4 text-xs font-semibold uppercase tracking-[0.08em] text-white transition hover:bg-[#f00000]">
                     <MessageCircle className="size-5" aria-hidden="true" />
                     {copy.ctaButton}
                   </Link>
                 </div>
+                {relatedLinks?.length && project.relatedServicesTitle?.[locale] ? (
+                  <nav className="rounded-[6px] border border-white/14 bg-[#0a0a0a] p-6" aria-label={project.relatedServicesTitle[locale]}>
+                    <h2 className="text-lg font-semibold text-white">{project.relatedServicesTitle[locale]}</h2>
+                    <div className="mt-4 grid gap-2">
+                      {relatedLinks.map((link) => (
+                        <Link key={link.href} href={link.href} className="inline-flex min-h-11 items-center justify-between border-b border-white/10 py-2 text-sm text-white/68 transition hover:text-white">
+                          {link.label}
+                          <ChevronRight className="size-4 text-redline" aria-hidden="true" />
+                        </Link>
+                      ))}
+                    </div>
+                  </nav>
+                ) : null}
               </aside>
             </div>
 

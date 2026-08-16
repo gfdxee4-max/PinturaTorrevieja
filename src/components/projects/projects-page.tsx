@@ -85,11 +85,11 @@ export function ProjectsPage({ locale, projects }: ProjectsPageProps) {
                       afterLabel={copy.after}
                       ariaLabel={`${project.title[locale]} — ${copy.before} / ${copy.after}`}
                       aspectClassName="aspect-[4/3] sm:aspect-video"
-                      beforeImageClassName="object-contain"
-                      afterImageClassName="object-contain"
-                      beforeObjectPosition="50% 50%"
-                      afterObjectPosition="50% 50%"
-                      imageQuality={90}
+                      beforeImageClassName={project.beforeImageClassName ?? "object-contain"}
+                      afterImageClassName={project.afterImageClassName ?? "object-contain"}
+                      beforeObjectPosition={project.beforeObjectPosition ?? "50% 50%"}
+                      afterObjectPosition={project.afterObjectPosition ?? "50% 50%"}
+                      imageQuality={project.imageQuality ?? 90}
                       sizes="(min-width: 1280px) calc(100vw - 24rem), (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2rem)"
                       className="rounded-none border-0 border-b border-white/15"
                     />

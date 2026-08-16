@@ -1,7 +1,13 @@
 import type { Locale } from "@/config/i18n";
+import { fiat500Project } from "@/data/fiat-500-project";
 
 type LocalizedText = Record<Locale, string>;
 type LocalizedList = Record<Locale, readonly string[]>;
+
+export type ProjectLink = {
+  href: string;
+  label: string;
+};
 
 export type Project = {
   slug: string;
@@ -23,6 +29,16 @@ export type Project = {
   altAfter: LocalizedText;
   seoTitle: LocalizedText;
   seoDescription: LocalizedText;
+  location?: string;
+  highlight?: LocalizedText;
+  ctaText?: Partial<Record<Locale, string>>;
+  relatedServicesTitle?: Partial<Record<Locale, string>>;
+  relatedLinks?: Partial<Record<Locale, readonly ProjectLink[]>>;
+  beforeObjectPosition?: string;
+  afterObjectPosition?: string;
+  beforeImageClassName?: string;
+  afterImageClassName?: string;
+  imageQuality?: number;
 };
 
 export const projects: readonly Project[] = [
@@ -620,6 +636,7 @@ export const projects: readonly Project[] = [
       cs: "Skutečný výsledek před a po opravě a lakování zadního blatníku Tesla Model 3.",
     },
   },
+  fiat500Project,
 ];
 
 export function getProject(slug: string) {
