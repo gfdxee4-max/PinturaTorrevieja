@@ -1,13 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, ChevronRight, Clock3, MessageCircle, ShieldCheck, SprayCan } from "lucide-react";
+import { ArrowUpRight, ChevronRight, Clock3, MessageCircle, ShieldCheck, SprayCan, Youtube } from "lucide-react";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { BeforeAfterSlider } from "@/components/ui/before-after-slider";
 import { Container } from "@/components/ui/container";
 import { FloatingWhatsApp } from "@/components/ui/floating-whatsapp";
 import { dictionaries, type Locale } from "@/config/i18n";
-import { getProjectPath, getProjectsPath, projectsTranslations } from "@/config/projects-i18n";
+import {
+  getProjectPath,
+  getProjectsPath,
+  projectsTranslations,
+  projectsYoutubeTranslations,
+} from "@/config/projects-i18n";
+import { youtubeChannelUrl } from "@/config/social-links";
 import type { Project } from "@/data/projects";
 import { getProjectsStructuredData } from "@/lib/project-seo";
 import { createWhatsAppUrl } from "@/lib/whatsapp";
@@ -19,6 +25,7 @@ type ProjectsPageProps = {
 
 export function ProjectsPage({ locale, projects }: ProjectsPageProps) {
   const copy = projectsTranslations[locale];
+  const youtubeCopy = projectsYoutubeTranslations[locale];
   const dictionary = dictionaries[locale];
   const whatsappUrl = createWhatsAppUrl(dictionary.whatsapp);
   const features = [
@@ -139,7 +146,32 @@ export function ProjectsPage({ locale, projects }: ProjectsPageProps) {
                     {copy.ctaButton}
                   </Link>
                 </div>
+                <a
+                  href={youtubeChannelUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 border border-white/18 px-4 text-center text-xs font-semibold uppercase tracking-[0.08em] text-white/76 transition hover:border-redline hover:bg-redline/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                >
+                  <Youtube className="size-5 text-redline" aria-hidden="true" />
+                  {youtubeCopy.sectionCta}
+                </a>
               </aside>
+            </div>
+
+            <div className="mt-8 grid gap-5 rounded-[6px] border border-white/15 bg-[#0a0a0a] p-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:p-8">
+              <div>
+                <h2 className="text-xl font-semibold leading-7 text-white sm:text-2xl">{youtubeCopy.title}</h2>
+                <p className="mt-3 max-w-3xl text-sm leading-6 text-white/60 sm:text-base sm:leading-7">{youtubeCopy.text}</p>
+              </div>
+              <a
+                href={youtubeChannelUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-12 items-center justify-center gap-2 border border-redline px-5 text-center text-xs font-semibold uppercase tracking-[0.08em] text-white transition hover:bg-redline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:min-w-52"
+              >
+                <Youtube className="size-5" aria-hidden="true" />
+                {youtubeCopy.button}
+              </a>
             </div>
           </Container>
         </section>

@@ -1,4 +1,4 @@
-import { Facebook, Instagram } from "lucide-react";
+import { Facebook, Instagram, Youtube } from "lucide-react";
 import { socialLinks } from "@/config/social-links";
 
 type SocialLinksProps = {
@@ -8,6 +8,7 @@ type SocialLinksProps = {
 const icons = {
   facebook: Facebook,
   instagram: Instagram,
+  youtube: Youtube,
 } as const;
 
 export function SocialLinks({ variant }: SocialLinksProps) {
@@ -34,7 +35,9 @@ export function SocialLinks({ variant }: SocialLinksProps) {
             className={
               isDesktop
                 ? "flex size-9 items-center justify-center border border-white/12 bg-white/[0.025] text-white/62 transition hover:border-redline/70 hover:bg-redline/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                : "flex min-h-11 items-center justify-center gap-2 border border-white/12 bg-white/[0.025] px-2 text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-white/72 transition hover:border-redline/70 hover:bg-redline/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                : `flex min-h-11 items-center justify-center gap-2 border border-white/12 bg-white/[0.025] px-2 text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-white/72 transition hover:border-redline/70 hover:bg-redline/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
+                    item.id === "youtube" ? "col-span-2" : ""
+                  }`
             }
           >
             <Icon className="size-4" aria-hidden="true" />

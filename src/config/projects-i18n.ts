@@ -88,6 +88,130 @@ export const projectsTranslations: Record<Locale, ProjectsCopy> = {
   },
 };
 
+export type ProjectsYoutubeCopy = {
+  sectionCta: string;
+  title: string;
+  text: string;
+  button: string;
+};
+
+export const projectsYoutubeTranslations: Record<Locale, ProjectsYoutubeCopy> = {
+  es: {
+    sectionCta: "Ver nuestros trabajos en YouTube",
+    title: "Más trabajos en YouTube",
+    text: "Mira vídeos de trabajos reales de reparación de carrocería y pintura de coches realizados en nuestro taller en Torrevieja.",
+    button: "Ver canal de YouTube",
+  },
+  en: {
+    sectionCta: "Watch our work on YouTube",
+    title: "More of our work on YouTube",
+    text: "Watch videos of real vehicle body repairs and car painting completed at our workshop in Torrevieja.",
+    button: "Visit our YouTube channel",
+  },
+  ru: {
+    sectionCta: "Смотреть наши работы на YouTube",
+    title: "Больше наших работ на YouTube",
+    text: "Смотрите видео реальных кузовных ремонтов и покраски автомобилей в нашей мастерской в Торревьехе.",
+    button: "Перейти на YouTube",
+  },
+  uk: {
+    sectionCta: "Дивитися наші роботи на YouTube",
+    title: "Більше наших робіт на YouTube",
+    text: "Дивіться відео реальних кузовних ремонтів і фарбування автомобілів у нашій майстерні в Торрев'єсі.",
+    button: "Перейти на YouTube",
+  },
+  de: {
+    sectionCta: "Unsere Arbeiten auf YouTube ansehen",
+    title: "Mehr Arbeiten auf YouTube",
+    text: "Sehen Sie Videos echter Karosseriereparaturen und Fahrzeuglackierungen aus unserer Werkstatt in Torrevieja.",
+    button: "YouTube-Kanal ansehen",
+  },
+  fr: {
+    sectionCta: "Voir nos réalisations sur YouTube",
+    title: "Plus de réalisations sur YouTube",
+    text: "Découvrez en vidéo de vraies réparations de carrosserie et peintures automobiles réalisées dans notre atelier à Torrevieja.",
+    button: "Voir la chaîne YouTube",
+  },
+  pl: {
+    sectionCta: "Zobacz nasze realizacje na YouTube",
+    title: "Więcej naszych realizacji na YouTube",
+    text: "Zobacz filmy z prawdziwych napraw blacharskich i lakierowania samochodów wykonanych w naszym warsztacie w Torrevieja.",
+    button: "Przejdź do YouTube",
+  },
+  nl: {
+    sectionCta: "Bekijk ons werk op YouTube",
+    title: "Meer van ons werk op YouTube",
+    text: "Bekijk video's van echte carrosseriereparaties en autospuitwerk uit onze werkplaats in Torrevieja.",
+    button: "Bekijk ons YouTube-kanaal",
+  },
+  it: {
+    sectionCta: "Guarda i nostri lavori su YouTube",
+    title: "Altri lavori su YouTube",
+    text: "Guarda i video di vere riparazioni di carrozzeria e verniciature auto realizzate nella nostra officina a Torrevieja.",
+    button: "Vai al canale YouTube",
+  },
+  nb: {
+    sectionCta: "Se arbeidene våre på YouTube",
+    title: "Flere arbeider på YouTube",
+    text: "Se videoer av ekte karosserireparasjoner og billakkering utført på verkstedet vårt i Torrevieja.",
+    button: "Gå til YouTube-kanalen",
+  },
+  fi: {
+    sectionCta: "Katso töitämme YouTubessa",
+    title: "Lisää töitämme YouTubessa",
+    text: "Katso videoita Torreviejan korjaamollamme tehdyistä aidoista korikorjauksista ja automaalauksista.",
+    button: "Siirry YouTube-kanavalle",
+  },
+  da: {
+    sectionCta: "Se vores arbejde på YouTube",
+    title: "Flere af vores arbejder på YouTube",
+    text: "Se videoer af ægte karrosserireparationer og billakering udført på vores værksted i Torrevieja.",
+    button: "Gå til YouTube-kanalen",
+  },
+  sv: {
+    sectionCta: "Se våra arbeten på YouTube",
+    title: "Fler av våra arbeten på YouTube",
+    text: "Se videor av verkliga karosserireparationer och billackeringar utförda på vår verkstad i Torrevieja.",
+    button: "Gå till YouTube-kanalen",
+  },
+  sk: {
+    sectionCta: "Pozrite si naše práce na YouTube",
+    title: "Viac našich prác na YouTube",
+    text: "Pozrite si videá skutočných opráv karosérie a lakovania áut vykonaných v našej dielni v Torrevieja.",
+    button: "Prejsť na kanál YouTube",
+  },
+  hu: {
+    sectionCta: "Nézze meg munkáinkat a YouTube-on",
+    title: "További munkáink a YouTube-on",
+    text: "Nézzen videókat a torreviejai műhelyünkben végzett valódi karosszériajavításokról és autófényezésekről.",
+    button: "YouTube-csatorna megtekintése",
+  },
+  bg: {
+    sectionCta: "Вижте нашите проекти в YouTube",
+    title: "Още наши проекти в YouTube",
+    text: "Гледайте видеа от реални каросерийни ремонти и боядисване на автомобили, извършени в нашия сервиз в Торевиеха.",
+    button: "Към YouTube канала",
+  },
+  pt: {
+    sectionCta: "Veja os nossos trabalhos no YouTube",
+    title: "Mais trabalhos no YouTube",
+    text: "Veja vídeos de reparações reais de carroçaria e pintura automóvel realizadas na nossa oficina em Torrevieja.",
+    button: "Ver canal de YouTube",
+  },
+  el: {
+    sectionCta: "Δείτε τις εργασίες μας στο YouTube",
+    title: "Περισσότερες εργασίες μας στο YouTube",
+    text: "Δείτε βίντεο από πραγματικές επισκευές αμαξώματος και βαφές αυτοκινήτων στο συνεργείο μας στην Torrevieja.",
+    button: "Μετάβαση στο κανάλι YouTube",
+  },
+  cs: {
+    sectionCta: "Podívejte se na naše práce na YouTube",
+    title: "Více našich prací na YouTube",
+    text: "Podívejte se na videa skutečných oprav karoserie a lakování automobilů provedených v naší dílně v Torrevieja.",
+    button: "Přejít na kanál YouTube",
+  },
+};
+
 export function getProjectsPath(locale: Locale) {
   return locale === "es" ? "/trabajos-realizados" : `/${locale}/trabajos-realizados`;
 }

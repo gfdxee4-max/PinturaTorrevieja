@@ -1,3 +1,5 @@
+export const youtubeChannelUrl = "https://www.youtube.com/@AutoLab_TR";
+
 export const socialLinks = [
   {
     id: "facebook",
@@ -10,6 +12,12 @@ export const socialLinks = [
     name: "Instagram",
     ariaLabel: "Instagram PaintLab",
     href: "https://www.instagram.com/paint_lab_torrevieja/",
+  },
+  {
+    id: "youtube",
+    name: "YouTube",
+    ariaLabel: "YouTube AutoLab_TR",
+    href: youtubeChannelUrl,
   },
 ] as const;
 
