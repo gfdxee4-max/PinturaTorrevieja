@@ -1,13 +1,31 @@
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Check, MessageCircle, Phone } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Check,
+  ChevronDown,
+  Globe2,
+  Menu,
+  MessageCircle,
+  Phone,
+} from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { FloatingWhatsApp } from "@/components/ui/floating-whatsapp";
+import { LanguageLink } from "@/components/ui/language-link";
 import {
   type ArchitecturePage as ArchitecturePageData,
   getArchitectureStructuredData,
   getArchitectureWhatsappUrl,
 } from "@/config/architecture";
+import {
+  architectureHubLocales,
+  architectureHubUi,
+  getArchitectureHubNavItems,
+  getArchitectureHubPath,
+  isArchitectureHubLocale,
+} from "@/config/architecture-hub-i18n";
+import { languageNames, shortLanguageNames } from "@/config/i18n";
 import { siteConfig } from "@/config/site";
 
 type ArchitecturePageProps = {
@@ -16,32 +34,91 @@ type ArchitecturePageProps = {
 
 export function ArchitecturePage({ page }: ArchitecturePageProps) {
   const whatsappUrl = getArchitectureWhatsappUrl(page);
+  const requestedLocale = page.locale ?? "es";
+  const locale = isArchitectureHubLocale(requestedLocale) ? requestedLocale : "es";
+  const ui = architectureHubUi[locale];
+  const navItems = getArchitectureHubNavItems(locale);
+  const homeHref = locale === "es" ? "/es" : `/${locale}`;
+  const servicesHref = getArchitectureHubPath(locale, "services");
+  const contactHref = locale === "es" ? "/contacto" : `/${locale}#booking`;
 
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-white/10 bg-black/88 backdrop-blur-xl">
-        <Container className="flex min-h-[5.8rem] items-center justify-between gap-4 py-3">
-          <BrandLogo priority />
-          <nav className="hidden items-center gap-5 sm:flex" aria-label="Secciones">
-            <Link
-              href="/servicios"
-              className="text-xs font-black uppercase tracking-[0.12em] text-white/70 transition hover:text-white"
-            >
-              Servicios
-            </Link>
-            <Link
-              href="/ciudades"
-              className="text-xs font-black uppercase tracking-[0.12em] text-white/70 transition hover:text-white"
-            >
-              Ciudades
-            </Link>
-            <Link
-              href="/contacto"
-              className="text-xs font-black uppercase tracking-[0.12em] text-white/70 transition hover:text-white"
-            >
-              Contacto
-            </Link>
+        <Container className="flex min-h-[5.8rem] items-center justify-between gap-3 py-3">
+          <BrandLogo
+            href={homeHref}
+            priority
+            className="h-[3.8rem] w-[11rem] sm:w-[13rem] xl:h-[4.25rem] xl:w-[13.5rem]"
+          />
+
+          <nav className="hidden min-w-0 items-center gap-4 lg:flex xl:gap-6" aria-label={ui.navigation}>
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="whitespace-nowrap text-[0.68rem] font-black uppercase tracking-[0.09em] text-white/70 transition hover:text-white xl:text-xs"
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
+
+          <div className="flex shrink-0 items-center gap-2">
+            {page.hubKind ? (
+              <details className="group relative">
+                <summary className="flex h-11 cursor-pointer list-none items-center gap-1.5 border border-white/20 bg-black/60 px-2 text-xs font-semibold uppercase tracking-[0.08em] text-white outline-none transition hover:border-white/45 sm:px-3 [&::-webkit-details-marker]:hidden">
+                  <Globe2 className="hidden size-4 text-white/68 sm:block" aria-hidden="true" />
+                  <span>{shortLanguageNames[locale]}</span>
+                  <ChevronDown className="size-3.5 text-white/55 transition group-open:rotate-180" aria-hidden="true" />
+                </summary>
+                <nav
+                  aria-label={ui.languageMenu}
+                  className="absolute right-0 top-[calc(100%+0.6rem)] z-[60] grid w-52 border border-white/16 bg-black/[0.98] p-1 shadow-soft"
+                >
+                  {architectureHubLocales.map((item) => (
+                    <LanguageLink
+                      key={item}
+                      href={getArchitectureHubPath(item, page.hubKind!)}
+                      targetLocale={item}
+                      preservePath={false}
+                      hrefLang={item}
+                      aria-current={item === locale ? "page" : undefined}
+                      className="flex items-center justify-between px-3 py-3 text-xs font-semibold text-white/66 transition hover:bg-white/[0.07] hover:text-white aria-[current=page]:bg-redline/15 aria-[current=page]:text-white"
+                    >
+                      <span>{languageNames[item]}</span>
+                      <span className="font-bold uppercase tracking-[0.12em] text-white/42">
+                        {shortLanguageNames[item]}
+                      </span>
+                    </LanguageLink>
+                  ))}
+                </nav>
+              </details>
+            ) : null}
+
+            <details className="group relative lg:hidden">
+              <summary
+                className="flex size-11 cursor-pointer list-none items-center justify-center border border-white/20 bg-black/60 text-white outline-none transition hover:border-white/45 [&::-webkit-details-marker]:hidden"
+                aria-label={ui.menu}
+              >
+                <Menu className="size-5" aria-hidden="true" />
+              </summary>
+              <nav
+                aria-label={ui.navigation}
+                className="absolute right-0 top-[calc(100%+0.6rem)] z-[60] grid w-56 border border-white/16 bg-black/[0.98] p-2 shadow-soft"
+              >
+                {navItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="border-b border-white/[0.08] px-3 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-white/72 transition last:border-b-0 hover:bg-white/[0.06] hover:text-white"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+            </details>
+          </div>
         </Container>
       </header>
 
@@ -70,10 +147,10 @@ export function ArchitecturePage({ page }: ArchitecturePageProps) {
                   {page.cta}
                 </Link>
                 <Link
-                  href="/servicios"
+                  href={servicesHref}
                   className="inline-flex h-14 items-center justify-center gap-3 rounded border border-white/22 px-6 text-sm font-black uppercase tracking-[0.06em] text-white transition hover:border-white/55"
                 >
-                  Servicios
+                  {ui.services}
                   <ArrowRight className="size-5" aria-hidden="true" />
                 </Link>
                 <Link
@@ -81,13 +158,13 @@ export function ArchitecturePage({ page }: ArchitecturePageProps) {
                   className="inline-flex h-14 items-center justify-center gap-3 rounded border border-white/22 px-6 text-sm font-black uppercase tracking-[0.06em] text-white transition hover:border-white/55"
                 >
                   <Phone className="size-5" aria-hidden="true" />
-                  Llamar
+                  {ui.call}
                 </Link>
               </div>
             </div>
             <div className="rounded border border-white/12 bg-white/[0.035] p-6 shadow-soft sm:p-8">
               <p className="text-xs font-black uppercase tracking-[0.18em] text-white/52">
-                Enlaces internos
+                {ui.internalLinks}
               </p>
               <div className="mt-5 grid gap-3">
                 {page.links.slice(0, 5).map((item) => (
@@ -118,18 +195,17 @@ export function ArchitecturePage({ page }: ArchitecturePageProps) {
             <div className="grid gap-7 lg:grid-cols-[0.82fr_1.18fr]">
               <div>
                 <Link
-                  href="/es"
+                  href={homeHref}
                   className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.14em] text-white/58 transition hover:text-white"
                 >
                   <ArrowLeft className="size-4" aria-hidden="true" />
-                  Inicio
+                  {ui.home}
                 </Link>
                 <h2 className="mt-5 text-3xl font-black uppercase leading-tight text-white sm:text-4xl">
-                  Informacion clara antes de reparar.
+                  {ui.informationHeading}
                 </h2>
                 <p className="mt-5 text-base leading-7 text-white/64">
-                  Cada pagina esta pensada para ayudar a elegir el siguiente paso sin promesas
-                  inventadas: enviar fotos, comparar servicios o pedir una consulta.
+                  {ui.informationText}
                 </p>
               </div>
               <div className="grid gap-5">
@@ -159,7 +235,7 @@ export function ArchitecturePage({ page }: ArchitecturePageProps) {
           <section className="border-b border-white/10 py-12 sm:py-16">
             <Container>
               <h2 className="text-3xl font-black uppercase leading-tight text-white sm:text-4xl">
-                Paginas relacionadas
+                {ui.relatedPages}
               </h2>
               <div className="mt-7 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
                 {page.links.slice(5).map((item) => (
@@ -191,7 +267,7 @@ export function ArchitecturePage({ page }: ArchitecturePageProps) {
               <div className="mx-auto max-w-3xl text-center">
                 <p className="text-xs font-black uppercase tracking-[0.18em] text-[#ff4d4d]">FAQ</p>
                 <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-white sm:text-4xl">
-                  Preguntas frecuentes
+                  {ui.faqHeading}
                 </h2>
               </div>
               <div className="mt-8 grid gap-3 md:grid-cols-2">
@@ -216,10 +292,10 @@ export function ArchitecturePage({ page }: ArchitecturePageProps) {
           <Container>
             <div className="rounded border border-white/12 bg-[linear-gradient(135deg,rgba(255,255,255,0.07),rgba(255,255,255,0.018))] p-7 sm:p-9">
               <p className="text-xs font-black uppercase tracking-[0.18em] text-white/58">
-                Consulta
+                {ui.consultation}
               </p>
               <h2 className="mt-3 max-w-3xl text-3xl font-black uppercase leading-tight text-white sm:text-4xl">
-                Envia fotos del vehiculo por WhatsApp.
+                {ui.sendPhotos}
               </h2>
               <Link
                 href={whatsappUrl}
@@ -237,14 +313,14 @@ export function ArchitecturePage({ page }: ArchitecturePageProps) {
 
       <footer className="border-t border-white/10 bg-black py-8">
         <Container className="flex flex-col gap-4 text-sm text-white/55 sm:flex-row sm:items-center sm:justify-between">
-          <BrandLogo className="h-[4rem] w-[12rem]" />
-          <Link href="/contacto" className="font-bold text-white/70 transition hover:text-white">
-            Contacto
+          <BrandLogo href={homeHref} className="h-[4rem] w-[12rem]" />
+          <Link href={contactHref} className="font-bold text-white/70 transition hover:text-white">
+            {ui.contact}
           </Link>
         </Container>
       </footer>
 
-      <FloatingWhatsApp whatsappUrl={whatsappUrl} />
+      <FloatingWhatsApp whatsappUrl={whatsappUrl} locale={locale} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(getArchitectureStructuredData(page)) }}

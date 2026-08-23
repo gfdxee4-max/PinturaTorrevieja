@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { dictionaries, fallbackLocale, type Locale } from "@/config/i18n";
 import { getServiceAreaSchema } from "@/config/service-areas";
 import { siteConfig } from "@/config/site";
 import { createWhatsAppUrl } from "@/lib/whatsapp";
@@ -22,6 +23,9 @@ export type ArchitectureSection = {
 
 export type ArchitecturePage = {
   path: string;
+  locale?: Locale;
+  hubKind?: "services" | "cities";
+  alternatePaths?: Partial<Record<Locale, string>>;
   title: string;
   description: string;
   h1: string;
@@ -31,6 +35,7 @@ export type ArchitecturePage = {
   sections: ArchitectureSection[];
   links: ArchitectureLink[];
   faq?: ArchitectureFaq[];
+  whatsappMessage?: string;
 };
 
 const whatsappDefault = createWhatsAppUrl(
@@ -778,16 +783,31 @@ export function getArchitecturePage(path: string) {
 
 export function getArchitectureMetadata(page: ArchitecturePage): Metadata {
   const url = getAbsoluteUrl(page.path);
+  const locale = page.locale ?? "es";
+  const alternateEntries = Object.entries(page.alternatePaths ?? {});
+  const alternateLanguages = alternateEntries.length
+    ? {
+        ...Object.fromEntries(
+          alternateEntries.map(([language, path]) => [language, getAbsoluteUrl(path)]),
+        ),
+        "x-default": getAbsoluteUrl(page.alternatePaths?.[fallbackLocale] ?? page.path),
+      }
+    : undefined;
 
   return {
     title: page.title,
     description: page.description,
     alternates: {
       canonical: url,
+      languages: alternateLanguages,
     },
     openGraph: {
       type: "website",
-      locale: "es_ES",
+      locale: dictionaries[locale].locale,
+      alternateLocale: alternateEntries
+        .map(([language]) => language as Locale)
+        .filter((language) => language !== locale)
+        .map((language) => dictionaries[language].locale),
       url,
       siteName: siteConfig.name,
       title: page.title,
@@ -812,6 +832,7 @@ export function getArchitectureMetadata(page: ArchitecturePage): Metadata {
 
 export function getArchitectureStructuredData(page: ArchitecturePage) {
   const url = getAbsoluteUrl(page.path);
+  const locale = page.locale ?? "es";
   const businessId = `${siteConfig.url}/#autobodyshop`;
   const websiteId = `${siteConfig.url}/#website`;
   const pageId = `${url}#webpage`;
@@ -824,7 +845,7 @@ export function getArchitectureStructuredData(page: ArchitecturePage) {
       url,
       name: page.title,
       description: page.description,
-      inLanguage: "es",
+      inLanguage: locale,
       isPartOf: {
         "@id": websiteId,
       },
@@ -891,7 +912,8 @@ export function getArchitectureStructuredData(page: ArchitecturePage) {
 
 export function getArchitectureWhatsappUrl(page: ArchitecturePage) {
   return createWhatsAppUrl(
-    `Hola PINTURA TORREVIEJA. Quiero informacion sobre: ${page.h1}. Puedo enviar fotos por WhatsApp.`,
+    page.whatsappMessage ??
+      `Hola PINTURA TORREVIEJA. Quiero informacion sobre: ${page.h1}. Puedo enviar fotos por WhatsApp.`,
   );
 }
 

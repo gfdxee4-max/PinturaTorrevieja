@@ -3,6 +3,7 @@ import { Award, Car, Gauge, Medal, ThumbsUp } from "lucide-react";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { Container } from "@/components/ui/container";
 import { footerHubLinks } from "@/config/architecture";
+import { getLocalizedArchitectureHubHref } from "@/config/architecture-hub-i18n";
 import type { Dictionary, Locale } from "@/config/i18n";
 import { interfaceTranslations } from "@/config/interface-i18n";
 
@@ -43,7 +44,7 @@ export function Footer({ dictionary, locale, whatsappUrl }: FooterProps) {
             {footerHubLinks.map((item) => (
               <Link
                 key={item.href}
-                href={item.href}
+                href={getLocalizedArchitectureHubHref(locale, item.href)}
                 className="font-medium text-white/52 transition hover:text-white"
               >
                 {ui.footerLinks[item.translationIndex]}
