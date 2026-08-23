@@ -45,20 +45,20 @@ export function ProjectsPage({ locale, projects }: ProjectsPageProps) {
       <main className="min-h-screen bg-[#050505] text-white">
         <section className="relative isolate min-h-[25rem] overflow-hidden border-b border-white/[0.08] sm:min-h-[30rem]">
           <picture className="contents">
-            <source media="(max-width: 639px)" srcSet="/images/hero-works-mobile.avif" type="image/avif" />
-            <source srcSet="/images/hero-works-premium.avif" type="image/avif" />
+            <source media="(max-width: 639px)" srcSet="/images/hero-works-paint-booth.avif" type="image/avif" />
+            <source srcSet="/images/hero-works-paint-booth.avif" type="image/avif" />
             <Image
-              src="/images/hero-works-premium.webp"
+              src="/images/hero-works-paint-booth.webp"
               alt=""
               fill
               loading="eager"
               fetchPriority="high"
-              quality={72}
+              quality={95}
               sizes="(max-width: 639px) 100vw, 100vw"
-              className="-z-30 object-cover object-[70%_center] sm:object-center"
+              className="-z-30 object-cover object-[62%_center] sm:object-[50%_58%]"
             />
           </picture>
-          <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,#050505_0%,rgba(5,5,5,0.95)_34%,rgba(5,5,5,0.58)_62%,rgba(5,5,5,0.18)_100%)]" />
+          <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,#050505_0%,rgba(5,5,5,0.96)_42%,rgba(5,5,5,0.38)_72%,rgba(5,5,5,0.08)_100%)] sm:bg-[linear-gradient(90deg,#050505_0%,rgba(5,5,5,0.98)_28%,rgba(5,5,5,0.46)_58%,rgba(5,5,5,0.08)_100%)]" />
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(0deg,#050505_0%,transparent_36%)]" />
           <Container className="flex min-h-[25rem] items-center py-14 sm:min-h-[30rem]">
             <div className="max-w-xl pt-4">
