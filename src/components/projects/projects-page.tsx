@@ -80,9 +80,18 @@ export function ProjectsPage({ locale, projects }: ProjectsPageProps) {
         <section className="py-10 sm:py-14 lg:py-16">
           <Container>
             <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_19rem] xl:items-start">
-              <div className="grid gap-6">
+              <div
+                id="projects-grid"
+                className="grid scroll-mt-28 gap-5 md:grid-cols-2 xl:grid-cols-3"
+                data-project-grid
+              >
                 {projects.map((project) => (
-                  <article key={project.slug} className="overflow-hidden rounded-[6px] border border-white/15 bg-[#0a0a0a]">
+                  <article
+                    key={project.slug}
+                    className="flex min-w-0 flex-col overflow-hidden rounded-[6px] border border-white/15 bg-[#0a0a0a]"
+                    data-project-card
+                    data-project-slug={project.slug}
+                  >
                     <BeforeAfterSlider
                       beforeImage={project.beforeImage}
                       afterImage={project.afterImage}
@@ -91,30 +100,28 @@ export function ProjectsPage({ locale, projects }: ProjectsPageProps) {
                       beforeLabel={copy.before}
                       afterLabel={copy.after}
                       ariaLabel={`${project.title[locale]} — ${copy.before} / ${copy.after}`}
-                      aspectClassName="aspect-[4/3] sm:aspect-video"
+                      aspectClassName="aspect-[8/5]"
                       beforeImageClassName={project.beforeImageClassName ?? "object-contain"}
                       afterImageClassName={project.afterImageClassName ?? "object-contain"}
                       beforeObjectPosition={project.beforeObjectPosition ?? "50% 50%"}
                       afterObjectPosition={project.afterObjectPosition ?? "50% 50%"}
                       imageQuality={project.imageQuality ?? 90}
-                      sizes="(min-width: 1280px) calc(100vw - 24rem), (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2rem)"
+                      sizes="(min-width: 1536px) 22rem, (min-width: 1280px) calc((100vw - 32rem) / 3), (min-width: 768px) calc((100vw - 7rem) / 2), calc(100vw - 2.5rem)"
                       className="rounded-none border-0 border-b border-white/15"
                     />
-                    <div className="grid gap-5 p-5 sm:grid-cols-[1fr_auto] sm:items-end sm:p-7">
-                      <div>
-                        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#ff4d4d]">{project.category[locale]}</p>
-                        <h2 className="mt-3 text-xl font-semibold leading-7 text-white sm:text-2xl">{project.title[locale]}</h2>
-                        <p className="mt-2 text-sm text-white/52">{project.vehicle}</p>
-                        <p className="mt-4 max-w-3xl text-sm leading-6 text-white/66">{project.shortDescription[locale]}</p>
+                    <Link
+                      href={getProjectPath(locale, project.slug)}
+                      className="group/card grid min-h-32 flex-1 grid-cols-[minmax(0,1fr)_2.75rem] items-center gap-3 p-4 transition hover:bg-white/[0.025] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-redline sm:min-h-36 sm:p-5"
+                      aria-label={`${copy.viewProject}: ${project.title[locale]}, ${project.vehicle}`}
+                    >
+                      <div className="min-w-0">
+                        <h2 className="text-base font-semibold leading-6 text-white">{project.title[locale]}</h2>
+                        <p className="mt-2 text-sm leading-5 text-white/52">{project.vehicle}</p>
                       </div>
-                      <Link
-                        href={getProjectPath(locale, project.slug)}
-                        className="inline-flex min-h-11 items-center justify-center gap-2 border border-white/18 px-4 text-xs font-semibold uppercase tracking-[0.09em] text-white transition hover:border-redline hover:text-white"
-                      >
-                        {copy.viewProject}
-                        <ArrowUpRight className="size-4 text-redline" aria-hidden="true" />
-                      </Link>
-                    </div>
+                      <span className="inline-flex size-11 items-center justify-center border border-white/15 text-redline transition group-hover/card:border-redline group-hover/card:bg-redline group-hover/card:text-white" aria-hidden="true">
+                        <ArrowUpRight className="size-5" />
+                      </span>
+                    </Link>
                   </article>
                 ))}
               </div>
