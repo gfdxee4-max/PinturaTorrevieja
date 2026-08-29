@@ -191,6 +191,7 @@ const localizedHubPages: Record<Exclude<ArchitectureHubLocale, "es">, Record<Arc
         { href: "/ciudades/guardamar-del-segura", label: "Гуардамар-дель-Сегура", text: "Покраска и кузовной ремонт автомобилей для клиентов из Гуардамара." },
         { href: "/ciudades/ciudad-quesada", label: "Сьюдад-Кесада", text: "Кузовной ремонт и покраска автомобилей для клиентов из Сьюдад-Кесады." },
         { href: "/ciudades/la-mata", label: "Ла-Мата", text: "Покраска и кузовной ремонт автомобилей рядом с Ла-Мата." },
+        { href: "/ru/avtopokraska-torrevieja", label: "Покраска автомобилей в Торревьехе", text: "Услуги автопокраски, окраска отдельных деталей и восстановление лакокрасочного покрытия." },
         { href: "/ru/servicios", label: "Услуги PaintLab", text: "Посмотрите доступные виды кузовного ремонта и покраски." },
       ],
       whatsappMessage:

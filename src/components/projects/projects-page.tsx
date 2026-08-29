@@ -165,6 +165,19 @@ export function ProjectsPage({ locale, projects }: ProjectsPageProps) {
               </aside>
             </div>
 
+            {locale === "ru" ? (
+              <p className="mt-7 text-sm leading-6 text-white/60">
+                Подробнее о подготовке поверхности, окраске деталей и полной покраске автомобиля — в разделе{" "}
+                <Link
+                  href="/ru/avtopokraska-torrevieja"
+                  className="font-semibold text-white underline decoration-redline/80 underline-offset-4 transition hover:text-redline"
+                >
+                  услуги автопокраски
+                </Link>
+                .
+              </p>
+            ) : null}
+
             <div className="mt-8 grid gap-5 rounded-[6px] border border-white/15 bg-[#0a0a0a] p-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:p-8">
               <div>
                 <h2 className="text-xl font-semibold leading-7 text-white sm:text-2xl">{youtubeCopy.title}</h2>

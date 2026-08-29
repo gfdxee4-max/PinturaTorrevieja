@@ -338,6 +338,14 @@ export const projects: readonly Project[] = [
       el: "Πραγματικό αποτέλεσμα πριν και μετά την επισκευή και βαφή του μπροστινού φτερού ενός Nissan Qashqai.",
       cs: "Skutečný výsledek před a po opravě a lakování předního blatníku Nissan Qashqai.",
     },
+    relatedServicesTitle: {
+      ru: "Связанные услуги",
+    },
+    relatedLinks: {
+      ru: [
+        { href: "/ru/avtopokraska-torrevieja", label: "Покраска деталей автомобиля" },
+      ],
+    },
   },
   {
     slug: "reparacion-pintura-aleta-trasera-tesla-model-3",
@@ -634,6 +642,14 @@ export const projects: readonly Project[] = [
       pt: "Resultado real antes e depois da reparação e pintura do guarda-lamas traseiro de um Tesla Model 3.",
       el: "Πραγματικό αποτέλεσμα πριν και μετά την επισκευή και βαφή του πίσω φτερού ενός Tesla Model 3.",
       cs: "Skutečný výsledek před a po opravě a lakování zadního blatníku Tesla Model 3.",
+    },
+    relatedServicesTitle: {
+      ru: "Связанные услуги",
+    },
+    relatedLinks: {
+      ru: [
+        { href: "/ru/avtopokraska-torrevieja", label: "Покраска автомобилей" },
+      ],
     },
   },
   fiat500Project,
