@@ -16,6 +16,7 @@ export const ruHomeSeoContent = {
     { href: "/ru/avtopokraska-torrevieja", label: "Автопокраска в Торревьехе" },
     { href: "/ru/kuzovnoy-remont-torrevieja", label: "Кузовной ремонт автомобиля" },
     { href: "/ru/pokraska-bampera-torrevieja", label: "Ремонт и покраска бампера" },
+    { href: "/ru/remont-po-strahovke-torrevieja", label: "Ремонт автомобиля по страховке" },
     { href: "/ru#services", label: "Услуги автопокраски и ремонта кузова" },
     { href: "/ru/trabajos-realizados", label: "Наши работы по покраске автомобилей" },
     { href: "/ru#faq", label: "Ответы о кузовном ремонте" },

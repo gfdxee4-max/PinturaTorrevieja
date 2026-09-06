@@ -120,7 +120,7 @@ export function LocalizedServicePage({ page }: LocalizedServicePageProps) {
               {ui.benefitsEyebrow}
             </p>
             <h2 className="mt-4 max-w-4xl text-3xl font-semibold uppercase leading-tight text-white sm:text-4xl">
-              {ui.benefitsTitle}
+              {page.benefitsTitle ?? ui.benefitsTitle}
             </h2>
             <div className="mt-8 grid gap-5 md:grid-cols-3">
               {page.benefits.map((benefit, index) => {
@@ -150,7 +150,7 @@ export function LocalizedServicePage({ page }: LocalizedServicePageProps) {
                   {ui.detailsEyebrow}
                 </p>
                 <h2 className="mt-4 text-3xl font-semibold uppercase leading-tight text-white sm:text-4xl">
-                  {ui.detailsTitle}
+                  {page.detailsTitle ?? ui.detailsTitle}
                 </h2>
               </div>
               <div className="grid gap-9">
@@ -179,9 +179,13 @@ export function LocalizedServicePage({ page }: LocalizedServicePageProps) {
               {ui.processEyebrow}
             </p>
             <h2 className="mt-4 text-3xl font-semibold uppercase leading-tight text-white sm:text-4xl">
-              {ui.processTitle}
+              {page.processTitle ?? ui.processTitle}
             </h2>
-            <ol className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+            <ol
+              className={`mt-8 grid gap-4 md:grid-cols-2 ${
+                page.process.length === 6 ? "xl:grid-cols-6" : "xl:grid-cols-5"
+              }`}
+            >
               {page.process.map((step, index) => (
                 <li key={step.title} className="border-t border-white/18 pt-5">
                   <span className="text-sm font-semibold text-redline">0{index + 1}</span>
@@ -290,7 +294,7 @@ export function LocalizedServicePage({ page }: LocalizedServicePageProps) {
                   FAQ
                 </p>
                 <h2 className="mt-4 text-3xl font-semibold uppercase leading-tight text-white sm:text-4xl">
-                  {ui.faqTitle}
+                  {page.faqTitle ?? ui.faqTitle}
                 </h2>
                 <div className="mt-7 divide-y divide-white/12 border-y border-white/12">
                   {page.faq.map((item) => (
@@ -310,9 +314,11 @@ export function LocalizedServicePage({ page }: LocalizedServicePageProps) {
             <div className="grid min-w-0 gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
               <div className="min-w-0">
                 <h2 className="max-w-4xl text-2xl font-semibold uppercase leading-tight text-white [overflow-wrap:anywhere] sm:text-4xl">
-                  {ui.ctaTitle}
+                  {page.ctaTitle ?? ui.ctaTitle}
                 </h2>
-                <p className="mt-4 max-w-4xl text-base leading-8 text-white/66">{ui.ctaText}</p>
+                <p className="mt-4 max-w-4xl text-base leading-8 text-white/66">
+                  {page.ctaText ?? ui.ctaText}
+                </p>
               </div>
               <div className="flex min-w-0 flex-col gap-3 sm:flex-row lg:flex-col">
                 <Link
