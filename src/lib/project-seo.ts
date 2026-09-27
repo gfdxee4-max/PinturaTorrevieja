@@ -156,7 +156,14 @@ export function getProjectStructuredData(project: Project, locale: Locale) {
         datePublished: project.publishedAt,
         inLanguage: locale,
         creator: { "@id": `${siteConfig.url}/#autobodyshop` },
-        image: [beforeImage, afterImage],
+        image: [
+          beforeImage,
+          afterImage,
+          ...(project.comparisons ?? []).flatMap((comparison) => [
+            getAbsoluteUrl(comparison.beforeImage),
+            getAbsoluteUrl(comparison.afterImage),
+          ]),
+        ],
       },
       {
         "@type": "ImageObject",
@@ -174,6 +181,24 @@ export function getProjectStructuredData(project: Project, locale: Locale) {
         width: project.afterImageWidth,
         height: project.afterImageHeight,
       },
+      ...(project.comparisons ?? []).flatMap((comparison) => [
+        {
+          "@type": "ImageObject",
+          "@id": `${pageUrl}#${comparison.id}-before-image`,
+          contentUrl: getAbsoluteUrl(comparison.beforeImage),
+          caption: comparison.altBefore[locale],
+          width: comparison.beforeImageWidth,
+          height: comparison.beforeImageHeight,
+        },
+        {
+          "@type": "ImageObject",
+          "@id": `${pageUrl}#${comparison.id}-after-image`,
+          contentUrl: getAbsoluteUrl(comparison.afterImage),
+          caption: comparison.altAfter[locale],
+          width: comparison.afterImageWidth,
+          height: comparison.afterImageHeight,
+        },
+      ]),
     ],
   };
 }

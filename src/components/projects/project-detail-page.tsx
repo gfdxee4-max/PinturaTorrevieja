@@ -56,22 +56,49 @@ export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
 
         <section className="py-10 sm:py-14 lg:py-16">
           <Container>
-            <BeforeAfterSlider
-              beforeImage={project.beforeImage}
-              afterImage={project.afterImage}
-              beforeAlt={project.altBefore[locale]}
-              afterAlt={project.altAfter[locale]}
-              beforeLabel={copy.before}
-              afterLabel={copy.after}
-              ariaLabel={`${project.title[locale]} — ${copy.before} / ${copy.after}`}
-              aspectClassName="aspect-[4/3] sm:aspect-video"
-              beforeImageClassName={project.beforeImageClassName ?? "object-contain"}
-              afterImageClassName={project.afterImageClassName ?? "object-contain"}
-              beforeObjectPosition={project.beforeObjectPosition ?? "50% 50%"}
-              afterObjectPosition={project.afterObjectPosition ?? "50% 50%"}
-              imageQuality={project.imageQuality ?? 90}
-              sizes="(min-width: 1800px) 1728px, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2rem)"
-            />
+            <div className={project.comparisons?.length ? "mx-auto max-w-3xl" : undefined}>
+              {project.comparisonTitle ? <h2 className="mb-4 text-xl font-semibold">{project.comparisonTitle[locale]}</h2> : null}
+              <BeforeAfterSlider
+                beforeImage={project.beforeImage}
+                afterImage={project.afterImage}
+                beforeAlt={project.altBefore[locale]}
+                afterAlt={project.altAfter[locale]}
+                beforeLabel={copy.before}
+                afterLabel={copy.after}
+                ariaLabel={`${project.title[locale]} — ${copy.before} / ${copy.after}`}
+                aspectClassName={project.comparisonLayout === "portrait" ? "aspect-[3/4]" : "aspect-[4/3] sm:aspect-video"}
+                beforeImageClassName={project.beforeImageClassName ?? "object-contain"}
+                afterImageClassName={project.afterImageClassName ?? "object-contain"}
+                beforeObjectPosition={project.beforeObjectPosition ?? "50% 50%"}
+                afterObjectPosition={project.afterObjectPosition ?? "50% 50%"}
+                imageQuality={project.imageQuality ?? 90}
+                sizes="(min-width: 1800px) 1728px, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2rem)"
+                priority
+              />
+            </div>
+            {project.comparisons?.length ? (
+              <div className="mt-8 grid gap-8 md:grid-cols-2">
+                {project.comparisons.map((comparison) => (
+                  <section key={comparison.id}>
+                    <h2 className="mb-4 text-xl font-semibold">{comparison.title[locale]}</h2>
+                    <BeforeAfterSlider
+                      beforeImage={comparison.beforeImage}
+                      afterImage={comparison.afterImage}
+                      beforeAlt={comparison.altBefore[locale]}
+                      afterAlt={comparison.altAfter[locale]}
+                      beforeLabel={copy.before}
+                      afterLabel={copy.after}
+                      ariaLabel={`${comparison.title[locale]} — ${copy.before} / ${copy.after}`}
+                      aspectClassName={project.comparisonLayout === "portrait" ? "aspect-[3/4]" : "aspect-[4/3] sm:aspect-video"}
+                      beforeImageClassName="object-contain"
+                      afterImageClassName="object-contain"
+                      imageQuality={project.imageQuality ?? 90}
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                    />
+                  </section>
+                ))}
+              </div>
+            ) : null}
 
             {project.location ? (
               <p className="mt-5 text-sm font-medium text-white/64">

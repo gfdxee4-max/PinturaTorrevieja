@@ -1,4 +1,5 @@
 import type { Locale } from "@/config/i18n";
+import { bodyRestorationProject } from "@/data/body-restoration-project";
 import { fiat500Project } from "@/data/fiat-500-project";
 
 type LocalizedText = Record<Locale, string>;
@@ -9,7 +10,23 @@ export type ProjectLink = {
   label: string;
 };
 
+export type ProjectComparison = {
+  id: string;
+  title: LocalizedText;
+  beforeImage: string;
+  afterImage: string;
+  altBefore: LocalizedText;
+  altAfter: LocalizedText;
+  beforeImageWidth: number;
+  beforeImageHeight: number;
+  afterImageWidth: number;
+  afterImageHeight: number;
+};
+
 export type Project = {
+  comparisonTitle?: LocalizedText;
+  comparisonLayout?: "portrait";
+  comparisons?: readonly ProjectComparison[];
   slug: string;
   vehicle: string;
   title: LocalizedText;
@@ -42,6 +59,7 @@ export type Project = {
 };
 
 export const projects: readonly Project[] = [
+  bodyRestorationProject,
   {
     slug: "reparacion-aleta-delantera-nissan-qashqai",
     vehicle: "Nissan Qashqai",
