@@ -11,7 +11,7 @@ export const socialLinks = [
     id: "instagram",
     name: "Instagram",
     ariaLabel: "Instagram PaintLab",
-    href: "https://www.instagram.com/paint_lab_torrevieja/",
+    href: "https://www.instagram.com/paint_lab_tr/",
   },
   {
     id: "youtube",
