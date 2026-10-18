@@ -1,6 +1,7 @@
 import type { Locale } from "@/config/i18n";
 import { bodyRestorationProject } from "@/data/body-restoration-project";
 import { fiat500Project } from "@/data/fiat-500-project";
+import { bmwE46Project } from "@/data/bmw-e46-project";
 
 type LocalizedText = Record<Locale, string>;
 type LocalizedList = Record<Locale, readonly string[]>;
@@ -23,7 +24,7 @@ export type ProjectComparison = {
   afterImageHeight: number;
 };
 
-export type Project = {
+type ProjectBase = {
   comparisonTitle?: LocalizedText;
   comparisonLayout?: "portrait";
   comparisons?: readonly ProjectComparison[];
@@ -32,17 +33,13 @@ export type Project = {
   title: LocalizedText;
   headline: LocalizedText;
   category: LocalizedText;
-  beforeImage: string;
   afterImage: string;
-  beforeImageWidth: number;
-  beforeImageHeight: number;
   afterImageWidth: number;
   afterImageHeight: number;
   shortDescription: LocalizedText;
   fullDescription: LocalizedList;
   services: LocalizedList;
   publishedAt: string;
-  altBefore: LocalizedText;
   altAfter: LocalizedText;
   seoTitle: LocalizedText;
   seoDescription: LocalizedText;
@@ -57,6 +54,29 @@ export type Project = {
   afterImageClassName?: string;
   imageQuality?: number;
 };
+
+export type ProjectGalleryImage = {
+  src: string;
+  width: number;
+  height: number;
+  alt: LocalizedText;
+};
+
+export type Project = ProjectBase & (
+  | {
+      mediaKind?: "comparison";
+      beforeImage: string;
+      beforeImageWidth: number;
+      beforeImageHeight: number;
+      altBefore: LocalizedText;
+    }
+  | {
+      mediaKind: "gallery";
+      gallery: readonly ProjectGalleryImage[];
+      galleryTitle: LocalizedText;
+      video?: { id: string; title: LocalizedText; playLabel: LocalizedText; uploadDate?: string };
+    }
+);
 
 export const projects: readonly Project[] = [
   bodyRestorationProject,
@@ -671,6 +691,7 @@ export const projects: readonly Project[] = [
     },
   },
   fiat500Project,
+  bmwE46Project,
 ];
 
 export function getProject(slug: string) {

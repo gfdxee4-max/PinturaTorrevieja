@@ -4,6 +4,7 @@ import { ArrowLeft, Check, ChevronRight, MessageCircle } from "lucide-react";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { BeforeAfterSlider } from "@/components/ui/before-after-slider";
+import { ProjectVideo } from "@/components/projects/project-video";
 import { Container } from "@/components/ui/container";
 import { FloatingWhatsApp } from "@/components/ui/floating-whatsapp";
 import { dictionaries, type Locale } from "@/config/i18n";
@@ -34,7 +35,7 @@ export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
       />
       <main className="min-h-screen bg-[#050505] text-white">
         <section className="relative isolate overflow-hidden border-b border-white/[0.08]">
-          <Image src="/images/hero-works-premium.webp" alt="" fill priority quality={95} sizes="100vw" className="-z-30 object-cover object-[72%_center] opacity-70" />
+          <Image src={project.mediaKind === "gallery" ? project.afterImage : "/images/hero-works-premium.webp"} alt="" fill priority quality={95} sizes="100vw" className="-z-30 object-cover object-[72%_center] opacity-70" />
           <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,#050505_0%,rgba(5,5,5,0.96)_42%,rgba(5,5,5,0.45)_100%)]" />
           <Container className="flex min-h-[25rem] items-center py-14 sm:min-h-[29rem]">
             <div className="max-w-4xl">
@@ -56,7 +57,27 @@ export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
 
         <section className="py-10 sm:py-14 lg:py-16">
           <Container>
-            <div className={project.comparisons?.length ? "mx-auto max-w-3xl" : undefined}>
+            {project.mediaKind === "gallery" ? (
+              <section aria-labelledby="project-gallery-heading">
+                <h2 id="project-gallery-heading" className="mb-6 text-xl font-semibold sm:text-2xl">{project.galleryTitle[locale]}</h2>
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-project-gallery>
+                  {project.gallery.map((photo) => (
+                    <a key={photo.src} href={photo.src} target="_blank" rel="noopener noreferrer" className="block overflow-hidden rounded-[6px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-redline">
+                      <Image
+                        src={photo.src}
+                        alt={photo.alt[locale]}
+                        width={photo.width}
+                        height={photo.height}
+                        quality={project.imageQuality ?? 95}
+                        loading="lazy"
+                        sizes="(min-width: 1800px) 560px, (min-width: 1024px) 32vw, (min-width: 640px) 48vw, calc(100vw - 2.5rem)"
+                        className="aspect-[3/4] h-auto w-full object-contain"
+                      />
+                    </a>
+                  ))}
+                </div>
+              </section>
+            ) : <div className={project.comparisons?.length ? "mx-auto max-w-3xl" : undefined}>
               {project.comparisonTitle ? <h2 className="mb-4 text-xl font-semibold">{project.comparisonTitle[locale]}</h2> : null}
               <BeforeAfterSlider
                 beforeImage={project.beforeImage}
@@ -75,7 +96,7 @@ export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
                 sizes="(min-width: 1800px) 1728px, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2rem)"
                 priority
               />
-            </div>
+            </div>}
             {project.comparisons?.length ? (
               <div className="mt-8 grid gap-8 md:grid-cols-2">
                 {project.comparisons.map((comparison) => (
@@ -107,7 +128,18 @@ export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
             ) : null}
 
             <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-start">
-              <div className="grid gap-4 md:grid-cols-3">
+              {project.mediaKind === "gallery" ? (
+                <div>
+                  <h2 className="text-xl font-semibold">{project.title[locale]}</h2>
+                  {descriptions.map((paragraph) => <p key={paragraph} className="mt-4 text-base leading-7 text-white/70">{paragraph}</p>)}
+                  {project.video ? (
+                    <section className="mt-8" aria-labelledby="project-video-heading">
+                      <h2 id="project-video-heading" className="mb-5 text-xl font-semibold">{project.video.title[locale]}</h2>
+                      <ProjectVideo videoId={project.video.id} title={project.video.title[locale]} playLabel={project.video.playLabel[locale]} poster={project.afterImage} />
+                    </section>
+                  ) : null}
+                </div>
+              ) : <div className="grid gap-4 md:grid-cols-3">
                 {[copy.beforeState, copy.workPerformed, copy.result].map((heading, index) => (
                   <article key={heading} className="rounded-[6px] border border-white/14 bg-[#0a0a0a] p-6">
                     <span className="text-xs font-semibold tracking-[0.16em] text-[#ff4d4d]">0{index + 1}</span>
@@ -115,7 +147,7 @@ export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
                     <p className="mt-4 text-sm leading-7 text-white/64">{descriptions[index]}</p>
                   </article>
                 ))}
-              </div>
+              </div>}
 
               <aside className="grid gap-4 lg:sticky lg:top-28">
                 <div className="rounded-[6px] border border-white/14 bg-[#0a0a0a] p-6">

@@ -92,7 +92,20 @@ export function ProjectsPage({ locale, projects }: ProjectsPageProps) {
                     data-project-card
                     data-project-slug={project.slug}
                   >
-                    <BeforeAfterSlider
+                    {project.mediaKind === "gallery" ? (
+                      <Link href={getProjectPath(locale, project.slug)} className="relative block aspect-[8/5] overflow-hidden border-b border-white/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-redline">
+                        <Image
+                          src={project.afterImage}
+                          alt={project.altAfter[locale]}
+                          width={project.afterImageWidth}
+                          height={project.afterImageHeight}
+                          quality={project.imageQuality ?? 90}
+                          loading="lazy"
+                          sizes="(min-width: 1536px) 22rem, (min-width: 1280px) calc((100vw - 32rem) / 3), (min-width: 768px) calc((100vw - 7rem) / 2), calc(100vw - 2.5rem)"
+                          className="h-full w-full object-contain"
+                        />
+                      </Link>
+                    ) : <BeforeAfterSlider
                       beforeImage={project.beforeImage}
                       afterImage={project.afterImage}
                       beforeAlt={project.altBefore[locale]}
@@ -108,7 +121,7 @@ export function ProjectsPage({ locale, projects }: ProjectsPageProps) {
                       imageQuality={project.imageQuality ?? 90}
                       sizes="(min-width: 1536px) 22rem, (min-width: 1280px) calc((100vw - 32rem) / 3), (min-width: 768px) calc((100vw - 7rem) / 2), calc(100vw - 2.5rem)"
                       className="rounded-none border-0 border-b border-white/15"
-                    />
+                    />}
                     <Link
                       href={getProjectPath(locale, project.slug)}
                       className="group/card grid min-h-32 flex-1 grid-cols-[minmax(0,1fr)_2.75rem] items-center gap-3 p-4 transition hover:bg-white/[0.025] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-redline sm:min-h-36 sm:p-5"

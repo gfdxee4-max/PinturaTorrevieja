@@ -123,7 +123,7 @@ export function getProjectStructuredData(project: Project, locale: Locale) {
   const copy = projectsTranslations[locale];
   const pageUrl = getAbsoluteUrl(getProjectPath(locale, project.slug));
   const listUrl = getAbsoluteUrl(getProjectsPath(locale));
-  const beforeImage = getAbsoluteUrl(project.beforeImage);
+  const beforeImage = project.mediaKind === "gallery" ? undefined : getAbsoluteUrl(project.beforeImage);
   const afterImage = getAbsoluteUrl(project.afterImage);
 
   return {
@@ -156,23 +156,25 @@ export function getProjectStructuredData(project: Project, locale: Locale) {
         datePublished: project.publishedAt,
         inLanguage: locale,
         creator: { "@id": `${siteConfig.url}/#autobodyshop` },
+        ...(project.mediaKind === "gallery" && project.video ? { subjectOf: { "@id": `${pageUrl}#video` } } : {}),
         image: [
-          beforeImage,
+          ...(beforeImage ? [beforeImage] : []),
           afterImage,
+          ...(project.mediaKind === "gallery" ? project.gallery.filter((photo) => photo.src !== project.afterImage).map((photo) => getAbsoluteUrl(photo.src)) : []),
           ...(project.comparisons ?? []).flatMap((comparison) => [
             getAbsoluteUrl(comparison.beforeImage),
             getAbsoluteUrl(comparison.afterImage),
           ]),
         ],
       },
-      {
+      ...(project.mediaKind !== "gallery" ? [{
         "@type": "ImageObject",
         "@id": `${pageUrl}#before-image`,
         contentUrl: beforeImage,
         caption: project.altBefore[locale],
         width: project.beforeImageWidth,
         height: project.beforeImageHeight,
-      },
+      }] : []),
       {
         "@type": "ImageObject",
         "@id": `${pageUrl}#after-image`,
@@ -181,6 +183,25 @@ export function getProjectStructuredData(project: Project, locale: Locale) {
         width: project.afterImageWidth,
         height: project.afterImageHeight,
       },
+      ...(project.mediaKind === "gallery" ? project.gallery.filter((photo) => photo.src !== project.afterImage).map((photo, index) => ({
+        "@type": "ImageObject",
+        "@id": `${pageUrl}#gallery-image-${index + 1}`,
+        contentUrl: getAbsoluteUrl(photo.src),
+        caption: photo.alt[locale],
+        width: photo.width,
+        height: photo.height,
+      })) : []),
+      ...(project.mediaKind === "gallery" && project.video ? [{
+        "@type": "VideoObject",
+        "@id": `${pageUrl}#video`,
+        name: project.video.title[locale],
+        description: project.seoDescription[locale],
+        thumbnailUrl: afterImage,
+        ...(project.video.uploadDate ? { uploadDate: project.video.uploadDate } : {}),
+        embedUrl: `https://www.youtube.com/embed/${project.video.id}`,
+        url: `https://www.youtube.com/shorts/${project.video.id}`,
+        about: { "@id": `${pageUrl}#project` },
+      }] : []),
       ...(project.comparisons ?? []).flatMap((comparison) => [
         {
           "@type": "ImageObject",
