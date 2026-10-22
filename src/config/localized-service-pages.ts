@@ -1,6 +1,6 @@
 import type { Locale } from "@/config/i18n";
 
-export type ServicePageLocale = Extract<Locale, "ru" | "uk">;
+export type ServicePageLocale = Extract<Locale, "en" | "ru" | "uk">;
 export type ServicePageKey = "paint" | "body" | "bumper" | "insurance" | "wheels";
 
 type ContentSection = {
@@ -60,6 +60,27 @@ export type LocalizedServicePage = {
 };
 
 export const localizedServicePageUi = {
+  en: {
+    home: "Home",
+    benefitsEyebrow: "What the service includes",
+    benefitsTitle: "Work based on the condition of the wheels",
+    detailsEyebrow: "About the service",
+    detailsTitle: "A clear scope of work",
+    processEyebrow: "Process",
+    processTitle: "How the work is carried out",
+    projectsEyebrow: "Real work",
+    projectsTitle: "Repair and refinishing results",
+    projectsText: "Real vehicles and completed work from the PaintLab workshop.",
+    viewProject: "View project",
+    allProjects: "All our work",
+    relatedEyebrow: "Related pages",
+    relatedTitle: "Explore PaintLab",
+    faqTitle: "Frequently Asked Questions",
+    ctaTitle: "Send photos for an initial assessment",
+    ctaText: "Send clear photos on WhatsApp. We can review the visible condition before the wheels are inspected at the workshop.",
+    whatsapp: "Message us on WhatsApp",
+    phone: "Call us",
+  },
   ru: {
     home: "Главная",
     benefitsEyebrow: "Что вы получаете",
@@ -873,6 +894,181 @@ export const localizedServicePages: readonly LocalizedServicePage[] = [
       "Хотите восстановить диски? Отправьте фотографии дисков в WhatsApp. По фотографиям можно предварительно оценить их состояние и необходимый объём работ. Окончательный состав работ подтверждается после осмотра в мастерской PaintLab в Торревьехе.",
     whatsapp:
       "Здравствуйте, PaintLab. Нужна предварительная оценка реставрации и порошковой покраски автомобильных дисков. Могу отправить фотографии.",
+  },
+  {
+    key: "wheels",
+    locale: "en",
+    slug: "alloy-wheel-refurbishment-torrevieja",
+    title: "Alloy Wheel Refurbishment & Powder Coating Torrevieja | PaintLab",
+    description:
+      "Alloy wheel refurbishment in Torrevieja including sandblasting, surface preparation, powder coating and wheel straightening when suitable. PaintLab.",
+    h1: "Alloy Wheel Refurbishment & Powder Coating in Torrevieja",
+    eyebrow: "Wheel refinishing at PaintLab Torrevieja",
+    lead:
+      "PaintLab provides alloy wheel refurbishment and powder coating in Torrevieja. We inspect the visible condition of each wheel, check its geometry and agree on the appropriate preparation before refinishing. Scratches, chips, corrosion and deteriorated old paint can often be addressed by stripping and preparing the surface, provided the wheel is suitable for the work after inspection.",
+    benefitsTitle: "Alloy Wheel Refurbishment in Torrevieja",
+    benefits: [
+      {
+        title: "Condition and geometry check",
+        text: "We inspect the coating, visible damage and wheel geometry before agreeing on the work.",
+      },
+      {
+        title: "Complete surface preparation",
+        text: "Old coating is removed before sandblasting and preparing a stable base for refinishing.",
+      },
+      {
+        title: "Controlled finish",
+        text: "The powder coating is cured according to the material process and checked after completion.",
+      },
+    ],
+    hideDetailsTitle: true,
+    sections: [
+      {
+        heading: "Sandblasting and Surface Preparation",
+        paragraphs: [
+          "If an alloy wheel has scratches, chips, corrosion or deteriorated old paint, it can be stripped, prepared and refinished after its condition has been inspected. Sandblasting alloy wheels removes remaining paint, contamination and unstable surface material before a new protective finish is applied. This avoids placing a fresh coating over a layer that is already lifting or breaking down.",
+          "Each wheel is assessed individually before preparation begins. Once the old coating has been removed, the exposed surface can be checked more accurately and the required preparation can be confirmed. Sandblasting wheels is therefore one part of a complete refurbishment process rather than a cosmetic shortcut. The condition of the base material determines whether the wheel can proceed to preparation and powder coating.",
+        ],
+      },
+      {
+        heading: "Alloy Wheel Powder Coating",
+        paragraphs: [
+          "Alloy wheel powder coating creates an even, durable finish when the surface has been correctly cleaned and prepared. Powder material is applied to the prepared wheel and then cured at the temperature specified for the coating system being used. The result depends on the full sequence: stripping, cleaning, surface preparation, application and controlled curing all matter.",
+          "PaintLab can refinish individual wheels or a complete set after inspection. The work may restore a finish close to the previous appearance or change the colour, depending on the agreed coating option. Colour and preparation are confirmed before the work begins. We do not use stock or AI images to represent completed wheel projects; real examples can be added when suitable PaintLab work is documented.",
+        ],
+      },
+      {
+        heading: "Wheel Straightening",
+        paragraphs: [
+          "Before refinishing, we can also check the wheel geometry. If the wheel is bent and its condition allows repair, straightening can be carried out before sandblasting, preparation and powder coating. The decision is based on an inspection of the individual wheel rather than on photographs alone.",
+          "Straightening is only included when it is necessary and technically suitable for the wheel being assessed. Correcting the geometry first prevents a new coating from being applied before an identified deformation has been considered. Once the geometry work is complete, the wheel can continue through the agreed preparation and refinishing stages.",
+        ],
+      },
+    ],
+    processTitle: "Our Wheel Refurbishment Process",
+    process: [
+      {
+        title: "Wheel inspection",
+        text: "We assess the old coating, scratches, chips, corrosion and other visible damage.",
+      },
+      {
+        title: "Geometry check",
+        text: "The wheel geometry is checked before stripping and surface preparation begin.",
+      },
+      {
+        title: "Straightening",
+        text: "A bent wheel is straightened when required and when its condition makes the work suitable.",
+      },
+      {
+        title: "Coating removal",
+        text: "Old and unstable coating is removed so it cannot compromise the new finish.",
+      },
+      {
+        title: "Sandblasting",
+        text: "The wheel surface is cleaned and prepared for the next treatment stages.",
+      },
+      {
+        title: "Surface preparation",
+        text: "The cleaned base is checked and prepared for the powder coating application.",
+      },
+      {
+        title: "Powder coating",
+        text: "The selected powder material is applied evenly to the prepared wheel.",
+      },
+      {
+        title: "Curing",
+        text: "The coating is cured using the temperature specified for the material system.",
+      },
+      {
+        title: "Final inspection",
+        text: "We check the appearance, coverage and consistency of the completed finish.",
+      },
+    ],
+    postProcessIntro:
+      "Refurbishment is agreed after inspection because surface deterioration and damage to the wheel itself require different assessments.",
+    postProcessSections: [
+      {
+        heading: "What Type of Wheel Damage Can Be Restored?",
+        paragraphs: [
+          "Alloy wheel restoration is suitable when the main issue is the condition or appearance of the existing finish. Typical examples include kerb scratches, chips, surface corrosion, oxidation and old paint that has started to deteriorate. In these cases the wheel can be stripped, cleaned, prepared and powder coated, subject to its condition being accepted after inspection.",
+          "A wheel that appears to need only refinishing may also have a deformation, so its geometry can be checked before the coating process. If straightening is appropriate, that stage is completed before the old finish is removed and the surface is prepared. The scope is based on the actual wheel; photographs provide an initial view, while the workshop inspection confirms what can be carried out.",
+        ],
+      },
+      {
+        heading: "The Finished Result",
+        paragraphs: [
+          "After refurbishment, the wheel has a renewed and consistent coating instead of a surface dominated by worn paint, prepared corrosion marks, scratches or chips. Refinishing a full set can also return the wheels to a more uniform appearance. The selected colour and finish are agreed before coating begins.",
+          "The final result always depends on the starting condition of the wheels and the work confirmed after inspection. Photos sent on WhatsApp help PaintLab understand the initial request, but they do not replace the physical assessment. This keeps the recommendation tied to the actual condition rather than to a fixed package, price or completion time.",
+        ],
+      },
+    ],
+    showProjects: false,
+    compactRelatedLinks: true,
+    faqTitle: "Frequently Asked Questions",
+    faq: [
+      {
+        question: "Where can I refurbish alloy wheels in Torrevieja?",
+        answer:
+          "PaintLab in Torrevieja provides wheel inspection, preparation and powder coating. Send photos on WhatsApp before visiting for an initial assessment.",
+      },
+      {
+        question: "Do you powder coat alloy wheels?",
+        answer:
+          "Yes. Powder coating is carried out after the old finish has been removed and the wheel surface has been properly prepared.",
+      },
+      {
+        question: "Do wheels need to be sandblasted before powder coating?",
+        answer:
+          "Sandblasting is used to remove old coating, contamination and unstable material. The exact preparation is confirmed from the condition of each wheel.",
+      },
+      {
+        question: "Can scratched alloy wheels be refurbished?",
+        answer:
+          "Many wheels with cosmetic scratches, chips or damaged coating can be prepared and refinished. Suitability is confirmed after inspection.",
+      },
+      {
+        question: "Can I change the colour of my wheels?",
+        answer:
+          "A different powder coating colour can be discussed before work starts. The available option is agreed together with the required preparation.",
+      },
+      {
+        question: "Can you straighten bent alloy wheels?",
+        answer:
+          "Yes, when straightening is necessary and the inspected condition of the wheel makes the work technically suitable. Geometry is checked before refinishing.",
+      },
+      {
+        question: "How much does alloy wheel refurbishment cost?",
+        answer:
+          "Send clear overall and close-up photos of each wheel on WhatsApp. They allow an initial assessment; the final scope and cost are confirmed after inspection.",
+      },
+      {
+        question: "Can I bring the wheels without the car?",
+        answer:
+          "Before visiting, send photos and tell us whether you plan to bring the car or removed wheels. PaintLab will confirm the suitable intake arrangement for the specific job.",
+      },
+    ],
+    relatedLinks: [
+      {
+        href: "/en",
+        label: "PaintLab Torrevieja",
+        text: "Return to the English homepage for an overview of the workshop and its services.",
+      },
+      {
+        href: "/en/servicios",
+        label: "All services",
+        text: "Explore the available car body repair, painting and refinishing services.",
+      },
+      {
+        href: "/en/trabajos-realizados",
+        label: "Real PaintLab projects",
+        text: "View documented vehicle repair and painting work completed by the workshop.",
+      },
+    ],
+    ctaTitle: "Send Us Photos of Your Wheels",
+    ctaText:
+      "Want to refurbish your alloy wheels? Send photos of your wheels to PaintLab on WhatsApp for an initial assessment. The final scope of work is confirmed after inspecting the wheels.",
+    whatsapp:
+      "Hello PaintLab. I would like an initial assessment for alloy wheel refurbishment and powder coating. I can send photos of the wheels.",
   },
 ] as const;
 

@@ -289,6 +289,7 @@ const localizedHubPages: Record<Exclude<ArchitectureHubLocale, "es">, Record<Arc
         { href: "/servicios/chapa-y-pintura", label: "Car painting in Torrevieja", text: "Vehicle painting and restoration of damaged paintwork." },
         { href: "/servicios/pintura-coche", label: "Car painting", text: "Painting and refinishing damaged body panels." },
         { href: "/servicios/pintar-coche-completo", label: "Complete car painting", text: "Full vehicle painting and exterior restoration." },
+        { href: "/en/alloy-wheel-refurbishment-torrevieja", label: "Alloy wheel refurbishment", text: "Wheel inspection, straightening when suitable, sandblasting and powder coating." },
         { href: "/servicios/pintar-paragolpes", label: "Bumper painting", text: "Scratch repair, plastic repair and bumper painting." },
         { href: "/servicios/reparacion-carroceria", label: "Car body repair", text: "Restoration of damaged vehicle body panels." },
         { href: "/servicios/reparacion-aranazos-coche", label: "Car scratch repair", text: "Damage removal followed by surface preparation and painting." },
