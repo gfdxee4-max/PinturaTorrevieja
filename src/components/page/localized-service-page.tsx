@@ -57,16 +57,18 @@ export function LocalizedServicePage({ page }: LocalizedServicePageProps) {
 
       <main className="min-h-screen bg-[#050505] text-white">
         <section className="relative isolate overflow-hidden border-b border-white/[0.09]">
-          <Image
-            src={page.heroImage}
-            alt={page.heroAlt}
-            fill
-            priority
-            fetchPriority="high"
-            quality={88}
-            sizes="100vw"
-            className="-z-30 object-cover object-center"
-          />
+          {page.heroImage ? (
+            <Image
+              src={page.heroImage}
+              alt={page.heroAlt ?? ""}
+              fill
+              priority
+              fetchPriority="high"
+              quality={88}
+              sizes="100vw"
+              className="-z-30 object-cover object-center"
+            />
+          ) : null}
           <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,#050505_0%,rgba(5,5,5,0.96)_46%,rgba(5,5,5,0.62)_74%,rgba(5,5,5,0.34)_100%)]" />
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(0deg,#050505_0%,transparent_48%)]" />
 
@@ -149,9 +151,11 @@ export function LocalizedServicePage({ page }: LocalizedServicePageProps) {
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ff4d4d]">
                   {ui.detailsEyebrow}
                 </p>
-                <h2 className="mt-4 text-3xl font-semibold uppercase leading-tight text-white sm:text-4xl">
-                  {page.detailsTitle ?? ui.detailsTitle}
-                </h2>
+                {page.hideDetailsTitle ? null : (
+                  <h2 className="mt-4 text-3xl font-semibold uppercase leading-tight text-white sm:text-4xl">
+                    {page.detailsTitle ?? ui.detailsTitle}
+                  </h2>
+                )}
               </div>
               <div className="grid gap-9">
                 {page.sections.map((section) => (
@@ -197,7 +201,43 @@ export function LocalizedServicePage({ page }: LocalizedServicePageProps) {
           </Container>
         </section>
 
-        <section className="border-b border-white/[0.09] py-12 sm:py-16 lg:py-20">
+        {page.postProcessSections?.length ? (
+          <section className="border-b border-white/[0.09] py-12 sm:py-16 lg:py-20">
+            <Container>
+              <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
+                <div className="lg:sticky lg:top-32 lg:self-start">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ff4d4d]">
+                    {ui.detailsEyebrow}
+                  </p>
+                  {page.postProcessIntro ? (
+                    <p className="mt-4 max-w-md text-base leading-8 text-white/62">
+                      {page.postProcessIntro}
+                    </p>
+                  ) : null}
+                </div>
+                <div className="grid gap-9">
+                  {page.postProcessSections.map((section) => (
+                    <article key={section.heading} className="border-l border-redline/70 pl-5 sm:pl-7">
+                      <h2 className="text-2xl font-semibold leading-tight text-white sm:text-3xl">
+                        {section.heading}
+                      </h2>
+                      <div className="mt-5 space-y-5">
+                        {section.paragraphs.map((paragraph) => (
+                          <p key={paragraph} className="text-base leading-8 text-white/68">
+                            {paragraph}
+                          </p>
+                        ))}
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            </Container>
+          </section>
+        ) : null}
+
+        {page.showProjects === false ? null : (
+          <section className="border-b border-white/[0.09] py-12 sm:py-16 lg:py-20">
           <Container>
             <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
               <div>
@@ -257,7 +297,8 @@ export function LocalizedServicePage({ page }: LocalizedServicePageProps) {
               ))}
             </div>
           </Container>
-        </section>
+          </section>
+        )}
 
         <section className="border-b border-white/[0.09] py-12 sm:py-16">
           <Container>
@@ -266,9 +307,15 @@ export function LocalizedServicePage({ page }: LocalizedServicePageProps) {
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ff4d4d]">
                   {ui.relatedEyebrow}
                 </p>
-                <h2 className="mt-4 text-3xl font-semibold uppercase leading-tight text-white sm:text-4xl">
-                  {ui.relatedTitle}
-                </h2>
+                {page.compactRelatedLinks ? (
+                  <h3 className="mt-4 text-2xl font-semibold uppercase leading-tight text-white sm:text-3xl">
+                    {ui.relatedTitle}
+                  </h3>
+                ) : (
+                  <h2 className="mt-4 text-3xl font-semibold uppercase leading-tight text-white sm:text-4xl">
+                    {ui.relatedTitle}
+                  </h2>
+                )}
                 <nav className="mt-7 grid gap-3" aria-label={ui.relatedTitle}>
                   {page.relatedLinks.map((item) => (
                     <Link

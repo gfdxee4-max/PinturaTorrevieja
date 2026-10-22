@@ -159,6 +159,7 @@ const localizedHubPages: Record<Exclude<ArchitectureHubLocale, "es">, Record<Arc
         { href: "/ru/pokraska-bampera-torrevieja", label: "Покраска бампера", text: "Ремонт царапин, повреждений пластика и покраска бампера." },
         { href: "/ru/kuzovnoy-remont-torrevieja", label: "Кузовной ремонт", text: "Восстановление повреждённых элементов кузова автомобиля." },
         { href: "/ru/remont-po-strahovke-torrevieja", label: "Кузовной ремонт после ДТП по страховке", text: "Ремонт и покраска повреждённых деталей с учётом документов по конкретному страховому случаю." },
+        { href: "/ru/restavraciya-pokraska-diskov-torrevieja", label: "Реставрация и порошковая покраска дисков", text: "Пескоструйная подготовка и восстановление покрытия автомобильных дисков." },
         { href: "/servicios/reparacion-aranazos-coche", label: "Ремонт царапин", text: "Удаление повреждений и последующая подготовка и покраска." },
         { href: "/servicios/pulido-carroceria", label: "Полировка кузова", text: "Восстановление блеска и внешнего вида лакокрасочного покрытия." },
         { href: "/servicios/pulido-faros", label: "Полировка фар", text: "Восстановление прозрачности автомобильных фар." },
