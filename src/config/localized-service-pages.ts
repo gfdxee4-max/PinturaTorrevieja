@@ -1,5 +1,6 @@
 import type { Locale } from "@/config/i18n";
 import { germanServicePages } from "@/config/german-service-pages";
+import { ukrainianServicePages } from "@/config/ukrainian-service-pages";
 
 export type ServicePageLocale = Extract<Locale, "de" | "en" | "ru" | "uk">;
 export type ServicePageKey = "paint" | "body" | "bumper" | "insurance" | "wheels";
@@ -149,6 +150,7 @@ export const localizedServicePageUi = {
 
 export const localizedServicePages: readonly LocalizedServicePage[] = [
   ...germanServicePages,
+  ...ukrainianServicePages,
   {
     key: "paint",
     locale: "ru",

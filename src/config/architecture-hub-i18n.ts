@@ -289,6 +289,8 @@ const localizedHubPages: Record<Exclude<ArchitectureHubLocale, "es">, Record<Arc
         { href: "/servicios/pintar-coche-completo", label: "Повне фарбування автомобіля", text: "Повне фарбування автомобіля та відновлення зовнішнього вигляду." },
         { href: "/uk/farbuvannya-bampera-torrevieja", label: "Фарбування бампера", text: "Ремонт подряпин, пошкоджень пластику та фарбування бампера." },
         { href: "/uk/kuzovnyi-remont-torrevieja", label: "Кузовний ремонт", text: "Відновлення пошкоджених елементів кузова автомобіля." },
+        { href: "/uk/remont-po-strahovci-torrevieja", label: "Ремонт після ДТП та страхового випадку", text: "Оцінка конкретного випадку, кузовні роботи й фарбування пошкоджених деталей." },
+        { href: "/uk/restavraciya-farbuvannya-dyskiv-torrevieja", label: "Реставрація та порошкове фарбування дисків", text: "Перевірка геометрії, вирівнювання придатних дисків і підготовка покриття." },
         { href: "/servicios/reparacion-aranazos-coche", label: "Ремонт подряпин", text: "Усунення пошкоджень із подальшою підготовкою та фарбуванням." },
         { href: "/servicios/pulido-carroceria", label: "Полірування кузова", text: "Відновлення блиску та зовнішнього вигляду лакофарбового покриття." },
         { href: "/servicios/pulido-faros", label: "Полірування фар", text: "Відновлення прозорості автомобільних фар." },
