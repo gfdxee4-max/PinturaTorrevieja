@@ -330,6 +330,7 @@ export const fiat500Project: Project = {
   },
   relatedServicesTitle: {
     es: "Servicios relacionados",
+    en: "Related service",
     ru: "Связанные услуги",
     uk: "Пов’язані послуги",
   },
@@ -338,6 +339,9 @@ export const fiat500Project: Project = {
       { href: "/servicios/reparacion-carroceria", label: "Reparación de carrocería" },
       { href: "/pintura-puerta", label: "Pintura de puerta" },
       { href: "/pintura-aleta", label: "Pintura de aleta" },
+    ],
+    en: [
+      { href: "/en/car-body-repair-torrevieja", label: "Car body repair in Torrevieja" },
     ],
     ru: [
       { href: "/ru/kuzovnoy-remont-torrevieja", label: "Кузовной ремонт в Торревьехе" },

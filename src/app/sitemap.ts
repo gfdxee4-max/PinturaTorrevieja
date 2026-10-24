@@ -7,7 +7,7 @@ import {
 } from "@/config/blog";
 import { fallbackLocale, locales, localizedPath } from "@/config/i18n";
 import {
-  getLocalizedServiceAlternate,
+  getLocalizedServiceAlternates,
   getLocalizedServicePath,
   localizedServicePages,
 } from "@/config/localized-service-pages";
@@ -94,12 +94,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   );
   const localizedServiceSeoPages = localizedServicePages.map((page) => {
-    const alternate = getLocalizedServiceAlternate(page);
+    const alternates = getLocalizedServiceAlternates(page);
     const languages = {
       [page.locale]: getAbsoluteUrl(getLocalizedServicePath(page)),
-      ...(alternate
-        ? { [alternate.locale]: getAbsoluteUrl(getLocalizedServicePath(alternate)) }
-        : {}),
+      ...Object.fromEntries(
+        alternates.map((alternate) => [
+          alternate.locale,
+          getAbsoluteUrl(getLocalizedServicePath(alternate)),
+        ]),
+      ),
     };
 
     return {

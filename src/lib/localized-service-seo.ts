@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { dictionaries } from "@/config/i18n";
 import {
-  getLocalizedServiceAlternate,
+  getLocalizedServiceAlternates,
   getLocalizedServicePath,
   localizedServicePageUi,
   type LocalizedServicePage,
@@ -11,12 +11,12 @@ import { siteConfig } from "@/config/site";
 import { getAbsoluteUrl } from "@/lib/seo";
 
 function getServiceAlternates(page: LocalizedServicePage) {
-  const alternate = getLocalizedServiceAlternate(page);
+  const alternates = getLocalizedServiceAlternates(page);
   const languages: Record<string, string> = {
     [page.locale]: getAbsoluteUrl(getLocalizedServicePath(page)),
   };
 
-  if (alternate) {
+  for (const alternate of alternates) {
     languages[alternate.locale] = getAbsoluteUrl(getLocalizedServicePath(alternate));
   }
 
@@ -27,7 +27,7 @@ function getServiceAlternates(page: LocalizedServicePage) {
 }
 
 export function getLocalizedServiceMetadata(page: LocalizedServicePage): Metadata {
-  const alternate = getLocalizedServiceAlternate(page);
+  const alternates = getLocalizedServiceAlternates(page);
   const url = getAbsoluteUrl(getLocalizedServicePath(page));
   const image = getAbsoluteUrl("/images/og-image.webp");
 
@@ -38,7 +38,7 @@ export function getLocalizedServiceMetadata(page: LocalizedServicePage): Metadat
     openGraph: {
       type: "website",
       locale: dictionaries[page.locale].locale,
-      alternateLocale: alternate ? [dictionaries[alternate.locale].locale] : [],
+      alternateLocale: alternates.map((alternate) => dictionaries[alternate.locale].locale),
       url,
       siteName: siteConfig.name,
       title: page.title,

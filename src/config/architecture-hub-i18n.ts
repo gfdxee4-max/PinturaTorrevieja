@@ -286,6 +286,10 @@ const localizedHubPages: Record<Exclude<ArchitectureHubLocale, "es">, Record<Arc
         },
       ],
       links: [
+        { href: "/en/car-respray-torrevieja", label: "Car respray and painting", text: "Full resprays and painting of individual body panels." },
+        { href: "/en/car-body-repair-torrevieja", label: "Car body repair", text: "Repair of dents, scratches and damaged body panels." },
+        { href: "/en/bumper-repair-paint-torrevieja", label: "Bumper repair and painting", text: "Repair and refinishing for suitable bumper damage." },
+        { href: "/en/insurance-car-repair-torrevieja", label: "Insurance and accident repair", text: "Assessment and body repair after an accident or insurance claim." },
         { href: "/servicios/chapa-y-pintura", label: "Car painting in Torrevieja", text: "Vehicle painting and restoration of damaged paintwork." },
         { href: "/servicios/pintura-coche", label: "Car painting", text: "Painting and refinishing damaged body panels." },
         { href: "/servicios/pintar-coche-completo", label: "Complete car painting", text: "Full vehicle painting and exterior restoration." },

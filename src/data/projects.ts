@@ -377,9 +377,13 @@ export const projects: readonly Project[] = [
       cs: "Skutečný výsledek před a po opravě a lakování předního blatníku Nissan Qashqai.",
     },
     relatedServicesTitle: {
+      en: "Related service",
       ru: "Связанные услуги",
     },
     relatedLinks: {
+      en: [
+        { href: "/en/car-body-repair-torrevieja", label: "Car body repair in Torrevieja" },
+      ],
       ru: [
         { href: "/ru/avtopokraska-torrevieja", label: "Покраска деталей автомобиля" },
       ],
@@ -682,9 +686,13 @@ export const projects: readonly Project[] = [
       cs: "Skutečný výsledek před a po opravě a lakování zadního blatníku Tesla Model 3.",
     },
     relatedServicesTitle: {
+      en: "Related service",
       ru: "Связанные услуги",
     },
     relatedLinks: {
+      en: [
+        { href: "/en/car-body-repair-torrevieja", label: "Car body repair in Torrevieja" },
+      ],
       ru: [
         { href: "/ru/avtopokraska-torrevieja", label: "Покраска автомобилей" },
       ],

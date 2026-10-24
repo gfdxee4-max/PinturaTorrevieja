@@ -226,8 +226,9 @@ export const bmwE46Project: Project = {
     : `${value.headline} | PaintLab`),
   seoDescription: localized((value) => value.description),
   location: "PaintLab, Torrevieja",
-  relatedServicesTitle: { ru: "Услуги мастерской" },
+  relatedServicesTitle: { en: "Related service", ru: "Услуги мастерской" },
   relatedLinks: {
+    en: [{ href: "/en/car-respray-torrevieja", label: "Car respray in Torrevieja" }],
     ru: [{ href: "/ru/avtopokraska-torrevieja", label: "автопокраска в Торревьехе" }],
   },
 };

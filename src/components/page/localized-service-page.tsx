@@ -14,7 +14,7 @@ import { Header } from "@/components/layout/header";
 import { Container } from "@/components/ui/container";
 import { FloatingWhatsApp } from "@/components/ui/floating-whatsapp";
 import {
-  getLocalizedServiceAlternate,
+  getLocalizedServiceAlternates,
   getLocalizedServicePath,
   localizedServicePageUi,
   type LocalizedServicePage as LocalizedServicePageData,
@@ -36,7 +36,7 @@ export function LocalizedServicePage({ page }: LocalizedServicePageProps) {
   const dictionary = dictionaries[page.locale];
   const ui = localizedServicePageUi[page.locale];
   const currentPath = getLocalizedServicePath(page);
-  const alternate = getLocalizedServiceAlternate(page);
+  const alternates = getLocalizedServiceAlternates(page);
   const whatsappUrl = createWhatsAppUrl(page.whatsapp);
   const featuredProjects = projects.slice(0, 2);
 
@@ -48,7 +48,8 @@ export function LocalizedServicePage({ page }: LocalizedServicePageProps) {
         activeItem="services"
         languagePath={(targetLocale) => {
           if (targetLocale === page.locale) return currentPath;
-          if (alternate && targetLocale === alternate.locale) {
+          const alternate = alternates.find((candidate) => candidate.locale === targetLocale);
+          if (alternate) {
             return getLocalizedServicePath(alternate);
           }
           return localizedPath(targetLocale);

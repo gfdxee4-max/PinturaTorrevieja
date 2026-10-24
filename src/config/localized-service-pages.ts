@@ -896,6 +896,415 @@ export const localizedServicePages: readonly LocalizedServicePage[] = [
       "Здравствуйте, PaintLab. Нужна предварительная оценка реставрации и порошковой покраски автомобильных дисков. Могу отправить фотографии.",
   },
   {
+    key: "paint",
+    locale: "en",
+    slug: "car-respray-torrevieja",
+    title: "Car Respray & Car Painting in Torrevieja | PaintLab",
+    description:
+      "Car respray and vehicle painting in Torrevieja. Full resprays and painting of individual body panels with preparation and professional refinishing at PaintLab.",
+    h1: "Car Respray and Car Painting in Torrevieja",
+    eyebrow: "Vehicle painting at PaintLab Torrevieja",
+    lead:
+      "PaintLab provides car respray and vehicle painting services in Torrevieja for complete vehicles and individual body panels. Each job begins with an inspection of the existing paintwork and the underlying surface so that preparation, colour matching and the appropriate refinishing process can be agreed before painting starts.",
+    benefitsTitle: "Car Painting Based on the Condition of the Vehicle",
+    benefits: [
+      {
+        title: "Full or panel painting",
+        text: "The scope can cover a complete car respray or selected panels such as a door, wing, bonnet, bumper or sill.",
+      },
+      {
+        title: "Careful preparation",
+        text: "Existing defects are assessed and the surface is prepared to create a stable base for the new paintwork.",
+      },
+      {
+        title: "Colour and finish control",
+        text: "The colour, basecoat and clearcoat finish are checked against the agreed repair and surrounding panels.",
+      },
+    ],
+    hideDetailsTitle: true,
+    sections: [
+      {
+        heading: "Full Car Respray in Torrevieja",
+        paragraphs: [
+          "A full car respray may be considered when paint deterioration affects much of the vehicle, when several panels require refinishing, or when the owner wants a consistent finish across the complete exterior. The decision is made after inspecting the body and paintwork because a complete repaint involves more than applying a new colour. The condition of the existing coating, previous repairs, corrosion and panel damage all influence the preparation required.",
+          "At PaintLab, a full respray is planned around the actual condition of the car. Relevant trim and adjacent areas are protected or removed where the agreed process requires it. Panels are prepared in sequence, surface defects are addressed and the vehicle is painted using the coating system selected for the job. A roof can be included where appropriate, together with the bonnet, doors, wings, bumpers, sills and other exterior panels covered by the agreed scope.",
+        ],
+      },
+      {
+        heading: "Painting Individual Body Panels",
+        paragraphs: [
+          "Not every vehicle needs a complete car repaint. Scratches, chips, local paint failure or repair work may affect only one body panel. Painting an individual door, wing, bonnet, bumper or sill allows the damaged area to be restored without refinishing parts that remain in suitable condition. The panel and neighbouring paintwork are inspected before the method is confirmed.",
+          "Body panel painting starts with correcting the surface rather than hiding the defect under fresh paint. If a panel has a dent, scrape or damaged previous repair, the agreed bodywork is completed first. The area is then levelled, sanded and prepared for primer, basecoat and clearcoat as required. Colour matching and the relationship with adjacent panels are considered so the finished repair fits naturally with the rest of the vehicle.",
+        ],
+      },
+      {
+        heading: "Preparation and Colour Matching",
+        paragraphs: [
+          "Preparation is a central part of any car respray. Paint cannot provide a stable result if it is applied over loose coating, contamination or an uneven repair. The surface is cleaned and inspected, unsuitable material is removed, repair areas are levelled and the correct preparation products are applied before colour. The exact sequence depends on whether the job concerns original paint, an older repaint or a recently repaired panel.",
+          "The vehicle colour reference provides a starting point, but age, sunlight and previous paintwork can affect how a colour appears on the car. Colour matching therefore considers the existing finish as well as the code. Basecoat restores the colour and clearcoat provides the final protective and visual layer when that coating system is used. The completed surface is checked for coverage, colour relationship, gloss and overall consistency.",
+        ],
+      },
+      {
+        heading: "Restoring Damaged Paintwork",
+        paragraphs: [
+          "Vehicle painting can restore paintwork affected by scratches, stone chips, loss of clearcoat, small impact damage or repair to a body panel. Before recommending a car respray, PaintLab distinguishes between defects in the coating and damage that also requires body repair. This keeps the painting work tied to the real condition of the vehicle rather than treating every mark as the same problem.",
+          "Customers from Torrevieja and nearby areas of the South Costa Blanca can send clear photographs on WhatsApp for an initial assessment. Photos should show the complete panel and close views of the damaged paintwork. They help identify the likely scope, but the final painting method and cost are confirmed only after the vehicle has been inspected at the workshop.",
+        ],
+      },
+    ],
+    processTitle: "How a Car Respray Is Carried Out",
+    process: [
+      { title: "Inspection", text: "We inspect the paintwork, panel condition and any visible previous repairs." },
+      { title: "Scope", text: "We agree whether the job covers one panel, several panels or a full respray." },
+      { title: "Body preparation", text: "Damage is repaired and the surface is levelled, sanded and prepared." },
+      { title: "Colour matching", text: "The colour and coating system are selected for the vehicle and repair." },
+      { title: "Painting", text: "Basecoat and clearcoat are applied according to the agreed refinishing process." },
+      { title: "Final check", text: "We inspect coverage, colour, gloss and the overall appearance of the paintwork." },
+    ],
+    postProcessIntro:
+      "The appropriate painting scope depends on the condition of the existing finish and the number of affected panels.",
+    postProcessSections: [
+      {
+        heading: "When to Consider a Full Respray",
+        paragraphs: [
+          "A full respray can be appropriate when the finish has widespread fading or clearcoat failure, when previous paintwork is inconsistent across many panels, or when restoration work affects a large proportion of the body. It may also be chosen when a complete colour change is being considered, subject to inspection and agreement on the additional preparation involved.",
+        ],
+      },
+    ],
+    showProjects: false,
+    compactRelatedLinks: true,
+    faqTitle: "Car Respray Questions",
+    faq: [
+      {
+        question: "Where can I get a car respray in Torrevieja?",
+        answer: "PaintLab in Torrevieja carries out full car resprays and painting of individual body panels. Send photos on WhatsApp for an initial assessment before inspection.",
+      },
+      {
+        question: "Do you paint individual car panels?",
+        answer: "Yes. Doors, wings, bonnets, bumpers, sills and other suitable body panels can be prepared and painted according to their condition.",
+      },
+      {
+        question: "Can you repaint a complete car?",
+        answer: "Yes, subject to inspection of the body, existing paintwork and previous repairs. The full scope is agreed after the vehicle has been examined.",
+      },
+      {
+        question: "How is the paint colour matched?",
+        answer: "The colour reference and the appearance of the existing paint are considered when selecting and checking the finish against surrounding panels.",
+      },
+      {
+        question: "Does damaged paintwork need preparation before respraying?",
+        answer: "Yes. Loose coating, scratches, dents and uneven repair areas must be addressed so the new paint is applied to a properly prepared surface.",
+      },
+      {
+        question: "Can I get a car painting estimate from photos?",
+        answer: "Photos allow an initial assessment. The final method, scope and cost are confirmed after PaintLab inspects the vehicle in person.",
+      },
+    ],
+    relatedLinks: [
+      { href: "/en", label: "PaintLab Torrevieja", text: "Return to the English homepage for a workshop overview." },
+      { href: "/en/servicios", label: "All services", text: "Explore PaintLab body repair and refinishing services." },
+      { href: "/en/trabajos-realizados", label: "Real painting projects", text: "View documented vehicle repairs and finished paintwork." },
+      { href: "/en/car-body-repair-torrevieja", label: "Car body repair", text: "Repair dents and damaged panels before refinishing." },
+    ],
+    ctaTitle: "Ask About a Car Respray",
+    ctaText:
+      "Send photos of the complete vehicle and the affected paintwork to PaintLab on WhatsApp. We can discuss the likely painting scope before confirming it after inspection.",
+    whatsapp:
+      "Hello PaintLab. I would like an initial assessment for a car respray or body panel painting in Torrevieja. I can send photos of the vehicle.",
+  },
+  {
+    key: "body",
+    locale: "en",
+    slug: "car-body-repair-torrevieja",
+    title: "Car Body Repair & Body Shop in Torrevieja | PaintLab",
+    description:
+      "Car body repair in Torrevieja for damaged panels, dents, scratches and accident damage. Bodywork preparation and painting at PaintLab.",
+    h1: "Car Body Repair in Torrevieja",
+    eyebrow: "Bodywork at PaintLab Torrevieja",
+    lead:
+      "PaintLab is a body shop in Torrevieja carrying out car body repair for dents, scratches, damaged panels and suitable accident damage. We inspect the affected bodywork, agree on the repairable areas and restore the surface before any required preparation and painting.",
+    benefitsTitle: "Bodywork Planned Around the Actual Damage",
+    benefits: [
+      { title: "Damage assessment", text: "We examine the panel shape, visible damage, gaps, fixings and surrounding paintwork." },
+      { title: "Panel restoration", text: "Repairable body panels are restored before the surface is prepared for refinishing." },
+      { title: "Repair and paint sequence", text: "Bodywork, preparation and painting are organised as one coherent repair process." },
+    ],
+    hideDetailsTitle: true,
+    sections: [
+      {
+        heading: "Bodywork Repair for Dents and Panel Damage",
+        paragraphs: [
+          "Car body damage can affect more than the visible paint surface. A dent may change the shape of a wing or door, a scrape can distort an edge, and an impact can affect panel alignment or nearby fixings. PaintLab begins by inspecting the whole damaged area rather than judging the repair from one mark. The condition of adjacent panels and the existing coating is also considered.",
+          "Where the panel is suitable for repair, the bodywork is restored in the agreed area before refinishing. This may involve correcting the form, levelling the repair and rebuilding a stable surface. The aim is to address the damage underneath the paint so that preparation and painting follow a sound repair, not simply cover an unresolved defect.",
+        ],
+      },
+      {
+        heading: "Scratches and Damaged Paintwork",
+        paragraphs: [
+          "Some scratches affect only the upper coating, while deeper damage can reach the colour layer, primer or base material. The correct body repair depends on that depth and on whether the panel has also been dented. During inspection, PaintLab checks the scratch, the surrounding finish and any previous repair material before confirming the required preparation.",
+          "When painting is needed, the damaged coating is prepared and the panel is refinished using the appropriate colour and clearcoat process. Scratches across more than one panel are assessed together so the full extent of the work is clear. Light surface marks that do not require body repair are not automatically treated as major panel damage.",
+        ],
+      },
+      {
+        heading: "Repairing Wings, Doors, Bonnets and Sills",
+        paragraphs: [
+          "PaintLab repairs damaged body panels including wings, doors, bonnets and sills when their condition makes restoration appropriate. Each part presents different considerations. A wing includes the wheel-arch area, a door requires attention to its edges and alignment, and a sill can involve a long structural shape close to lifting points and lower-body protection.",
+          "The repair plan is based on the individual panel and the way it has been damaged. The panel is inspected for shape, access, previous filler, corrosion and the condition of neighbouring parts. If inspection shows that a different repair route is required, PaintLab explains this before the work proceeds.",
+        ],
+      },
+      {
+        heading: "Body Repair Followed by Painting",
+        paragraphs: [
+          "Once the bodywork has been restored, the repaired area must be prepared for painting. Levelling, sanding and primer create the transition between the repaired base and the new coating. Colour matching then considers the existing appearance of the vehicle so that the refinished panel sits naturally with the rest of the body.",
+          "This page focuses on car body repair rather than a complete vehicle respray. If the principal requirement is full exterior painting or refinishing otherwise sound panels, the dedicated car respray service explains that process. Keeping the two services separate helps the repair recommendation follow the actual problem: body damage first, paintwork restoration second.",
+        ],
+      },
+    ],
+    processTitle: "How Car Body Repair Is Carried Out",
+    process: [
+      { title: "Initial inspection", text: "We assess the damaged panel, paintwork, edges, gaps and nearby fixings." },
+      { title: "Repair plan", text: "We identify repairable areas and agree on the required bodywork and painting." },
+      { title: "Body restoration", text: "The panel form and damaged surface are corrected within the agreed scope." },
+      { title: "Surface preparation", text: "The repair is levelled, sanded and primed to create a stable base." },
+      { title: "Painting", text: "The prepared panel is colour matched and refinished where required." },
+      { title: "Quality check", text: "We inspect panel appearance, alignment, colour and the completed repair." },
+    ],
+    postProcessIntro:
+      "A useful initial assessment needs clear photos, while the final repair method is confirmed after inspecting the vehicle.",
+    postProcessSections: [
+      {
+        heading: "Car Body Repair After an Impact",
+        paragraphs: [
+          "Damage after a minor collision or parking impact may involve a combination of dents, scratches, distorted panel edges and broken paint. PaintLab reviews the complete affected area and identifies which operations belong to the body repair and which belong to the subsequent painting process.",
+          "More extensive accident repairs may also involve an insurance or claim procedure. That administrative context is handled separately from the technical bodywork assessment. The dedicated insurance and accident repair page explains what information to send and why insurer or assessor steps may need to be confirmed before work starts.",
+        ],
+      },
+      {
+        heading: "Body Shop Assessment in Torrevieja",
+        paragraphs: [
+          "If you need a body shop in Torrevieja, send overall and close-up photos of the damaged area to PaintLab on WhatsApp. Include the vehicle model and explain how the damage occurred if known. Customers from nearby South Costa Blanca areas can use the same process before arranging an inspection.",
+        ],
+      },
+    ],
+    showProjects: false,
+    compactRelatedLinks: true,
+    faqTitle: "Car Body Repair Questions",
+    faq: [
+      { question: "Where can I get car body repair in Torrevieja?", answer: "PaintLab in Torrevieja repairs suitable dents, scratches and damaged body panels, followed by preparation and painting where required." },
+      { question: "Can a dented car panel be repaired?", answer: "Many dents can be repaired, but suitability depends on the panel, location, depth and condition. PaintLab confirms the repair method after inspection." },
+      { question: "Do you repair scratches as well as dents?", answer: "Yes. The scratch depth and any change to the panel shape are assessed so the appropriate bodywork and refinishing can be agreed." },
+      { question: "Can you repair damaged wings and doors?", answer: "Wings, doors, bonnets, sills and other panels can be repaired when their condition and damage make restoration suitable." },
+      { question: "Is painting included after body repair?", answer: "Where the repair affects the coating, the panel is prepared and painted as part of the agreed work. The exact scope is confirmed before starting." },
+      { question: "Can I send photos for a body repair estimate?", answer: "Yes. Photos support an initial assessment, but the final repair plan and cost are confirmed after the vehicle has been inspected." },
+    ],
+    relatedLinks: [
+      { href: "/en", label: "PaintLab Torrevieja", text: "View the workshop overview and contact details." },
+      { href: "/en/servicios", label: "All services", text: "Explore PaintLab repair and refinishing services." },
+      { href: "/en/trabajos-realizados", label: "Real body repair projects", text: "See documented repairs completed by PaintLab." },
+      { href: "/en/car-respray-torrevieja", label: "Car respray and painting", text: "Learn about complete resprays and individual panel painting." },
+    ],
+    ctaTitle: "Send Photos of the Body Damage",
+    ctaText:
+      "Send an overall view and close-up photos on WhatsApp. PaintLab can make an initial assessment before confirming the body repair after inspection.",
+    whatsapp:
+      "Hello PaintLab. I need an initial assessment for car body repair in Torrevieja. I can send photos of the damaged panels.",
+  },
+  {
+    key: "bumper",
+    locale: "en",
+    slug: "bumper-repair-paint-torrevieja",
+    title: "Bumper Repair & Painting in Torrevieja | PaintLab",
+    description:
+      "Bumper repair and painting in Torrevieja for scratches, scuffs, paint damage and suitable bumper deformation. Assessment and refinishing at PaintLab.",
+    h1: "Bumper Repair and Painting in Torrevieja",
+    eyebrow: "Bumper refinishing at PaintLab Torrevieja",
+    lead:
+      "PaintLab provides bumper repair and painting in Torrevieja for scratches, scuffs, damaged paint and suitable deformation. The bumper, its edges and visible mounting areas are inspected before we confirm whether repair and refinishing are appropriate for the damage.",
+    benefitsTitle: "A Repair Plan for the Individual Bumper",
+    benefits: [
+      { title: "Complete visual inspection", text: "We check the finish, plastic shape, edges and visible areas around fixings or sensors." },
+      { title: "Repair before paint", text: "Suitable scratches, scuffs and deformation are addressed before surface preparation." },
+      { title: "Matched refinishing", text: "The prepared bumper is colour matched, painted and checked against adjacent bodywork." },
+    ],
+    hideDetailsTitle: true,
+    sections: [
+      {
+        heading: "Repairing Bumper Scratches and Scuffs",
+        paragraphs: [
+          "Bumper scratches range from light marks in the clearcoat to deeper scuffs that expose the underlying coating or plastic. The visible size alone does not determine the repair. PaintLab checks the depth, the surrounding finish and whether the plastic has been gouged or changed shape. This establishes whether preparation and painting are sufficient or whether a plastic repair is also required.",
+          "Scuffed corners are common because they are exposed during parking and low-speed manoeuvres. The full corner and adjacent edges are inspected, not just the most obvious mark. Suitable damage is prepared so that raised edges, loose coating and uneven material do not remain underneath the new finish.",
+        ],
+      },
+      {
+        heading: "Bumper Paint Damage and Preparation",
+        paragraphs: [
+          "Fresh paint needs a clean and stable base. Before bumper painting, the area is cleaned, unsuitable coating is removed and the surface is levelled. Materials appropriate for automotive plastic are used within the agreed process. If the bumper has already been repaired or repainted, the condition of that older work is considered during preparation.",
+          "Preparation also involves protecting or dealing correctly with nearby trim, parking sensors and edges according to the bumper design and repair area. The required dismantling is decided from the vehicle and job rather than assumed from photographs. PaintLab explains the proposed scope after inspection.",
+        ],
+      },
+      {
+        heading: "Bumper Painting and Colour Matching",
+        paragraphs: [
+          "After repair and preparation, the bumper is refinished in the agreed colour. Colour matching considers the vehicle code and the visible appearance of the adjacent panels. Basecoat provides the colour and clearcoat supplies the final visual and protective layer where that system is used.",
+          "A painted plastic bumper can reflect light differently from a metal wing even when both use the same vehicle colour. The finished bumper is therefore assessed as part of the complete car, with attention to coverage, gloss, edge finish and the visual relationship with neighbouring bodywork.",
+        ],
+      },
+      {
+        heading: "When a Damaged Bumper Can Be Repaired",
+        paragraphs: [
+          "Some deformation and plastic damage can be restored, but not every bumper is repairable. The location and extent of the damage, the condition of mounting points, previous repairs and the type of plastic all affect the decision. PaintLab does not promise repair before the bumper has been assessed.",
+          "If inspection shows that the damage is unsuitable for the proposed repair, the available next step is explained before work begins. This avoids treating a structural or fixing problem as a purely cosmetic bumper respray. The agreed service remains focused on a safe, technically suitable repair and refinishing process.",
+        ],
+      },
+    ],
+    processTitle: "Bumper Repair and Refinishing Process",
+    process: [
+      { title: "Inspection", text: "We assess scratches, scuffs, paint damage, plastic shape, edges and visible fixings." },
+      { title: "Repair decision", text: "We confirm whether the bumper damage is technically suitable for restoration." },
+      { title: "Plastic repair", text: "Agreed surface damage or deformation is corrected before painting." },
+      { title: "Preparation", text: "The bumper is cleaned, levelled, sanded and prepared for the new coating." },
+      { title: "Painting", text: "Colour and clearcoat are applied using the agreed refinishing process." },
+      { title: "Final inspection", text: "We check the appearance, edges, fit and relationship with adjacent panels." },
+    ],
+    postProcessIntro:
+      "Clear photos help with an initial view, but the repairability of bumper damage is confirmed at the workshop.",
+    postProcessSections: [
+      {
+        heading: "Bumper Respray or Wider Body Repair?",
+        paragraphs: [
+          "A bumper repair page should remain focused on the bumper itself. If an impact also affects a wing, bonnet, boot lid or the alignment of neighbouring panels, those areas are assessed as car body repair rather than being included automatically in a bumper respray.",
+          "PaintLab separates the work so the customer understands which damage belongs to the bumper and which requires a broader bodywork plan. Each area can then be prepared and painted using the appropriate method.",
+        ],
+      },
+      {
+        heading: "Initial Bumper Assessment by Photo",
+        paragraphs: [
+          "Send an overall photo of the front or rear of the vehicle together with close-up images of the scratch, scuff, paint loss or deformation. Photos taken from more than one angle help show whether the bumper shape or edges have changed.",
+          "PaintLab can provide an initial view through WhatsApp before arranging an inspection in Torrevieja. The final repair scope and cost are confirmed only after the bumper and relevant mounting areas have been checked in person.",
+        ],
+      },
+    ],
+    showProjects: false,
+    compactRelatedLinks: true,
+    faqTitle: "Bumper Repair Questions",
+    faq: [
+      { question: "Where can I get a bumper repaired in Torrevieja?", answer: "PaintLab in Torrevieja assesses and repairs suitable bumper scratches, scuffs, paint damage and deformation before refinishing." },
+      { question: "Can a scratched bumper be repainted?", answer: "Yes, when the bumper condition is suitable. The scratch is assessed and the surface is repaired and prepared before painting." },
+      { question: "Can bumper scuffs be repaired?", answer: "Many scuffs can be restored, depending on their depth, the condition of the plastic and any deformation around the damaged area." },
+      { question: "Can you repair a deformed bumper?", answer: "Some deformation can be repaired when technically suitable. The bumper and visible fixing areas must be inspected before this is confirmed." },
+      { question: "Do you colour match bumper paint?", answer: "The vehicle colour and existing adjacent panels are considered when preparing and checking the bumper finish." },
+      { question: "Can I send bumper photos for an estimate?", answer: "Yes. Send overall and close-up photos on WhatsApp for an initial assessment. The final scope and cost follow an in-person inspection." },
+    ],
+    relatedLinks: [
+      { href: "/en", label: "PaintLab Torrevieja", text: "Return to the English workshop overview." },
+      { href: "/en/servicios", label: "All services", text: "Explore body repair and painting services." },
+      { href: "/en/trabajos-realizados", label: "Real PaintLab projects", text: "See documented body and paint repairs." },
+      { href: "/en/car-body-repair-torrevieja", label: "Car body repair", text: "Repair damage affecting panels beyond the bumper." },
+    ],
+    ctaTitle: "Send Photos of the Bumper Damage",
+    ctaText:
+      "Send clear overall and close-up photographs on WhatsApp. PaintLab can review the visible damage before confirming repairability and the final scope after inspection.",
+    whatsapp:
+      "Hello PaintLab. I would like an initial assessment for bumper repair and painting in Torrevieja. I can send photos of the damage.",
+  },
+  {
+    key: "insurance",
+    locale: "en",
+    slug: "insurance-car-repair-torrevieja",
+    title: "Insurance Car Repair & Accident Repair in Torrevieja | PaintLab",
+    description:
+      "Car body repair after accidents and insurance claims in Torrevieja. Damage assessment, body repair and painting depending on the insurer and claim process.",
+    h1: "Insurance Car Repair and Accident Repair in Torrevieja",
+    eyebrow: "Accident bodywork at PaintLab Torrevieja",
+    lead:
+      "If your vehicle has been damaged in an accident and the repair may form part of an insurance claim, contact PaintLab in Torrevieja and send photographs of the damage. Tell us which insurer is handling the claim, whether an insurance assessor or perito has inspected the vehicle, and which documents are available. We will review the specific situation and explain which steps need to be confirmed before repair work can proceed at our workshop.",
+    benefitsTitle: "Accident Repair Based on the Claim and Vehicle",
+    benefits: [
+      { title: "Damage information", text: "Photos and details of the accident help us understand the visible repair requirement." },
+      { title: "Claim status review", text: "We ask which insurer is involved and whether a perito has already inspected the vehicle." },
+      { title: "Confirmed repair steps", text: "Body repair and painting begin after the appropriate practical and claim steps are clear." },
+    ],
+    hideDetailsTitle: true,
+    sections: [
+      {
+        heading: "What to Send After an Accident",
+        paragraphs: [
+          "Start by sending clear overall and close-up photographs of every visibly damaged area. Include the vehicle make and model and briefly explain how the damage occurred. If more than one panel is affected, show the relationship between them as well as individual details. This helps PaintLab distinguish paint damage, dents, displaced edges and parts that may require closer inspection.",
+          "For an insurance claim, also provide the insurer name, the available claim reference or documents, and any information already supplied by the insurer. If an assessor or perito has inspected the vehicle, say when this happened and what documentation or report is available. Do not send original documents before the intake process has been discussed.",
+        ],
+      },
+      {
+        heading: "Damage Assessment and Claim Status",
+        paragraphs: [
+          "PaintLab assesses the technical repair situation separately from the insurer's administrative decision. We can review the visible body damage, identify likely panel repair and painting work, and explain what must be inspected at the workshop. Photographs provide an initial view but do not replace access to the vehicle.",
+          "The claim status determines whether further insurer or assessor steps may be needed before work starts. PaintLab does not control the insurer's approval, payment decision or valuation. We also do not claim to be an official partner of every insurance company. Each case is reviewed according to the information provided by the customer and the requirements communicated for that claim.",
+        ],
+      },
+      {
+        heading: "Car Body Repair After an Accident",
+        paragraphs: [
+          "Accident damage can include dents, scratches, distorted wings or doors, bumper damage and paint loss across several panels. Once the necessary claim steps are confirmed, PaintLab inspects the vehicle and agrees on the technically appropriate body repair. Repairable panels are restored before preparation and painting.",
+          "The repair sequence depends on the location and extent of the impact. A damaged bumper may need a different method from a metal wing, while misaligned panel edges or affected fixings require attention before refinishing. Work is not reduced to cosmetic painting when the underlying shape or attachment also needs repair.",
+        ],
+      },
+      {
+        heading: "Painting and Final Repair Check",
+        paragraphs: [
+          "After the agreed bodywork has been completed, repaired areas are levelled, sanded and prepared for paint. Colour matching considers the existing finish and neighbouring panels. Basecoat and clearcoat are applied as required by the selected refinishing system, followed by a visual check of the completed repair.",
+          "The final scope may differ from an initial photo assessment if inspection reveals hidden damage, previous repairs or additional affected areas. Any material change must be clarified before the relevant work continues. This keeps the repair aligned with the actual vehicle and with the steps applicable to the insurance case.",
+        ],
+      },
+    ],
+    processTitle: "Insurance and Accident Repair Process",
+    process: [
+      { title: "Contact PaintLab", text: "Tell us about the accident and the visible vehicle damage." },
+      { title: "Send photographs", text: "Provide overall and detailed images of every affected area." },
+      { title: "Share claim details", text: "State the insurer, available documents and current claim reference where available." },
+      { title: "Confirm assessor status", text: "Tell us whether a perito has inspected the vehicle and what information was provided." },
+      { title: "Inspect and agree", text: "We inspect the car and clarify the repair scope and any required next steps." },
+      { title: "Repair the vehicle", text: "Body repair, preparation and painting proceed after the appropriate steps are confirmed." },
+    ],
+    postProcessIntro:
+      "PaintLab can explain the workshop process, while decisions on claim approval and payment remain with the insurer.",
+    postProcessSections: [
+      {
+        heading: "What PaintLab Can Confirm",
+        paragraphs: [
+          "PaintLab can confirm the visible technical condition after inspection, the proposed body repair and painting operations, and what information is still needed before the workshop can start. We can also explain how the repair sequence relates to the panels and damage found on the vehicle.",
+          "We cannot guarantee that an insurer will approve a repair, pay a particular amount or accept a specific estimate. Those decisions belong to the insurer and may depend on the policy, claim circumstances, assessor report and documents. The customer should keep communication from the insurer and provide relevant updates when requested.",
+        ],
+      },
+      {
+        heading: "Arrange an Accident Repair Assessment",
+        paragraphs: [
+          "English-speaking customers in Torrevieja and nearby South Costa Blanca areas can contact PaintLab through WhatsApp. Send vehicle and damage photos together with the insurer and assessor information already available. We will explain whether an inspection can be arranged and which details should be clarified first.",
+        ],
+      },
+    ],
+    showProjects: false,
+    compactRelatedLinks: true,
+    faqTitle: "Insurance and Accident Repair Questions",
+    faq: [
+      { question: "Can PaintLab repair a car after an accident?", answer: "Yes, PaintLab assesses suitable accident-related body damage and carries out agreed body repair, preparation and painting after the necessary steps are confirmed." },
+      { question: "What information should I send for an insurance repair?", answer: "Send damage photos, vehicle details, the insurer name, available claim documents and whether a perito has already inspected the car." },
+      { question: "Do I need an insurance assessor or perito inspection first?", answer: "That depends on the individual insurer and claim process. Tell PaintLab what the insurer has requested and whether an inspection has already taken place." },
+      { question: "Is PaintLab an approved repairer for every insurer?", answer: "No such claim is made. Each case is reviewed individually according to the customer's insurer, documents and claim requirements." },
+      { question: "Can PaintLab guarantee that my insurer will pay?", answer: "No. Approval, valuation and payment decisions are made by the insurer. PaintLab can assess and explain the proposed repair work." },
+      { question: "Can I send accident photos before visiting?", answer: "Yes. Photos support an initial review, but the final technical scope is confirmed after PaintLab inspects the vehicle." },
+    ],
+    relatedLinks: [
+      { href: "/en", label: "PaintLab Torrevieja", text: "View workshop details and contact options." },
+      { href: "/en/servicios", label: "All services", text: "Explore PaintLab body and paint services." },
+      { href: "/en/trabajos-realizados", label: "Real repair projects", text: "See documented body repairs completed by the workshop." },
+      { href: "/en/car-body-repair-torrevieja", label: "Car body repair", text: "Learn how damaged panels are restored and painted." },
+    ],
+    ctaTitle: "Send Your Accident and Claim Information",
+    ctaText:
+      "Send damage photos, vehicle details and the available insurer or perito information on WhatsApp. PaintLab will review the situation and explain the next practical step.",
+    whatsapp:
+      "Hello PaintLab. My vehicle was damaged in an accident and I would like to discuss an insurance-related body repair. I can send photos and the available claim information.",
+  },
+  {
     key: "wheels",
     locale: "en",
     slug: "alloy-wheel-refurbishment-torrevieja",
@@ -1080,8 +1489,12 @@ export function getLocalizedServicePage(locale: string, slug: string) {
   return localizedServicePages.find((page) => page.locale === locale && page.slug === slug);
 }
 
-export function getLocalizedServiceAlternate(page: LocalizedServicePage) {
-  return localizedServicePages.find(
+export function getLocalizedServiceAlternates(page: LocalizedServicePage) {
+  return localizedServicePages.filter(
     (candidate) => candidate.key === page.key && candidate.locale !== page.locale,
   );
+}
+
+export function getLocalizedServiceAlternate(page: LocalizedServicePage) {
+  return getLocalizedServiceAlternates(page)[0];
 }
