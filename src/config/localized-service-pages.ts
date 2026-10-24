@@ -1,6 +1,7 @@
 import type { Locale } from "@/config/i18n";
+import { germanServicePages } from "@/config/german-service-pages";
 
-export type ServicePageLocale = Extract<Locale, "en" | "ru" | "uk">;
+export type ServicePageLocale = Extract<Locale, "de" | "en" | "ru" | "uk">;
 export type ServicePageKey = "paint" | "body" | "bumper" | "insurance" | "wheels";
 
 type ContentSection = {
@@ -60,6 +61,27 @@ export type LocalizedServicePage = {
 };
 
 export const localizedServicePageUi = {
+  de: {
+    home: "Startseite",
+    benefitsEyebrow: "Leistungsumfang",
+    benefitsTitle: "Arbeiten passend zum tatsächlichen Schaden",
+    detailsEyebrow: "Über die Leistung",
+    detailsTitle: "Nachvollziehbare Arbeitsschritte",
+    processEyebrow: "Ablauf",
+    processTitle: "So führen wir die Arbeiten aus",
+    projectsEyebrow: "Echte Arbeiten",
+    projectsTitle: "Ergebnisse aus der PaintLab Werkstatt",
+    projectsText: "Dokumentierte Karosserie- und Lackierarbeiten an realen Fahrzeugen in Torrevieja.",
+    viewProject: "Projekt ansehen",
+    allProjects: "Alle Arbeiten",
+    relatedEyebrow: "Verwandte Seiten",
+    relatedTitle: "Weitere PaintLab Leistungen",
+    faqTitle: "Häufig gestellte Fragen",
+    ctaTitle: "Fotos für eine erste Einschätzung senden",
+    ctaText: "Senden Sie gut erkennbare Fotos per WhatsApp. Den endgültigen Arbeitsumfang bestätigen wir nach der Besichtigung in der Werkstatt.",
+    whatsapp: "Auf WhatsApp schreiben",
+    phone: "Anrufen",
+  },
   en: {
     home: "Home",
     benefitsEyebrow: "What the service includes",
@@ -126,6 +148,7 @@ export const localizedServicePageUi = {
 } as const;
 
 export const localizedServicePages: readonly LocalizedServicePage[] = [
+  ...germanServicePages,
   {
     key: "paint",
     locale: "ru",

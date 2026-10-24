@@ -74,16 +74,16 @@ export function LocalizedServicePage({ page }: LocalizedServicePageProps) {
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(0deg,#050505_0%,transparent_48%)]" />
 
           <Container className="flex min-h-[35rem] items-center py-14 sm:min-h-[40rem] sm:py-20">
-            <div className="max-w-4xl">
+            <div className="min-w-0 max-w-4xl">
               <nav
                 aria-label="Breadcrumb"
-                className="mb-8 flex items-center gap-3 text-xs font-semibold text-white/58"
+                className="mb-8 flex min-w-0 items-center gap-3 text-xs font-semibold text-white/58"
               >
                 <Link href={localizedPath(page.locale)} className="transition hover:text-white">
                   {ui.home}
                 </Link>
                 <ChevronRight className="size-4 text-redline" aria-hidden="true" />
-                <span className="text-white/86">{page.h1}</span>
+                <span className="min-w-0 text-white/86 [overflow-wrap:anywhere]">{page.h1}</span>
               </nav>
 
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#ff4d4d]">

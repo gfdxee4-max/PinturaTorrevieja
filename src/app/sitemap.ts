@@ -15,6 +15,7 @@ import { servicePages } from "@/config/service-pages";
 import { getAbsoluteUrl } from "@/lib/seo";
 import { getProjectPath, getProjectsPath } from "@/config/projects-i18n";
 import { projects } from "@/data/projects";
+import { getArchitectureHubPath } from "@/config/architecture-hub-i18n";
 
 export const dynamic = "force-static";
 export const revalidate = 86400;
@@ -111,9 +112,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: { languages },
     };
   });
+  const germanHubPages = (["services", "cities"] as const).map((kind) => ({
+    url: getAbsoluteUrl(getArchitectureHubPath("de", kind)),
+    lastModified: new Date("2026-10-24T00:00:00.000Z"),
+  }));
 
   return [
     ...languagePages,
+    ...germanHubPages,
     ...localizedServiceSeoPages,
     ...architectureSeoPages,
     ...blogCategoryPages,

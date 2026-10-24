@@ -3,7 +3,7 @@ import { getArchitecturePage } from "@/config/architecture";
 import type { Locale } from "@/config/i18n";
 import { getProjectsPath } from "@/config/projects-i18n";
 
-export const architectureHubLocales = ["es", "en", "ru", "uk"] as const;
+export const architectureHubLocales = ["es", "de", "en", "ru", "uk"] as const;
 
 export type ArchitectureHubLocale = (typeof architectureHubLocales)[number];
 export type ArchitectureHubKind = "services" | "cities";
@@ -32,12 +32,14 @@ type ArchitectureHubUiCopy = {
 const hubPaths: Record<ArchitectureHubKind, Record<ArchitectureHubLocale, string>> = {
   services: {
     es: "/servicios",
+    de: "/de/servicios",
     en: "/en/servicios",
     ru: "/ru/servicios",
     uk: "/uk/servicios",
   },
   cities: {
     es: "/ciudades",
+    de: "/de/ciudades",
     en: "/en/ciudades",
     ru: "/ru/ciudades",
     uk: "/uk/ciudades",
@@ -65,6 +67,26 @@ export const architectureHubUi: Record<ArchitectureHubLocale, ArchitectureHubUiC
     faqHeading: "Preguntas frecuentes",
     consultation: "Consulta",
     sendPhotos: "Envia fotos del vehiculo por WhatsApp.",
+  },
+  de: {
+    navigation: "Bereiche",
+    languageMenu: "Sprache",
+    menu: "Menü",
+    services: "Leistungen",
+    cities: "Einzugsgebiet",
+    works: "Arbeiten",
+    faq: "FAQ",
+    contact: "Kontakt",
+    about: "Über uns",
+    call: "Anrufen",
+    internalLinks: "Interne Links",
+    home: "Startseite",
+    informationHeading: "Klare Informationen vor der Reparatur.",
+    informationText: "Vergleichen Sie Leistungen, sehen Sie echte Arbeiten oder senden Sie Fotos für eine erste Einschätzung.",
+    relatedPages: "Verwandte Seiten",
+    faqHeading: "Häufig gestellte Fragen",
+    consultation: "Anfrage",
+    sendPhotos: "Senden Sie Fahrzeugfotos per WhatsApp.",
   },
   en: {
     navigation: "Sections",
@@ -132,6 +154,47 @@ export const architectureHubUi: Record<ArchitectureHubLocale, ArchitectureHubUiC
 };
 
 const localizedHubPages: Record<Exclude<ArchitectureHubLocale, "es">, Record<ArchitectureHubKind, Omit<ArchitecturePage, "path">>> = {
+  de: {
+    services: {
+      locale: "de",
+      hubKind: "services",
+      title: "Autolackierung und Karosseriereparatur in Torrevieja | PaintLab",
+      description: "Leistungen von PaintLab in Torrevieja: Autolackierung, Karosseriereparatur, Stoßfänger, Unfallreparatur und Felgenaufbereitung.",
+      h1: "AUTOLACKIERUNG UND KAROSSERIEREPARATUR",
+      eyebrow: "LEISTUNGEN",
+      lead: "Wählen Sie die passende Leistung für Lack-, Karosserie-, Unfall- oder Felgenschäden. Für eine erste Einschätzung können Sie Fotos per WhatsApp senden.",
+      cta: "Fotos per WhatsApp senden",
+      sections: [{ heading: "Leistungen nach Reparaturart", paragraphs: ["Die einzelnen Seiten erklären Arbeitsumfang, Ablauf und Grenzen der jeweiligen Leistung. Der endgültige Reparaturweg wird nach der Besichtigung festgelegt."] }],
+      links: [
+        { href: "/de/autolackierung-torrevieja", label: "Autolackierung", text: "Komplette Fahrzeuge und einzelne Karosserieteile vorbereiten und lackieren." },
+        { href: "/de/karosseriereparatur-torrevieja", label: "Karosseriereparatur", text: "Dellen, Kratzer und beschädigte Karosserieteile instand setzen." },
+        { href: "/de/stossfaenger-reparatur-lackierung-torrevieja", label: "Stoßfänger-Reparatur", text: "Geeignete Kratzer, Lackschäden und Verformungen bearbeiten." },
+        { href: "/de/unfallreparatur-versicherung-torrevieja", label: "Unfall- und Versicherungsschäden", text: "Konkrete Reparaturfälle nach einem Unfall prüfen und bearbeiten." },
+        { href: "/de/felgenaufbereitung-pulverbeschichtung-torrevieja", label: "Felgenaufbereitung", text: "Felgen prüfen, sandstrahlen, pulverbeschichten und bei Eignung richten." },
+      ],
+      whatsappMessage: "Hallo PaintLab. Ich möchte eine erste Einschätzung für eine Reparatur in Torrevieja und kann Fotos senden.",
+    },
+    cities: {
+      locale: "de",
+      hubKind: "cities",
+      title: "Karosserie und Lackierung an der südlichen Costa Blanca | PaintLab",
+      description: "PaintLab befindet sich in Torrevieja und arbeitet für Kunden aus Torrevieja und den umliegenden Orten der südlichen Costa Blanca.",
+      h1: "KAROSSERIE UND LACKIERUNG AN DER SÜDLICHEN COSTA BLANCA",
+      eyebrow: "EINZUGSGEBIET",
+      lead: "Die Werkstatt PaintLab befindet sich in Torrevieja. Kunden aus den umliegenden Orten kommen für Karosseriereparatur, Lackierung und Felgenaufbereitung zu uns.",
+      cta: "Reparatur per WhatsApp anfragen",
+      sections: [{ heading: "Werkstatt in Torrevieja", paragraphs: ["PaintLab hat keine Filialen in den genannten Orten und bietet keinen mobilen Reparaturservice. Senden Sie vor der Anfahrt Fotos, um eine erste Einschätzung und einen Besichtigungstermin abzustimmen."] }],
+      links: [
+        { href: "/de", label: "Torrevieja", text: "Deutsche Übersicht der PaintLab Werkstatt in Torrevieja." },
+        { href: "/de/servicios", label: "PaintLab Leistungen", text: "Autolackierung, Karosserie-, Unfall-, Stoßfänger- und Felgenarbeiten." },
+        { href: "/ciudades/orihuela-costa", label: "Orihuela Costa", text: "Werkstattleistungen für Kunden aus Orihuela Costa." },
+        { href: "/ciudades/guardamar-del-segura", label: "Guardamar del Segura", text: "Werkstattleistungen für Kunden aus Guardamar del Segura." },
+        { href: "/ciudades/ciudad-quesada", label: "Ciudad Quesada", text: "Werkstattleistungen für Kunden aus Ciudad Quesada." },
+        { href: "/ciudades/la-mata", label: "La Mata", text: "PaintLab in Torrevieja für Kunden aus La Mata." },
+      ],
+      whatsappMessage: "Hallo PaintLab. Ich bin in der Nähe von Torrevieja und möchte eine erste Einschätzung. Ich kann Fotos senden.",
+    },
+  },
   ru: {
     services: {
       locale: "ru",
