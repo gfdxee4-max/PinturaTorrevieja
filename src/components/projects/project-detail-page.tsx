@@ -18,6 +18,18 @@ type ProjectDetailPageProps = {
   project: Project;
 };
 
+function LinkedSectionText({ text, links }: { text: string; links?: readonly { href: string; label: string }[] }) {
+  if (!links?.length) return text;
+
+  const pattern = new RegExp(`(${links.map((link) => link.label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`, "g");
+  return text.split(pattern).map((part, index) => {
+    const link = links.find((item) => item.label === part);
+    return link
+      ? <Link key={`${link.href}-${index}`} href={link.href} className="font-medium text-white underline decoration-redline/70 underline-offset-4 transition hover:text-[#ff4d4d]">{part}</Link>
+      : part;
+  });
+}
+
 export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
   const copy = projectsTranslations[locale];
   const dictionary = dictionaries[locale];
@@ -101,7 +113,7 @@ export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
               <div className="mt-8 grid gap-8 md:grid-cols-2">
                 {project.comparisons.map((comparison) => (
                   <section key={comparison.id}>
-                    <h2 className="mb-4 text-xl font-semibold">{comparison.title[locale]}</h2>
+                    {comparison.showTitle !== false ? <h2 className="mb-4 text-xl font-semibold">{comparison.title[locale]}</h2> : null}
                     <BeforeAfterSlider
                       beforeImage={comparison.beforeImage}
                       afterImage={comparison.afterImage}
@@ -138,6 +150,21 @@ export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
                       <ProjectVideo videoId={project.video.id} title={project.video.title[locale]} playLabel={project.video.playLabel[locale]} poster={project.afterImage} />
                     </section>
                   ) : null}
+                </div>
+              ) : project.detailSections?.length ? (
+                <div>
+                  {descriptions.map((paragraph) => <p key={paragraph} className="text-base leading-7 text-white/70">{paragraph}</p>)}
+                  <div className="mt-6 grid gap-4 md:grid-cols-2">
+                    {project.detailSections.map((section, index) => (
+                      <article key={section.id} className="rounded-[6px] border border-white/14 bg-[#0a0a0a] p-6">
+                        <span className="text-xs font-semibold tracking-[0.16em] text-[#ff4d4d]">{String(index + 1).padStart(2, "0")}</span>
+                        <h2 className="mt-3 text-lg font-semibold leading-6 text-white">{section.title[locale]}</h2>
+                        <p className="mt-4 text-sm leading-7 text-white/64">
+                          <LinkedSectionText text={section.text[locale]} links={section.links?.[locale]} />
+                        </p>
+                      </article>
+                    ))}
+                  </div>
                 </div>
               ) : <div className="grid gap-4 md:grid-cols-3">
                 {[copy.beforeState, copy.workPerformed, copy.result].map((heading, index) => (

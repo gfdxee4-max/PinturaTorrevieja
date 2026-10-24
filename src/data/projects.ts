@@ -2,6 +2,7 @@ import type { Locale } from "@/config/i18n";
 import { bodyRestorationProject } from "@/data/body-restoration-project";
 import { fiat500Project } from "@/data/fiat-500-project";
 import { bmwE46Project } from "@/data/bmw-e46-project";
+import { mercedesVClassProject } from "@/data/mercedes-v-class-project";
 
 type LocalizedText = Record<Locale, string>;
 type LocalizedList = Record<Locale, readonly string[]>;
@@ -14,6 +15,7 @@ export type ProjectLink = {
 export type ProjectComparison = {
   id: string;
   title: LocalizedText;
+  showTitle?: boolean;
   beforeImage: string;
   afterImage: string;
   altBefore: LocalizedText;
@@ -24,10 +26,18 @@ export type ProjectComparison = {
   afterImageHeight: number;
 };
 
+export type ProjectDetailSection = {
+  id: string;
+  title: LocalizedText;
+  text: LocalizedText;
+  links?: Partial<Record<Locale, readonly ProjectLink[]>>;
+};
+
 type ProjectBase = {
   comparisonTitle?: LocalizedText;
   comparisonLayout?: "portrait";
   comparisons?: readonly ProjectComparison[];
+  detailSections?: readonly ProjectDetailSection[];
   slug: string;
   vehicle: string;
   title: LocalizedText;
@@ -700,6 +710,7 @@ export const projects: readonly Project[] = [
   },
   fiat500Project,
   bmwE46Project,
+  mercedesVClassProject,
 ];
 
 export function getProject(slug: string) {
