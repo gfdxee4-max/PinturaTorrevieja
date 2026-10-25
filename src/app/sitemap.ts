@@ -116,6 +116,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { locale: "de", kind: "services" },
     { locale: "de", kind: "cities" },
     { locale: "uk", kind: "services" },
+    { locale: "pl", kind: "services" },
   ] as const).map(({ locale, kind }) => ({
     url: getAbsoluteUrl(getArchitectureHubPath(locale, kind)),
     lastModified: new Date("2026-10-24T00:00:00.000Z"),

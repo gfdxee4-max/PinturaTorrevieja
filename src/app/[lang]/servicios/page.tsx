@@ -4,6 +4,7 @@ import { ArchitecturePage } from "@/components/page/architecture-page";
 import { getArchitectureMetadata } from "@/config/architecture";
 import {
   getArchitectureHubPage,
+  architectureHubLocales,
   isArchitectureHubLocale,
 } from "@/config/architecture-hub-i18n";
 
@@ -12,7 +13,7 @@ type LocalizedServicesHubPageProps = {
 };
 
 export function generateStaticParams() {
-  return [{ lang: "en" }, { lang: "ru" }, { lang: "uk" }];
+  return architectureHubLocales.filter((lang) => lang !== "es").map((lang) => ({ lang }));
 }
 
 function getPage(lang: string) {

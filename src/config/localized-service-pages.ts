@@ -1,8 +1,9 @@
 import type { Locale } from "@/config/i18n";
 import { germanServicePages } from "@/config/german-service-pages";
 import { ukrainianServicePages } from "@/config/ukrainian-service-pages";
+import { polishServicePages } from "@/config/polish-service-pages";
 
-export type ServicePageLocale = Extract<Locale, "de" | "en" | "ru" | "uk">;
+export type ServicePageLocale = Extract<Locale, "de" | "en" | "pl" | "ru" | "uk">;
 export type ServicePageKey = "paint" | "body" | "bumper" | "insurance" | "wheels";
 
 type ContentSection = {
@@ -62,6 +63,14 @@ export type LocalizedServicePage = {
 };
 
 export const localizedServicePageUi = {
+  pl: {
+    home: "Strona główna", benefitsEyebrow: "Zakres usługi", benefitsTitle: "Prace dopasowane do stanu samochodu",
+    detailsEyebrow: "O usłudze", detailsTitle: "Przejrzysty zakres prac", processEyebrow: "Etapy", processTitle: "Jak przebiega realizacja",
+    projectsEyebrow: "Nasze realizacje", projectsTitle: "Efekty rzeczywistych napraw", projectsText: "Udokumentowane prace blacharskie i lakiernicze wykonane w PaintLab.",
+    viewProject: "Zobacz realizację", allProjects: "Wszystkie realizacje", relatedEyebrow: "Powiązane strony", relatedTitle: "Pozostałe usługi PaintLab",
+    faqTitle: "Najczęściej zadawane pytania", ctaTitle: "Prześlij zdjęcia do wstępnej oceny", ctaText: "Wyślij wyraźne zdjęcia przez WhatsApp. Ostateczny zakres prac potwierdzamy po oględzinach w warsztacie.",
+    whatsapp: "Napisz przez WhatsApp", phone: "Zadzwoń",
+  },
   de: {
     home: "Startseite",
     benefitsEyebrow: "Leistungsumfang",
@@ -151,6 +160,7 @@ export const localizedServicePageUi = {
 export const localizedServicePages: readonly LocalizedServicePage[] = [
   ...germanServicePages,
   ...ukrainianServicePages,
+  ...polishServicePages,
   {
     key: "paint",
     locale: "ru",

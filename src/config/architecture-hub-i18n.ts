@@ -2,8 +2,10 @@ import type { ArchitecturePage } from "@/config/architecture";
 import { getArchitecturePage } from "@/config/architecture";
 import type { Locale } from "@/config/i18n";
 import { getProjectsPath } from "@/config/projects-i18n";
+import { notFound } from "next/navigation";
+import { polishServicePages } from "@/config/polish-service-pages";
 
-export const architectureHubLocales = ["es", "de", "en", "ru", "uk"] as const;
+export const architectureHubLocales = ["es", "de", "en", "pl", "ru", "uk"] as const;
 
 export type ArchitectureHubLocale = (typeof architectureHubLocales)[number];
 export type ArchitectureHubKind = "services" | "cities";
@@ -29,10 +31,11 @@ type ArchitectureHubUiCopy = {
   sendPhotos: string;
 };
 
-const hubPaths: Record<ArchitectureHubKind, Record<ArchitectureHubLocale, string>> = {
+const hubPaths: Record<ArchitectureHubKind, Partial<Record<ArchitectureHubLocale, string>> & { es: string }> = {
   services: {
     es: "/servicios",
     de: "/de/servicios",
+    pl: "/pl/servicios",
     en: "/en/servicios",
     ru: "/ru/servicios",
     uk: "/uk/servicios",
@@ -47,6 +50,9 @@ const hubPaths: Record<ArchitectureHubKind, Record<ArchitectureHubLocale, string
 };
 
 export const architectureHubUi: Record<ArchitectureHubLocale, ArchitectureHubUiCopy> = {
+  pl: {
+    navigation: "Nawigacja", languageMenu: "Język", menu: "Menu", services: "Usługi", cities: "Obszar obsługi", works: "Realizacje", faq: "FAQ", contact: "Kontakt", about: "O nas", call: "Zadzwoń", internalLinks: "Powiązane strony", home: "Strona główna", informationHeading: "Jasne informacje przed naprawą.", informationText: "Porównaj usługi, zobacz rzeczywiste realizacje lub prześlij zdjęcia do wstępnej oceny.", relatedPages: "Powiązane strony", faqHeading: "Najczęściej zadawane pytania", consultation: "Zapytanie", sendPhotos: "Prześlij zdjęcia samochodu przez WhatsApp.",
+  },
   es: {
     navigation: "Secciones",
     languageMenu: "Idioma",
@@ -153,7 +159,20 @@ export const architectureHubUi: Record<ArchitectureHubLocale, ArchitectureHubUiC
   },
 };
 
-const localizedHubPages: Record<Exclude<ArchitectureHubLocale, "es">, Record<ArchitectureHubKind, Omit<ArchitecturePage, "path">>> = {
+const localizedHubPages: Record<Exclude<ArchitectureHubLocale, "es">, Partial<Record<ArchitectureHubKind, Omit<ArchitecturePage, "path">>>> = {
+  pl: {
+    services: {
+      locale: "pl", hubKind: "services",
+      title: "Usługi blacharskie i lakiernicze w Torrevieja | PaintLab",
+      description: "Usługi PaintLab w Torrevieja: lakierowanie samochodów, naprawy blacharskie, zderzaki, naprawy powypadkowe oraz renowacja felg.",
+      h1: "USŁUGI BLACHARSKIE I LAKIERNICZE", eyebrow: "USŁUGI PAINTLAB",
+      lead: "Wybierz usługę odpowiednią do stanu samochodu. Na stronach opisujemy zakres prac, sposób oceny i kolejne etapy bez obietnic niepopartych oględzinami.",
+      cta: "Prześlij zdjęcia przez WhatsApp",
+      sections: [{ heading: "Zakres prac w warsztacie", paragraphs: ["PaintLab znajduje się w Torrevieja. Zdjęcia pomagają we wstępnej ocenie, natomiast ostateczny zakres i koszt potwierdzamy po oględzinach samochodu lub felg."] }],
+      links: polishServicePages.map((page) => ({ href: `/pl/${page.slug}`, label: page.h1, text: page.description })),
+      whatsappMessage: "Dzień dobry, PaintLab. Chcę omówić naprawę samochodu w Torrevieja. Mogę przesłać zdjęcia.",
+    },
+  },
   de: {
     services: {
       locale: "de",
@@ -407,7 +426,7 @@ export function isArchitectureHubLocale(value: string): value is ArchitectureHub
 }
 
 export function getArchitectureHubPath(locale: ArchitectureHubLocale, kind: ArchitectureHubKind) {
-  return hubPaths[kind][locale];
+  return hubPaths[kind][locale] ?? hubPaths[kind].es;
 }
 
 export function getLocalizedArchitectureHubHref(locale: Locale, href: string) {
@@ -451,9 +470,12 @@ export function getArchitectureHubPage(locale: ArchitectureHubLocale, kind: Arch
     };
   }
 
+  const page = localizedHubPages[locale][kind];
+  const path = hubPaths[kind][locale];
+  if (!page || !path) notFound();
   return {
-    ...localizedHubPages[locale][kind],
-    path: hubPaths[kind][locale],
+    ...page,
+    path,
     alternatePaths,
   };
 }
