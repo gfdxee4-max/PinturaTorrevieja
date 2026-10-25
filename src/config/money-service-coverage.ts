@@ -2,6 +2,7 @@ import type { ArchitecturePage } from "@/config/architecture";
 import type { Locale } from "@/config/i18n";
 import type { LocalizedServicePage } from "@/config/localized-service-pages";
 import { moneyServiceCopy } from "@/config/money-service-copy";
+import { germanPaintingCostText, serviceCostFaq, spanishServiceCostText } from "@/config/service-cost-copy";
 import { getProjectPath } from "@/config/projects-i18n";
 import { projects } from "@/data/projects";
 
@@ -40,9 +41,11 @@ function projectLinks(locale: Locale, topic: Topic, scope: "service" | "hub" | "
 export function addLocalizedMoneyCoverage(page: LocalizedServicePage): LocalizedServicePage {
   if (page.key !== "body" && page.key !== "paint" && page.key !== "bumper") return page;
   const [heading, paragraph, question, answer] = moneyServiceCopy[page.locale][page.key];
+  const costText = page.locale === "de" && page.key === "paint" ? germanPaintingCostText : undefined;
   return {
     ...page,
-    sections: [...page.sections, { heading, paragraphs: [paragraph] }],
+    sections: [...page.sections.map((section, index) => costText && index === 0
+      ? { ...section, paragraphs: [...section.paragraphs, costText] } : section), { heading, paragraphs: [paragraph] }],
     faq: redundantFaq.has(`${page.locale}:${page.key}`) ? page.faq : [...page.faq, { question, answer }],
     relatedLinks: [...page.relatedLinks, ...projectLinks(page.locale, page.key)
       .filter((link) => !page.relatedLinks.some((existing) => existing.href === link.href))],
@@ -61,10 +64,14 @@ export function addArchitectureMoneyCoverage(page: ArchitecturePage): Architectu
   const linkTopics: Topic[] = proofTopic ? [proofTopic] : topics;
   const links = linkTopics.flatMap((key) => projectLinks(locale, key,
     isProblemHub ? "hub" : page.path === "/servicios/reparacion-aranazos-coche" ? "scratch" : "service"));
+  const costText = locale === "es" ? spanishServiceCostText[page.path] : undefined;
+  const costFaq = isProblemHub ? serviceCostFaq[locale] : undefined;
   return {
     ...page,
-    sections: [...page.sections, ...copy.map(([heading, paragraph]) => ({ heading, paragraphs: [paragraph] }))],
-    faq: [...(page.faq ?? []), ...copy.map(([, , question, answer]) => ({ question, answer }))],
+    sections: [...page.sections.map((section, index) => costText && index === 0
+      ? { ...section, paragraphs: [...section.paragraphs, costText] } : section),
+      ...copy.map(([heading, paragraph]) => ({ heading, paragraphs: [paragraph] }))],
+    faq: [...(page.faq ?? []), ...copy.map(([, , question, answer]) => ({ question, answer })), ...(costFaq ? [costFaq] : [])],
     links: [...page.links, ...links.filter((link) => !page.links.some((existing) => existing.href === link.href))],
   };
 }
