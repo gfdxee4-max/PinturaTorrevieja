@@ -18,7 +18,7 @@ export const dynamicParams = false;
 export const revalidate = 86400;
 
 export function generateStaticParams() {
-  return localizedServicePages.map((page) => ({
+  return localizedServicePages.filter((page) => page.locale !== "es").map((page) => ({
     lang: page.locale,
     serviceSlug: page.slug,
   }));
@@ -26,14 +26,14 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: ServiceRouteProps): Promise<Metadata> {
   const { lang, serviceSlug } = await params;
-  const page = getLocalizedServicePage(lang, serviceSlug);
+  const page = lang === "es" ? undefined : getLocalizedServicePage(lang, serviceSlug);
 
   return page ? getLocalizedServiceMetadata(page) : {};
 }
 
 export default async function LocalizedServiceRoute({ params }: ServiceRouteProps) {
   const { lang, serviceSlug } = await params;
-  const page = getLocalizedServicePage(lang, serviceSlug);
+  const page = lang === "es" ? undefined : getLocalizedServicePage(lang, serviceSlug);
 
   if (!page) notFound();
 

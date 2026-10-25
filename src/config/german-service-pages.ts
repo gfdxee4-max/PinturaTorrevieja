@@ -317,6 +317,8 @@ export const germanServicePages = [
     ],
     faq: [
       { question: "Wo kann ich Felgen in Torrevieja aufbereiten lassen?", answer: "PaintLab in Torrevieja bietet die Prüfung, Vorbereitung und Pulverbeschichtung geeigneter Auto- und Alufelgen an." },
+      { question: "Können Bordsteinschäden und Schürfspuren an Felgen aufbereitet werden?", answer: "Bordsteinkratzer, Schürfspuren und abblätternder Lack werden zunächst auf Tiefe und Materialzustand geprüft. Geeignete Felgen können vorbereitet und neu beschichtet werden; eine beschädigte Felgenstruktur lässt sich nicht durch neue Farbe beheben." },
+      { question: "Kann ich eine einzelne Felge oder einen Satz mit vier Felgen aufbereiten lassen?", answer: "Sie können eine einzelne Felge oder einen kompletten Satz mit vier Felgen zur Prüfung anfragen. Jede Felge wird einzeln beurteilt; Farbe und Vorbereitung werden vor Arbeitsbeginn abgestimmt." },
       { question: "Werden Felgen vor der Pulverbeschichtung sandgestrahlt?", answer: "Ja, das Entfernen der alten Beschichtung und Sandstrahlen gehören zur Vorbereitung, wenn die Felge für die Bearbeitung geeignet ist." },
       { question: "Können zerkratzte Alufelgen aufbereitet werden?", answer: "Viele Kratzer und beschädigte Beschichtungen können nach Prüfung vorbereitet und neu beschichtet werden." },
       { question: "Richtet PaintLab verbogene Felgen?", answer: "Die Geometrie wird geprüft. Wenn Zustand und Art der Verformung eine Reparatur zulassen, kann die Felge vor der Beschichtung gerichtet werden." },

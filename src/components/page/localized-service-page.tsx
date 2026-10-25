@@ -56,7 +56,7 @@ export function LocalizedServicePage({ page }: LocalizedServicePageProps) {
         }}
       />
 
-      <main className="min-h-screen bg-[#050505] text-white">
+      <main className={`min-h-screen bg-[#050505] text-white${page.key === "wheels" ? " [overflow-wrap:anywhere]" : ""}`}>
         <section className="relative isolate overflow-hidden border-b border-white/[0.09]">
           {page.heroImage ? (
             <Image

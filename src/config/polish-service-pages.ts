@@ -284,6 +284,8 @@ export const polishServicePages = [
     ],
     faq: [
       { question: "Czy można zmienić kolor felg?", answer: "Można omówić zmianę koloru zgodnie z dostępną powłoką i techniczną przydatnością felg." },
+      { question: "Czy można usunąć otarcia felgi od krawężnika?", answer: "Otarcia od krawężnika, zadrapania i łuszczący się lakier oceniamy przed renowacją. Jeżeli stan materiału pozwala na dalsze prace, felgę można przygotować i ponownie pomalować. Uszkodzeń samego metalu nie należy traktować jak zwykłych wad powłoki." },
+      { question: "Czy można odnowić jedną felgę albo komplet czterech?", answer: "Można zgłosić jedną felgę lub komplet czterech felg. Każdą oceniamy oddzielnie, a kolor i potrzebne przygotowanie ustalamy przed rozpoczęciem prac." },
       { question: "Czy felgi są piaskowane przed malowaniem?", answer: "Tak, usunięcie starej warstwy, piaskowanie i przygotowanie powierzchni należą do opisanego procesu." },
       { question: "Czy można wyprostować krzywą felgę?", answer: "Tylko jeżeli stan felgi i charakter deformacji pozwalają bezpiecznie wykonać taką pracę. Decyzję poprzedza kontrola geometrii." },
       { question: "Czy można odnowić porysowane felgi aluminiowe?", answer: "W wielu przypadkach tak. Stan materiału i powierzchni wymaga jednak oględzin przed potwierdzeniem zakresu." },

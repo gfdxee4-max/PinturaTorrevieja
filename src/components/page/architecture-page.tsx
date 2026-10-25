@@ -122,7 +122,7 @@ export function ArchitecturePage({ page }: ArchitecturePageProps) {
         </Container>
       </header>
 
-      <main className="bg-black text-white">
+      <main className={`bg-black text-white${page.hubKind === "services" && !["es", "en", "ru", "uk", "de", "pl"].includes(locale) ? " [overflow-wrap:anywhere]" : ""}`}>
         <section className="relative overflow-hidden border-b border-white/10">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_20%,rgba(229,9,20,0.2),transparent_28%),linear-gradient(90deg,#000_0%,rgba(0,0,0,0.94)_42%,rgba(0,0,0,0.5)_100%)]" />
           <Container className="relative grid min-h-[34rem] items-center gap-8 py-14 lg:grid-cols-[0.95fr_1.05fr] lg:py-20">

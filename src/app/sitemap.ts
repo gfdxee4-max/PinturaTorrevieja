@@ -16,6 +16,7 @@ import { getAbsoluteUrl } from "@/lib/seo";
 import { getProjectPath, getProjectsPath } from "@/config/projects-i18n";
 import { projects } from "@/data/projects";
 import { getArchitectureHubPath } from "@/config/architecture-hub-i18n";
+import { newWheelHubLocales } from "@/config/new-wheel-hubs";
 
 export const dynamic = "force-static";
 export const revalidate = 86400;
@@ -124,6 +125,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...languagePages,
+    ...newWheelHubLocales.map((locale) => ({ url: getAbsoluteUrl(getArchitectureHubPath(locale, "services")) })),
     ...localizedHubPages,
     ...localizedServiceSeoPages,
     ...architectureSeoPages,

@@ -4,13 +4,17 @@ import type { Locale } from "@/config/i18n";
 import { getProjectsPath } from "@/config/projects-i18n";
 import { notFound } from "next/navigation";
 import { polishServicePages } from "@/config/polish-service-pages";
+import { locales } from "@/config/locales";
+import { newWheelHubPaths, newWheelHubUi, newWheelHubPages } from "@/config/new-wheel-hubs";
+import { newWheelPages } from "@/config/wheel-locales";
+import { getLocalizedServicePath } from "@/config/localized-service-pages";
 
-export const architectureHubLocales = ["es", "de", "en", "pl", "ru", "uk"] as const;
+export const architectureHubLocales = locales;
 
 export type ArchitectureHubLocale = (typeof architectureHubLocales)[number];
 export type ArchitectureHubKind = "services" | "cities";
 
-type ArchitectureHubUiCopy = {
+export type ArchitectureHubUiCopy = {
   navigation: string;
   languageMenu: string;
   menu: string;
@@ -33,6 +37,7 @@ type ArchitectureHubUiCopy = {
 
 const hubPaths: Record<ArchitectureHubKind, Partial<Record<ArchitectureHubLocale, string>> & { es: string }> = {
   services: {
+    ...newWheelHubPaths,
     es: "/servicios",
     de: "/de/servicios",
     pl: "/pl/servicios",
@@ -50,6 +55,7 @@ const hubPaths: Record<ArchitectureHubKind, Partial<Record<ArchitectureHubLocale
 };
 
 export const architectureHubUi: Record<ArchitectureHubLocale, ArchitectureHubUiCopy> = {
+  ...newWheelHubUi,
   pl: {
     navigation: "Nawigacja", languageMenu: "Język", menu: "Menu", services: "Usługi", cities: "Obszar obsługi", works: "Realizacje", faq: "FAQ", contact: "Kontakt", about: "O nas", call: "Zadzwoń", internalLinks: "Powiązane strony", home: "Strona główna", informationHeading: "Jasne informacje przed naprawą.", informationText: "Porównaj usługi, zobacz rzeczywiste realizacje lub prześlij zdjęcia do wstępnej oceny.", relatedPages: "Powiązane strony", faqHeading: "Najczęściej zadawane pytania", consultation: "Zapytanie", sendPhotos: "Prześlij zdjęcia samochodu przez WhatsApp.",
   },
@@ -160,6 +166,7 @@ export const architectureHubUi: Record<ArchitectureHubLocale, ArchitectureHubUiC
 };
 
 const localizedHubPages: Record<Exclude<ArchitectureHubLocale, "es">, Partial<Record<ArchitectureHubKind, Omit<ArchitecturePage, "path">>>> = {
+  ...newWheelHubPages,
   pl: {
     services: {
       locale: "pl", hubKind: "services",
@@ -464,6 +471,12 @@ export function getArchitectureHubPage(locale: ArchitectureHubLocale, kind: Arch
     if (!original) throw new Error(`Missing Spanish architecture hub: ${kind}`);
     return {
       ...original,
+      links: kind === "services" ? [
+        ...original.links,
+        ...newWheelPages.filter((page) => page.locale === "es").map((page) => ({
+          href: getLocalizedServicePath(page), label: page.h1, text: page.description,
+        })),
+      ] : original.links,
       locale,
       hubKind: kind,
       alternatePaths,

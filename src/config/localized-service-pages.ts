@@ -2,8 +2,9 @@ import type { Locale } from "@/config/i18n";
 import { germanServicePages } from "@/config/german-service-pages";
 import { ukrainianServicePages } from "@/config/ukrainian-service-pages";
 import { polishServicePages } from "@/config/polish-service-pages";
+import { newWheelPages, newWheelServiceUi } from "@/config/wheel-locales";
 
-export type ServicePageLocale = Extract<Locale, "de" | "en" | "pl" | "ru" | "uk">;
+export type ServicePageLocale = Locale;
 export type ServicePageKey = "paint" | "body" | "bumper" | "insurance" | "wheels";
 
 type ContentSection = {
@@ -63,6 +64,7 @@ export type LocalizedServicePage = {
 };
 
 export const localizedServicePageUi = {
+  ...newWheelServiceUi,
   pl: {
     home: "Strona główna", benefitsEyebrow: "Zakres usługi", benefitsTitle: "Prace dopasowane do stanu samochodu",
     detailsEyebrow: "O usłudze", detailsTitle: "Przejrzysty zakres prac", processEyebrow: "Etapy", processTitle: "Jak przebiega realizacja",
@@ -161,6 +163,7 @@ export const localizedServicePages: readonly LocalizedServicePage[] = [
   ...germanServicePages,
   ...ukrainianServicePages,
   ...polishServicePages,
+  ...newWheelPages,
   {
     key: "paint",
     locale: "ru",
@@ -877,6 +880,14 @@ export const localizedServicePages: readonly LocalizedServicePage[] = [
           "В PaintLab в Торревьехе можно обратиться для оценки состояния, подготовки и повторной покраски автомобильных дисков. Перед визитом отправьте фотографии в WhatsApp.",
       },
       {
+        question: "Можно ли убрать царапины от бордюра на дисках?",
+        answer: "Поцарапанные края, потёртости и повреждённая краска на дисках требуют осмотра: важно отличить дефект покрытия от повреждения металла. Если диск пригоден к восстановлению, поверхность подготавливаем и окрашиваем заново. Погнутый или кривой диск сначала проходит проверку геометрии; выравнивание возможно только при технически допустимом состоянии.",
+      },
+      {
+        question: "Можно восстановить один диск или комплект из четырёх?",
+        answer: "Можно обратиться для восстановления одного диска или четырёх дисков комплектом. Состояние каждого оценивается отдельно, а цвет и объём подготовки согласовываются до начала работ.",
+      },
+      {
         question: "Делаете ли вы порошковую покраску дисков?",
         answer:
           "Да, PaintLab выполняет порошковую покраску дисков после осмотра, удаления старого покрытия и подготовки поверхности.",
@@ -1517,6 +1528,7 @@ export const localizedServicePages: readonly LocalizedServicePage[] = [
 ] as const;
 
 export function getLocalizedServicePath(page: Pick<LocalizedServicePage, "locale" | "slug">) {
+  if (page.locale === "es") return `/servicios/${page.slug}`;
   return `/${page.locale}/${page.slug}`;
 }
 
