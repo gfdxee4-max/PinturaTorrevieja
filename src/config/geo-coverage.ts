@@ -16,6 +16,7 @@ export const geoAreaGroups = [
 ] as const;
 
 export type ServiceAreaContent = {
+  specialist: string;
   workshop: string;
   heading: string;
   intro: string;
@@ -45,6 +46,7 @@ export function addHubGeoCoverage(page: ArchitecturePage): ArchitecturePage {
   return {
     ...page,
     serviceArea: {
+      specialist: copy.specialist,
       workshop: copy.workshop,
       heading: copy.heading, intro: copy.intro, bridge: copy.bridge, visit: copy.visit,
       groups: geoAreaGroups.map((places, index) => ({ label: copy.groups[index], places })), links,

@@ -10,6 +10,7 @@ export function ServiceAreaSection({ content }: { content: ServiceAreaContent })
         <h2 className="max-w-4xl text-2xl font-black uppercase leading-tight text-white sm:text-3xl">{content.heading}</h2>
         <p className="mt-4 max-w-4xl text-base leading-7 text-white/75">{content.intro}</p>
         <p id="workshop-area-bridge" className="mt-3 max-w-4xl text-base leading-7 text-white/75">{content.workshop}</p>
+        <p id="paint-specialist-area-bridge" className="mt-3 max-w-4xl text-base leading-7 text-white/75">{content.specialist}</p>
         <dl className="mt-6 grid gap-x-8 gap-y-5 md:grid-cols-2 xl:grid-cols-3">
           {content.groups.map((group) => (
             <div key={group.label} className="min-w-0">
