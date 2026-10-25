@@ -1,4 +1,5 @@
 import type { Locale } from "@/config/i18n";
+import { addLocalizedMoneyCoverage } from "@/config/money-service-coverage";
 import { germanServicePages } from "@/config/german-service-pages";
 import { ukrainianServicePages } from "@/config/ukrainian-service-pages";
 import { polishServicePages } from "@/config/polish-service-pages";
@@ -1543,7 +1544,8 @@ export function getLocalizedServicePath(page: Pick<LocalizedServicePage, "locale
 }
 
 export function getLocalizedServicePage(locale: string, slug: string) {
-  return localizedServicePages.find((page) => page.locale === locale && page.slug === slug);
+  const page = localizedServicePages.find((page) => page.locale === locale && page.slug === slug);
+  return page ? addLocalizedMoneyCoverage(page) : undefined;
 }
 
 export function getLocalizedServiceAlternates(page: LocalizedServicePage) {

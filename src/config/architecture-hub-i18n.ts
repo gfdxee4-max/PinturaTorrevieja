@@ -1,4 +1,5 @@
 import type { ArchitecturePage } from "@/config/architecture";
+import { addArchitectureMoneyCoverage } from "@/config/money-service-coverage";
 import { getArchitecturePage } from "@/config/architecture";
 import type { Locale } from "@/config/i18n";
 import { getProjectsPath } from "@/config/projects-i18n";
@@ -487,9 +488,11 @@ export function getArchitectureHubPage(locale: ArchitectureHubLocale, kind: Arch
   const page = localizedHubPages[locale][kind];
   const path = hubPaths[kind][locale];
   if (!page || !path) notFound();
-  return {
+  return addArchitectureMoneyCoverage({
     ...page,
     path,
     alternatePaths,
-  };
+    locale,
+    hubKind: kind,
+  });
 }
