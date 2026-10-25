@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import type { ServiceAreaContent } from "@/config/geo-coverage";
 
@@ -11,6 +11,41 @@ export function ServiceAreaSection({ content }: { content: ServiceAreaContent })
         <p className="mt-4 max-w-4xl text-base leading-7 text-white/75">{content.intro}</p>
         <p id="workshop-area-bridge" className="mt-3 max-w-4xl text-base leading-7 text-white/75">{content.workshop}</p>
         <p id="paint-specialist-area-bridge" className="mt-3 max-w-4xl text-base leading-7 text-white/75">{content.specialist}</p>
+        <div id="multibrand-area-coverage" className="mt-7 border-y border-white/10 py-6">
+          <h3 className="max-w-4xl text-xl font-bold leading-snug text-white">{content.multibrand.heading}</h3>
+          <p className="mt-3 max-w-5xl text-base leading-7 text-white/75">{content.multibrand.intro}</p>
+          <dl className="mt-4">
+            {content.multibrand.groups.filter((group) => group.priority === "A").map((group) => (
+              <div key={group.priority} className="min-w-0">
+                <dt className="text-sm font-bold text-white">{group.label}</dt>
+                <dd className="mt-1 max-w-5xl text-base leading-7 text-white/85">
+                  {group.brands.join(", ")}
+                </dd>
+              </div>
+            ))}
+          </dl>
+          <details className="group mt-3 max-w-5xl">
+            <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 text-sm font-bold text-white/85 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white [&::-webkit-details-marker]:hidden">
+              {content.multibrand.groups[2].label}
+              <ChevronDown className="size-4 shrink-0 transition-transform group-open:rotate-180" aria-hidden="true" />
+            </summary>
+            <p className="pb-2 text-sm leading-6 text-white/70">
+              {content.multibrand.groups.filter((group) => group.priority !== "A").flatMap((group) => group.brands).join(", ")}
+            </p>
+          </details>
+          {content.multibrand.proofLinks.length > 0 ? (
+            <div className="mt-4">
+              <p className="text-sm font-bold text-white/85">{content.multibrand.proofHeading}</p>
+              <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-2">
+                {content.multibrand.proofLinks.map((link) => (
+                  <li key={link.href} className="min-w-0 max-w-full">
+                    <Link href={link.href} className="text-sm font-bold text-[#ff4d4d] underline underline-offset-4 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+        </div>
         <dl className="mt-6 grid gap-x-8 gap-y-5 md:grid-cols-2 xl:grid-cols-3">
           {content.groups.map((group) => (
             <div key={group.label} className="min-w-0">

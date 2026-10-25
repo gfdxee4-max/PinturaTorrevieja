@@ -3,6 +3,7 @@ import type { Locale } from "@/config/i18n";
 import { geoCoverageCopy } from "@/config/geo-coverage-i18n";
 import { getLocalizedServicePath, localizedServicePages } from "@/config/localized-service-pages";
 import { createWhatsAppUrl } from "@/lib/whatsapp";
+import { getMultibrandCoverage, type MultibrandContent } from "@/config/multibrand-coverage";
 
 export const geoCityLocales: readonly Locale[] = ["es", "en", "ru", "uk", "de"];
 export const geoAreaGroups = [
@@ -16,6 +17,7 @@ export const geoAreaGroups = [
 ] as const;
 
 export type ServiceAreaContent = {
+  multibrand: MultibrandContent;
   specialist: string;
   workshop: string;
   heading: string;
@@ -46,6 +48,7 @@ export function addHubGeoCoverage(page: ArchitecturePage): ArchitecturePage {
   return {
     ...page,
     serviceArea: {
+      multibrand: getMultibrandCoverage(locale, page.links),
       specialist: copy.specialist,
       workshop: copy.workshop,
       heading: copy.heading, intro: copy.intro, bridge: copy.bridge, visit: copy.visit,
