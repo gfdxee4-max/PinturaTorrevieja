@@ -7,6 +7,7 @@ import { polishServicePages } from "@/config/polish-service-pages";
 import { locales } from "@/config/locales";
 import { newWheelHubPaths, newWheelHubUi, newWheelHubPages } from "@/config/new-wheel-hubs";
 import { newWheelPages } from "@/config/wheel-locales";
+import { newInsurancePages } from "@/config/insurance-locales";
 import { getLocalizedServicePath } from "@/config/localized-service-pages";
 
 export const architectureHubLocales = locales;
@@ -473,7 +474,7 @@ export function getArchitectureHubPage(locale: ArchitectureHubLocale, kind: Arch
       ...original,
       links: kind === "services" ? [
         ...original.links,
-        ...newWheelPages.filter((page) => page.locale === "es").map((page) => ({
+        ...[...newWheelPages, ...newInsurancePages].filter((page) => page.locale === "es").map((page) => ({
           href: getLocalizedServicePath(page), label: page.h1, text: page.description,
         })),
       ] : original.links,

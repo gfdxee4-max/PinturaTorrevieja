@@ -225,6 +225,7 @@ export const polishServicePages = [
     ],
     faq: [
       { question: "Co należy przesłać po kolizji?", answer: "Zdjęcia samochodu i uszkodzeń, krótki opis zdarzenia, nazwę ubezpieczyciela oraz informację o aktualnym etapie sprawy." },
+      { question: "Czy oceniacie szkody parkingowe oraz uderzenia z przodu, z tyłu i z boku?", answer: "Tak. Pokaż cały obszar: zderzak, błotnik, maskę, drzwi lub tylny panel boczny i sąsiednie elementy. Oględziny określają możliwość naprawy; sam rodzaj kolizji nie potwierdza pokrycia szkody przez ubezpieczenie." },
       { question: "Czy potrzebna jest wycena rzeczoznawcy?", answer: "Zależy to od konkretnego postępowania. Poinformuj, czy perito już oglądał auto, i sprawdź wymagania swojego ubezpieczyciela." },
       { question: "Czy PaintLab gwarantuje wypłatę z ubezpieczenia?", answer: "Nie. Decyzje o pokryciu, zatwierdzeniu oraz wypłacie zależą od konkretnego ubezpieczyciela i okoliczności sprawy." },
       { question: "Czy jesteście partnerem wszystkich ubezpieczycieli?", answer: "Nie składamy takiej deklaracji. Każdy przypadek naprawy jest oceniany na podstawie dostępnych informacji." },

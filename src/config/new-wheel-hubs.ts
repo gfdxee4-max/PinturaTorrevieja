@@ -1,6 +1,7 @@
 import type { ArchitecturePage } from "@/config/architecture";
 import type { ArchitectureHubUiCopy } from "@/config/architecture-hub-i18n";
 import { newWheelContent } from "@/config/wheel-locales";
+import { newInsurancePages } from "@/config/insurance-locales";
 import type { NewWheelLocale } from "@/config/wheel-locales/types";
 
 export const newWheelHubLocales = newWheelContent.map((content) => content.locale)
@@ -24,7 +25,12 @@ export const newWheelHubPages = Object.fromEntries(newWheelContent
       description: content.labels.hubDescription, h1: content.labels.hubTitle,
       eyebrow: content.labels.services, lead: content.labels.hubLead, cta: content.labels.whatsapp,
       sections: [{ heading: content.labels.details, paragraphs: [content.labels.ctaText] }],
-      links: [{ href: `/${content.locale}/${content.slug}`, label: content.h1, text: content.description }],
+      links: [
+        { href: `/${content.locale}/${content.slug}`, label: content.h1, text: content.description },
+        ...newInsurancePages.filter((page) => page.locale === content.locale).map((page) => ({
+          href: `/${page.locale}/${page.slug}`, label: page.h1, text: page.description,
+        })),
+      ],
       whatsappMessage: `${content.labels.cta} — PaintLab`,
     },
   }])) as Record<Exclude<NewWheelLocale, "es">, Partial<Record<"services" | "cities", Omit<ArchitecturePage, "path">>>>;

@@ -3,6 +3,7 @@ import { germanServicePages } from "@/config/german-service-pages";
 import { ukrainianServicePages } from "@/config/ukrainian-service-pages";
 import { polishServicePages } from "@/config/polish-service-pages";
 import { newWheelPages, newWheelServiceUi } from "@/config/wheel-locales";
+import { newInsurancePages } from "@/config/insurance-locales";
 
 export type ServicePageLocale = Locale;
 export type ServicePageKey = "paint" | "body" | "bumper" | "insurance" | "wheels";
@@ -164,6 +165,7 @@ export const localizedServicePages: readonly LocalizedServicePage[] = [
   ...ukrainianServicePages,
   ...polishServicePages,
   ...newWheelPages,
+  ...newInsurancePages,
   {
     key: "paint",
     locale: "ru",
@@ -478,8 +480,14 @@ export const localizedServicePages: readonly LocalizedServicePage[] = [
         question: "Можно ли обратиться, если страховой эксперт уже осмотрел автомобиль?",
         answer: "Да. Сообщите результаты осмотра и какие документы у вас есть. Мы проверим состояние автомобиля и обсудим возможный ремонт, не обещая заранее согласование или оплату со стороны страховой компании.",
       },
+      {
+        question: "Можно ли оценить повреждения после удара спереди, сзади или сбоку?",
+        answer: "Да, покажите всю повреждённую зону: передний удар может затронуть бампер, крыло и капот, задний — бампер и соседние панели, боковой — дверь и боковину. Парковочные потёртости тоже можно оценить. Возможность ремонта определяется после осмотра, а покрытие страховой — по конкретному случаю.",
+      },
     ],
     relatedLinks: [
+      { href: "/ru", label: "Мастерская PaintLab", text: "Контакты мастерской в Торревьехе." },
+      { href: "/ru/servicios", label: "Все услуги", text: "Выберите подходящее направление ремонта." },
       {
         href: "/ru/kuzovnoy-remont-torrevieja",
         label: "Кузовной ремонт автомобиля",
@@ -1332,6 +1340,7 @@ export const localizedServicePages: readonly LocalizedServicePage[] = [
     faqTitle: "Insurance and Accident Repair Questions",
     faq: [
       { question: "Can PaintLab repair a car after an accident?", answer: "Yes, PaintLab assesses suitable accident-related body damage and carries out agreed body repair, preparation and painting after the necessary steps are confirmed." },
+      { question: "Can you assess parking damage and front, rear or side impacts?", answer: "Yes. Show the whole area, including a scuffed bumper, damaged wing, bonnet, door or rear quarter and any neighbouring panels. Inspection determines the repairable work; the type of impact does not by itself establish insurance cover." },
       { question: "What information should I send for an insurance repair?", answer: "Send damage photos, vehicle details, the insurer name, available claim documents and whether a perito has already inspected the car." },
       { question: "Do I need an insurance assessor or perito inspection first?", answer: "That depends on the individual insurer and claim process. Tell PaintLab what the insurer has requested and whether an inspection has already taken place." },
       { question: "Is PaintLab an approved repairer for every insurer?", answer: "No such claim is made. Each case is reviewed individually according to the customer's insurer, documents and claim requirements." },
@@ -1343,6 +1352,7 @@ export const localizedServicePages: readonly LocalizedServicePage[] = [
       { href: "/en/servicios", label: "All services", text: "Explore PaintLab body and paint services." },
       { href: "/en/trabajos-realizados", label: "Real repair projects", text: "See documented body repairs completed by the workshop." },
       { href: "/en/car-body-repair-torrevieja", label: "Car body repair", text: "Learn how damaged panels are restored and painted." },
+      { href: "/en/car-respray-torrevieja", label: "Car painting", text: "Preparation and painting of damaged body panels." },
     ],
     ctaTitle: "Send Your Accident and Claim Information",
     ctaText:

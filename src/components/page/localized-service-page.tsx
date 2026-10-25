@@ -34,7 +34,14 @@ const benefitIcons = [ShieldCheck, SprayCan, Camera] as const;
 
 export function LocalizedServicePage({ page }: LocalizedServicePageProps) {
   const dictionary = dictionaries[page.locale];
-  const ui = localizedServicePageUi[page.locale];
+  const baseUi = localizedServicePageUi[page.locale];
+  const isNewInsurancePage = page.key === "insurance" && !["en", "ru", "uk", "de", "pl"].includes(page.locale);
+  const ui = isNewInsurancePage ? {
+    ...baseUi,
+    benefitsEyebrow: page.eyebrow,
+    detailsEyebrow: page.eyebrow,
+    processEyebrow: page.processTitle ?? page.h1,
+  } : baseUi;
   const currentPath = getLocalizedServicePath(page);
   const alternates = getLocalizedServiceAlternates(page);
   const whatsappUrl = createWhatsAppUrl(page.whatsapp);
@@ -56,7 +63,7 @@ export function LocalizedServicePage({ page }: LocalizedServicePageProps) {
         }}
       />
 
-      <main className={`min-h-screen bg-[#050505] text-white${page.key === "wheels" ? " [overflow-wrap:anywhere]" : ""}`}>
+      <main className={`min-h-screen bg-[#050505] text-white${page.key === "wheels" || page.key === "insurance" ? " [overflow-wrap:anywhere]" : ""}`}>
         <section className="relative isolate overflow-hidden border-b border-white/[0.09]">
           {page.heroImage ? (
             <Image

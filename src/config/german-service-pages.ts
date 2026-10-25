@@ -254,6 +254,7 @@ export const germanServicePages = [
     ],
     faq: [
       { question: "Bearbeitet PaintLab Fahrzeuge nach einem Unfall?", answer: "Ja, konkrete Unfall- und Karosserieschäden werden in Torrevieja geprüft und bei technischer Eignung repariert und lackiert." },
+      { question: "Prüfen Sie Parkschäden sowie Front-, Heck- und Seitenschäden?", answer: "Ja. Zeigen Sie den gesamten Bereich mit Stoßfänger, Kotflügel, Motorhaube, Tür oder Seitenteil und betroffenen Nachbarteilen. Die Besichtigung klärt die Reparaturmöglichkeit; die Art des Unfalls allein begründet keinen Versicherungsschutz." },
       { question: "Garantiert PaintLab die Zahlung durch meine Versicherung?", answer: "Nein. Über Leistungen, Zahlung und Freigabe entscheidet ausschließlich die zuständige Versicherung." },
       { question: "Ist PaintLab Partner aller Versicherungen?", answer: "Nein, eine allgemeine Partnerschaft mit allen Versicherungen wird nicht behauptet. Jeder Fall wird anhand seiner konkreten Informationen geprüft." },
       { question: "Was soll ich zuerst senden?", answer: "Senden Sie Fotos, eine kurze Beschreibung, den Namen der Versicherung und den aktuellen Stand des Schadensfalls." },
