@@ -1,0 +1,165 @@
+import type { Locale } from "@/config/i18n";
+
+type GeoCopy = {
+  heading: string;
+  intro: string;
+  bridge: string;
+  visit: string;
+  groups: readonly [string, string, string, string, string, string, string];
+  links: readonly [string, string, string, string, string, string, string];
+};
+
+export const geoCoverageCopy: Record<Locale, GeoCopy> = {
+  es: {
+    heading: "Clientes de Torrevieja y localidades cercanas",
+    intro: "PaintLab está en Torrevieja y recibe vehículos de localidades cercanas del sur de la Costa Blanca y la Vega Baja del Segura. También atendemos a clientes de las zonas de Murcia indicadas abajo.",
+    bridge: "Puedes acudir para reparación de carrocería, pintura del coche, trabajos tras un accidente o un siniestro de seguro y restauración de llantas. Los casos de seguro se revisan según la documentación; no implican una aprobación automática de la aseguradora.",
+    visit: "Los trabajos se realizan en Torrevieja, sin sucursales ni servicio de reparación a domicilio en estas localidades. Antes de desplazarte, envía fotos por WhatsApp y acuerda la visita.",
+    groups: ["Torrevieja y alrededores", "Guardamar y entorno de Rojales", "Vega Baja central", "Interior de la Vega Baja", "Orihuela Costa", "Pilar y su costa", "Zona de Murcia"],
+    links: ["Servicios", "Reparación de carrocería", "Pintura del coche", "Reparación tras accidente y seguro", "Restauración de llantas", "Guía de localidades", "Consultar por WhatsApp"],
+  },
+  en: {
+    heading: "Customers from Torrevieja and the surrounding area",
+    intro: "PaintLab is based in Torrevieja and welcomes vehicles from nearby towns across the southern Costa Blanca, also known as Costa Blanca South, and the Vega Baja del Segura. We also accept customers from the Murcia locations shown below.",
+    bridge: "Customers can visit for bodywork repairs, car painting, accident and insurance-related repairs, and wheel refurbishment. Insurance jobs are reviewed against the documents for the individual claim, without assuming the insurer has approved the work.",
+    visit: "All work takes place at our Torrevieja workshop; these locations are not branches or mobile repair bases. Send photos on WhatsApp and arrange your visit before travelling.",
+    groups: ["Torrevieja and nearby", "Guardamar and the Rojales area", "Central Vega Baja", "Inland Vega Baja", "Orihuela Costa", "Pilar and the coast", "Murcia-side service area"],
+    links: ["Services", "Bodywork repairs", "Car painting", "Accident and insurance repairs", "Wheel refurbishment", "Area guide", "Ask on WhatsApp"],
+  },
+  ru: {
+    heading: "Клиенты из Торревьехи и соседних районов",
+    intro: "Мастерская PaintLab находится в Торревьехе (Torrevieja) и принимает автомобили из соседних городов южной части Costa Blanca и региона Vega Baja del Segura. Также принимаем клиентов из указанных ниже городов со стороны Murcia.",
+    bridge: "К нам можно обратиться для кузовного ремонта, покраски автомобиля, восстановления после ДТП, ремонта по страховому случаю и реставрации дисков. По страховым случаям проверяем документы конкретного обращения, не обещая автоматического согласования оплаты страховщиком.",
+    visit: "Все работы выполняются в Торревьехе: филиалов и выездного ремонта в перечисленных районах нет. Перед поездкой отправьте фотографии в WhatsApp и согласуйте визит.",
+    groups: ["Торревьеха и рядом", "Guardamar и район Rojales", "Центральная Vega Baja", "Внутренние районы Vega Baja", "Orihuela Costa", "Pilar и побережье", "Со стороны Murcia"],
+    links: ["Все услуги", "Кузовной ремонт", "Покраска автомобиля", "Ремонт после ДТП и по страховке", "Реставрация дисков", "Путеводитель по районам", "Написать в WhatsApp"],
+  },
+  uk: {
+    heading: "Клієнти з Торрев'єхи та сусідніх районів",
+    intro: "Майстерня PaintLab розташована в Торрев'єсі (Torrevieja) та приймає автомобілі із сусідніх міст південної частини Costa Blanca й регіону Vega Baja del Segura. Також приймаємо клієнтів із зазначених нижче міст з боку Murcia.",
+    bridge: "Можна звернутися щодо кузовного ремонту, фарбування автомобіля, відновлення після ДТП, ремонту за страховим випадком і реставрації дисків. Страхові звернення розглядаємо за документами конкретної справи, без обіцянки автоматичного погодження оплати страховиком.",
+    visit: "Роботи виконуємо в Торрев'єсі: філій та виїзного ремонту в перелічених районах немає. Перед поїздкою надішліть фотографії у WhatsApp і погодьте візит.",
+    groups: ["Торрев'єха й околиці", "Guardamar і район Rojales", "Центральна Vega Baja", "Внутрішні райони Vega Baja", "Orihuela Costa", "Pilar та узбережжя", "З боку Murcia"],
+    links: ["Усі послуги", "Кузовний ремонт", "Фарбування автомобіля", "Ремонт після ДТП і за страховкою", "Реставрація дисків", "Огляд районів", "Написати у WhatsApp"],
+  },
+  de: {
+    heading: "Kunden aus Torrevieja und Umgebung",
+    intro: "PaintLab befindet sich in Torrevieja und nimmt Fahrzeuge aus den umliegenden Orten der südlichen Costa Blanca und der Vega Baja del Segura an. Dazu gehören auch die unten genannten Orte auf der Seite der Region Murcia.",
+    bridge: "Zum Angebot gehören Karosseriereparaturen, Fahrzeuglackierung, Unfall- und Versicherungsreparaturen sowie Felgenaufbereitung. Bei Versicherungsschäden prüfen wir die Unterlagen des Einzelfalls; eine Kostenfreigabe des Versicherers wird nicht vorausgesetzt.",
+    visit: "Alle Arbeiten finden in Torrevieja statt. In den genannten Orten gibt es weder Filialen noch einen mobilen Reparaturdienst. Senden Sie vor der Anfahrt Fotos per WhatsApp und vereinbaren Sie einen Besuch.",
+    groups: ["Torrevieja und Umgebung", "Guardamar und Raum Rojales", "Zentrale Vega Baja", "Hinterland der Vega Baja", "Orihuela Costa", "Pilar und Küste", "Orte in der Region Murcia"],
+    links: ["Leistungen", "Karosseriereparatur", "Fahrzeuglackierung", "Unfall- und Versicherungsreparatur", "Felgenaufbereitung", "Ortsübersicht", "Per WhatsApp anfragen"],
+  },
+  pl: {
+    heading: "Klienci z Torrevieja i okolic",
+    intro: "Warsztat PaintLab znajduje się w Torrevieja i przyjmuje samochody z pobliskich miejscowości południowej Costa Blanca oraz regionu Vega Baja del Segura. Przyjmujemy również klientów z wymienionych niżej miejscowości po stronie Murcji.",
+    bridge: "Można zgłosić się na naprawy blacharskie, lakierowanie samochodu, naprawy po kolizji i szkody ubezpieczeniowej oraz renowację felg. Sprawy ubezpieczeniowe sprawdzamy na podstawie dokumentów konkretnej szkody, bez obietnicy automatycznej akceptacji kosztów przez ubezpieczyciela.",
+    visit: "Wszystkie prace wykonujemy w Torrevieja. Nie mamy oddziałów ani mobilnego serwisu w wymienionych miejscowościach. Przed przyjazdem prześlij zdjęcia przez WhatsApp i ustal wizytę.",
+    groups: ["Torrevieja i okolice", "Guardamar i okolice Rojales", "Środkowa Vega Baja", "W głębi Vega Baja", "Orihuela Costa", "Pilar i wybrzeże", "Miejscowości po stronie Murcji"],
+    links: ["Usługi", "Naprawy blacharskie", "Lakierowanie samochodu", "Naprawy powypadkowe i ubezpieczeniowe", "Renowacja felg", "Przewodnik po okolicy", "Zapytaj przez WhatsApp"],
+  },
+  fr: {
+    heading: "Clients de Torrevieja et des environs",
+    intro: "PaintLab se trouve à Torrevieja et accueille les véhicules des localités voisines du sud de la Costa Blanca et de la Vega Baja del Segura. Nous recevons aussi les clients des communes indiquées ci-dessous du côté de Murcia.",
+    bridge: "Vous pouvez venir pour la carrosserie, la peinture automobile, les réparations après accident ou sinistre et la rénovation des jantes. Les dossiers d'assurance sont étudiés individuellement, sans présumer de l'accord de prise en charge de l'assureur.",
+    visit: "Les travaux sont réalisés à Torrevieja, sans succursales ni réparation à domicile dans ces localités. Avant de vous déplacer, envoyez des photos sur WhatsApp et convenez d'une visite.",
+    groups: ["Torrevieja et environs", "Guardamar et secteur de Rojales", "Vega Baja centrale", "Intérieur de la Vega Baja", "Orihuela Costa", "Pilar et littoral", "Du côté de Murcia"],
+    links: ["Prestations", "Réparation de carrosserie", "Peinture automobile", "Accident et assurance", "Rénovation de jantes", "Guide des localités", "Écrire sur WhatsApp"],
+  },
+  nl: {
+    heading: "Klanten uit Torrevieja en omgeving",
+    intro: "PaintLab is gevestigd in Torrevieja en ontvangt auto's uit nabijgelegen plaatsen aan de zuidelijke Costa Blanca en in de Vega Baja del Segura. Ook klanten uit de hieronder genoemde plaatsen aan de kant van Murcia zijn welkom.",
+    bridge: "U kunt terecht voor carrosserieherstel, autospuitwerk, herstel na een aanrijding of verzekeringsschade en velgenherstel. Bij verzekeringszaken bekijken we de stukken per schadegeval; toestemming voor vergoeding door de verzekeraar wordt niet verondersteld.",
+    visit: "Alle werkzaamheden gebeuren in Torrevieja. We hebben geen vestigingen of mobiele reparatiedienst in deze plaatsen. Stuur vooraf foto's via WhatsApp en maak een afspraak voordat u vertrekt.",
+    groups: ["Torrevieja en omgeving", "Guardamar en de omgeving van Rojales", "Centrale Vega Baja", "Binnenland van de Vega Baja", "Orihuela Costa", "Pilar en de kust", "Aan de kant van Murcia"],
+    links: ["Diensten", "Carrosserieherstel", "Autospuitwerk", "Aanrijding en verzekering", "Velgenherstel", "Gebiedsoverzicht", "Vraag via WhatsApp"],
+  },
+  it: {
+    heading: "Clienti da Torrevieja e dai dintorni",
+    intro: "PaintLab ha sede a Torrevieja e accoglie auto dalle località vicine della Costa Blanca meridionale e della Vega Baja del Segura. Riceviamo anche clienti dalle località indicate sotto, sul versante di Murcia.",
+    bridge: "Ci si può rivolgere a noi per carrozzeria, verniciatura, riparazioni dopo incidenti o sinistri assicurativi e restauro dei cerchi. Le pratiche assicurative vengono esaminate singolarmente, senza presumere l'autorizzazione al pagamento da parte della compagnia.",
+    visit: "Tutti i lavori si svolgono a Torrevieja: non abbiamo filiali né riparazioni a domicilio in queste località. Prima di partire, invia le foto su WhatsApp e concorda una visita.",
+    groups: ["Torrevieja e dintorni", "Guardamar e zona di Rojales", "Vega Baja centrale", "Entroterra della Vega Baja", "Orihuela Costa", "Pilar e la costa", "Versante di Murcia"],
+    links: ["Servizi", "Riparazioni di carrozzeria", "Verniciatura auto", "Incidenti e assicurazione", "Restauro cerchi", "Guida alle località", "Scrivi su WhatsApp"],
+  },
+  nb: {
+    heading: "Kunder fra Torrevieja og nærområdet",
+    intro: "PaintLab holder til i Torrevieja og tar imot biler fra nærliggende steder på den sørlige Costa Blanca og i Vega Baja del Segura. Vi tar også imot kunder fra stedene nedenfor på Murcia-siden.",
+    bridge: "Du kan komme til oss for karosserireparasjon, billakkering, arbeid etter en kollisjon eller forsikringsskade og felgrestaurering. Forsikringssaker vurderes ut fra dokumentene i den enkelte saken, uten løfte om at selskapet godkjenner kostnadene.",
+    visit: "Alt arbeid utføres i Torrevieja. Vi har ikke filialer eller mobil reparasjon på disse stedene. Send bilder på WhatsApp og avtal besøket før du kjører.",
+    groups: ["Torrevieja og nærområdet", "Guardamar og området ved Rojales", "Sentrale Vega Baja", "Innlandet i Vega Baja", "Orihuela Costa", "Pilar og kysten", "På Murcia-siden"],
+    links: ["Tjenester", "Karosserireparasjon", "Billakkering", "Kollisjons- og forsikringsskader", "Felgrestaurering", "Områdeoversikt", "Spør på WhatsApp"],
+  },
+  fi: {
+    heading: "Asiakkaita Torreviejasta ja lähialueilta",
+    intro: "PaintLab sijaitsee Torreviejassa ja ottaa vastaan autoja eteläisen Costa Blancan sekä Vega Baja del Seguran lähikunnista. Palvelemme myös asiakkaita alla mainituista Murcian puoleisista paikkakunnista.",
+    bridge: "Palveluihin kuuluvat korikorjaukset, automaalaus, kolari- ja vakuutusvahinkojen korjaukset sekä vanteiden kunnostus. Vakuutusasiat käsitellään tapauskohtaisten asiakirjojen perusteella; vakuutusyhtiön korvauspäätöstä ei oleteta valmiiksi.",
+    visit: "Kaikki työt tehdään Torreviejassa. Mainituilla paikkakunnilla ei ole toimipisteitämme eikä liikkuvaa korjauspalvelua. Lähetä kuvat WhatsAppissa ja sovi käynnistä ennen lähtöä.",
+    groups: ["Torrevieja ja lähialueet", "Guardamar ja Rojalesin ympäristö", "Keski-Vega Baja", "Vega Bajan sisämaa", "Orihuela Costa", "Pilar ja rannikko", "Murcian puolella"],
+    links: ["Palvelut", "Korikorjaus", "Automaalaus", "Kolari- ja vakuutusvahingot", "Vanteiden kunnostus", "Alueopas", "Kysy WhatsAppissa"],
+  },
+  da: {
+    heading: "Kunder fra Torrevieja og omegn",
+    intro: "PaintLab ligger i Torrevieja og tager imod biler fra nærliggende byer på den sydlige Costa Blanca og i Vega Baja del Segura. Vi tager også imod kunder fra de nedenstående byer på Murcia-siden.",
+    bridge: "Du kan henvende dig om karrosserireparation, billakering, reparation efter uheld eller forsikringsskade samt fælgrestaurering. Forsikringssager vurderes ud fra den konkrete dokumentation uden løfte om, at forsikringsselskabet godkender betalingen.",
+    visit: "Alt arbejde udføres i Torrevieja. Vi har ikke filialer eller mobil reparation i disse byer. Send billeder på WhatsApp, og aftal besøget inden afgang.",
+    groups: ["Torrevieja og omegn", "Guardamar og området ved Rojales", "Centrale Vega Baja", "Vega Bajas indland", "Orihuela Costa", "Pilar og kysten", "På Murcia-siden"],
+    links: ["Ydelser", "Karrosserireparation", "Billakering", "Uheld og forsikringsskader", "Fælgrestaurering", "Områdeoversigt", "Spørg på WhatsApp"],
+  },
+  sv: {
+    heading: "Kunder från Torrevieja och närliggande orter",
+    intro: "PaintLab finns i Torrevieja och tar emot bilar från närliggande orter på södra Costa Blanca och i Vega Baja del Segura. Vi välkomnar även kunder från orterna nedan på Murcia-sidan.",
+    bridge: "Du kan vända dig till oss för karossreparation, billackering, reparation efter kollision eller försäkringsskada och fälgrenovering. Försäkringsärenden bedöms utifrån handlingarna i varje fall; vi förutsätter inte att försäkringsbolaget har godkänt kostnaden.",
+    visit: "Allt arbete utförs i Torrevieja. Vi har inga filialer eller mobil reparation på dessa orter. Skicka bilder via WhatsApp och boka besöket innan du åker.",
+    groups: ["Torrevieja med omnejd", "Guardamar och området kring Rojales", "Centrala Vega Baja", "Vega Bajas inland", "Orihuela Costa", "Pilar och kusten", "På Murcia-sidan"],
+    links: ["Tjänster", "Karossreparation", "Billackering", "Kollisions- och försäkringsskador", "Fälgrenovering", "Områdesguide", "Fråga via WhatsApp"],
+  },
+  sk: {
+    heading: "Zákazníci z Torrevieja a okolia",
+    intro: "Dielňa PaintLab sídli v Torrevieja a prijíma autá z okolitých miest južnej Costa Blanca a regiónu Vega Baja del Segura. Prijímame aj zákazníkov z nižšie uvedených miest na strane Murcie.",
+    bridge: "Môžete sa obrátiť na nás s opravou karosérie, lakovaním auta, opravou po nehode či poistnej udalosti a renováciou diskov. Poistné prípady posudzujeme podľa konkrétnych dokladov bez prísľubu automatického schválenia úhrady poisťovňou.",
+    visit: "Všetky práce vykonávame v Torrevieja. V uvedených miestach nemáme pobočky ani mobilné opravy. Pred cestou pošlite fotografie cez WhatsApp a dohodnite si návštevu.",
+    groups: ["Torrevieja a okolie", "Guardamar a okolie Rojales", "Stredná Vega Baja", "Vnútrozemie Vega Baja", "Orihuela Costa", "Pilar a pobrežie", "Na strane Murcie"],
+    links: ["Služby", "Oprava karosérie", "Lakovanie auta", "Nehody a poistné udalosti", "Renovácia diskov", "Prehľad lokalít", "Napísať cez WhatsApp"],
+  },
+  hu: {
+    heading: "Ügyfelek Torreviejából és a környékről",
+    intro: "A PaintLab műhelye Torreviejában található, és fogadja a déli Costa Blanca, valamint a Vega Baja del Segura közeli településeiről érkező autókat. Az alább felsorolt, Murcia felőli településekről is várjuk ügyfeleinket.",
+    bridge: "Karosszériajavítással, autófényezéssel, baleseti és biztosítási károk javításával, valamint felnifelújítással fordulhat hozzánk. A biztosítási ügyeket az adott kár iratai alapján vizsgáljuk, a biztosító fizetési jóváhagyását nem ígérjük előre.",
+    visit: "Minden munkát Torreviejában végzünk. A felsorolt helyeken nincs fiókműhelyünk vagy mobil javításunk. Indulás előtt küldjön képeket WhatsAppon, és egyeztessen időpontot.",
+    groups: ["Torrevieja és környéke", "Guardamar és Rojales környéke", "Középső Vega Baja", "Vega Baja belső területei", "Orihuela Costa", "Pilar és a partvidék", "Murcia felé"],
+    links: ["Szolgáltatások", "Karosszériajavítás", "Autófényezés", "Baleseti és biztosítási javítás", "Felnifelújítás", "Területi áttekintés", "Érdeklődés WhatsAppon"],
+  },
+  bg: {
+    heading: "Клиенти от Torrevieja и околностите",
+    intro: "Работилницата PaintLab се намира в Torrevieja и приема автомобили от близките населени места в южната част на Costa Blanca и Vega Baja del Segura. Приемаме и клиенти от посочените по-долу градове откъм Murcia.",
+    bridge: "Можете да се обърнете към нас за каросериен ремонт, боядисване, възстановяване след ПТП или застрахователна щета и реставрация на джанти. Застрахователните случаи се разглеждат по конкретните документи, без обещание за автоматично одобрение на плащането от застрахователя.",
+    visit: "Всички работи се извършват в Torrevieja. Нямаме филиали или мобилен ремонт в изброените места. Преди пътуване изпратете снимки по WhatsApp и уговорете посещение.",
+    groups: ["Torrevieja и околностите", "Guardamar и районът на Rojales", "Централна Vega Baja", "Вътрешността на Vega Baja", "Orihuela Costa", "Pilar и крайбрежието", "Откъм Murcia"],
+    links: ["Услуги", "Каросериен ремонт", "Боядисване на автомобили", "Ремонт след ПТП и застрахователна щета", "Реставрация на джанти", "Преглед на районите", "Запитване по WhatsApp"],
+  },
+  pt: {
+    heading: "Clientes de Torrevieja e arredores",
+    intro: "A PaintLab situa-se em Torrevieja e recebe viaturas de localidades próximas do sul da Costa Blanca e da Vega Baja del Segura. Recebemos também clientes das localidades abaixo indicadas do lado de Murcia.",
+    bridge: "Pode recorrer à oficina para reparação de carroçaria, pintura automóvel, reparações após acidente ou sinistro e recuperação de jantes. Os casos de seguro são analisados segundo os documentos de cada processo, sem presumir a aprovação do pagamento pela seguradora.",
+    visit: "Todos os trabalhos são feitos em Torrevieja. Não temos sucursais nem reparação ao domicílio nestas localidades. Antes de se deslocar, envie fotografias pelo WhatsApp e combine a visita.",
+    groups: ["Torrevieja e arredores", "Guardamar e zona de Rojales", "Vega Baja central", "Interior da Vega Baja", "Orihuela Costa", "Pilar e litoral", "Do lado de Murcia"],
+    links: ["Serviços", "Reparação de carroçaria", "Pintura automóvel", "Acidentes e seguros", "Recuperação de jantes", "Guia das localidades", "Contactar pelo WhatsApp"],
+  },
+  el: {
+    heading: "Πελάτες από την Torrevieja και τις γύρω περιοχές",
+    intro: "Το PaintLab βρίσκεται στην Torrevieja και δέχεται αυτοκίνητα από κοντινές περιοχές της νότιας Costa Blanca και της Vega Baja del Segura. Δεχόμαστε επίσης πελάτες από τις παρακάτω πόλεις προς την πλευρά της Murcia.",
+    bridge: "Μπορείτε να απευθυνθείτε σε εμάς για επισκευή αμαξώματος, βαφή, αποκατάσταση μετά από ατύχημα ή ασφαλιστική ζημιά και ανακαίνιση ζαντών. Οι ασφαλιστικές υποθέσεις εξετάζονται βάσει των εγγράφων κάθε περίπτωσης, χωρίς υπόσχεση αυτόματης έγκρισης πληρωμής από την ασφαλιστική εταιρεία.",
+    visit: "Όλες οι εργασίες γίνονται στην Torrevieja. Δεν διαθέτουμε υποκαταστήματα ή κινητό συνεργείο στις αναφερόμενες περιοχές. Πριν ξεκινήσετε, στείλτε φωτογραφίες στο WhatsApp και συνεννοηθείτε για την επίσκεψη.",
+    groups: ["Torrevieja και γύρω περιοχές", "Guardamar και περιοχή Rojales", "Κεντρική Vega Baja", "Ενδοχώρα της Vega Baja", "Orihuela Costa", "Pilar και ακτή", "Προς τη Murcia"],
+    links: ["Υπηρεσίες", "Επισκευή αμαξώματος", "Βαφή αυτοκινήτου", "Ατυχήματα και ασφάλιση", "Ανακαίνιση ζαντών", "Οδηγός περιοχών", "Επικοινωνία στο WhatsApp"],
+  },
+  cs: {
+    heading: "Zákazníci z Torrevieja a okolí",
+    intro: "Dílna PaintLab sídlí v Torrevieja a přijímá auta z blízkých měst jižní Costa Blanca a regionu Vega Baja del Segura. Vítáme také zákazníky z níže uvedených míst na straně Murcie.",
+    bridge: "Můžete se na nás obrátit s opravou karoserie, lakováním auta, opravou po nehodě či pojistné události a renovací disků. Pojistné případy posuzujeme podle konkrétních dokladů bez příslibu automatického schválení úhrady pojišťovnou.",
+    visit: "Veškeré práce probíhají v Torrevieja. V uvedených místech nemáme pobočky ani mobilní opravy. Před cestou pošlete fotografie přes WhatsApp a domluvte si návštěvu.",
+    groups: ["Torrevieja a okolí", "Guardamar a okolí Rojales", "Střední Vega Baja", "Vnitrozemí Vega Baja", "Orihuela Costa", "Pilar a pobřeží", "Na straně Murcie"],
+    links: ["Služby", "Oprava karoserie", "Lakování auta", "Nehody a pojistné události", "Renovace disků", "Přehled lokalit", "Napsat přes WhatsApp"],
+  },
+};

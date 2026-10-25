@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ServiceAreaSection } from "@/components/sections/service-area-section";
 import {
   ArrowLeft,
   ArrowRight,
@@ -260,6 +261,8 @@ export function ArchitecturePage({ page }: ArchitecturePageProps) {
             </Container>
           </section>
         ) : null}
+
+        {page.serviceArea ? <ServiceAreaSection content={page.serviceArea} /> : null}
 
         {page.faq?.length ? (
           <section id="faq" className="border-b border-white/10 py-12 sm:py-16">

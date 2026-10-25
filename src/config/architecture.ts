@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ServiceAreaContent } from "@/config/geo-coverage";
 import { addArchitectureMoneyCoverage } from "@/config/money-service-coverage";
 import { dictionaries, fallbackLocale, type Locale } from "@/config/i18n";
 import { getServiceAreaSchema } from "@/config/service-areas";
@@ -23,6 +24,7 @@ export type ArchitectureSection = {
 };
 
 export type ArchitecturePage = {
+  serviceArea?: ServiceAreaContent;
   path: string;
   locale?: Locale;
   hubKind?: "services" | "cities";

@@ -1,4 +1,5 @@
 import type { ArchitecturePage } from "@/config/architecture";
+import { addHubGeoCoverage } from "@/config/geo-coverage";
 import { addArchitectureMoneyCoverage } from "@/config/money-service-coverage";
 import { getArchitecturePage } from "@/config/architecture";
 import type { Locale } from "@/config/i18n";
@@ -471,7 +472,7 @@ export function getArchitectureHubPage(locale: ArchitectureHubLocale, kind: Arch
   if (locale === "es") {
     const original = getArchitecturePage(hubPaths[kind].es);
     if (!original) throw new Error(`Missing Spanish architecture hub: ${kind}`);
-    return {
+    return addHubGeoCoverage({
       ...original,
       links: kind === "services" ? [
         ...original.links,
@@ -482,17 +483,17 @@ export function getArchitectureHubPage(locale: ArchitectureHubLocale, kind: Arch
       locale,
       hubKind: kind,
       alternatePaths,
-    };
+    });
   }
 
   const page = localizedHubPages[locale][kind];
   const path = hubPaths[kind][locale];
   if (!page || !path) notFound();
-  return addArchitectureMoneyCoverage({
+  return addHubGeoCoverage(addArchitectureMoneyCoverage({
     ...page,
     path,
     alternatePaths,
     locale,
     hubKind: kind,
-  });
+  }));
 }
