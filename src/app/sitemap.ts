@@ -112,14 +112,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: { languages },
     };
   });
-  const germanHubPages = (["services", "cities"] as const).map((kind) => ({
-    url: getAbsoluteUrl(getArchitectureHubPath("de", kind)),
+  const localizedHubPages = ([
+    { locale: "de", kind: "services" },
+    { locale: "de", kind: "cities" },
+    { locale: "uk", kind: "services" },
+  ] as const).map(({ locale, kind }) => ({
+    url: getAbsoluteUrl(getArchitectureHubPath(locale, kind)),
     lastModified: new Date("2026-10-24T00:00:00.000Z"),
   }));
 
   return [
     ...languagePages,
-    ...germanHubPages,
+    ...localizedHubPages,
     ...localizedServiceSeoPages,
     ...architectureSeoPages,
     ...blogCategoryPages,
