@@ -1,6 +1,7 @@
 import type { Locale } from "@/config/i18n";
 
 type GeoCopy = {
+  workshop: string;
   heading: string;
   intro: string;
   bridge: string;
@@ -11,6 +12,7 @@ type GeoCopy = {
 
 export const geoCoverageCopy: Record<Locale, GeoCopy> = {
   es: {
+    workshop: "PaintLab es un taller de reparación de coches en Torrevieja especializado en carrocería, chapa y pintura.",
     heading: "Clientes de Torrevieja y localidades cercanas",
     intro: "PaintLab está en Torrevieja y recibe vehículos de localidades cercanas del sur de la Costa Blanca y la Vega Baja del Segura. También atendemos a clientes de las zonas de Murcia indicadas abajo.",
     bridge: "Puedes acudir para reparación de carrocería, pintura del coche, trabajos tras un accidente o un siniestro de seguro y restauración de llantas. Los casos de seguro se revisan según la documentación; no implican una aprobación automática de la aseguradora.",
@@ -19,6 +21,7 @@ export const geoCoverageCopy: Record<Locale, GeoCopy> = {
     links: ["Servicios", "Reparación de carrocería", "Pintura del coche", "Reparación tras accidente y seguro", "Restauración de llantas", "Guía de localidades", "Consultar por WhatsApp"],
   },
   en: {
+    workshop: "PaintLab is a car repair shop in Torrevieja specialising in bodywork repairs and car painting.",
     heading: "Customers from Torrevieja and the surrounding area",
     intro: "PaintLab is based in Torrevieja and welcomes vehicles from nearby towns across the southern Costa Blanca, also known as Costa Blanca South, and the Vega Baja del Segura. We also accept customers from the Murcia locations shown below.",
     bridge: "Customers can visit for bodywork repairs, car painting, accident and insurance-related repairs, and wheel refurbishment. Insurance jobs are reviewed against the documents for the individual claim, without assuming the insurer has approved the work.",
@@ -27,6 +30,7 @@ export const geoCoverageCopy: Record<Locale, GeoCopy> = {
     links: ["Services", "Bodywork repairs", "Car painting", "Accident and insurance repairs", "Wheel refurbishment", "Area guide", "Ask on WhatsApp"],
   },
   ru: {
+    workshop: "PaintLab — автосервис в Торревьехе, специализирующийся на кузовном ремонте и покраске автомобилей.",
     heading: "Клиенты из Торревьехи и соседних районов",
     intro: "Мастерская PaintLab находится в Торревьехе (Torrevieja) и принимает автомобили из соседних городов южной части Costa Blanca и региона Vega Baja del Segura. Также принимаем клиентов из указанных ниже городов со стороны Murcia.",
     bridge: "К нам можно обратиться для кузовного ремонта, покраски автомобиля, восстановления после ДТП, ремонта по страховому случаю и реставрации дисков. По страховым случаям проверяем документы конкретного обращения, не обещая автоматического согласования оплаты страховщиком.",
@@ -35,6 +39,7 @@ export const geoCoverageCopy: Record<Locale, GeoCopy> = {
     links: ["Все услуги", "Кузовной ремонт", "Покраска автомобиля", "Ремонт после ДТП и по страховке", "Реставрация дисков", "Путеводитель по районам", "Написать в WhatsApp"],
   },
   uk: {
+    workshop: "PaintLab — автосервіс у Торрев’єсі, що спеціалізується на ремонті кузова та фарбуванні автомобілів.",
     heading: "Клієнти з Торрев'єхи та сусідніх районів",
     intro: "Майстерня PaintLab розташована в Торрев'єсі (Torrevieja) та приймає автомобілі із сусідніх міст південної частини Costa Blanca й регіону Vega Baja del Segura. Також приймаємо клієнтів із зазначених нижче міст з боку Murcia.",
     bridge: "Можна звернутися щодо кузовного ремонту, фарбування автомобіля, відновлення після ДТП, ремонту за страховим випадком і реставрації дисків. Страхові звернення розглядаємо за документами конкретної справи, без обіцянки автоматичного погодження оплати страховиком.",
@@ -43,6 +48,7 @@ export const geoCoverageCopy: Record<Locale, GeoCopy> = {
     links: ["Усі послуги", "Кузовний ремонт", "Фарбування автомобіля", "Ремонт після ДТП і за страховкою", "Реставрація дисків", "Огляд районів", "Написати у WhatsApp"],
   },
   de: {
+    workshop: "PaintLab ist eine Autowerkstatt in Torrevieja mit Spezialisierung auf Karosseriereparaturen und Fahrzeuglackierung.",
     heading: "Kunden aus Torrevieja und Umgebung",
     intro: "PaintLab befindet sich in Torrevieja und nimmt Fahrzeuge aus den umliegenden Orten der südlichen Costa Blanca und der Vega Baja del Segura an. Dazu gehören auch die unten genannten Orte auf der Seite der Region Murcia.",
     bridge: "Zum Angebot gehören Karosseriereparaturen, Fahrzeuglackierung, Unfall- und Versicherungsreparaturen sowie Felgenaufbereitung. Bei Versicherungsschäden prüfen wir die Unterlagen des Einzelfalls; eine Kostenfreigabe des Versicherers wird nicht vorausgesetzt.",
@@ -51,6 +57,7 @@ export const geoCoverageCopy: Record<Locale, GeoCopy> = {
     links: ["Leistungen", "Karosseriereparatur", "Fahrzeuglackierung", "Unfall- und Versicherungsreparatur", "Felgenaufbereitung", "Ortsübersicht", "Per WhatsApp anfragen"],
   },
   pl: {
+    workshop: "PaintLab to warsztat samochodowy w Torrevieja specjalizujący się w naprawach blacharskich i lakierowaniu samochodów.",
     heading: "Klienci z Torrevieja i okolic",
     intro: "Warsztat PaintLab znajduje się w Torrevieja i przyjmuje samochody z pobliskich miejscowości południowej Costa Blanca oraz regionu Vega Baja del Segura. Przyjmujemy również klientów z wymienionych niżej miejscowości po stronie Murcji.",
     bridge: "Można zgłosić się na naprawy blacharskie, lakierowanie samochodu, naprawy po kolizji i szkody ubezpieczeniowej oraz renowację felg. Sprawy ubezpieczeniowe sprawdzamy na podstawie dokumentów konkretnej szkody, bez obietnicy automatycznej akceptacji kosztów przez ubezpieczyciela.",
@@ -59,6 +66,7 @@ export const geoCoverageCopy: Record<Locale, GeoCopy> = {
     links: ["Usługi", "Naprawy blacharskie", "Lakierowanie samochodu", "Naprawy powypadkowe i ubezpieczeniowe", "Renowacja felg", "Przewodnik po okolicy", "Zapytaj przez WhatsApp"],
   },
   fr: {
+    workshop: "PaintLab est un atelier de réparation automobile à Torrevieja spécialisé dans la carrosserie et la peinture automobile.",
     heading: "Clients de Torrevieja et des environs",
     intro: "PaintLab se trouve à Torrevieja et accueille les véhicules des localités voisines du sud de la Costa Blanca et de la Vega Baja del Segura. Nous recevons aussi les clients des communes indiquées ci-dessous du côté de Murcia.",
     bridge: "Vous pouvez venir pour la carrosserie, la peinture automobile, les réparations après accident ou sinistre et la rénovation des jantes. Les dossiers d'assurance sont étudiés individuellement, sans présumer de l'accord de prise en charge de l'assureur.",
@@ -67,6 +75,7 @@ export const geoCoverageCopy: Record<Locale, GeoCopy> = {
     links: ["Prestations", "Réparation de carrosserie", "Peinture automobile", "Accident et assurance", "Rénovation de jantes", "Guide des localités", "Écrire sur WhatsApp"],
   },
   nl: {
+    workshop: "PaintLab is een autoreparatiebedrijf in Torrevieja dat gespecialiseerd is in carrosserieherstel en autospuitwerk.",
     heading: "Klanten uit Torrevieja en omgeving",
     intro: "PaintLab is gevestigd in Torrevieja en ontvangt auto's uit nabijgelegen plaatsen aan de zuidelijke Costa Blanca en in de Vega Baja del Segura. Ook klanten uit de hieronder genoemde plaatsen aan de kant van Murcia zijn welkom.",
     bridge: "U kunt terecht voor carrosserieherstel, autospuitwerk, herstel na een aanrijding of verzekeringsschade en velgenherstel. Bij verzekeringszaken bekijken we de stukken per schadegeval; toestemming voor vergoeding door de verzekeraar wordt niet verondersteld.",
@@ -75,6 +84,7 @@ export const geoCoverageCopy: Record<Locale, GeoCopy> = {
     links: ["Diensten", "Carrosserieherstel", "Autospuitwerk", "Aanrijding en verzekering", "Velgenherstel", "Gebiedsoverzicht", "Vraag via WhatsApp"],
   },
   it: {
+    workshop: "PaintLab è un'officina di riparazione auto a Torrevieja specializzata in carrozzeria e verniciatura.",
     heading: "Clienti da Torrevieja e dai dintorni",
     intro: "PaintLab ha sede a Torrevieja e accoglie auto dalle località vicine della Costa Blanca meridionale e della Vega Baja del Segura. Riceviamo anche clienti dalle località indicate sotto, sul versante di Murcia.",
     bridge: "Ci si può rivolgere a noi per carrozzeria, verniciatura, riparazioni dopo incidenti o sinistri assicurativi e restauro dei cerchi. Le pratiche assicurative vengono esaminate singolarmente, senza presumere l'autorizzazione al pagamento da parte della compagnia.",
@@ -83,6 +93,7 @@ export const geoCoverageCopy: Record<Locale, GeoCopy> = {
     links: ["Servizi", "Riparazioni di carrozzeria", "Verniciatura auto", "Incidenti e assicurazione", "Restauro cerchi", "Guida alle località", "Scrivi su WhatsApp"],
   },
   nb: {
+    workshop: "PaintLab er et bilverksted i Torrevieja som spesialiserer seg på karosserireparasjon og billakkering.",
     heading: "Kunder fra Torrevieja og nærområdet",
     intro: "PaintLab holder til i Torrevieja og tar imot biler fra nærliggende steder på den sørlige Costa Blanca og i Vega Baja del Segura. Vi tar også imot kunder fra stedene nedenfor på Murcia-siden.",
     bridge: "Du kan komme til oss for karosserireparasjon, billakkering, arbeid etter en kollisjon eller forsikringsskade og felgrestaurering. Forsikringssaker vurderes ut fra dokumentene i den enkelte saken, uten løfte om at selskapet godkjenner kostnadene.",
@@ -91,6 +102,7 @@ export const geoCoverageCopy: Record<Locale, GeoCopy> = {
     links: ["Tjenester", "Karosserireparasjon", "Billakkering", "Kollisjons- og forsikringsskader", "Felgrestaurering", "Områdeoversikt", "Spør på WhatsApp"],
   },
   fi: {
+    workshop: "PaintLab on Torreviejassa toimiva autokorjaamo, joka on erikoistunut korikorjauksiin ja automaalaukseen.",
     heading: "Asiakkaita Torreviejasta ja lähialueilta",
     intro: "PaintLab sijaitsee Torreviejassa ja ottaa vastaan autoja eteläisen Costa Blancan sekä Vega Baja del Seguran lähikunnista. Palvelemme myös asiakkaita alla mainituista Murcian puoleisista paikkakunnista.",
     bridge: "Palveluihin kuuluvat korikorjaukset, automaalaus, kolari- ja vakuutusvahinkojen korjaukset sekä vanteiden kunnostus. Vakuutusasiat käsitellään tapauskohtaisten asiakirjojen perusteella; vakuutusyhtiön korvauspäätöstä ei oleteta valmiiksi.",
@@ -99,6 +111,7 @@ export const geoCoverageCopy: Record<Locale, GeoCopy> = {
     links: ["Palvelut", "Korikorjaus", "Automaalaus", "Kolari- ja vakuutusvahingot", "Vanteiden kunnostus", "Alueopas", "Kysy WhatsAppissa"],
   },
   da: {
+    workshop: "PaintLab er et bilværksted i Torrevieja med speciale i karrosserireparation og billakering.",
     heading: "Kunder fra Torrevieja og omegn",
     intro: "PaintLab ligger i Torrevieja og tager imod biler fra nærliggende byer på den sydlige Costa Blanca og i Vega Baja del Segura. Vi tager også imod kunder fra de nedenstående byer på Murcia-siden.",
     bridge: "Du kan henvende dig om karrosserireparation, billakering, reparation efter uheld eller forsikringsskade samt fælgrestaurering. Forsikringssager vurderes ud fra den konkrete dokumentation uden løfte om, at forsikringsselskabet godkender betalingen.",
@@ -107,6 +120,7 @@ export const geoCoverageCopy: Record<Locale, GeoCopy> = {
     links: ["Ydelser", "Karrosserireparation", "Billakering", "Uheld og forsikringsskader", "Fælgrestaurering", "Områdeoversigt", "Spørg på WhatsApp"],
   },
   sv: {
+    workshop: "PaintLab är en bilverkstad i Torrevieja med inriktning på karossreparationer och billackering.",
     heading: "Kunder från Torrevieja och närliggande orter",
     intro: "PaintLab finns i Torrevieja och tar emot bilar från närliggande orter på södra Costa Blanca och i Vega Baja del Segura. Vi välkomnar även kunder från orterna nedan på Murcia-sidan.",
     bridge: "Du kan vända dig till oss för karossreparation, billackering, reparation efter kollision eller försäkringsskada och fälgrenovering. Försäkringsärenden bedöms utifrån handlingarna i varje fall; vi förutsätter inte att försäkringsbolaget har godkänt kostnaden.",
@@ -115,6 +129,7 @@ export const geoCoverageCopy: Record<Locale, GeoCopy> = {
     links: ["Tjänster", "Karossreparation", "Billackering", "Kollisions- och försäkringsskador", "Fälgrenovering", "Områdesguide", "Fråga via WhatsApp"],
   },
   sk: {
+    workshop: "PaintLab je autoservis v Torrevieja so zameraním na opravy karosérie a lakovanie automobilov.",
     heading: "Zákazníci z Torrevieja a okolia",
     intro: "Dielňa PaintLab sídli v Torrevieja a prijíma autá z okolitých miest južnej Costa Blanca a regiónu Vega Baja del Segura. Prijímame aj zákazníkov z nižšie uvedených miest na strane Murcie.",
     bridge: "Môžete sa obrátiť na nás s opravou karosérie, lakovaním auta, opravou po nehode či poistnej udalosti a renováciou diskov. Poistné prípady posudzujeme podľa konkrétnych dokladov bez prísľubu automatického schválenia úhrady poisťovňou.",
@@ -123,6 +138,7 @@ export const geoCoverageCopy: Record<Locale, GeoCopy> = {
     links: ["Služby", "Oprava karosérie", "Lakovanie auta", "Nehody a poistné udalosti", "Renovácia diskov", "Prehľad lokalít", "Napísať cez WhatsApp"],
   },
   hu: {
+    workshop: "A PaintLab Torreviejában működő autószerviz, amely karosszériajavításra és autófényezésre szakosodott.",
     heading: "Ügyfelek Torreviejából és a környékről",
     intro: "A PaintLab műhelye Torreviejában található, és fogadja a déli Costa Blanca, valamint a Vega Baja del Segura közeli településeiről érkező autókat. Az alább felsorolt, Murcia felőli településekről is várjuk ügyfeleinket.",
     bridge: "Karosszériajavítással, autófényezéssel, baleseti és biztosítási károk javításával, valamint felnifelújítással fordulhat hozzánk. A biztosítási ügyeket az adott kár iratai alapján vizsgáljuk, a biztosító fizetési jóváhagyását nem ígérjük előre.",
@@ -131,6 +147,7 @@ export const geoCoverageCopy: Record<Locale, GeoCopy> = {
     links: ["Szolgáltatások", "Karosszériajavítás", "Autófényezés", "Baleseti és biztosítási javítás", "Felnifelújítás", "Területi áttekintés", "Érdeklődés WhatsAppon"],
   },
   bg: {
+    workshop: "PaintLab е автосервиз в Torrevieja, специализиран в каросерийни ремонти и боядисване на автомобили.",
     heading: "Клиенти от Torrevieja и околностите",
     intro: "Работилницата PaintLab се намира в Torrevieja и приема автомобили от близките населени места в южната част на Costa Blanca и Vega Baja del Segura. Приемаме и клиенти от посочените по-долу градове откъм Murcia.",
     bridge: "Можете да се обърнете към нас за каросериен ремонт, боядисване, възстановяване след ПТП или застрахователна щета и реставрация на джанти. Застрахователните случаи се разглеждат по конкретните документи, без обещание за автоматично одобрение на плащането от застрахователя.",
@@ -139,6 +156,7 @@ export const geoCoverageCopy: Record<Locale, GeoCopy> = {
     links: ["Услуги", "Каросериен ремонт", "Боядисване на автомобили", "Ремонт след ПТП и застрахователна щета", "Реставрация на джанти", "Преглед на районите", "Запитване по WhatsApp"],
   },
   pt: {
+    workshop: "A PaintLab é uma oficina de reparação automóvel em Torrevieja especializada em carroçaria, chapa e pintura.",
     heading: "Clientes de Torrevieja e arredores",
     intro: "A PaintLab situa-se em Torrevieja e recebe viaturas de localidades próximas do sul da Costa Blanca e da Vega Baja del Segura. Recebemos também clientes das localidades abaixo indicadas do lado de Murcia.",
     bridge: "Pode recorrer à oficina para reparação de carroçaria, pintura automóvel, reparações após acidente ou sinistro e recuperação de jantes. Os casos de seguro são analisados segundo os documentos de cada processo, sem presumir a aprovação do pagamento pela seguradora.",
@@ -147,6 +165,7 @@ export const geoCoverageCopy: Record<Locale, GeoCopy> = {
     links: ["Serviços", "Reparação de carroçaria", "Pintura automóvel", "Acidentes e seguros", "Recuperação de jantes", "Guia das localidades", "Contactar pelo WhatsApp"],
   },
   el: {
+    workshop: "Το PaintLab είναι συνεργείο αυτοκινήτων στην Torrevieja που ειδικεύεται στην επισκευή αμαξώματος και τη βαφή αυτοκινήτων.",
     heading: "Πελάτες από την Torrevieja και τις γύρω περιοχές",
     intro: "Το PaintLab βρίσκεται στην Torrevieja και δέχεται αυτοκίνητα από κοντινές περιοχές της νότιας Costa Blanca και της Vega Baja del Segura. Δεχόμαστε επίσης πελάτες από τις παρακάτω πόλεις προς την πλευρά της Murcia.",
     bridge: "Μπορείτε να απευθυνθείτε σε εμάς για επισκευή αμαξώματος, βαφή, αποκατάσταση μετά από ατύχημα ή ασφαλιστική ζημιά και ανακαίνιση ζαντών. Οι ασφαλιστικές υποθέσεις εξετάζονται βάσει των εγγράφων κάθε περίπτωσης, χωρίς υπόσχεση αυτόματης έγκρισης πληρωμής από την ασφαλιστική εταιρεία.",
@@ -155,6 +174,7 @@ export const geoCoverageCopy: Record<Locale, GeoCopy> = {
     links: ["Υπηρεσίες", "Επισκευή αμαξώματος", "Βαφή αυτοκινήτου", "Ατυχήματα και ασφάλιση", "Ανακαίνιση ζαντών", "Οδηγός περιοχών", "Επικοινωνία στο WhatsApp"],
   },
   cs: {
+    workshop: "PaintLab je autoservis v Torrevieja zaměřený na karosářské opravy a lakování automobilů.",
     heading: "Zákazníci z Torrevieja a okolí",
     intro: "Dílna PaintLab sídlí v Torrevieja a přijímá auta z blízkých měst jižní Costa Blanca a regionu Vega Baja del Segura. Vítáme také zákazníky z níže uvedených míst na straně Murcie.",
     bridge: "Můžete se na nás obrátit s opravou karoserie, lakováním auta, opravou po nehodě či pojistné události a renovací disků. Pojistné případy posuzujeme podle konkrétních dokladů bez příslibu automatického schválení úhrady pojišťovnou.",
