@@ -5,6 +5,7 @@ import { moneyServiceCopy } from "@/config/money-service-copy";
 import { germanPaintingCostText, serviceCostFaq, spanishServiceCostText } from "@/config/service-cost-copy";
 import { getProjectPath } from "@/config/projects-i18n";
 import { projects } from "@/data/projects";
+import { bodyRestorationCopy } from "@/config/body-restoration-copy";
 
 type Topic = "body" | "paint" | "bumper";
 const dedicatedLocales: readonly Locale[] = ["es", "en", "ru", "uk", "de", "pl"];
@@ -38,6 +39,18 @@ function projectLinks(locale: Locale, topic: Topic, scope: "service" | "hub" | "
     });
 }
 
+function restorationSections(locale: Locale, topic: "body" | "paint") {
+  const copy = bodyRestorationCopy[locale];
+  return topic === "body"
+    ? [{ heading: copy.bodyHeading, paragraphs: [copy.body, ...(copy.replacement ? [copy.replacement] : [])] }]
+    : [{ heading: copy.paintHeading, paragraphs: [copy.paint] }];
+}
+
+function restorationProof(locale: Locale) {
+  const project = projects.find((item) => item.slug === "restauracion-carroceria-danos-graves-torrevieja");
+  return project ? [{ href: getProjectPath(locale, project.slug), label: project.headline[locale], text: project.shortDescription[locale] }] : [];
+}
+
 export function addLocalizedMoneyCoverage(page: LocalizedServicePage): LocalizedServicePage {
   if (page.key !== "body" && page.key !== "paint" && page.key !== "bumper") return page;
   const [heading, paragraph, question, answer] = moneyServiceCopy[page.locale][page.key];
@@ -45,7 +58,8 @@ export function addLocalizedMoneyCoverage(page: LocalizedServicePage): Localized
   return {
     ...page,
     sections: [...page.sections.map((section, index) => costText && index === 0
-      ? { ...section, paragraphs: [...section.paragraphs, costText] } : section), { heading, paragraphs: [paragraph] }],
+      ? { ...section, paragraphs: [...section.paragraphs, costText] } : section), { heading, paragraphs: [paragraph] },
+      ...(page.key === "bumper" ? [] : restorationSections(page.locale, page.key))],
     faq: redundantFaq.has(`${page.locale}:${page.key}`) ? page.faq : [...page.faq, { question, answer }],
     relatedLinks: [...page.relatedLinks, ...projectLinks(page.locale, page.key)
       .filter((link) => !page.relatedLinks.some((existing) => existing.href === link.href))],
@@ -70,8 +84,11 @@ export function addArchitectureMoneyCoverage(page: ArchitecturePage): Architectu
     ...page,
     sections: [...page.sections.map((section, index) => costText && index === 0
       ? { ...section, paragraphs: [...section.paragraphs, costText] } : section),
-      ...copy.map(([heading, paragraph]) => ({ heading, paragraphs: [paragraph] }))],
+      ...copy.map(([heading, paragraph]) => ({ heading, paragraphs: [paragraph] })),
+      ...topics.filter((key): key is "body" | "paint" => key !== "bumper").flatMap((key) => restorationSections(locale, key))],
     faq: [...(page.faq ?? []), ...copy.map(([, , question, answer]) => ({ question, answer })), ...(costFaq ? [costFaq] : [])],
-    links: [...page.links, ...links.filter((link) => !page.links.some((existing) => existing.href === link.href))],
+    links: [...page.links, ...[...links, ...(isProblemHub ? restorationProof(locale) : [])]
+      .filter((link, index, additions) => !page.links.some((existing) => existing.href === link.href)
+        && additions.findIndex((other) => other.href === link.href) === index)],
   };
 }
