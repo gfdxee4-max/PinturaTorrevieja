@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ServiceAreaContent } from "@/config/geo-coverage";
 import { addArchitectureMoneyCoverage } from "@/config/money-service-coverage";
+import { addPaintFinishingCoverage } from "@/config/paint-finishing-coverage";
 import { dictionaries, fallbackLocale, type Locale } from "@/config/i18n";
 import { getServiceAreaSchema } from "@/config/service-areas";
 import { siteConfig } from "@/config/site";
@@ -782,7 +783,7 @@ export const oldToNewServiceUrlMap = [
 
 export function getArchitecturePage(path: string) {
   const page = architecturePages.find((page) => page.path === path);
-  return page ? addArchitectureMoneyCoverage(page) : undefined;
+  return page ? addPaintFinishingCoverage(addArchitectureMoneyCoverage(page)) : undefined;
 }
 
 export function getArchitectureMetadata(page: ArchitecturePage): Metadata {
