@@ -24,7 +24,7 @@ export const germanServicePages = [
       { title: "Farbanpassung am Fahrzeug", text: "Der Farbton wird nicht nur nach dem Code, sondern auch anhand des vorhandenen Lacks beurteilt." },
     ],
     sections: [
-      { heading: "Autolackierung in Torrevieja", paragraphs: [
+      { heading: "Ihre Autolackiererei in Torrevieja", paragraphs: [
         "Eine Fahrzeuglackierung besteht aus deutlich mehr als dem Auftragen einer neuen Farbe. Zuerst wird beurteilt, welche Teile lackiert werden sollen, ob alte Beschichtungen stabil sind und ob Kratzer, Dellen oder frühere Reparaturen eine zusätzliche Vorbereitung erfordern. Danach lässt sich entscheiden, ob ein einzelnes Karosserieteil, mehrere angrenzende Bereiche oder das komplette Fahrzeug bearbeitet werden sollte.",
         "PaintLab arbeitet in Torrevieja für Kunden aus der Stadt und der südlichen Costa Blanca. Sie können vorab Fotos per WhatsApp senden. Auf Bildern lässt sich der mögliche Umfang häufig eingrenzen; eine verbindliche Beurteilung erfolgt jedoch erst am Fahrzeug, weil Untergrund, Verformungen und alte Lackschichten auf Fotos nicht immer vollständig erkennbar sind.",
       ] },
@@ -32,7 +32,7 @@ export const germanServicePages = [
         "Türen, Kotflügel, Motorhauben, Stoßfänger und Schweller können einzeln lackiert werden, wenn dies zum Schaden und zum Zustand des übrigen Fahrzeugs passt. Vor der Lackierung werden beschädigte Stellen freigelegt und fachgerecht vorbereitet. Kleine Unebenheiten müssen ausgeglichen und instabile Lackschichten entfernt werden, damit der neue Aufbau auf einer geeigneten Oberfläche liegt.",
         "Bei lackierbaren Kunststoffteilen unterscheidet sich die Vorbereitung von der Bearbeitung eines Metallteils. Deshalb wird jedes Bauteil einzeln betrachtet. Ist zusätzlich eine Karosserieinstandsetzung nötig, wird diese vor dem Lackaufbau ausgeführt. Umfangreiche Dellen oder verformte Bleche gehören zum eigenständigen Bereich der Karosseriereparatur und werden nicht allein durch Lackieren behoben.",
       ] },
-      { heading: "Komplettlackierung und Ganzlackierung", paragraphs: [
+      { heading: "Komplettlackierung und Ganzlackierung in Torrevieja", paragraphs: [
         "Eine Komplettlackierung kann sinnvoll sein, wenn viele Flächen stark gealtert oder unterschiedlich vorlackiert sind oder wenn ein einheitliches Gesamtbild hergestellt werden soll. Vor einer Ganzlackierung wird der Zustand aller sichtbaren Teile geprüft. Anbauteile werden soweit erforderlich demontiert, Oberflächen vorbereitet und Bereiche geschützt, die nicht lackiert werden sollen.",
         "Ob eine vollständige Neulackierung tatsächlich erforderlich ist, hängt vom Fahrzeug und vom gewünschten Ergebnis ab. PaintLab verspricht deshalb keinen pauschalen Ablauf ohne Besichtigung. Manchmal genügt die Lackierung mehrerer ausgewählter Teile; in anderen Fällen ist ein umfassender Aufbau nachvollziehbarer. Diese Entscheidung wird vor Arbeitsbeginn besprochen.",
       ] },
@@ -42,7 +42,7 @@ export const germanServicePages = [
       ] },
       { heading: "Farbanpassung bei bestehendem Fahrzeuglack", paragraphs: [
         "Der Farbcode ist ein wichtiger Ausgangspunkt, aber nicht die einzige Information. Sonnenlicht, Alter, Pflege und frühere Reparaturen können den tatsächlich sichtbaren Farbton verändern. Deshalb wird die Farbanpassung am konkreten Fahrzeug vorgenommen. Besonders bei Metallic- und Perleffekten beeinflussen Auftrag und Betrachtungswinkel die Wirkung.",
-        "Wer einen Autolackierer in Torrevieja sucht, sollte deshalb nicht nur nach der Farbe fragen, sondern auch den Zustand der angrenzenden Teile zeigen. So kann eingeschätzt werden, wie der Übergang gestaltet und welche Fläche vorbereitet werden muss. Fotos helfen bei der ersten Orientierung; die endgültige Abstimmung erfolgt in der Werkstatt.",
+        "Wer einen Lackierer in Torrevieja sucht, sollte deshalb nicht nur nach der Farbe fragen, sondern auch den Zustand der angrenzenden Teile zeigen. So kann eingeschätzt werden, wie der Übergang gestaltet und welche Fläche vorbereitet werden muss. Fotos helfen bei der ersten Orientierung; die endgültige Abstimmung erfolgt in der Werkstatt.",
       ] },
       { heading: "Autolackierung anhand realer Arbeiten beurteilen", paragraphs: [
         "Im Bereich „Unsere Arbeiten“ zeigt PaintLab echte Fahrzeuge vor und nach der Reparatur. Dazu gehören die Lackierung eines BMW E46 Cabriolet sowie lackierte Karosserieteile an Nissan Qashqai, Tesla Model 3, Fiat 500 und Mercedes-Benz V-Class. Die Beispiele ersetzen keine Besichtigung, zeigen aber den tatsächlichen Arbeitsbereich der Werkstatt.",
@@ -89,7 +89,7 @@ export const germanServicePages = [
       { title: "Echte Ergebnisse", text: "Dokumentierte Projekte zeigen Reparaturen an Türen, Kotflügeln und Seitenteilen." },
     ],
     sections: [
-      { heading: "Karosserieinstandsetzung bei Dellen und Verformungen", paragraphs: [
+      { heading: "Karosseriewerkstatt in Torrevieja für Dellen und Verformungen", paragraphs: [
         "Eine Delle ist nicht nur eine optische Störung. Je nach Tiefe, Kante und Position kann das Blech gedehnt oder die ursprüngliche Kontur verändert sein. Vor der Reparatur wird geprüft, wie der Bereich zugänglich ist und ob das Bauteil fachgerecht instand gesetzt werden kann. Erst danach lässt sich der notwendige Arbeitsumfang bestimmen.",
         "Bei PaintLab in Torrevieja beginnt die Karosseriereparatur deshalb mit einer Sichtprüfung und einer Beurteilung der Bauteilgeometrie. Geeignete Schäden werden zurückgeformt und die Oberfläche für den weiteren Aufbau vorbereitet. Wenn ein Schaden auf Fotos nicht sicher einzuschätzen ist, wird keine pauschale Zusage gemacht; die Entscheidung fällt nach der Besichtigung.",
       ] },
@@ -158,7 +158,7 @@ export const germanServicePages = [
         "Parkschäden hinterlassen häufig helle Abriebspuren, tiefe Kratzer oder abgeplatzten Lack. Zuerst wird geprüft, ob nur die Oberfläche betroffen ist oder ob das Kunststoffteil verformt beziehungsweise beschädigt wurde. Ein oberflächlicher Fremdabrieb kann anders behandelt werden als ein Kratzer, der den gesamten Lackaufbau durchtrennt.",
         "Für eine erste Einschätzung können Sie Fotos des ganzen Stoßfängers und Nahaufnahmen der Schadstelle senden. Die direkte Besichtigung bleibt wichtig, weil feine Risse, instabile Kanten und die Tiefe einer Verformung auf Bildern nicht immer klar zu erkennen sind.",
       ] },
-      { heading: "Stoßfänger reparieren statt pauschal ersetzen", paragraphs: [
+      { heading: "Stoßstangenreparatur in Torrevieja: Reparieren oder ersetzen?", paragraphs: [
         "Ob ein Stoßfänger repariert werden kann, hängt von Material, Lage und Ausmaß des Schadens ab. Geeignete Schrammen, Lackschäden und bestimmte Verformungen lassen sich vorbereiten und neu lackieren. Nicht jede Beschädigung ist technisch sinnvoll instandsetzbar; besonders bei starken Rissen, ausgerissenen Befestigungen oder sicherheitsrelevanten Schäden ist eine genaue Prüfung notwendig.",
         "PaintLab verspricht daher nicht, jeden Stoßfänger wiederherzustellen. Nach der Besichtigung wird erklärt, welche Arbeiten möglich sind und ob der bestehende Teil als Grundlage geeignet bleibt. Erst danach werden Reparatur und Lackierung vereinbart.",
       ] },
@@ -219,7 +219,7 @@ export const germanServicePages = [
       { title: "Keine falschen Zusagen", text: "Über Zahlung und Freigabe entscheidet die zuständige Versicherung, nicht PaintLab." },
     ],
     sections: [
-      { heading: "Nach einem Unfall PaintLab kontaktieren", paragraphs: [
+      { heading: "Unfallreparatur in Torrevieja: PaintLab kontaktieren", paragraphs: [
         "Senden Sie zuerst Fotos der beschädigten Fahrzeugbereiche und nennen Sie die Versicherung, bei der der Schadensfall geführt wird. Teilen Sie mit, wann und wie der Schaden entstanden ist und ob das Fahrzeug fahrbereit ist. Diese Informationen helfen, den nächsten sinnvollen Schritt vorzubereiten.",
         "Hat ein Gutachter beziehungsweise perito das Fahrzeug bereits gesehen, geben Sie dies ebenfalls an. Vorhandene Unterlagen, eine Schadennummer oder Informationen zur bisherigen Kommunikation können für die Einordnung wichtig sein. PaintLab prüft den Reparaturfall, ersetzt aber weder die Entscheidung der Versicherung noch die Begutachtung.",
       ] },
@@ -287,7 +287,7 @@ export const germanServicePages = [
         "Kratzer, Steinschläge, Korrosionsspuren und gealterte Beschichtungen beeinträchtigen die Oberfläche einer Felge. Nach einer Sichtprüfung kann entschieden werden, ob eine Aufbereitung technisch sinnvoll ist. Dabei wird nicht nur das sichtbare Finish betrachtet, sondern auch geprüft, ob Verformungen oder weitere Schäden vorliegen.",
         "PaintLab bietet Felgenaufbereitung für Kunden in Torrevieja und der südlichen Costa Blanca an. Fotos per WhatsApp helfen bei einer ersten Orientierung. Der endgültige Arbeitsumfang wird nach der direkten Prüfung bestätigt, weil Tiefe von Schäden und Zustand der alten Beschichtung auf Bildern nur begrenzt erkennbar sind.",
       ] },
-      { heading: "Geometrie prüfen und geeignete Felgen richten", paragraphs: [
+      { heading: "Felgenreparatur in Torrevieja: Geometrie prüfen und Felgen richten", paragraphs: [
         "Vor der Oberflächenbearbeitung kann die Geometrie der Felge kontrolliert werden. Ist eine Felge verformt und lässt ihr Zustand eine fachgerechte Wiederherstellung zu, kann sie bei Bedarf auf dem dafür vorgesehenen Stand gerichtet werden. Diese Prüfung erfolgt vor Sandstrahlen und Pulverbeschichtung.",
         "Nicht jede beschädigte Felge ist für das Richten geeignet. Art, Lage und Ausmaß der Verformung müssen technisch beurteilt werden. PaintLab verspricht keine Wiederherstellung ohne Prüfung und bietet auf dieser Seite weder Rissschweißen noch Diamond Cut oder CNC-Bearbeitung an.",
       ] },
@@ -295,7 +295,7 @@ export const germanServicePages = [
         "Vor einer neuen Beschichtung müssen alte Lackschichten, lose Bereiche und anhaftende Verunreinigungen entfernt werden. Das Sandstrahlen schafft eine gleichmäßige Grundlage für die anschließende Oberflächenvorbereitung. Es ersetzt jedoch nicht die vorherige Prüfung des Felgenzustands.",
         "Nach dem Strahlen wird die Oberfläche kontrolliert und für das verwendete Pulverbeschichtungssystem vorbereitet. Sichtbar werdende Schäden können den geplanten Umfang verändern. In diesem Fall wird erklärt, welche weiteren Schritte erforderlich sind, bevor die Felge beschichtet werden kann.",
       ] },
-      { heading: "Pulverbeschichtung von Auto- und Alufelgen", paragraphs: [
+      { heading: "Felgenlackierung in Torrevieja mit Pulverbeschichtung", paragraphs: [
         "Bei der Pulverbeschichtung wird das Beschichtungsmaterial gleichmäßig auf die vorbereitete Oberfläche aufgebracht. Danach erfolgt die Aushärtung bei der Temperatur und nach dem Ablauf, die für das eingesetzte System vorgesehen sind. So entsteht eine geschlossene, gleichmäßige Oberfläche.",
         "Die neue Farbe wird vor Arbeitsbeginn abgestimmt. Eine Farbänderung kann grundsätzlich besprochen werden, sofern sie zum Material und zum verfügbaren Beschichtungssystem passt. PaintLab nennt keine pauschale Auswahl oder Garantie ohne Prüfung und konkrete Abstimmung.",
       ] },

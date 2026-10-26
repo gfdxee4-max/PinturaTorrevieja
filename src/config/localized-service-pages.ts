@@ -986,7 +986,7 @@ export const localizedServicePages: readonly LocalizedServicePage[] = [
         ],
       },
       {
-        heading: "Painting Individual Body Panels",
+        heading: "Car Painting in Torrevieja: Individual Body Panels",
         paragraphs: [
           "Not every vehicle needs a complete car repaint. Scratches, chips, local paint failure or repair work may affect only one body panel. Painting an individual door, wing, bonnet, bumper or sill allows the damaged area to be restored without refinishing parts that remain in suitable condition. The panel and neighbouring paintwork are inspected before the method is confirmed.",
           "Body panel painting starts with correcting the surface rather than hiding the defect under fresh paint. If a panel has a dent, scrape or damaged previous repair, the agreed bodywork is completed first. The area is then levelled, sanded and prepared for primer, basecoat and clearcoat as required. Colour matching and the relationship with adjacent panels are considered so the finished repair fits naturally with the rest of the vehicle.",
@@ -1087,7 +1087,7 @@ export const localizedServicePages: readonly LocalizedServicePage[] = [
     hideDetailsTitle: true,
     sections: [
       {
-        heading: "Bodywork Repair for Dents and Panel Damage",
+        heading: "Car Bodywork in Torrevieja: Dents and Panel Damage",
         paragraphs: [
           "Car body damage can affect more than the visible paint surface. A dent may change the shape of a wing or door, a scrape can distort an edge, and an impact can affect panel alignment or nearby fixings. PaintLab begins by inspecting the whole damaged area rather than judging the repair from one mark. The condition of adjacent panels and the existing coating is also considered.",
           "Where the panel is suitable for repair, the bodywork is restored in the agreed area before refinishing. This may involve correcting the form, levelling the repair and rebuilding a stable surface. The aim is to address the damage underneath the paint so that preparation and painting follow a sound repair, not simply cover an unresolved defect.",
@@ -1137,7 +1137,7 @@ export const localizedServicePages: readonly LocalizedServicePage[] = [
       {
         heading: "Body Shop Assessment in Torrevieja",
         paragraphs: [
-          "If you need a body shop in Torrevieja, send overall and close-up photos of the damaged area to PaintLab on WhatsApp. Include the vehicle model and explain how the damage occurred if known. Customers from nearby South Costa Blanca areas can use the same process before arranging an inspection.",
+          "If you need an auto body shop in Torrevieja, send overall and close-up photos of the damaged area to PaintLab on WhatsApp. Include the vehicle model and explain how the damage occurred if known. Customers from nearby South Costa Blanca areas can use the same process before arranging an inspection.",
         ],
       },
     ],
@@ -1184,7 +1184,7 @@ export const localizedServicePages: readonly LocalizedServicePage[] = [
     hideDetailsTitle: true,
     sections: [
       {
-        heading: "Repairing Bumper Scratches and Scuffs",
+        heading: "Bumper Repair in Torrevieja for Scratches and Scuffs",
         paragraphs: [
           "Bumper scratches range from light marks in the clearcoat to deeper scuffs that expose the underlying coating or plastic. The visible size alone does not determine the repair. PaintLab checks the depth, the surrounding finish and whether the plastic has been gouged or changed shape. This establishes whether preparation and painting are sufficient or whether a plastic repair is also required.",
           "Scuffed corners are common because they are exposed during parking and low-speed manoeuvres. The full corner and adjacent edges are inspected, not just the most obvious mark. Suitable damage is prepared so that raised edges, loose coating and uneven material do not remain underneath the new finish.",
@@ -1198,7 +1198,7 @@ export const localizedServicePages: readonly LocalizedServicePage[] = [
         ],
       },
       {
-        heading: "Bumper Painting and Colour Matching",
+        heading: "Bumper Painting in Torrevieja and Colour Matching",
         paragraphs: [
           "After repair and preparation, the bumper is refinished in the agreed colour. Colour matching considers the vehicle code and the visible appearance of the adjacent panels. Basecoat provides the colour and clearcoat supplies the final visual and protective layer where that system is used.",
           "A painted plastic bumper can reflect light differently from a metal wing even when both use the same vehicle colour. The finished bumper is therefore assessed as part of the complete car, with attention to coverage, gloss, edge finish and the visual relationship with neighbouring bodywork.",
@@ -1289,14 +1289,14 @@ export const localizedServicePages: readonly LocalizedServicePage[] = [
         ],
       },
       {
-        heading: "Damage Assessment and Claim Status",
+        heading: "Insurance Car Repair in Torrevieja: Assessment and Claim Status",
         paragraphs: [
           "PaintLab assesses the technical repair situation separately from the insurer's administrative decision. We can review the visible body damage, identify likely panel repair and painting work, and explain what must be inspected at the workshop. Photographs provide an initial view but do not replace access to the vehicle.",
           "The claim status determines whether further insurer or assessor steps may be needed before work starts. PaintLab does not control the insurer's approval, payment decision or valuation. We also do not claim to be an official partner of every insurance company. Each case is reviewed according to the information provided by the customer and the requirements communicated for that claim.",
         ],
       },
       {
-        heading: "Car Body Repair After an Accident",
+        heading: "Car Accident Repair in Torrevieja",
         paragraphs: [
           "Accident damage can include dents, scratches, distorted wings or doors, bumper damage and paint loss across several panels. Once the necessary claim steps are confirmed, PaintLab inspects the vehicle and agrees on the technically appropriate body repair. Repairable panels are restored before preparation and painting.",
           "The repair sequence depends on the location and extent of the impact. A damaged bumper may need a different method from a metal wing, while misaligned panel edges or affected fixings require attention before refinishing. Work is not reduced to cosmetic painting when the underlying shape or attachment also needs repair.",
@@ -1397,14 +1397,14 @@ export const localizedServicePages: readonly LocalizedServicePage[] = [
         ],
       },
       {
-        heading: "Alloy Wheel Powder Coating",
+        heading: "Alloy Wheel Painting in Torrevieja with Powder Coating",
         paragraphs: [
           "Alloy wheel powder coating creates an even, durable finish when the surface has been correctly cleaned and prepared. Powder material is applied to the prepared wheel and then cured at the temperature specified for the coating system being used. The result depends on the full sequence: stripping, cleaning, surface preparation, application and controlled curing all matter.",
           "PaintLab can refinish individual wheels or a complete set after inspection. The work may restore a finish close to the previous appearance or change the colour, depending on the agreed coating option. Colour and preparation are confirmed before the work begins. We do not use stock or AI images to represent completed wheel projects; real examples can be added when suitable PaintLab work is documented.",
         ],
       },
       {
-        heading: "Wheel Straightening",
+        heading: "Alloy Wheel Repair in Torrevieja: Assessment and Straightening",
         paragraphs: [
           "Before refinishing, we can also check the wheel geometry. If the wheel is bent and its condition allows repair, straightening can be carried out before sandblasting, preparation and powder coating. The decision is based on an inspection of the individual wheel rather than on photographs alone.",
           "Straightening is only included when it is necessary and technically suitable for the wheel being assessed. Correcting the geometry first prevents a new coating from being applied before an identified deformation has been considered. Once the geometry work is complete, the wheel can continue through the agreed preparation and refinishing stages.",

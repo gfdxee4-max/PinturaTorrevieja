@@ -9,6 +9,7 @@ import { ReviewsSection } from "@/components/sections/reviews-section";
 import { RuSeoSection, RuServiceAreaNote } from "@/components/sections/ru-seo-section";
 import { UkSeoSection } from "@/components/sections/uk-seo-section";
 import { EsSeoSection } from "@/components/sections/es-seo-section";
+import { DeSeoSection } from "@/components/sections/de-seo-section";
 import { EnSeoSection } from "@/components/sections/en-seo-section";
 import { RepairBridgeSection } from "@/components/sections/repair-bridge-section";
 import { dictionaries, type Locale } from "@/config/i18n";
@@ -32,6 +33,7 @@ export function SitePage({ locale }: SitePageProps) {
         <HeroSection dictionary={dictionary} whatsappUrl={whatsappUrl} />
         <ServicesSection locale={locale} />
         {locale === "en" ? <EnSeoSection /> : null}
+        {locale === "de" ? <DeSeoSection /> : null}
         {locale === "es" ? <EsSeoSection /> : null}
         {locale === "ru" ? <RuSeoSection /> : null}
         {locale === "uk" ? <UkSeoSection /> : null}
