@@ -1,7 +1,8 @@
 import { locales, type Locale } from "@/config/i18n";
 import type { Project } from "@/data/projects";
+import { mercedesTranslations } from "@/data/mercedes-v-class-i18n";
 
-type Copy = {
+export type MercedesProjectCopy = {
   title: string;
   headline: string;
   description: string;
@@ -22,6 +23,8 @@ type Copy = {
   detailAfterAlt: string;
   cta: string;
 };
+
+type Copy = MercedesProjectCopy;
 
 const ru: Copy = {
   title: "Ремонт и покраска задней двери Mercedes-Benz V-Class",
@@ -67,12 +70,9 @@ const en: Copy = {
   cta: "Need a damaged door or another body panel repaired? Send vehicle photos on WhatsApp for an initial assessment.",
 };
 
-const es: Copy = { ...en, title: "Reparación y pintura de la puerta trasera Mercedes-Benz V-Class", headline: "Reparación y pintura de la puerta trasera Mercedes-Benz V-Class", description: "Reparación de carrocería y pintura de la puerta lateral trasera dañada de un Mercedes-Benz V-Class en Torrevieja.", intro: "Este Mercedes-Benz V-Class llegó a PaintLab con una abolladura marcada, arañazos profundos y daños en la pintura de la puerta lateral trasera. Recuperamos la forma, preparamos la superficie, ajustamos el color y pintamos la zona reparada.", beforeTitle: "Estado antes de la reparación", workTitle: "Trabajo realizado", repairTitle: "Reparación de la puerta trasera Mercedes-Benz V-Class", resultTitle: "Resultado después de la reparación", category: "Chapa y pintura", beforeAlt: "Puerta trasera dañada de Mercedes-Benz V-Class con abolladura y arañazos antes de la reparación", afterAlt: "Puerta trasera de Mercedes-Benz V-Class después de la reparación y pintura en PaintLab Torrevieja", detailBeforeAlt: "Abolladura y arañazos profundos en la puerta lateral del Mercedes-Benz V-Class antes de reparar", detailAfterAlt: "Puerta lateral del Mercedes-Benz V-Class reparada y pintada", cta: "¿Necesitas reparar una puerta u otro elemento de carrocería? Envía fotos del vehículo por WhatsApp para una valoración previa." };
-const uk: Copy = { ...ru, title: "Ремонт і фарбування задніх дверей Mercedes-Benz V-Class", headline: "Ремонт і фарбування задніх дверей Mercedes-Benz V-Class", description: "Кузовний ремонт і фарбування пошкоджених задніх бокових дверей Mercedes-Benz V-Class у Торрев'єсі.", beforeTitle: "Стан до ремонту", workTitle: "Що зробили", repairTitle: "Ремонт задніх дверей Mercedes-Benz V-Class", resultTitle: "Результат після ремонту", category: "Кузовний ремонт і фарбування", cta: "Потрібно відновити пошкоджені двері чи інший елемент кузова? Надішліть фотографії автомобіля у WhatsApp для попередньої оцінки." };
-
-const copies: Partial<Record<Locale, Copy>> = { es, en, ru, uk };
+const copies: Record<Locale, Copy> = { ...mercedesTranslations, en, ru };
 function localized<T>(select: (value: Copy) => T): Record<Locale, T> {
-  return Object.fromEntries(locales.map((locale) => [locale, select(copies[locale] ?? en)])) as Record<Locale, T>;
+  return Object.fromEntries(locales.map((locale) => [locale, select(copies[locale])])) as Record<Locale, T>;
 }
 
 const imageRoot = "/images/projects/mercedes-v-class-rear-door";

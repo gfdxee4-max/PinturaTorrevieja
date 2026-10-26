@@ -3,6 +3,7 @@ import { bodyRestorationProject } from "@/data/body-restoration-project";
 import { fiat500Project } from "@/data/fiat-500-project";
 import { bmwE46Project } from "@/data/bmw-e46-project";
 import { mercedesVClassProject } from "@/data/mercedes-v-class-project";
+import { assertProjectTranslations } from "@/data/project-translation-validation";
 
 type LocalizedText = Record<Locale, string>;
 type LocalizedList = Record<Locale, readonly string[]>;
@@ -712,6 +713,8 @@ export const projects: readonly Project[] = [
   bmwE46Project,
   mercedesVClassProject,
 ];
+
+assertProjectTranslations(projects);
 
 export function getProject(slug: string) {
   return projects.find((project) => project.slug === slug);

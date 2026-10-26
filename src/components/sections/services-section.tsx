@@ -10,9 +10,7 @@ import { comparisonSectionTranslations, serviceSectionTranslations } from "@/con
 export function ServicesSection({ locale }: { locale: Locale }) {
   const copy = serviceSectionTranslations[locale];
   const comparison = comparisonSectionTranslations[locale];
-  const projectsPath = locale === "ru" || locale === "uk"
-    ? getProjectsPath(locale)
-    : "/trabajos-realizados";
+  const projectsPath = getProjectsPath(locale);
 
   return (
     <Section id="services" className="relative isolate scroll-mt-24 overflow-hidden border-b border-white/[0.08] bg-[#030303] py-12 sm:py-16 lg:py-12">
