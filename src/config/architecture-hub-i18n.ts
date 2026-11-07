@@ -2,6 +2,7 @@ import type { ArchitecturePage } from "@/config/architecture";
 import { addHubGeoCoverage } from "@/config/geo-coverage";
 import { addArchitectureMoneyCoverage } from "@/config/money-service-coverage";
 import { addPaintFinishingCoverage } from "@/config/paint-finishing-coverage";
+import { addUnderbodyCoverage } from "@/config/underbody-coverage";
 import { getArchitecturePage } from "@/config/architecture";
 import type { Locale } from "@/config/i18n";
 import { getProjectsPath } from "@/config/projects-i18n";
@@ -473,7 +474,7 @@ export function getArchitectureHubPage(locale: ArchitectureHubLocale, kind: Arch
   if (locale === "es") {
     const original = getArchitecturePage(hubPaths[kind].es);
     if (!original) throw new Error(`Missing Spanish architecture hub: ${kind}`);
-    return addHubGeoCoverage({
+    return addUnderbodyCoverage(addHubGeoCoverage({
       ...original,
       links: kind === "services" ? [
         ...original.links,
@@ -484,17 +485,17 @@ export function getArchitectureHubPage(locale: ArchitectureHubLocale, kind: Arch
       locale,
       hubKind: kind,
       alternatePaths,
-    });
+    }));
   }
 
   const page = localizedHubPages[locale][kind];
   const path = hubPaths[kind][locale];
   if (!page || !path) notFound();
-  return addHubGeoCoverage(addPaintFinishingCoverage(addArchitectureMoneyCoverage({
+  return addUnderbodyCoverage(addHubGeoCoverage(addPaintFinishingCoverage(addArchitectureMoneyCoverage({
     ...page,
     path,
     alternatePaths,
     locale,
     hubKind: kind,
-  })));
+  }))));
 }
