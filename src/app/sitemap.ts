@@ -114,6 +114,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
   const localizedHubPages = ([
+    { locale: "en", kind: "services" },
+    { locale: "ru", kind: "services" },
     { locale: "de", kind: "services" },
     { locale: "de", kind: "cities" },
     { locale: "uk", kind: "services" },
