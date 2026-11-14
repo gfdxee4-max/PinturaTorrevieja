@@ -115,10 +115,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
   const localizedHubPages = ([
     { locale: "en", kind: "services" },
+    { locale: "en", kind: "cities" },
     { locale: "ru", kind: "services" },
+    { locale: "ru", kind: "cities" },
     { locale: "de", kind: "services" },
     { locale: "de", kind: "cities" },
     { locale: "uk", kind: "services" },
+    { locale: "uk", kind: "cities" },
     { locale: "pl", kind: "services" },
   ] as const).map(({ locale, kind }) => ({
     url: getAbsoluteUrl(getArchitectureHubPath(locale, kind)),

@@ -576,7 +576,7 @@ export const bodyRestorationProject: Project = {
         "label": "Reparación de carrocería"
       },
       {
-        "href": "/pintura-coche-torrevieja",
+        "href": "/servicios/pintura-coche",
         "label": "Pintura de coches en Torrevieja"
       }
     ],
