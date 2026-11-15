@@ -29,7 +29,6 @@ export const nissanJukeProject: Project = {
   altBefore: localized((copy) => copy.alts[0]),
   altAfter: localized((copy) => copy.alts[2]),
   comparisonLayout: "portrait",
-  cardMedia: "after",
   imageQuality: 95,
   galleryTitle: localized((copy) => copy.gallery),
   gallery: ["before-main", "before-detail", "after-main", "after-detail"].map((name, index) => ({
