@@ -716,6 +716,19 @@ export const projects: readonly Project[] = [
 
 assertProjectTranslations(projects);
 
+for (const project of projects) {
+  if (!Number.isFinite(Date.parse(project.publishedAt))) {
+    throw new Error(`Invalid project publishedAt: ${project.slug}`);
+  }
+}
+
+export function getProjectsNewestFirst(items: readonly Project[] = projects): readonly Project[] {
+  return [...items].sort((left, right) =>
+    Date.parse(right.publishedAt) - Date.parse(left.publishedAt)
+    || left.slug.localeCompare(right.slug),
+  );
+}
+
 export function getProject(slug: string) {
   return projects.find((project) => project.slug === slug);
 }

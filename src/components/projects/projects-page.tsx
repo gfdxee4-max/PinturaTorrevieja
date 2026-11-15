@@ -14,7 +14,7 @@ import {
   projectsYoutubeTranslations,
 } from "@/config/projects-i18n";
 import { youtubeChannelUrl } from "@/config/social-links";
-import type { Project } from "@/data/projects";
+import { getProjectsNewestFirst, type Project } from "@/data/projects";
 import { getProjectsStructuredData } from "@/lib/project-seo";
 import { createWhatsAppUrl } from "@/lib/whatsapp";
 
@@ -85,7 +85,7 @@ export function ProjectsPage({ locale, projects }: ProjectsPageProps) {
                 className="grid scroll-mt-28 gap-5 md:grid-cols-2 xl:grid-cols-3"
                 data-project-grid
               >
-                {projects.map((project) => (
+                {getProjectsNewestFirst(projects).map((project) => (
                   <article
                     key={project.slug}
                     className="flex min-w-0 flex-col overflow-hidden rounded-[6px] border border-white/15 bg-[#0a0a0a]"

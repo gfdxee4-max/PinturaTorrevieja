@@ -22,7 +22,7 @@ import {
 import { dictionaries, localizedPath } from "@/config/i18n";
 import { getProjectPath, getProjectsPath } from "@/config/projects-i18n";
 import { siteConfig } from "@/config/site";
-import { projects } from "@/data/projects";
+import { getProjectsNewestFirst } from "@/data/projects";
 import { getLocalizedServiceStructuredData } from "@/lib/localized-service-seo";
 import { createWhatsAppUrl } from "@/lib/whatsapp";
 
@@ -45,7 +45,7 @@ export function LocalizedServicePage({ page }: LocalizedServicePageProps) {
   const currentPath = getLocalizedServicePath(page);
   const alternates = getLocalizedServiceAlternates(page);
   const whatsappUrl = createWhatsAppUrl(page.whatsapp);
-  const featuredProjects = projects.slice(0, 2);
+  const featuredProjects = getProjectsNewestFirst().slice(0, 2);
 
   return (
     <>
