@@ -288,6 +288,7 @@ export const bodyRestorationProject: Project = {
     ]
   },
   "publishedAt": "2026-09-27T00:00:00.000Z",
+  "publishedOrder": 4,
   "altBefore": {
     "es": "Aleta trasera derecha — Antes de la reparación",
     "en": "Right rear quarter panel — Before repair",

@@ -186,6 +186,11 @@ export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
                         <p className="mt-4 text-sm leading-7 text-white/64">
                           <LinkedSectionText text={section.text[locale]} links={section.links?.[locale]} />
                         </p>
+                        {section.items ? (
+                          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-white/64">
+                            {section.items[locale].map((item) => <li key={item}>{item}</li>)}
+                          </ul>
+                        ) : null}
                       </article>
                     ))}
                   </div>

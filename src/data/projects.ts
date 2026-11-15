@@ -4,6 +4,7 @@ import { fiat500Project } from "@/data/fiat-500-project";
 import { bmwE46Project } from "@/data/bmw-e46-project";
 import { mercedesVClassProject } from "@/data/mercedes-v-class-project";
 import { nissanJukeProject } from "@/data/nissan-juke-project";
+import { underbodyProject } from "@/data/underbody-project";
 import { assertProjectTranslations } from "@/data/project-translation-validation";
 
 type LocalizedText = Record<Locale, string>;
@@ -32,10 +33,12 @@ export type ProjectDetailSection = {
   id: string;
   title: LocalizedText;
   text: LocalizedText;
+  items?: LocalizedList;
   links?: Partial<Record<Locale, readonly ProjectLink[]>>;
 };
 
 type ProjectBase = {
+  cardDetails?: boolean;
   cardMedia?: "after";
   gallery?: readonly ProjectGalleryImage[];
   galleryTitle?: LocalizedText;
@@ -55,6 +58,8 @@ type ProjectBase = {
   fullDescription: LocalizedList;
   services: LocalizedList;
   publishedAt: string;
+  // Monotonically increasing publication sequence, independent of the locale and slug.
+  publishedOrder: number;
   altAfter: LocalizedText;
   seoTitle: LocalizedText;
   seoDescription: LocalizedText;
@@ -307,6 +312,7 @@ export const projects: readonly Project[] = [
       cs: ["Oprava poškození a škrábanců", "Příprava povrchu", "Lakování předního blatníku", "Sladění odstínu", "Závěrečná úprava"],
     },
     publishedAt: "2026-07-18T00:00:00.000Z",
+    publishedOrder: 1,
     altBefore: {
       es: "Aleta delantera Nissan Qashqai antes de la reparación",
       en: "Nissan Qashqai front wing before repair",
@@ -616,6 +622,7 @@ export const projects: readonly Project[] = [
       cs: ["Oprava promáčklin a škrábanců", "Obnova tvaru panelu", "Příprava povrchu", "Lakování zadního blatníku", "Sladění odstínu"],
     },
     publishedAt: "2026-08-01T12:03:14.000Z",
+    publishedOrder: 2,
     altBefore: {
       es: "Aleta trasera Tesla Model 3 antes de la reparación y pintura",
       en: "Tesla Model 3 rear quarter panel before repair and painting",
@@ -717,20 +724,26 @@ export const projects: readonly Project[] = [
   bmwE46Project,
   mercedesVClassProject,
   nissanJukeProject,
+  underbodyProject,
 ];
 
 assertProjectTranslations(projects);
 
+const publicationOrders = new Set<number>();
 for (const project of projects) {
   if (!Number.isFinite(Date.parse(project.publishedAt))) {
     throw new Error(`Invalid project publishedAt: ${project.slug}`);
   }
+  if (!Number.isSafeInteger(project.publishedOrder) || project.publishedOrder < 1 || publicationOrders.has(project.publishedOrder)) {
+    throw new Error(`Invalid or duplicate project publishedOrder: ${project.slug}`);
+  }
+  publicationOrders.add(project.publishedOrder);
 }
 
 export function getProjectsNewestFirst(items: readonly Project[] = projects): readonly Project[] {
   return [...items].sort((left, right) =>
     Date.parse(right.publishedAt) - Date.parse(left.publishedAt)
-    || left.slug.localeCompare(right.slug),
+    || right.publishedOrder - left.publishedOrder,
   );
 }
 

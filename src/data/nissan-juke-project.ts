@@ -12,6 +12,7 @@ export const nissanJukeProject: Project = {
   slug: "reparacion-pintura-paragolpes-delantero-nissan-juke-torrevieja",
   vehicle: "Nissan Juke",
   publishedAt: "2026-11-15T00:00:00+01:00",
+  publishedOrder: 7,
   title: localized((copy) => copy.title),
   headline: localized((copy) => copy.title),
   category: localized((copy) => copy.category),

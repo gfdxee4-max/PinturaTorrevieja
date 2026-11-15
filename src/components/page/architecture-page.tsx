@@ -213,6 +213,7 @@ export function ArchitecturePage({ page }: ArchitecturePageProps) {
                 {page.sections.map((section) => (
                   <article
                     key={section.heading}
+                    id={section.id}
                     className="rounded border border-white/12 bg-white/[0.03] p-6 sm:p-7"
                   >
                     <h2 className="text-2xl font-black uppercase leading-tight text-white">

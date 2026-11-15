@@ -129,6 +129,14 @@ export function ProjectsPage({ locale, projects }: ProjectsPageProps) {
                     >
                       <div className="min-w-0">
                         <h2 className="text-base font-semibold leading-6 text-white">{project.title[locale]}</h2>
+                        {project.cardDetails ? (
+                          <>
+                            <time dateTime={project.publishedAt} className="mt-2 block text-xs text-white/52">
+                              {new Intl.DateTimeFormat(locale, { day: "2-digit", month: "2-digit", year: "numeric", timeZone: "Europe/Madrid" }).format(new Date(project.publishedAt))}
+                            </time>
+                            <p className="mt-2 text-sm leading-5 text-white/64">{project.shortDescription[locale]}</p>
+                          </>
+                        ) : null}
                         <p className="mt-2 text-sm leading-5 text-white/52">{project.vehicle}</p>
                       </div>
                       <span className="inline-flex size-11 items-center justify-center border border-white/15 text-redline transition group-hover/card:border-redline group-hover/card:bg-redline group-hover/card:text-white" aria-hidden="true">

@@ -217,6 +217,7 @@ export const fiat500Project: Project = {
     cs: ["Obnova geometrie dveří", "Oprava blatníku", "Oprava kovového prahu", "Příprava poškozených míst", "Sladění odstínu", "Lakování opravených dílů"],
   },
   publishedAt: "2026-08-16T19:00:00.000Z",
+  publishedOrder: 3,
   altBefore: {
     es: "Fiat 500 antes de la reparación de carrocería con daños en la puerta y el estribo en Torrevieja",
     en: "Fiat 500 before body repair with damage to the door and sill in Torrevieja",

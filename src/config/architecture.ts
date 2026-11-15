@@ -20,6 +20,7 @@ export type ArchitectureFaq = {
 };
 
 export type ArchitectureSection = {
+  id?: string;
   heading: string;
   paragraphs: string[];
 };

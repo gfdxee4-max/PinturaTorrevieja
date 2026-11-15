@@ -45,6 +45,7 @@ export function assertProjectTranslations(projects: readonly Project[]) {
     for (const section of project.detailSections ?? []) {
       checkTranslations(section.title, `${project.slug}.${section.id}.title`);
       checkTranslations(section.text, `${project.slug}.${section.id}.text`);
+      if (section.items) checkTranslations(section.items, `${project.slug}.${section.id}.items`);
     }
     for (const comparison of project.comparisons ?? []) {
       for (const field of ["title", "altBefore", "altAfter"] as const) {

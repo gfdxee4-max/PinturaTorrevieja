@@ -109,6 +109,7 @@ export const mercedesVClassProject: Project = {
   ],
   services: localized((value) => value.services),
   publishedAt: "2026-10-24T00:00:00+02:00",
+  publishedOrder: 6,
   altBefore: localized((value) => value.beforeAlt),
   altAfter: localized((value) => value.afterAlt),
   seoTitle: localized((value) => `${value.headline} | PaintLab`),

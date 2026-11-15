@@ -208,6 +208,7 @@ export const bmwE46Project: Project = {
   services: localized((value) => [value.title]),
   // Publication date of this project page, not the repair or YouTube upload date.
   publishedAt: "2026-10-18T00:00:00+02:00",
+  publishedOrder: 5,
   afterImage: gallery[1].src,
   afterImageWidth: gallery[1].width,
   afterImageHeight: gallery[1].height,

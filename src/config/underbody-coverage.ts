@@ -7,6 +7,6 @@ export function addUnderbodyCoverage(page: ArchitecturePage): ArchitecturePage {
   const copy = underbodyCopy[page.locale];
   return {
     ...page,
-    sections: [...page.sections, { heading: copy.heading, paragraphs: [...copy.paragraphs] }],
+    sections: [...page.sections, { id: "underbody-protection", heading: copy.heading, paragraphs: [...copy.paragraphs] }],
   };
 }
