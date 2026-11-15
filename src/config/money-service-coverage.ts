@@ -18,6 +18,7 @@ const spanishTopics: Record<string, Topic> = {
 
 function projectLinks(locale: Locale, topic: Topic, scope: "service" | "hub" | "scratch" = "service") {
   return projects
+    .filter((project) => project.slug !== "reparacion-pintura-paragolpes-delantero-nissan-juke-torrevieja")
     .filter((project) => topic === "paint"
       ? project.slug === "polnaya-pokraska-bmw-e46-cabriolet-torrevieja"
       : topic === "body" && project.slug !== "polnaya-pokraska-bmw-e46-cabriolet-torrevieja")

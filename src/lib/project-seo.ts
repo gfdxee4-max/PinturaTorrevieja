@@ -160,7 +160,7 @@ export function getProjectStructuredData(project: Project, locale: Locale) {
         image: [
           ...(beforeImage ? [beforeImage] : []),
           afterImage,
-          ...(project.mediaKind === "gallery" ? project.gallery.filter((photo) => photo.src !== project.afterImage).map((photo) => getAbsoluteUrl(photo.src)) : []),
+          ...(project.gallery ?? []).filter((photo) => photo.src !== project.afterImage).map((photo) => getAbsoluteUrl(photo.src)),
           ...(project.comparisons ?? []).flatMap((comparison) => [
             getAbsoluteUrl(comparison.beforeImage),
             getAbsoluteUrl(comparison.afterImage),
@@ -183,14 +183,14 @@ export function getProjectStructuredData(project: Project, locale: Locale) {
         width: project.afterImageWidth,
         height: project.afterImageHeight,
       },
-      ...(project.mediaKind === "gallery" ? project.gallery.filter((photo) => photo.src !== project.afterImage).map((photo, index) => ({
+      ...(project.gallery ?? []).filter((photo) => photo.src !== project.afterImage).map((photo, index) => ({
         "@type": "ImageObject",
         "@id": `${pageUrl}#gallery-image-${index + 1}`,
         contentUrl: getAbsoluteUrl(photo.src),
         caption: photo.alt[locale],
         width: photo.width,
         height: photo.height,
-      })) : []),
+      })),
       ...(project.mediaKind === "gallery" && project.video ? [{
         "@type": "VideoObject",
         "@id": `${pageUrl}#video`,

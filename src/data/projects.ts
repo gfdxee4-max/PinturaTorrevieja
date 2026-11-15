@@ -3,6 +3,7 @@ import { bodyRestorationProject } from "@/data/body-restoration-project";
 import { fiat500Project } from "@/data/fiat-500-project";
 import { bmwE46Project } from "@/data/bmw-e46-project";
 import { mercedesVClassProject } from "@/data/mercedes-v-class-project";
+import { nissanJukeProject } from "@/data/nissan-juke-project";
 import { assertProjectTranslations } from "@/data/project-translation-validation";
 
 type LocalizedText = Record<Locale, string>;
@@ -35,6 +36,9 @@ export type ProjectDetailSection = {
 };
 
 type ProjectBase = {
+  cardMedia?: "after";
+  gallery?: readonly ProjectGalleryImage[];
+  galleryTitle?: LocalizedText;
   comparisonTitle?: LocalizedText;
   comparisonLayout?: "portrait";
   comparisons?: readonly ProjectComparison[];
@@ -712,6 +716,7 @@ export const projects: readonly Project[] = [
   fiat500Project,
   bmwE46Project,
   mercedesVClassProject,
+  nissanJukeProject,
 ];
 
 assertProjectTranslations(projects);

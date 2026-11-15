@@ -92,7 +92,7 @@ export function ProjectsPage({ locale, projects }: ProjectsPageProps) {
                     data-project-card
                     data-project-slug={project.slug}
                   >
-                    {project.mediaKind === "gallery" ? (
+                    {project.mediaKind === "gallery" || project.cardMedia === "after" ? (
                       <Link href={getProjectPath(locale, project.slug)} className="relative block aspect-[8/5] overflow-hidden border-b border-white/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-redline">
                         <Image
                           src={project.afterImage}

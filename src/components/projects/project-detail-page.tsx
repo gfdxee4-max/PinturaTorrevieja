@@ -89,7 +89,7 @@ export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
                   ))}
                 </div>
               </section>
-            ) : <div className={project.comparisons?.length ? "mx-auto max-w-3xl" : undefined}>
+            ) : <div className={project.comparisons?.length || project.gallery?.length ? "mx-auto max-w-3xl" : undefined}>
               {project.comparisonTitle ? <h2 className="mb-4 text-xl font-semibold">{project.comparisonTitle[locale]}</h2> : null}
               <BeforeAfterSlider
                 beforeImage={project.beforeImage}
@@ -109,6 +109,30 @@ export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
                 priority
               />
             </div>}
+            {project.mediaKind !== "gallery" && project.gallery?.length ? (
+              <section className="mt-8" aria-labelledby="project-gallery-heading">
+                <h2 id="project-gallery-heading" className="mb-6 text-xl font-semibold sm:text-2xl">{project.galleryTitle?.[locale]}</h2>
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-project-gallery>
+                  {project.gallery.map((photo) => (
+                    <figure key={photo.src} className="min-w-0">
+                      <a href={photo.src} target="_blank" rel="noopener noreferrer" className="block overflow-hidden rounded-[6px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-redline">
+                        <Image
+                          src={photo.src}
+                          alt={photo.alt[locale]}
+                          width={photo.width}
+                          height={photo.height}
+                          quality={project.imageQuality ?? 95}
+                          loading="lazy"
+                          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, calc(100vw - 2.5rem)"
+                          className="aspect-[3/4] h-auto w-full object-contain"
+                        />
+                      </a>
+                      <figcaption className="mt-3 text-sm leading-6 text-white/64">{photo.alt[locale]}</figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </section>
+            ) : null}
             {project.comparisons?.length ? (
               <div className="mt-8 grid gap-8 md:grid-cols-2">
                 {project.comparisons.map((comparison) => (

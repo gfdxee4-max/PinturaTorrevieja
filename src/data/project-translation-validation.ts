@@ -32,6 +32,10 @@ export function assertProjectTranslations(projects: readonly Project[]) {
       }
     } else {
       checkTranslations(project.altBefore, `${project.slug}.altBefore`);
+      if (project.gallery?.length) {
+        checkTranslations(project.galleryTitle ?? {}, `${project.slug}.galleryTitle`);
+        for (const photo of project.gallery) checkTranslations(photo.alt, `${project.slug}.${photo.src}.alt`);
+      }
     }
     for (const field of ["comparisonTitle", "highlight"] as const) {
       if (project[field]) checkTranslations(project[field], `${project.slug}.${field}`);
