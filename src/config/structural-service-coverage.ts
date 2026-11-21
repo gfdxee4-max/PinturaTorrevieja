@@ -3,6 +3,7 @@ import { bodyRestorationCopy } from "@/config/body-restoration-copy";
 import { getLocalizedServicePath, localizedServicePages } from "@/config/localized-service-pages";
 import { moneyServiceCopy } from "@/config/money-service-copy";
 import { structuralServiceCopy } from "@/config/structural-service-copy";
+import { structuralRepairDetails } from "@/config/structural-repair-details";
 import { underbodyCopy } from "@/config/underbody-copy";
 
 export function addStructuralServiceCoverage(page: ArchitecturePage): ArchitecturePage {
@@ -10,6 +11,7 @@ export function addStructuralServiceCoverage(page: ArchitecturePage): Architectu
   const locale = page.locale;
   if (!locale) throw new Error("Missing locale for structural body services");
   const copy = structuralServiceCopy[locale];
+  const details = structuralRepairDetails[locale];
   const money = moneyServiceCopy[locale];
   const rustHeading = bodyRestorationCopy[locale].bodyHeading;
   const service = (key: "body" | "paint" | "insurance") => localizedServicePages.find((item) => item.locale === locale && item.key === key);
@@ -28,14 +30,14 @@ export function addStructuralServiceCoverage(page: ArchitecturePage): Architectu
   });
   const additions: ArchitectureSection[] = [
     {
-      id: "body-straightening", heading: copy.frame[1], paragraphs: [copy.frame[2], copy.frame[3]],
+      id: "body-straightening", heading: copy.frame[1], paragraphs: [copy.frame[2], copy.frame[3], details.panels, details.structure],
       links: [
         { href: bodyHref, label: body?.h1 ?? money.body[0] },
         { href: getLocalizedServicePath(insurance), label: insurance.h1 },
       ],
     },
     {
-      id: "body-welding", heading: copy.welding[1], paragraphs: [copy.welding[2], copy.welding[3], copy.welding[4]],
+      id: "body-welding", heading: copy.welding[1], paragraphs: [copy.welding[2], details.corrosion, copy.welding[4]],
       links: [
         { href: rustHref, label: rustHeading },
         { href: `${page.path}#underbody-protection`, label: underbodyCopy[locale].heading },
