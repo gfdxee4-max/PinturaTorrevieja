@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { BeforeAfterSlider } from "@/components/ui/before-after-slider";
 import { ProjectVideo } from "@/components/projects/project-video";
+import { ProjectRepairStory } from "@/components/projects/project-repair-story";
 import { Container } from "@/components/ui/container";
 import { FloatingWhatsApp } from "@/components/ui/floating-whatsapp";
 import { dictionaries, type Locale } from "@/config/i18n";
@@ -36,6 +37,16 @@ export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
   const whatsappUrl = createWhatsAppUrl(dictionary.whatsapp);
   const descriptions = project.fullDescription[locale];
   const relatedLinks = project.relatedLinks?.[locale];
+  const story = project.detailLayout === "story";
+  const breadcrumbs = (
+    <nav className={`${story ? "mb-5" : "mt-9"} flex flex-wrap items-center gap-2 text-xs font-semibold text-white/55`} aria-label="Breadcrumb">
+      <Link href={`/${locale}`} className="transition hover:text-white">{copy.home}</Link>
+      <ChevronRight className="size-4 text-redline" aria-hidden="true" />
+      <Link href={getProjectsPath(locale)} className="transition hover:text-white">{copy.pageTitle}</Link>
+      <ChevronRight className="size-4 text-redline" aria-hidden="true" />
+      <span className="text-white/88">{project.vehicle}</span>
+    </nav>
+  );
 
   return (
     <>
@@ -51,23 +62,22 @@ export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
           <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,#050505_0%,rgba(5,5,5,0.96)_42%,rgba(5,5,5,0.45)_100%)]" />
           <Container className="flex min-h-[25rem] items-center py-14 sm:min-h-[29rem]">
             <div className="max-w-4xl">
+              {story ? breadcrumbs : null}
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#ff4d4d]">{copy.caseLabel}</p>
               <h1 className="mt-4 text-[clamp(2.25rem,5.2vw,5rem)] font-semibold leading-[1.02] tracking-normal text-white">
                 {project.headline[locale]}
               </h1>
-              <p className="mt-5 max-w-2xl text-base leading-7 text-white/70 sm:text-lg">{project.shortDescription[locale]}</p>
-              <nav className="mt-9 flex flex-wrap items-center gap-2 text-xs font-semibold text-white/55" aria-label="Breadcrumb">
-                <Link href={`/${locale}`} className="transition hover:text-white">{copy.home}</Link>
-                <ChevronRight className="size-4 text-redline" aria-hidden="true" />
-                <Link href={getProjectsPath(locale)} className="transition hover:text-white">{copy.pageTitle}</Link>
-                <ChevronRight className="size-4 text-redline" aria-hidden="true" />
-                <span className="text-white/88">{project.vehicle}</span>
-              </nav>
+              {story ? (
+                <time dateTime={project.publishedAt} className="mt-5 block text-sm text-white/64">
+                  {new Intl.DateTimeFormat(locale, { day: "2-digit", month: "2-digit", year: "numeric", timeZone: "Europe/Madrid" }).format(new Date(project.publishedAt))}
+                </time>
+              ) : <p className="mt-5 max-w-2xl text-base leading-7 text-white/70 sm:text-lg">{project.shortDescription[locale]}</p>}
+              {!story ? breadcrumbs : null}
             </div>
           </Container>
         </section>
 
-        <section className="py-10 sm:py-14 lg:py-16">
+        {story && project.mediaKind !== "gallery" ? <ProjectRepairStory project={project} locale={locale} whatsappUrl={whatsappUrl} /> : <section className="py-10 sm:py-14 lg:py-16">
           <Container>
             {project.mediaKind === "gallery" ? (
               <section aria-labelledby="project-gallery-heading">
@@ -251,7 +261,7 @@ export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
               {copy.backToWorks}
             </Link>
           </Container>
-        </section>
+        </section>}
       </main>
       <Footer dictionary={dictionary} locale={locale} whatsappUrl={whatsappUrl} />
       <FloatingWhatsApp whatsappUrl={whatsappUrl} locale={locale} />

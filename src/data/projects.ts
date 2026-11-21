@@ -5,6 +5,7 @@ import { bmwE46Project } from "@/data/bmw-e46-project";
 import { mercedesVClassProject } from "@/data/mercedes-v-class-project";
 import { nissanJukeProject } from "@/data/nissan-juke-project";
 import { underbodyProject } from "@/data/underbody-project";
+import { nissanDoorProject } from "@/data/nissan-door-project";
 import { assertProjectTranslations } from "@/data/project-translation-validation";
 
 type LocalizedText = Record<Locale, string>;
@@ -38,6 +39,7 @@ export type ProjectDetailSection = {
 };
 
 type ProjectBase = {
+  detailLayout?: "story";
   cardDetails?: boolean;
   cardMedia?: "after";
   gallery?: readonly ProjectGalleryImage[];
@@ -725,6 +727,7 @@ export const projects: readonly Project[] = [
   mercedesVClassProject,
   nissanJukeProject,
   underbodyProject,
+  nissanDoorProject,
 ];
 
 assertProjectTranslations(projects);

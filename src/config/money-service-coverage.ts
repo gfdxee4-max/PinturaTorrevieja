@@ -20,6 +20,7 @@ function projectLinks(locale: Locale, topic: Topic, scope: "service" | "hub" | "
   return projects
     .filter((project) => project.slug !== "reparacion-pintura-paragolpes-delantero-nissan-juke-torrevieja")
     .filter((project) => project.slug !== "tratamiento-anticorrosivo-proteccion-bajos-torrevieja")
+    .filter((project) => project.slug !== "reparacion-pintura-puerta-nissan-torrevieja")
     .filter((project) => topic === "paint"
       ? project.slug === "polnaya-pokraska-bmw-e46-cabriolet-torrevieja"
       : topic === "body" && project.slug !== "polnaya-pokraska-bmw-e46-cabriolet-torrevieja")
