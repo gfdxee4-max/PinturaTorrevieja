@@ -21,6 +21,7 @@ export type ArchitectureFaq = {
 
 export type ArchitectureSection = {
   id?: string;
+  links?: ArchitectureLink[];
   heading: string;
   paragraphs: string[];
 };

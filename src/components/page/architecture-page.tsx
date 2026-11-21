@@ -226,6 +226,17 @@ export function ArchitecturePage({ page }: ArchitecturePageProps) {
                         </p>
                       ))}
                     </div>
+                    {section.links?.length ? (
+                      <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-3 text-sm leading-6">
+                        {section.links.map((link) => (
+                          <li key={link.href} className="min-w-0">
+                            <Link href={link.href} className="text-white/80 underline decoration-redline/70 underline-offset-4 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-redline">
+                              {link.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
                   </article>
                 ))}
               </div>
