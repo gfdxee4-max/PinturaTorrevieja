@@ -4,6 +4,7 @@ import { geoCoverageCopy } from "@/config/geo-coverage-i18n";
 import { getLocalizedServicePath, localizedServicePages } from "@/config/localized-service-pages";
 import { createWhatsAppUrl } from "@/lib/whatsapp";
 import { getMultibrandCoverage, type MultibrandContent } from "@/config/multibrand-coverage";
+import { bodyWorkshopCommercialCopy } from "@/config/body-workshop-commercial-copy";
 
 export const geoCityLocales: readonly Locale[] = ["es", "en", "ru", "uk", "de"];
 export const geoAreaGroups = [
@@ -14,6 +15,7 @@ export const geoAreaGroups = [
   ["Punta Prima", "Playa Flamenca", "La Zenia", "Cabo Roig", "Dehesa de Campoamor (Campoamor)", "Villamartín", "Los Dolses", "Lomas de Cabo Roig", "Las Filipinas", "Las Ramblas"],
   ["Pilar de la Horadada", "Torre de la Horadada", "Mil Palmeras", "Pinar de Campoverde"],
   ["San Pedro del Pinatar", "San Javier", "Los Alcázares"],
+  ["Elche / Elx"],
 ] as const;
 
 export type ServiceAreaContent = {
@@ -24,6 +26,7 @@ export type ServiceAreaContent = {
   intro: string;
   bridge: string;
   visit: string;
+  elche: { heading: string; paragraphs: readonly [string, string] };
   groups: { label: string; places: readonly string[] }[];
   links: { href: string; label: string }[];
 };
@@ -33,6 +36,7 @@ export function addHubGeoCoverage(page: ArchitecturePage): ArchitecturePage {
   const hasCityHub = geoCityLocales.includes(locale);
   if (page.hubKind !== (hasCityHub ? "cities" : "services")) return page;
   const copy = geoCoverageCopy[locale];
+  const commercial = bodyWorkshopCommercialCopy[locale];
   const servicesPath = locale === "es" ? "/servicios" : `/${locale}/servicios`;
   const citiesPath = hasCityHub && locale !== "es" ? `/${locale}/ciudades` : "/ciudades";
   const links: ServiceAreaContent["links"] = [];
@@ -52,7 +56,8 @@ export function addHubGeoCoverage(page: ArchitecturePage): ArchitecturePage {
       specialist: copy.specialist,
       workshop: copy.workshop,
       heading: copy.heading, intro: copy.intro, bridge: copy.bridge, visit: copy.visit,
-      groups: geoAreaGroups.map((places, index) => ({ label: copy.groups[index], places })), links,
+      elche: { heading: commercial.elcheHeading, paragraphs: commercial.elcheParagraphs },
+      groups: geoAreaGroups.map((places, index) => ({ label: index < copy.groups.length ? copy.groups[index] : commercial.elcheGroup, places })), links,
     },
   };
 }

@@ -5,6 +5,7 @@ import { moneyServiceCopy } from "@/config/money-service-copy";
 import { structuralServiceCopy } from "@/config/structural-service-copy";
 import { structuralRepairDetails } from "@/config/structural-repair-details";
 import { underbodyCopy } from "@/config/underbody-copy";
+import { bodyWorkshopCommercialCopy } from "@/config/body-workshop-commercial-copy";
 
 export function addStructuralServiceCoverage(page: ArchitecturePage): ArchitecturePage {
   if (page.hubKind !== "services") return page;
@@ -30,7 +31,7 @@ export function addStructuralServiceCoverage(page: ArchitecturePage): Architectu
   });
   const additions: ArchitectureSection[] = [
     {
-      id: "body-straightening", heading: copy.frame[1], paragraphs: [copy.frame[2], copy.frame[3], details.panels, details.structure],
+      id: "body-straightening", heading: copy.frame[1], paragraphs: [copy.frame[2], copy.frame[3], details.panels, details.structure, bodyWorkshopCommercialCopy[locale].specialist],
       links: [
         { href: bodyHref, label: body?.h1 ?? money.body[0] },
         { href: getLocalizedServicePath(insurance), label: insurance.h1 },

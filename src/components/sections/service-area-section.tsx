@@ -54,6 +54,12 @@ export function ServiceAreaSection({ content }: { content: ServiceAreaContent })
             </div>
           ))}
         </dl>
+        <div id="elche-service-area" className="mt-7 max-w-5xl">
+          <h3 className="text-xl font-bold leading-snug text-white">{content.elche.heading}</h3>
+          {content.elche.paragraphs.map((paragraph) => (
+            <p key={paragraph} className="mt-3 text-base leading-7 text-white/75">{paragraph}</p>
+          ))}
+        </div>
         <p className="mt-6 max-w-5xl text-base leading-7 text-white/75">{content.bridge}</p>
         <p className="mt-3 max-w-5xl text-sm leading-6 text-white/75">{content.visit}</p>
         <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3">
