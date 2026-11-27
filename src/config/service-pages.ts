@@ -382,6 +382,10 @@ export const servicePages = [
     ],
     faq: [
       {
+        question: "¿De qué depende el precio de pintar una puerta?",
+        answer: "Depende del estado de la chapa y del recubrimiento, del tamaño de la zona y de la reparación y preparación necesarias antes de pintar. Una puerta con un roce superficial y otra con una abolladura no tienen el mismo alcance. Envía fotos del lateral y detalles por WhatsApp para una primera orientación; el presupuesto final requiere revisar la puerta y las piezas vecinas.",
+      },
+      {
         question: "Siempre hay que pintar la puerta completa?",
         answer:
           "No siempre. Depende del dano, del color y de la ubicacion. En algunos casos se puede trabajar de forma localizada, pero lo valoramos con fotos o revision directa.",
@@ -479,6 +483,10 @@ export const servicePages = [
       },
     ],
     faq: [
+      {
+        question: "¿Cuánto cuesta pintar el capó del coche?",
+        answer: "El precio se valora según el tamaño del capó, la estabilidad de la pintura antigua y los daños que haya que reparar. Los desconchones, las abolladuras o una laca que se desprende pueden exigir una preparación distinta. Envíanos fotos por WhatsApp para orientar la valoración; el importe definitivo se acuerda después de examinar la pieza, sin una tarifa universal por fotografía.",
+      },
       {
         question: "Se puede recuperar un capo con laca quemada?",
         answer:

@@ -6,6 +6,7 @@ import { germanPaintingCostText, serviceCostFaq, spanishServiceCostText } from "
 import { getProjectPath } from "@/config/projects-i18n";
 import { projects } from "@/data/projects";
 import { bodyRestorationCopy } from "@/config/body-restoration-copy";
+import { paintQuoteComparison } from "@/config/paint-quote-comparison";
 
 type Topic = "body" | "paint" | "bumper";
 const dedicatedLocales: readonly Locale[] = ["es", "en", "ru", "uk", "de", "pl"];
@@ -63,7 +64,7 @@ export function addLocalizedMoneyCoverage(page: LocalizedServicePage): Localized
     sections: [...page.sections.map((section, index) => costText && index === 0
       ? { ...section, paragraphs: [...section.paragraphs, costText] } : section), { heading, paragraphs: [paragraph] },
       ...(page.key === "bumper" ? [] : restorationSections(page.locale, page.key))],
-    faq: redundantFaq.has(`${page.locale}:${page.key}`) ? page.faq : [...page.faq, { question, answer }],
+    faq: [...(redundantFaq.has(`${page.locale}:${page.key}`) ? page.faq : [...page.faq, { question, answer }]), ...(page.key === "paint" ? [paintQuoteComparison[page.locale]] : [])],
     relatedLinks: [...page.relatedLinks, ...projectLinks(page.locale, page.key)
       .filter((link) => !page.relatedLinks.some((existing) => existing.href === link.href))],
   };
@@ -89,7 +90,7 @@ export function addArchitectureMoneyCoverage(page: ArchitecturePage): Architectu
       ? { ...section, paragraphs: [...section.paragraphs, costText] } : section),
       ...copy.map(([heading, paragraph]) => ({ heading, paragraphs: [paragraph] })),
       ...topics.filter((key): key is "body" | "paint" => key !== "bumper").flatMap((key) => restorationSections(locale, key))],
-    faq: [...(page.faq ?? []), ...copy.map(([, , question, answer]) => ({ question, answer })), ...(costFaq ? [costFaq] : [])],
+    faq: [...(page.faq ?? []), ...copy.map(([, , question, answer]) => ({ question, answer })), ...(costFaq ? [costFaq] : []), ...(topic === "paint" || isProblemHub ? [paintQuoteComparison[locale]] : [])],
     links: [...page.links, ...[...links, ...(isProblemHub ? restorationProof(locale) : [])]
       .filter((link, index, additions) => !page.links.some((existing) => existing.href === link.href)
         && additions.findIndex((other) => other.href === link.href) === index)],
