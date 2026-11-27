@@ -13,6 +13,8 @@ import { getProjectPath, getProjectsPath, projectsTranslations } from "@/config/
 import type { Project } from "@/data/projects";
 import { getProjectStructuredData } from "@/lib/project-seo";
 import { createWhatsAppUrl } from "@/lib/whatsapp";
+import { getFrameStraighteningPath } from "@/config/frame-straightening-paths";
+import { structuralServiceCopy } from "@/config/structural-service-copy";
 
 type ProjectDetailPageProps = {
   locale: Locale;
@@ -256,6 +258,9 @@ export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
               </aside>
             </div>
 
+            {project.slug === "restauracion-carroceria-danos-graves-torrevieja" ? (
+              <Link href={getFrameStraighteningPath(locale)} className="mt-8 block text-sm text-[#ff4d4d] underline underline-offset-4">{structuralServiceCopy[locale].frame[0]}</Link>
+            ) : null}
             <Link href={getProjectsPath(locale)} className="mt-10 inline-flex min-h-11 items-center gap-2 border border-white/18 px-4 text-xs font-semibold uppercase tracking-[0.08em] text-white/78 transition hover:border-redline hover:text-white">
               <ArrowLeft className="size-4 text-redline" aria-hidden="true" />
               {copy.backToWorks}

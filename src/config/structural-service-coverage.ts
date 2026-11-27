@@ -6,6 +6,7 @@ import { structuralServiceCopy } from "@/config/structural-service-copy";
 import { structuralRepairDetails } from "@/config/structural-repair-details";
 import { underbodyCopy } from "@/config/underbody-copy";
 import { bodyWorkshopCommercialCopy } from "@/config/body-workshop-commercial-copy";
+import { getFrameStraighteningPath } from "@/config/frame-straightening-paths";
 
 export function addStructuralServiceCoverage(page: ArchitecturePage): ArchitecturePage {
   if (page.hubKind !== "services") return page;
@@ -33,6 +34,7 @@ export function addStructuralServiceCoverage(page: ArchitecturePage): Architectu
     {
       id: "body-straightening", heading: copy.frame[1], paragraphs: [copy.frame[2], copy.frame[3], details.panels, details.structure, bodyWorkshopCommercialCopy[locale].specialist],
       links: [
+        { href: getFrameStraighteningPath(locale), label: copy.frame[0] },
         { href: bodyHref, label: body?.h1 ?? money.body[0] },
         { href: getLocalizedServicePath(insurance), label: insurance.h1 },
       ],
@@ -40,6 +42,7 @@ export function addStructuralServiceCoverage(page: ArchitecturePage): Architectu
     {
       id: "body-welding", heading: copy.welding[1], paragraphs: [copy.welding[2], details.corrosion, copy.welding[4]],
       links: [
+        { href: getFrameStraighteningPath(locale), label: copy.frame[0] },
         { href: rustHref, label: rustHeading },
         { href: `${page.path}#underbody-protection`, label: underbodyCopy[locale].heading },
         { href: paintHref, label: paint?.h1 ?? money.paint[0] },

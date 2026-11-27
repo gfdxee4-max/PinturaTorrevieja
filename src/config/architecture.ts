@@ -7,6 +7,7 @@ import { getServiceAreaSchema } from "@/config/service-areas";
 import { siteConfig } from "@/config/site";
 import { createWhatsAppUrl } from "@/lib/whatsapp";
 import { getAbsoluteUrl } from "@/lib/seo";
+import { getFrameStraighteningPath } from "@/config/frame-straightening-paths";
 
 export type ArchitectureLink = {
   href: string;
@@ -785,7 +786,11 @@ export const oldToNewServiceUrlMap = [
 
 export function getArchitecturePage(path: string) {
   const page = architecturePages.find((page) => page.path === path);
-  return page ? addPaintFinishingCoverage(addArchitectureMoneyCoverage(page)) : undefined;
+  if (!page) return undefined;
+  const enhanced = addPaintFinishingCoverage(addArchitectureMoneyCoverage(page));
+  return ["/servicios", "/servicios/reparacion-carroceria", "/servicios/pintura-coche", "/servicios/pintar-coche-completo", "/servicios/chapa-y-pintura"].includes(path)
+    ? { ...enhanced, links: [...enhanced.links, { href: getFrameStraighteningPath("es"), label: "Bancada y enderezado de carrocería" }] }
+    : enhanced;
 }
 
 export function getArchitectureMetadata(page: ArchitecturePage): Metadata {
@@ -843,7 +848,7 @@ export function getArchitectureStructuredData(page: ArchitecturePage) {
   const businessId = `${siteConfig.url}/#autobodyshop`;
   const websiteId = `${siteConfig.url}/#website`;
   const pageId = `${url}#webpage`;
-  const isServicePage = page.path.startsWith("/servicios/");
+  const isServicePage = page.path.startsWith("/servicios/") || page.alternatePaths?.es === "/servicios/bancada-carroceria";
   const serviceId = `${url}#service`;
   const graph: Record<string, unknown>[] = [
     {

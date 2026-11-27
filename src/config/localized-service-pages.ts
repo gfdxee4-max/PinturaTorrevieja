@@ -5,6 +5,8 @@ import { ukrainianServicePages } from "@/config/ukrainian-service-pages";
 import { polishServicePages } from "@/config/polish-service-pages";
 import { newWheelPages, newWheelServiceUi } from "@/config/wheel-locales";
 import { newInsurancePages } from "@/config/insurance-locales";
+import { getFrameStraighteningPath } from "@/config/frame-straightening-paths";
+import { structuralServiceCopy } from "@/config/structural-service-copy";
 
 export type ServicePageLocale = Locale;
 export type ServicePageKey = "paint" | "body" | "bumper" | "insurance" | "wheels";
@@ -1545,7 +1547,12 @@ export function getLocalizedServicePath(page: Pick<LocalizedServicePage, "locale
 
 export function getLocalizedServicePage(locale: string, slug: string) {
   const page = localizedServicePages.find((page) => page.locale === locale && page.slug === slug);
-  return page ? addLocalizedMoneyCoverage(page) : undefined;
+  if (!page) return undefined;
+  const enhanced = addLocalizedMoneyCoverage(page);
+  return ["body", "paint", "insurance"].includes(page.key) ? {
+    ...enhanced,
+    relatedLinks: [...enhanced.relatedLinks, { href: getFrameStraighteningPath(page.locale), label: structuralServiceCopy[page.locale].frame[0], text: structuralServiceCopy[page.locale].frame[3] }],
+  } : enhanced;
 }
 
 export function getLocalizedServiceAlternates(page: LocalizedServicePage) {

@@ -4,6 +4,7 @@ import { ArchitecturePage } from "@/components/page/architecture-page";
 import { LocalizedServicePage } from "@/components/page/localized-service-page";
 import { getLocalizedServicePage, localizedServicePages } from "@/config/localized-service-pages";
 import { getLocalizedServiceMetadata } from "@/lib/localized-service-seo";
+import { getFrameStraighteningPage } from "@/config/frame-straightening-pages";
 import {
   getArchitectureMetadata,
   getArchitecturePage,
@@ -19,14 +20,14 @@ type ServicePageProps = {
 export function generateStaticParams() {
   return [...serviceArchitecturePages.map((page) => ({
     slug: page.path.split("/").at(-1)!,
-  })), ...localizedServicePages.filter((page) => page.locale === "es").map((page) => ({ slug: page.slug }))];
+  })), ...localizedServicePages.filter((page) => page.locale === "es").map((page) => ({ slug: page.slug })), { slug: "bancada-carroceria" }];
 }
 
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
   const { slug } = await params;
   const localizedPage = getLocalizedServicePage("es", slug);
   if (localizedPage) return getLocalizedServiceMetadata(localizedPage);
-  const page = getArchitecturePage(`/servicios/${slug}`);
+  const page = getFrameStraighteningPage("es", slug) ?? getArchitecturePage(`/servicios/${slug}`);
 
   if (!page) {
     return {};
@@ -39,7 +40,7 @@ export default async function ServiceArchitecturePage({ params }: ServicePagePro
   const { slug } = await params;
   const localizedPage = getLocalizedServicePage("es", slug);
   if (localizedPage) return <LocalizedServicePage page={localizedPage} />;
-  const page = getArchitecturePage(`/servicios/${slug}`);
+  const page = getFrameStraighteningPage("es", slug) ?? getArchitecturePage(`/servicios/${slug}`);
 
   if (!page) {
     notFound();

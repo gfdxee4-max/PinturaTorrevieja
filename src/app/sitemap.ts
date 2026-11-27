@@ -17,6 +17,7 @@ import { getProjectPath, getProjectsPath } from "@/config/projects-i18n";
 import { projects } from "@/data/projects";
 import { getArchitectureHubPath } from "@/config/architecture-hub-i18n";
 import { newWheelHubLocales } from "@/config/new-wheel-hubs";
+import { frameStraighteningPaths } from "@/config/frame-straightening-paths";
 
 export const dynamic = "force-static";
 export const revalidate = 86400;
@@ -133,6 +134,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...newWheelHubLocales.map((locale) => ({ url: getAbsoluteUrl(getArchitectureHubPath(locale, "services")) })),
     ...localizedHubPages,
     ...localizedServiceSeoPages,
+    ...Object.values(frameStraighteningPaths).map(path => ({ url: getAbsoluteUrl(path), alternates: { languages: { ...Object.fromEntries(Object.entries(frameStraighteningPaths).map(([l, p]) => [l, getAbsoluteUrl(p)])), "x-default": getAbsoluteUrl(frameStraighteningPaths[fallbackLocale]) } } })),
     ...architectureSeoPages,
     ...blogCategoryPages,
     ...blogArticlePages,
