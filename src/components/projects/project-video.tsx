@@ -9,18 +9,20 @@ type ProjectVideoProps = {
   title: string;
   playLabel: string;
   poster: string;
+  privacyEnhanced?: boolean;
 };
 
-export function ProjectVideo({ videoId, title, playLabel, poster }: ProjectVideoProps) {
+export function ProjectVideo({ videoId, title, playLabel, poster, privacyEnhanced = false }: ProjectVideoProps) {
   const [playing, setPlaying] = useState(false);
 
   return (
     <div className="relative mx-auto aspect-[9/16] w-full max-w-sm overflow-hidden rounded-[6px] border border-white/15 bg-black" data-project-video>
       {playing ? (
         <iframe
-          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+          src={privacyEnhanced ? `https://www.youtube-nocookie.com/embed/${videoId}?rel=0` : `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
           title={title}
-          allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+          allow={privacyEnhanced ? "encrypted-media; picture-in-picture; fullscreen" : "autoplay; encrypted-media; picture-in-picture; fullscreen"}
+          loading={privacyEnhanced ? "lazy" : undefined}
           allowFullScreen
           referrerPolicy="strict-origin-when-cross-origin"
           className="absolute inset-0 h-full w-full"

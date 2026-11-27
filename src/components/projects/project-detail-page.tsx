@@ -36,7 +36,7 @@ function LinkedSectionText({ text, links }: { text: string; links?: readonly { h
 export function ProjectDetailPage({ locale, project }: ProjectDetailPageProps) {
   const copy = projectsTranslations[locale];
   const dictionary = dictionaries[locale];
-  const whatsappUrl = createWhatsAppUrl(dictionary.whatsapp);
+  const whatsappUrl = createWhatsAppUrl(project.whatsappMessage?.[locale] ?? dictionary.whatsapp);
   const descriptions = project.fullDescription[locale];
   const relatedLinks = project.relatedLinks?.[locale];
   const story = project.detailLayout === "story";

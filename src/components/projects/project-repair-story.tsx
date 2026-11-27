@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft, Check, MessageCircle } from "lucide-react";
 import { BeforeAfterSlider } from "@/components/ui/before-after-slider";
+import { ProjectVideo } from "@/components/projects/project-video";
 import { Container } from "@/components/ui/container";
 import { getProjectsPath, projectsTranslations } from "@/config/projects-i18n";
 import type { Locale } from "@/config/locales";
@@ -50,6 +51,19 @@ export function ProjectRepairStory({ project, locale, whatsappUrl }: { project: 
               />
             </section>
           ))}
+          {project.video ? (
+            <section data-project-video-section>
+              <h2 className="mb-5 text-xl font-semibold">{project.video.title[locale]}</h2>
+              <ProjectVideo videoId={project.video.id} title={project.video.title[locale]} playLabel={project.video.playLabel[locale]} poster={project.afterImage} privacyEnhanced={project.video.privacyEnhanced} />
+              {project.video.watchLabel ? <Link href={`https://www.youtube.com/shorts/${project.video.id}`} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex min-h-11 items-center text-sm text-[#ff4d4d] underline underline-offset-4">{project.video.watchLabel[locale]}</Link> : null}
+            </section>
+          ) : null}
+          {project.relatedLinks?.[locale]?.length ? (
+            <nav aria-label={project.relatedServicesTitle?.[locale]} className="space-y-3" data-project-related-services>
+              <h2 className="text-xl font-semibold">{project.relatedServicesTitle?.[locale]}</h2>
+              {project.relatedLinks[locale]!.map(link => <Link key={link.href} href={link.href} className="block min-h-11 border-b border-white/10 py-2 text-sm text-[#ff4d4d] underline underline-offset-4">{link.label}</Link>)}
+            </nav>
+          ) : null}
           <section className="rounded-[6px] border border-white/14 bg-[#0a0a0a] p-6" data-project-cta>
             <h2 className="text-xl font-semibold">{copy.ctaTitle}</h2>
             <p className="mt-3 text-sm leading-6 text-white/60">{project.ctaText?.[locale] ?? copy.ctaText}</p>

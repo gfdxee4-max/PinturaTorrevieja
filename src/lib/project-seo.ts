@@ -125,6 +125,7 @@ export function getProjectStructuredData(project: Project, locale: Locale) {
   const listUrl = getAbsoluteUrl(getProjectsPath(locale));
   const beforeImage = project.mediaKind === "gallery" ? undefined : getAbsoluteUrl(project.beforeImage);
   const afterImage = getAbsoluteUrl(project.afterImage);
+  const hasVideoSchema = project.video && (project.mediaKind === "gallery" || Boolean(project.video.uploadDate));
 
   return {
     "@context": "https://schema.org",
@@ -156,7 +157,7 @@ export function getProjectStructuredData(project: Project, locale: Locale) {
         datePublished: project.publishedAt,
         inLanguage: locale,
         creator: { "@id": `${siteConfig.url}/#autobodyshop` },
-        ...(project.mediaKind === "gallery" && project.video ? { subjectOf: { "@id": `${pageUrl}#video` } } : {}),
+        ...(hasVideoSchema ? { subjectOf: { "@id": `${pageUrl}#video` } } : {}),
         image: [
           ...(beforeImage ? [beforeImage] : []),
           afterImage,
@@ -191,14 +192,14 @@ export function getProjectStructuredData(project: Project, locale: Locale) {
         width: photo.width,
         height: photo.height,
       })),
-      ...(project.mediaKind === "gallery" && project.video ? [{
+      ...(hasVideoSchema && project.video ? [{
         "@type": "VideoObject",
         "@id": `${pageUrl}#video`,
         name: project.video.title[locale],
         description: project.seoDescription[locale],
-        thumbnailUrl: afterImage,
+        thumbnailUrl: project.video.thumbnailUrl ?? afterImage,
         ...(project.video.uploadDate ? { uploadDate: project.video.uploadDate } : {}),
-        embedUrl: `https://www.youtube.com/embed/${project.video.id}`,
+        embedUrl: `https://${project.video.privacyEnhanced ? "www.youtube-nocookie.com" : "www.youtube.com"}/embed/${project.video.id}`,
         url: `https://www.youtube.com/shorts/${project.video.id}`,
         about: { "@id": `${pageUrl}#project` },
       }] : []),

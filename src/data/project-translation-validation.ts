@@ -20,6 +20,12 @@ function checkTranslations(value: Partial<Record<Locale, unknown>>, path: string
 
 export function assertProjectTranslations(projects: readonly Project[]) {
   for (const project of projects) {
+    if (project.whatsappMessage) checkTranslations(project.whatsappMessage, `${project.slug}.whatsappMessage`);
+    if (project.video && project.mediaKind !== "gallery") {
+      checkTranslations(project.video.title, `${project.slug}.video.title`);
+      checkTranslations(project.video.playLabel, `${project.slug}.video.playLabel`);
+    }
+    if (project.video?.watchLabel) checkTranslations(project.video.watchLabel, `${project.slug}.video.watchLabel`);
     for (const field of ["title", "headline", "category", "shortDescription", "fullDescription", "services", "altAfter", "seoTitle", "seoDescription"] as const) {
       checkTranslations(project[field], `${project.slug}.${field}`);
     }

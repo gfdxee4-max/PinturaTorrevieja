@@ -6,6 +6,7 @@ import { mercedesVClassProject } from "@/data/mercedes-v-class-project";
 import { nissanJukeProject } from "@/data/nissan-juke-project";
 import { underbodyProject } from "@/data/underbody-project";
 import { nissanDoorProject } from "@/data/nissan-door-project";
+import { bmwWingProject } from "@/data/bmw-wing-project";
 import { assertProjectTranslations } from "@/data/project-translation-validation";
 
 type LocalizedText = Record<Locale, string>;
@@ -39,6 +40,8 @@ export type ProjectDetailSection = {
 };
 
 type ProjectBase = {
+  video?: { id: string; title: LocalizedText; playLabel: LocalizedText; uploadDate?: string; thumbnailUrl?: string; privacyEnhanced?: boolean; watchLabel?: LocalizedText };
+  whatsappMessage?: LocalizedText;
   detailLayout?: "story";
   cardDetails?: boolean;
   cardMedia?: "after";
@@ -96,7 +99,6 @@ export type Project = ProjectBase & (
       mediaKind: "gallery";
       gallery: readonly ProjectGalleryImage[];
       galleryTitle: LocalizedText;
-      video?: { id: string; title: LocalizedText; playLabel: LocalizedText; uploadDate?: string };
     }
 );
 
@@ -728,6 +730,7 @@ export const projects: readonly Project[] = [
   nissanJukeProject,
   underbodyProject,
   nissanDoorProject,
+  bmwWingProject,
 ];
 
 assertProjectTranslations(projects);
